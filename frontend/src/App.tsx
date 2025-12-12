@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Shield, MessageSquare, Zap, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet } from "lucide-react"
+import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import { Button } from "@/components/ui/button"
@@ -7,7 +7,7 @@ import { Overlay } from "@/components/layout/Overlay"
 
 import { ScannerView } from "@/features/scanner/ScannerView"
 import { ChatView } from "@/features/chat/ChatView"
-import { GasView } from "@/features/gas/GasView"
+import { BountyView } from "@/features/bounty/BountyView"
 
 // Componentă UI Locală (Dashboard Card)
 const DashboardCard = ({ title, description, icon: Icon, color, onClick }: any) => {
@@ -108,18 +108,18 @@ export default function App() {
               onClick={() => setActiveOverlay('chat')} 
             />
             <DashboardCard 
-              title="Simulator Gas" 
-              description="Vizualizează conflictele de obiecte și costurile de execuție."
-              icon={Zap} 
+              title="Bounty & Escalation" 
+              description="Escaladează către auditori umani: escrow 10 SUI, claim, fix proof (IPFS/GitHub), release/timeout + dispute."
+              icon={Wallet} 
               color="yellow" 
-              onClick={() => setActiveOverlay('gas')} 
+              onClick={() => setActiveOverlay('bounty')} 
             />
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4">
             <StatCard label="Scanări Totale" value="12,403" icon={Search} />
             <StatCard label="Bounties Plătite" value="45,200 SUI" icon={CheckCircle} />
-            <StatCard label="Gas Salvat (Medie)" value="~15%" icon={ArrowUpRight} />
+            <StatCard label="Escalări Active" value="128" icon={ArrowUpRight} />
             <div className="md:col-span-1 rounded-xl border border-dashed border-slate-800 bg-slate-900/20 flex items-center justify-center text-slate-500 text-sm hover:border-slate-700 hover:text-slate-300 cursor-pointer transition-colors p-4 group">
               <LayoutTemplate className="w-4 h-4 mr-2 group-hover:text-blue-400 transition-colors" /> Vezi Istoric Audituri
             </div>
@@ -136,8 +136,8 @@ export default function App() {
         <ChatView />
       </Overlay>
 
-      <Overlay isOpen={activeOverlay === 'gas'} onClose={() => setActiveOverlay(null)} title="Gas Simulation">
-        <GasView />
+      <Overlay isOpen={activeOverlay === 'bounty'} onClose={() => setActiveOverlay(null)} title="Bounty Protocol">
+        <BountyView />
       </Overlay>
 
     </div>
