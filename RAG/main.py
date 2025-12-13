@@ -122,7 +122,7 @@ async def ask_ai(req: QueryRequest):
     # 1. Căutare Context
     relevant_chunks = rag.search(req.prompt)
     if relevant_chunks:
-        context_text = "\n\n--- INFORMAȚIE TEHNICĂ ---\n".join(relevant_chunks)
+        context_text = "".join(relevant_chunks)
     else:
         context_text = "Nu s-a găsit context specific în documentație."
 
