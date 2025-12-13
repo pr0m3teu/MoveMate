@@ -76,18 +76,17 @@ class RAGEngine:
         self.chunks = []
         self.load_documentation()
 
-    def load_documentation(self, file_path="move-book.md"):
+    def load_documentation(self):
         """Loads and splits the Markdown file by Headers (#)."""
 
-        if not os.path.isdir("./docs"):
-            os.makedirs("./docs")
-            get_all_docs()
-  
+        # if not os.path.isdir("./docs"):
+        #     os.makedirs("./docs")
+        #     get_all_docs()
         try:
-            for file in os.listdir("./docs"):
-                with open(file, "r", encoding="utf-8") as f:
+            docs_dir = os.listdir("./docs")
+            for file_name in docs_dir:
+                with open(f"./docs/{file_name}", "r", encoding="utf-8") as f:
                     content = f.read()
-                
                 # Regex to split by Markdown headers (Start of line #)
                 parts = re.split(r'(^#+ .*$)', content, flags=re.MULTILINE)
                 current_title = "Introduction"
@@ -111,7 +110,7 @@ class RAGEngine:
                 print(f"✅ MoveMate System Ready: {len(self.chunks)} documentation chapters indexed.")
 
         except FileNotFoundError:
-            print(f"⚠️ ATENȚIE: Nu găsesc doc0. RAG nu va funcționa.")
+            print(f"⚠️ ATENȚIE: Nu găsesc {file_name} RAG nu va funcționa.")
         except Exception as e:
             print(f"❌ Error loading docs: {e}")
 
