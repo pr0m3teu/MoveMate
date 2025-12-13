@@ -8,6 +8,7 @@ import { Overlay } from "@/components/layout/Overlay"
 import { ScannerView } from "@/features/scanner/ScannerView"
 import { ChatView } from "@/features/chat/ChatView"
 import { BountyView } from "@/features/bounty/BountyView"
+import { ConnectButton } from '@mysten/dapp-kit';
 
 // Componentă UI Locală (Dashboard Card)
 const DashboardCard = ({ title, description, icon: Icon, color, onClick }: any) => {
@@ -45,7 +46,6 @@ const StatCard = ({ label, value, icon: Icon }: any) => (
 
 export default function App() {
   const [activeOverlay, setActiveOverlay] = useState<string | null>(null)
-  const [isWalletConnected, setIsWalletConnected] = useState(false)
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => e.key === 'Escape' && setActiveOverlay(null)
@@ -71,14 +71,9 @@ export default function App() {
               </div>
               <span className="font-bold text-lg text-white">MoveMate</span>
             </div>
-            <Button 
-              variant={isWalletConnected ? "secondary" : "default"}
-              onClick={() => setIsWalletConnected(!isWalletConnected)}
-              className="gap-2"
-            >
-              <Wallet className="h-4 w-4" />
-              {isWalletConnected ? "0x7A...F92B" : "Conectează Wallet"}
-            </Button>
+            <div className="flex items-center gap-4">
+   <ConnectButton />
+</div>
           </div>
         </header>
 
