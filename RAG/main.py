@@ -128,26 +128,37 @@ async def ask_ai(req: QueryRequest):
 
     # 2. Prompt-ul "MoveMate" (Tuned for Speed & Persona)
     prompt_final = f"""
-    Ești MoveMate, un AI avansat specializat în limbajul Move pentru Sui și Aptos.
-    NU ești om, nu ești inginer. Ești o entitate digitală expertă.
     
+    SYSTEM:
+    You are MoveMate, a strict Move/Sui code reviewer. You must:
+    - Only claim facts supported by provided context (documents, code, or on-chain data).
+    - For each vulnerability or recommendation, provide:
+        1) A short title (severity: High/Medium/Low), 
+        2) A one-line summary, 
+        3) Code excerpt (lines) showing the issue, 
+        4) A short fix (diff or code snippet), 
+        5) Citations to exact documents or transaction IDs if on-chain evidence used.
+        - If you cannot support a claim with evidence, say "Insufficient evidence" and list what data would be needed.
+        - Use a deterministic, instruction-following style. Keep hallucination rate to zero.
+    END SYSTEM
     CONTEXT TEHNIC DISPONIBIL:
+    
+    USER PROMPT: 
+    {req.prompt}
+    TECHNICAL CONTEXT AVAILABLE:
     {context_text}
     
-    ÎNTREBAREA UTILIZATORULUI: {req.prompt}
-    
-    REGULI DE RĂSPUNS:
-    1. **Fii Direct:** Nu folosi introduceri de genul "Salut", "Ca expert...". Răspunde direct la întrebare.
-    2. **Fii Concis:** Oferă explicația scurtă și la obiect.
-    3. **Un Singur Exemplu:** Oferă UN SINGUR bloc de cod relevant (Code Snippet), complet și funcțional.
-    4. **Fără Meta-Comentarii:** Nu spune "Conform documentației" sau "Am găsit în text". Tu ȘTII informația.
-    
-    FORMAT OBLIGATORIU:
-    - Explicație clară (Markdown).
-    - Bloc de cod (Move).
-    - La final, lasă 2 rânduri libere și scrie "**📚 Referințe**" urmat de lista surselor folosite (Titlu Capitol, Liniile X-Y).
+    ANSWER RULES: 
+    1. **Be Direct:** Don't use introductions like "Hello", "As an expert...". Answer the question directly. 
+    2. Be concise:** Give the explanation short and to the point. 
+    3. **Single Example:** Provides ONLY ONE block of relevant code (Code Snippet), complete and functional. 
+    4. **No Meta Comments:** Don't say "According to the documentation" or "I found it in the text". You KNOW the information. 
+    REQUIRED FORMAT: 
+        - Clear explanation (Markdown). 
+        - "** References**" followed by the list of sources used (Chapter Title, X-Y Lines).
+
     """
-    
+        # - Code Block (Move). - At the end, leave 2 lines free and write     
     try:
         response = model.generate_content(prompt_final)
         return {"answer": response.text}
