@@ -4,9 +4,14 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import google.generativeai as genai
+
+
 from dotenv import load_dotenv
+import uvicorn
+from generate_docs import get_all_docs
 
 # --- 1. CONFIGURARE ---
+BASE_URL = "https://move-book.com/"
 load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
 
@@ -28,6 +33,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
 # --- 2. MOTORUL RAG (Optimizat cu Sinonime) ---
 class RAGEngine:
     def __init__(self):
@@ -35,9 +42,13 @@ class RAGEngine:
         self.load_documentation()
 
     def load_documentation(self):
-        file_path = "move-book.md"
+        if (not os.path.isdir("docs")):
+            os.makedirs("docs")
+            doc_links = ["https://move-book.com/"]
+            get_all_docs(doc_links)
+
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
+            with open("./docs/doc0.md", "r", encoding="utf-8") as f:
                 content = f.read()
             
             parts = re.split(r'(^#+ .*$)', content, flags=re.MULTILINE)
@@ -59,7 +70,7 @@ class RAGEngine:
             print(f"✅ MoveMate Backend Ready: {len(self.chunks)} capitole încărcate.")
 
         except FileNotFoundError:
-            print(f"⚠️ ATENȚIE: Nu găsesc '{file_path}'. RAG nu va funcționa.")
+            print(f"⚠️ ATENȚIE: Nu găsesc doc0. RAG nu va funcționa.")
 
     def _add_chunk(self, title, text):
         lines = text.split('\n')
@@ -122,9 +133,9 @@ async def ask_ai(req: QueryRequest):
     # 1. Căutare Context
     relevant_chunks = rag.search(req.prompt)
     if relevant_chunks:
-        context_text = "\n\n--- INFORMAȚIE TEHNICĂ ---\n".join(relevant_chunks)
+        context_text = "TECHNICAL INFORMATION: ".join(relevant_chunks)
     else:
-        context_text = "Nu s-a găsit context specific în documentație."
+        context_text = "No technical information"
 
     # 2. Prompt-ul "MoveMate" (Tuned for Speed & Persona)
     prompt_final = f"""
@@ -166,5 +177,4 @@ async def ask_ai(req: QueryRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
