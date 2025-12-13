@@ -1,89 +1,137 @@
-move/LICENSE at main · diem/move · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Pattern: Witness | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
-## Navigation Menu
+# Pattern: Witness
 
-Toggle navigation
+Witness is a pattern of proving an existence by constructing a proof. In the context of programming,
+witness is a way to prove a certain property of a system by providing a value that can only be
+constructed if the property holds.
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fblob%2Fmain%2FLICENSE)
+## Witness in Move[​](#witness-in-move "Direct link to Witness in Move")
 
-Appearance settings
+In the [Struct](/move-basics/struct) section we have shown that a struct can only be created -
+or *packed* - by the module defining it. Hence, in Move, a module proves ownership of the type by
+constructing it. This is one of the most important patterns in Move, and it is widely used for
+generic type instantiation and authorization.
 
-Search or jump to...
+Practically speaking, for the witness to be used, there has to be a function that expects a witness
+as an argument. In the example below it is the new function that expects a witness of the T type
+to create a Instance<T> instance.
 
+> It is often the case that the witness struct is not stored, and for that the function may require
+> the [Drop](/move-basics/drop-ability) ability for the type.
 
-# Search code, repositories, users, issues, pull requests...
+```move
+module book::witness;  
+  
+/// A struct that requires a witness to be created.  
+public struct Instance<T> { t: T }  
+  
+/// Create a new instance of `Instance<T>` with the provided T.  
+public fun new<T>(witness: T): Instance<T> {  
+    Instance { t: witness }  
+}
+```
 
-Search
+The only way to construct an Instance<T> is to call the new function with an instance of the
+type T. This is a basic example of the witness pattern in Move. A module providing a witness often
+has a matching implementation, like the module book::witness\_source below:
 
-Clear
+```move
+module book::witness_source;  
+  
+use book::witness::{Self, Instance};  
+  
+/// A struct used as a witness.  
+public struct W {}  
+  
+/// Create a new instance of `Instance<W>`.  
+public fun new_instance(): Instance<W> {  
+    witness::new(W {})  
+}
+```
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+The instance of the struct W is passed into the new\_instance function to create an
+Instance<W>, thereby proving that the module book::witness\_source owns the type W.
 
-# Provide feedback
+## Instantiating a Generic Type[​](#instantiating-a-generic-type "Direct link to Instantiating a Generic Type")
 
-We read every piece of feedback, and take your input very seriously.
+Witness allows generic types to be instantiated with a concrete type. This is useful for inheriting
+associated behaviors from the type with an option to extend them, if the module provides the ability
+to do so.
 
+```move
+module sui::balance;  
+  
+/// A Supply of T. Used for minting and burning.  
+public struct Supply<phantom T> has store {  
+    value: u64,  
+}  
+  
+/// Create a new supply for type T with the provided witness.  
+public fun create_supply<T: drop>(_w: T): Supply<T> {  
+    Supply { value: 0 }  
+}  
+  
+/// Get the `Supply` value.  
+public fun supply_value<T>(supply: &Supply<T>): u64 {  
+    supply.value  
+}
+```
 
-Include my email address so I can be contacted
+In the example above, which is borrowed from the [balance module](https://docs.sui.io/references/framework/sui/balance) of the
+[Sui Framework](/programmability/sui-framework), the Supply is a generic struct that can be constructed only by
+supplying a witness of the type T. The witness is taken by value and *discarded* - hence the T
+must have the [drop](/move-basics/drop-ability) ability.
 
-Cancel
- Submit feedback
+The instantiated Supply<T> can then be used to mint new Balance<T>'s, where T is the type of
+the supply.
 
+```move
+module sui::balance;  
+  
+const EOverflow: u64 = 0;  
+  
+/// Storable balance.  
+public struct Balance<phantom T> has store {  
+    value: u64,  
+}  
+  
+/// Increase supply by `value` and create a new `Balance<T>` with this value.  
+public fun increase_supply<T>(self: &mut Supply<T>, value: u64): Balance<T> {  
+    assert!(value < (std::u64::max_value!() - self.value), EOverflow);  
+    self.value = self.value + value;  
+    Balance { value }  
+}
+```
 
+## One Time Witness[​](#one-time-witness "Direct link to One Time Witness")
 
+While a struct can be created any number of times, there are cases where a struct should be
+guaranteed to be created only once. For this purpose, Sui provides the "One-Time Witness" - a
+special witness that can only be used once. We explain it in more detail in the
+[next section](/programmability/one-time-witness).
 
+## Summary[​](#summary "Direct link to Summary")
 
-# Saved searches
+* Witness is a pattern of proving a certain property by constructing a proof.
+* In Move, a module proves ownership of a type by constructing it.
+* Witness is often used for generic type instantiation and authorization.
 
-## Use saved searches to filter your results more quickly
+## Next Steps[​](#next-steps "Direct link to Next Steps")
 
-Name
+In the next section, we will learn about the [One Time Witness](/programmability/one-time-witness) pattern.
 
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fblob%2Fmain%2FLICENSE)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-You can’t perform that action at this time.
+* [Witness in Move](#witness-in-move)
+* [Instantiating a Generic Type](#instantiating-a-generic-type)
+* [One Time Witness](#one-time-witness)
+* [Summary](#summary)
+* [Next Steps](#next-steps)

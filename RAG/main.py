@@ -199,7 +199,6 @@ async def ask_movemate(req: QueryRequest):
         - Include references (Chapter Title).
         """
     else:
-        # --- CAZUL 2: NU AM GĂSIT NIMIC (EVITĂM HALUCINAREA) ---
         print("⚠️ No relevant docs found. Switching to fallback mode.")
         technical_context = "NO RELEVANT DOCUMENTATION FOUND IN DATABASE."
         

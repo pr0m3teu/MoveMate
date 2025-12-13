@@ -1,157 +1,125 @@
-A Complete CI/CD Solution for Software Development | GitHub · GitHub
+Custom Types with Struct | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
+
+# Custom Types with Struct
 
+Move's type system shines when it comes to defining custom types. User defined types can be custom
+tailored to the specific needs of the application, not only on the data level, but also in its
+behavior. In this section we introduce the struct definition and how to use it.
+
+## Struct[​](#struct "Direct link to Struct")
+
+To define a custom type, you can use the struct keyword followed by the name of the type. After
+the name, you can define the fields of the struct. Each field is defined with the
+field\_name: field\_type syntax. Field definitions must be separated by commas. The fields can be of
+any type, including other structs.
 
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Fuse-case%2Fci-cd)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Fuse-case%2Fci-cd)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions%2Fuse-case%2Fci-cd&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-GitHub CI/CD
-
-# The complete CI/CD solution
-
-Build, test, and deploy software with simple and secure enterprise CI/CD, all on the complete development platform.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_usecase_cicd)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_usecase_cicd)
-
-![Tests with checkmarks beside each test title and an activated merge pull request button](//images.ctfassets.net/8aevphvgewt8/6cuxKTqIN1l0NMxSNlx15F/7d746be47686a08fbc09219bc63df0e5/Hero2.webp?fm=webp)
-
-## Streamline, secure, and deploy with confidence: automate your software delivery pipeline
-
-### Turn code into software
-
-Automatically trigger builds on every commit with workflow builder.
-
-### Secure and improve
-
-End-to-end testing for security, code quality, performance, and functionality.
-
-### Ship with confidence
-
-Automate deployments from start to finish to one or multiple cloud providers.
-
-### Build fast, stay secure
-
-Easy-to-set-up and simple-to-maintain CI/CD that helps your developers build more secure code from the start without sacrificing speed.
-
-[Explore GitHub Advanced Security](https://github.com/security/advanced-security)
-
-![](//images.ctfassets.net/8aevphvgewt8/4pufdRqmUtEHxCRy4SbGq6/566eeeb0beee0f3b8c92fb3831d2290d/Security-2.webp)
-
-### Continuous testing made simple
-
-Track everything from code quality to your security profile with end-to-end testing built to keep you secure and in compliance at every stage.
-
-![Test passing connecting to 3 steps that are in progress](//images.ctfassets.net/8aevphvgewt8/7JldMWj69GEj43gx9cIf5K/4d53dbc663417142a5dd826c79d4215f/Automation-2.webp)
-
-### Deploy software with confidence
-
-Seamless CI/CD deployment automation makes it simple to deliver secure software with all cloud providers so you can scale confidently.
-
-[Explore GitHub Actions](https://github.com/features/actions)
-
-![](//images.ctfassets.net/8aevphvgewt8/10miox7JNqtL3gGpCf1sRS/d0923ff169cd8d2015174a51d503c09e/AI-2.webp)
-
-90%+ Fortune 100 choose GitHub
-
-100M+ Developers call GitHub home
-
-420M+ Repositories on GitHub
-
-### Powerful CI/CD with GitHub Enterprise
-
-The complete developer platform to build, scale, and deliver secure software.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=footer&ref_page=%2Fsolutions_usecase_cicd)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=footer&ref_page=%2Fsolutions_usecase_cicd)
-
-## Additional Resources
-
-### [DevOps tips for Engineering leaders](https://resources.github.com/devops/six-tips-faster-software-delivery/)
-
-6 DevOps tips to help engineering leaders deliver software at scale
-
-Get the report
-
-### [Ship secure software fast](https://resources.github.com/security/supply-chain-security/)
-
-How developer-first supply chain security helps you secure faster
-
-Get the report
-
-### [CI/CD Solution Demo](https://resources.github.com/devops/tools/automation/automating-ci-cd-enterprise/)
-
-How to automate CI/CD and security with GitHub Enterprise
-
-Get the report
-
-
-
-
-
-
-You can’t perform that action at this time.
+> Move does not support recursive structs, meaning a struct cannot contain itself as a field.
+
+```move
+/// A struct representing an artist.  
+public struct Artist {  
+    /// The name of the artist.  
+    name: String,  
+}  
+  
+/// A struct representing a music record.  
+public struct Record {  
+    /// The title of the record.  
+    title: String,  
+    /// The artist of the record. Uses the `Artist` type.  
+    artist: Artist,  
+    /// The year the record was released.  
+    year: u16,  
+    /// Whether the record is a debut album.  
+    is_debut: bool,  
+    /// The edition of the record.  
+    edition: Option<u16>,  
+}
+```
+
+In the example above, we define a Record struct with five fields. The title field is of type
+String, the artist field is of type Artist, the year field is of type u16, the is\_debut
+field is of type bool, and the edition field is of type Option<u16>. The edition field is of
+type Option<u16> to represent that the edition is optional.
+
+Structs are private by default, meaning they cannot be imported and used outside of the module they
+are defined in. Their fields are also private and can't be accessed from outside the module. See
+[visibility](/move-basics/visibility) for more information on different visibility modifiers.
+
+> Fields of a struct are private and can only be accessed by the module defining the struct. Reading
+> and writing the fields of a struct in other modules is only possible if the module defining the
+> struct provides public functions to access the fields.
+
+## Create and use an instance[​](#create-and-use-an-instance "Direct link to Create and use an instance")
+
+We described the *definition* of a struct. Now let's see how to initialize a struct and use it. A
+struct can be initialized using the struct\_name { field1: value1, field2: value2, ... } syntax.
+The fields can be initialized in any order, and all of the required fields must be set.
+
+```move
+let mut artist = Artist {  
+    name: b"The Beatles".to_string()  
+};
+```
+
+In the example above, we create an instance of the Artist struct and set the name field to a
+string "The Beatles".
+
+To access the fields of a struct, you can use the . operator followed by the field name.
+
+```move
+// Access the `name` field of the `Artist` struct.  
+let artist_name = artist.name;  
+  
+// Access a field of the `Artist` struct.  
+assert_eq!(artist.name, b"The Beatles".to_string());  
+  
+// Mutate the `name` field of the `Artist` struct.  
+artist.name = b"Led Zeppelin".to_string();  
+  
+// Check that the `name` field has been mutated.  
+assert_eq!(artist.name, b"Led Zeppelin".to_string());
+```
+
+Only the module defining the struct can access its fields (both mutably and immutably). So the above
+code should be in the same module as the Artist struct.
+
+## Unpacking a struct[​](#unpacking-a-struct "Direct link to Unpacking a struct")
+
+Structs are non-discardable by default, meaning that the initialized struct value must be used,
+either by storing it or unpacking it. Unpacking a struct means deconstructing it into its fields.
+This is done using the let keyword followed by the struct name and the field names.
+
+```move
+// Unpack the `Artist` struct and create a new variable `name`  
+// with the value of the `name` field.  
+let Artist { name } = artist;
+```
+
+In the example above we unpack the Artist struct and create a new variable name with the value
+of the name field. Because the variable is not used, the compiler will raise a warning. To
+suppress the warning, you can use the underscore \_ to indicate that the variable is intentionally
+unused.
+
+```move
+// Unpack the `Artist` struct and ignore the `name` field.  
+let Artist { name: _ } = artist;
+```
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [Structs](/reference/structs) in the Move Reference.
+
+* [Struct](#struct)
+* [Create and use an instance](#create-and-use-an-instance)
+* [Unpacking a struct](#unpacking-a-struct)
+* [Further Reading](#further-reading)

@@ -1,185 +1,169 @@
-GitHub · Scalable AI-Powered Enterprise Platform Solutions · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/2y5vMAzPdBETL4MaRatk5i/bb416271611c749165b93fdd01df8966/merge-lines.webp?w=2400&fm=jpg&fl=progressive)
-
-# AI-powered platform solutions to solve your company’s challenges
-
-GitHub empowers your team to deliver software faster and more efficiently, while maintaining robust security and compliance.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_overview)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_overview)
-
-## GitHub scales with teams of any size
-
-### [Enterprises](https://github.com/enterprise)
-
-Build, scale, and deliver secure software faster with GitHub’s AI-powered developer platform.
-
-Learn more
-
-### [Teams](https://github.com/team)
-
-With CI/CD, Dependabot, and the world's largest developer community, GitHub provides everything your team needs to ship secure software faster.
-
-Learn more
-
-### [Startups](https://github.com/enterprise/startups)
-
-Go from idea to IPO in one place, complete with personalized onboarding, office hours, and tailored product guidance.
-
-Learn more
-
-### The enterprise-grade platform that developers know and love.
-
-[Learn more about GitHub Enterprise](https://github.com/enterprise)
-
-![Stack with GitHub logo on the top layer](//images.ctfassets.net/8aevphvgewt8/29CiGKTG31W7VVxW3MXimT/cfdab99c54f2dd057746274707fa05c9/Stack-GitHub-logo.webp)
-
-## Solving industry-specific challenges
-
-[View all industries](https://github.com/solutions/industry)
-
-### [Healthcare](https://github.com/solutions/industry/healthcare)
-
-By incorporating security checks into developer workflows, you can build secure communication channels between patients and providers.
-
-Learn more
-
-### [Financial Services](https://github.com/solutions/industry/financial-services)
-
-With an AI-powered developer platform, you can build innovative financial solutions that drive economic growth.
-
-Learn more
-
-### [Manufacturing](https://github.com/solutions/industry/manufacturing)
-
-With robust CI/CD that can handle the complex needs of manufacturing, you can securely transform operations at scale.
-
-Learn more
-
-## The solutions you need to build what you want
-
-[View all use cases](https://github.com/solutions/use-case)
-
-### [App Modernization](https://github.com/solutions/use-case/app-modernization)
-
-Assess, upgrade, and migrate apps to the cloud with GitHub Copilot.
-
-Learn more
-
-### [DevSecOps](https://github.com/solutions/use-case/devsecops)
-
-With comprehensive security tools built into the developer workflow, you can build, secure, and ship all in one place.
-
-Learn more
-
-### [DevOps](https://github.com/solutions/use-case/devops)
-
-Scale and deliver more secure software with GitHub's unified AI-powered developer platform.
-
-Learn more
-
-## Adopted by the world's leading organizations
-
-[View all customer stories](https://github.com/customer-stories)
-
-### [3M transforms its software toolchain to bring cutting-edge science to customers, faster.](https://github.com/customer-stories/3m)
-
-![Tower with 3M at the top](//images.ctfassets.net/8aevphvgewt8/4VrAcl170GPqwcaaflY1zt/557fb777b1863612b7b597d88b370179/3M.webp?fm=webp)
-
-Read story
-
-### [Philips builds and deploys digital health technology faster with innersource on GitHub.](https://github.com/customer-stories/philips)
-
-![doctor](//images.ctfassets.net/8aevphvgewt8/365n7ERNkjzhn9SPqfNuqJ/b3829500dfb573e878c1ede4d389e1f5/doctor-small.webp?fm=webp)
-
-Read story
-
-### [GitHub brings DevOps to life and enables streamlined developer experiences at Procter & Gamble.](https://github.com/customer-stories/pg)
-
-![Building with 2 towers and flags](//images.ctfassets.net/8aevphvgewt8/4iJEc5NkUQTrz8ivwmAw8B/de3104ffb1190f47c4b60074f10f71ba/pg2-1.webp?fm=webp)
-
-Read story
-
-### Get started
-
-Trusted by 90% of the Fortune 100, GitHub helps millions of developers and companies collaborate, build, and deliver secure software faster. And with thousands of DevOps integrations, developers can build smarter from day one with the tools they know and love—or discover new ones.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=footer&ref_page=%2Fsolutions_overview)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=footer&ref_page=%2Fsolutions_overview)
-
-
-
-
-
-
-You can’t perform that action at this time.
+String | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# String
+
+While Move does not have a built-in type to represent strings, it does have two standard
+implementations for strings in the [Standard Library](/move-basics/standard-library). The std::string module
+defines a String type and methods for UTF-8 encoded strings, and the second module, std::ascii,
+provides an ASCII String type and its methods.
+
+> The Sui execution environment automatically converts bytevector into String in transaction
+> inputs. As a result, in many cases, constructing a String directly within the
+> [Transaction Block](/concepts/what-is-a-transaction) is unnecessary.
+
+## Strings are bytes[​](#strings-are-bytes "Direct link to Strings are bytes")
+
+No matter which type of string you use, it is important to know that strings are just bytes. The
+wrappers provided by the string and ascii modules are just that: wrappers. They do provide
+safety checks and methods to work with strings, but at the end of the day, they are just vectors of
+bytes.
+
+```move
+module book::custom_string;  
+  
+/// Anyone can implement a custom string-like type by wrapping a vector.  
+public struct MyString {  
+    bytes: vector<u8>,  
+}  
+  
+/// Implement a `from_bytes` function to convert a vector of bytes to a string.  
+public fun from_bytes(bytes: vector<u8>): MyString {  
+    MyString { bytes }  
+}  
+  
+/// Implement a `bytes` function to convert a string to a vector of bytes.  
+public fun bytes(self: &MyString): &vector<u8> {  
+    &self.bytes  
+}
+```
+
+## Working with UTF-8 Strings[​](#working-with-utf-8-strings "Direct link to Working with UTF-8 Strings")
+
+While there are two types of strings (string and ascii) in the standard library, the string
+module should be considered the default. It has native implementations of many common operations,
+leveraging low-level, optimized runtime code for superior performance. In contrast, the ascii
+module is fully implemented in Move, relying on higher-level abstractions and making it less
+suitable for performance-critical tasks.
+
+### Definition[​](#definition "Direct link to Definition")
+
+The String type in the std::string module is defined as follows:
+
+```move
+module std::string;  
+  
+/// A `String` holds a sequence of bytes which is guaranteed to be in utf8 format.  
+public struct String has copy, drop, store {  
+    bytes: vector<u8>,  
+}
+```
+
+*See [full documentation for std::string](https://docs.sui.io/references/framework/std/string) module.*
+
+### Creating a String[​](#creating-a-string "Direct link to Creating a String")
+
+To create a new UTF-8 String instance, you can use the string::utf8 method. The
+[Standard Library](/move-basics/standard-library) provides an alias .to\_string() on the vector<u8> for
+convenience.
+
+```move
+// the module is `std::string` and the type is `String`  
+use std::string::{Self, String};  
+  
+// strings are normally created using the `utf8` function  
+// type declaration is not necessary, we put it here for clarity  
+let hello: String = string::utf8(b"Hello");  
+  
+// The `.to_string()` alias on the `vector<u8>` is more convenient  
+let hello = b"Hello".to_string();
+```
+
+### Common Operations[​](#common-operations "Direct link to Common Operations")
+
+UTF8 String provides a number of methods to work with strings. The most common operations on strings
+are: concatenation, slicing, and getting the length. Additionally, for custom string operations, the
+bytes() method can be used to get the underlying byte vector.
+
+```move
+let mut str = b"Hello,".to_string();  
+let another = b" World!".to_string();  
+  
+// append(String) adds the content to the end of the string  
+str.append(another);  
+  
+// `sub_string(start, end)` copies a slice of the string  
+str.sub_string(0, 5); // "Hello"  
+  
+// `length()` returns the number of bytes in the string  
+str.length(); // 12 (bytes)  
+  
+// methods can also be chained! Get a length of a substring  
+str.sub_string(0, 5).length(); // 5 (bytes)  
+  
+// whether the string is empty  
+str.is_empty(); // false  
+  
+// get the underlying byte vector for custom operations  
+let bytes: &vector<u8> = str.bytes();
+```
+
+### Safe UTF-8 Operations[​](#safe-utf-8-operations "Direct link to Safe UTF-8 Operations")
+
+The default utf8 method may abort if the bytes passed into it are not valid UTF-8. If you are not
+sure that the bytes you are passing are valid, you should use the try\_utf8 method instead. It
+returns an Option<String>, which contains no value if the bytes are not valid UTF-8, and a string
+otherwise.
+
+> Hint: Functions with names starting with try\_\* typically return an Option. If the operation
+> succeeds, the result is wrapped in Some. If it fails, the function returns None. This naming
+> convention, commonly used in Move, is inspired by Rust.
+
+```move
+// this is a valid UTF-8 string  
+let hello = b"Hello".try_to_string();  
+  
+assert!(hello.is_some()); // abort if the value is not valid UTF-8  
+  
+// this is not a valid UTF-8 string  
+let invalid = b"\xFF".try_to_string();  
+  
+assert!(invalid.is_none()); // abort if the value is valid UTF-8
+```
+
+### UTF-8 Limitations[​](#utf-8-limitations "Direct link to UTF-8 Limitations")
+
+The string module does not provide a way to access individual characters in a string. This is
+because UTF-8 is a variable-length encoding, and the length of a character can be anywhere from 1 to
+4 bytes. Similarly, the length() method returns the number of bytes in the string, not the number
+of characters.
+
+However, methods like sub\_string and insert validate character boundaries and abort if the
+specified index falls within the middle of a character.
+
+## ASCII Strings[​](#ascii-strings "Direct link to ASCII Strings")
+
+This section is coming soon!
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [std::string](https://docs.sui.io/references/framework/std/string) module documentation.
+* [std::ascii](https://docs.sui.io/references/framework/std/ascii) module documentation.
+
+* [Strings are bytes](#strings-are-bytes)
+* [Working with UTF-8 Strings](#working-with-utf-8-strings)
+  + [Definition](#definition)
+  + [Creating a String](#creating-a-string)
+  + [Common Operations](#common-operations)
+  + [Safe UTF-8 Operations](#safe-utf-8-operations)
+  + [UTF-8 Limitations](#utf-8-limitations)
+* [ASCII Strings](#ascii-strings)
+* [Further Reading](#further-reading)

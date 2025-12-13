@@ -1,198 +1,317 @@
-GitHub Articles • Technical Guides, Developer Insights & Best Practices · GitHub
+Control Flow | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Control Flow
 
+Control flow statements are used to control the flow of execution in a program. They are used to
+make decisions, repeat a block of code, or exit a block of code early. Move includes the following
+control flow statements (explained in detail below):
 
-Unlock AI’s true impact across the SDLC.
-[Explore key findings from Gartner®.](https://github.com/resources/whitepapers/how-to-capture-ai-driven-productivity-gains-across-the-sdlc?utm_source=github&utm_medium=banner&utm_campaign=WW-FY26Q2-WW-GarterReport-18991230&utm_content=GartnerReport)
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Farticles%3Ftopic%3Dai)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Farticles%3Ftopic%3Dai)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fresources%2Farticles&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-# GitHub Articles
-
-## Filters (1)
-
-Open Filters
-
-## Topic
-
-Topic
-
-AI
-
-Software Development
-
-DevOps
-
-Security
-
-[Clear all](#)Apply
-
-### [What is AIOps?](https://github.com/resources/articles/what-is-aiops)
-
-![](https://github.githubassets.com/assets/light-1-2e395adb64d6.png?fm=webp)
-
-AI for IT operations (AIOps) uses AI to help IT teams reduce downtime and scale operations.
-
-Learn more
-
-### [What is generative AI (GenAI)?](https://github.com/resources/articles/what-is-generative-ai-genai)
-
-![](https://github.githubassets.com/assets/light-2-e21d217be40a.png?fm=webp)
-
-Generative AI creates text, images, and code using deep learning. Explore GenAI tools, models, and how it’s shaping artificial intelligence today.
-
-Learn more
-
-### [What are neural networks?](https://github.com/resources/articles/what-are-neural-networks)
-
-![](https://github.githubassets.com/assets/light-3-3a9effd0b7ee.png?fm=webp)
-
-Discover what neural networks are and why they’re critical to developing intelligent systems.
-
-Learn more
-
-### [What is open source AI?](https://github.com/resources/articles/what-is-open-source-ai)
-
-![](https://github.githubassets.com/assets/light-4-3bb395e09737.png?fm=webp)
-
-Open source AI offers more control, clarity, and room to build the way you want.
-
-Learn more
-
-### [What Is Vibe Coding?](https://github.com/resources/articles/what-is-vibe-coding)
-
-![](https://github.githubassets.com/assets/light-5-69b2efb1d8c8.png?fm=webp)
-
-Explore vibe coding: an AI-assisted way to code using plain language prompts that help you build faster and think more freely.
-
-Learn more
-
-### [What is Agentic AI?](https://github.com/resources/articles/what-is-agentic-ai)
-
-![](https://github.githubassets.com/assets/light-6-8e6b0e6ece65.png?fm=webp)
-
-Discover how agentic AI helps software development teams increase productivity and focus on more strategic tasks.
-
-Learn more
-
-### [What are Generative AI Models?](https://github.com/resources/articles/what-are-generative-ai-models)
-
-![](https://github.githubassets.com/assets/light-1-2e395adb64d6.png?fm=webp)
-
-Learn how generative AI models help businesses succeed.
-
-Learn more
-
-### [AI in Software Development](https://github.com/resources/articles/ai-in-software-development)
-
-![](https://github.githubassets.com/assets/light-2-e21d217be40a.png?fm=webp)
-
-Learn how AI supports every stage of software development and why it’s a powerful coding partner for developers.
-
-Learn more
-
-### [AI Code Reviews](https://github.com/resources/articles/ai-code-reviews)
-
-![](https://github.githubassets.com/assets/light-3-3a9effd0b7ee.png?fm=webp)
-
-Discover how AI code reviews can boost developer productivity and speed up workflows by automating error detection and providing real-time feedback.
-
-Learn more
-
-### [Machine Learning (ML) in Software Development](https://github.com/resources/articles/machine-learning-in-software-development)
-
-![](https://github.githubassets.com/assets/light-4-3bb395e09737.png?fm=webp)
-
-Discover how to use machine learning in software development to optimize workflows, and learn about machine learning models, pipeline integrations, and code review tools.
-
-Learn more
-
-### [What are AI models?](https://github.com/resources/articles/what-are-ai-models)
-
-![](https://github.githubassets.com/assets/light-5-69b2efb1d8c8.png?fm=webp)
-
-Learn how AI models help organizations identify data patterns, automate workflows, solve complex problems, forecast outcomes, and enhance decision making.
-
-Learn more
-
-### [What are AI agents?](https://github.com/resources/articles/what-are-ai-agents)
-
-![](https://github.githubassets.com/assets/light-6-8e6b0e6ece65.png?fm=webp)
-
-Learn what AI agents are and how they automate workflows, enhance software security, and improve code quality.
-
-Learn more
-
-
-
-
-
-
-You can’t perform that action at this time.
+* [if and if-else](#conditional-statements) - making decisions on whether to execute a block of
+  code
+* [loop and while loops](#repeating-statements-with-loops) - repeating a block of code
+* [break and continue statements](#exiting-a-loop-early) - exiting a loop early
+* [return](#early-return) statement - exiting a function early
+
+## Conditional Statements[​](#conditional-statements "Direct link to Conditional Statements")
+
+The if expression is used to make decisions in a program. It evaluates a
+[boolean expression](/move-basics/expression#literals) and executes a block of code if the expression is true.
+Paired with else, it can execute a different block of code if the expression is false.
+
+The syntax for an if expression is:
+
+```move
+if (<bool_expression>) <expression>;  
+if (<bool_expression>) <expression> else <expression>;
+```
+
+Just like any other expression, if requires a semicolon if there are other expressions following
+it. The else keyword is optional, except when the resulting value is assigned to a variable, as
+all branches must return a value to ensure type safety. Let’s examine how an if expression works
+in Move with the following example:
+
+```move
+#[test]  
+fun test_if() {  
+    let x = 5;  
+  
+    // `x > 0` is a boolean expression.  
+    if (x > 0) {  
+        std::debug::print(&b"X is bigger than 0".to_string())  
+    };  
+}
+```
+
+Let's see how we can use if and else to assign a value to a variable:
+
+```move
+#[test]  
+fun test_if_else() {  
+    let x = 5;  
+    let y = if (x > 0) {  
+        1  
+    } else {  
+        0  
+    };  
+  
+    assert_eq!(y, 1);  
+}
+```
+
+In this example, the value of the if expression is assigned to the variable y. If x is greater
+than 0, y is assigned the value 1; otherwise, it is assigned 0. The else block is required
+because both branches of the if expression must return a value of the same type. Omitting the
+else block would result in a compiler error, as it ensures all possible branches are accounted for
+and type safety is maintained.
+
+Conditional expressions are among the most important control flow statements in Move. They evaluate
+user-provided input or stored data to make decisions. One key use case is in the
+[assert! macro](/move-basics/assert-and-abort), which checks if a condition is true and aborts execution if
+it is not. We’ll explore this in detail shortly.
+
+## Repeating Statements with Loops[​](#repeating-statements-with-loops "Direct link to Repeating Statements with Loops")
+
+Loops are used to execute a block of code multiple times. Move has two built-in types of loops:
+loop and while. In many cases they can be used interchangeably, but usually while is used when
+the number of iterations is known in advance, and loop is used when the number of iterations is
+not known in advance or there are multiple exit points.
+
+Loops are useful for working with collections, such as vectors, or for repeating a block of code
+until a specific condition is met. However, take care to avoid infinite loops, which can exhaust gas
+limits and cause the transaction to abort.
+
+## The while Loop[​](#the-while-loop "Direct link to the-while-loop")
+
+The while statement executes a block of code repeatedly as long as the associated boolean
+expression evaluates to true. Just like we've seen with if, the boolean expression is evaluated
+before each iteration of the loop. Additionally, like conditional statements, the while loop is an
+expression and requires a semicolon if there are other expressions following it.
+
+The syntax for the while loop is:
+
+```move
+while (<bool_expression>) { <expressions>; };
+```
+
+Here is an example of a while loop with a very simple condition:
+
+```move
+// This function iterates over the `x` variable until it reaches 10, the  
+// return value is the number of iterations it took to reach 10.  
+//  
+// If `x` is 0, then the function will return 10.  
+// If `x` is 5, then the function will return 5.  
+fun while_loop(mut x: u8): u8 {  
+    let mut y = 0;  
+  
+    // This will loop until `x` is 10.  
+    // And will never run if `x` is 10 or more.  
+    while (x < 10) {  
+        y = y + 1;  
+        x = x + 1;  
+    };  
+  
+    y  
+}  
+  
+#[test]  
+fun test_while() {  
+    assert_eq!(while_loop(0), 10); // 10 times  
+    assert_eq!(while_loop(5), 5); // 5 times  
+    assert_eq!(while_loop(10), 0); // loop never executed  
+}
+```
+
+## Infinite loop[​](#infinite-loop "Direct link to infinite-loop")
+
+Now let's imagine a scenario where the boolean expression is always true. For example, if we
+literally passed true to the while condition. This is similar to how the loop statement
+functions, except that while evaluates a condition.
+
+```move
+#[test, expected_failure(out_of_gas, location=Self)]  
+fun test_infinite_while() {  
+    let mut x = 0;  
+  
+    // This will loop forever.  
+    while (true) {  
+        x = x + 1;  
+    };  
+  
+    // This line will never be executed.  
+    assert_eq!(x, 5);  
+}
+```
+
+An infinite while loop, or a while loop with an always true condition, is equivalent to a
+loop. The syntax for creating a loop is straightforward:
+
+```move
+loop { <expressions>; };
+```
+
+Let's rewrite the previous example using loop instead of while:
+
+```move
+#[test, expected_failure(out_of_gas, location=Self)]  
+fun test_infinite_loop() {  
+    let mut x = 0;  
+  
+    // This will loop forever.  
+    loop {  
+        x = x + 1;  
+    };  
+  
+    // This line will never be executed.  
+    assert_eq!(x, 5);  
+}
+```
+
+Infinite loops are rarely practical in Move, as every operation consumes gas, and an infinite loop
+will inevitably lead to gas exhaustion. If you find yourself using a loop, consider whether there
+might be a better approach, as many use cases can be handled more efficiently with other control
+flow structures. That said, loop might be useful when combined with break and continue
+statements to create controlled and flexible looping behavior.
+
+## Exiting a Loop Early[​](#exiting-a-loop-early "Direct link to Exiting a Loop Early")
+
+As we already mentioned, infinite loops are rather useless on their own. And that's where we
+introduce the break and continue statements. They are used to exit a loop early, and to skip the
+rest of the current iteration, respectively.
+
+Syntax for the break statement is (without a semicolon):
+
+```move
+break
+```
+
+The break statement is used to stop the execution of a loop and exit it early. It is often used in
+combination with a conditional statement to exit the loop when a certain condition is met. To
+illustrate this point, let's turn the infinite loop from the previous example into something that
+looks and behaves more like a while loop:
+
+```move
+#[test]  
+fun test_break_loop() {  
+    let mut x = 0;  
+  
+    // This will loop until `x` is 5.  
+    loop {  
+        x = x + 1;  
+  
+        // If `x` is 5, then exit the loop.  
+        if (x == 5) {  
+            break // Exit the loop.  
+        }  
+    };  
+  
+    assert_eq!(x, 5);  
+}
+```
+
+Almost identical to the while loop, right? The break statement is used to exit the loop when x
+is 5. If we remove the break statement, the loop will run forever, just like in the previous
+example.
+
+## Skipping an Iteration[​](#skipping-an-iteration "Direct link to Skipping an Iteration")
+
+The continue statement is used to skip the rest of the current iteration and start the next one.
+Similarly to break, it is used in combination with a conditional statement to skip the rest of an
+iteration when a certain condition is met.
+
+Syntax for the continue statement is (without a semicolon):
+
+```move
+continue
+```
+
+The example below skips odd numbers and prints only even numbers from 0 to 10:
+
+```move
+#[test]  
+fun test_continue_loop() {  
+    let mut x = 0;  
+  
+    // This will loop until `x` is 10.  
+    loop {  
+        x = x + 1;  
+  
+        // If `x` is odd, then skip the rest of the iteration.  
+        if (x % 2 == 1) {  
+            continue // Skip the rest of the iteration.  
+        };  
+  
+        std::debug::print(&x);  
+  
+        // If `x` is 10, then exit the loop.  
+        if (x == 10) {  
+            break // Exit the loop.  
+        }  
+    };  
+  
+    assert_eq!(x, 10) // 10  
+}
+```
+
+break and continue statements can be used in both while and loop loops.
+
+## Early Return[​](#early-return "Direct link to Early Return")
+
+The return statement is used to exit a [function](/move-basics/function) early and return a value. It is
+often used in combination with a conditional statement to exit the function when a certain condition
+is met. The syntax for the return statement is:
+
+```move
+return <expression>
+```
+
+Here is an example of a function that returns a value when a certain condition is met:
+
+```move
+/// This function returns `true` if `x` is greater than 0 and not 5,  
+/// otherwise it returns `false`.  
+fun is_positive(x: u8): bool {  
+    if (x == 5) {  
+        return false  
+    };  
+  
+    if (x > 0) {  
+        return true  
+    };  
+  
+    false  
+}  
+  
+#[test]  
+fun test_return() {  
+    assert_eq!(is_positive(5), false);  
+    assert_eq!(is_positive(0), false);  
+    assert_eq!(is_positive(1), true);  
+}
+```
+
+Unlike in many other languages, the return statement is not required for the last expression in a
+function. The last expression in a function block is automatically returned. However, the return
+statement is useful when we want to exit a function early if a certain condition is met.
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [Control Flow](/reference/control-flow) chapter in the Move Reference.
+
+* [Conditional Statements](#conditional-statements)
+* [Repeating Statements with Loops](#repeating-statements-with-loops)
+* [The `while` Loop](#the-while-loop)
+* [Infinite `loop`](#infinite-loop)
+* [Exiting a Loop Early](#exiting-a-loop-early)
+* [Skipping an Iteration](#skipping-an-iteration)
+* [Early Return](#early-return)
+* [Further Reading](#further-reading)

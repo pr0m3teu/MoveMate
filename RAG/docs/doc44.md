@@ -1,138 +1,250 @@
-GitHub Docs
+Generics | The Move Book
 
-[Skip to main content](#main-content)
 
-[GitHub Docs](/en)
 
-Version: Free, Pro, & Team
 
-Search or ask Copilot
 
-Search or askCopilot
 
-Select language: current language is English
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-Search or ask Copilot
+On this page
 
-Search or askCopilot
+# Generics
 
-Open menu
+Generics are a way to define a type or function that can work with any type. This is useful when you
+want to write a function which can be used with different types, or when you want to define a type
+that can hold any other type. Generics are the foundation of many advanced features in Move
+including collections, abstract implementations, and more.
 
-# GitHub Docs
+## In the Standard Library[​](#in-the-standard-library "Direct link to In the Standard Library")
 
-Help for wherever you are on your GitHub journey.
+In this chapter we already mentioned the [vector](/move-basics/vector) type, which is a generic type that can
+hold any other type. Another example of a generic type in the standard library is the
+[Option](/move-basics/option) type, which is used to represent a value that may or may not be present.
 
-## Get started
+## Generic Syntax[​](#generic-syntax "Direct link to Generic Syntax")
 
-* [Get started](/en/get-started)
-* [Migrations](/en/migrations)
-* [Account and profile](/en/account-and-profile)
-* [Subscriptions & notifications](/en/subscriptions-and-notifications)
-* [Authentication](/en/authentication)
-* [Billing and payments](/en/billing)
-* [Site policy](/en/site-policy)
+To define a generic type or function, a type signature needs to have a list of generic parameters
+enclosed in angle brackets (< and >). The generic parameters are separated by commas.
 
-## Collaborative coding
+```move
+/// Container for any type `T`.  
+public struct Container<T> has drop {  
+    value: T,  
+}  
+  
+/// Function that creates a new `Container` with a generic value `T`.  
+public fun new<T>(value: T): Container<T> {  
+    Container { value }  
+}
+```
 
-* [Codespaces](/en/codespaces)
-* [Repositories](/en/repositories)
-* [Pull requests](/en/pull-requests)
-* [GitHub Discussions](/en/discussions)
-* [Integrations](/en/integrations)
+In the example above, Container is a generic type with a single type parameter T, the value
+field of the container stores the T. The new function is a generic function with a single type
+parameter T, and it returns a Container with the given value. Generic types must be initialized
+with a concrete type, and generic functions must be called with a concrete type, although in some
+cases the Move compiler can infer the correct type.
 
-## GitHub Copilot
+```move
+#[test]  
+fun test_container() {  
+    // these three lines are equivalent  
+    let container: Container<u8> = new(10); // type inference  
+    let container = new<u8>(10); // create a new `Container` with a `u8` value  
+    let container = new(10u8);  
+  
+    assert_eq!(container.value, 10);  
+  
+    // Value can be ignored only if it has the `drop` ability.  
+    let Container { value: _ } = container;  
+}
+```
 
-* [GitHub Copilot](/en/copilot)
-* [Plans](/en/copilot/get-started/plans)
-* [Get IDE code suggestions](/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-* [Coding agent](/en/copilot/how-tos/use-copilot-agents/coding-agent)
-* [Tutorials](/en/copilot/tutorials)
-* [GitHub Copilot Chat Cookbook](/en/copilot/tutorials/copilot-chat-cookbook)
-* [Customization library](/en/copilot/tutorials/customization-library)
+In the test function test\_container, we demonstrate three equivalent ways to create a new
+Container with a u8 value. Because numeric constants have ambiguous types, we must specify the
+type of the number literal somewhere (in the type of the container, the parameter to new, or the
+number literal itself); once we specify one of these the compiler can infer the others.
 
-## CI/CD and DevOps
+## Multiple Type Parameters[​](#multiple-type-parameters "Direct link to Multiple Type Parameters")
 
-* [GitHub Actions](/en/actions)
-* [GitHub Packages](/en/packages)
-* [GitHub Pages](/en/pages)
+You can define a type or function with multiple type parameters. The type parameters are separated
+by commas.
 
-## Security and quality
+```move
+/// A pair of values of any type `T` and `U`.  
+public struct Pair<T, U> {  
+    first: T,  
+    second: U,  
+}  
+  
+/// Function that creates a new `Pair` with two generic values `T` and `U`.  
+public fun new_pair<T, U>(first: T, second: U): Pair<T, U> {  
+    Pair { first, second }  
+}
+```
 
-* [Secret scanning](/en/code-security/secret-scanning)
-* [Supply chain security](/en/code-security/supply-chain-security)
-* [Dependabot](/en/code-security/dependabot)
-* [Code scanning](/en/code-security/code-scanning)
-* [GitHub Code Quality](/en/code-security/code-quality)
+In the example above, Pair is a generic type with two type parameters T and U, and the
+new\_pair function is a generic function with two type parameters T and U. The function returns
+a Pair with the given values. The order of the type parameters is important, and should match the
+order of the type parameters in the type signature.
 
-## Client apps
+```move
+#[test]  
+fun test_generic() {  
+    // these three lines are equivalent  
+    let pair_1: Pair<u8, bool> = new_pair(10, true); // type inference  
+    let pair_2 = new_pair<u8, bool>(10, true); // create a new `Pair` with a `u8` and `bool` values  
+    let pair_3 = new_pair(10u8, true);  
+  
+    assert_eq!(pair_1.first, 10);  
+    assert_eq!(pair_1.second, true);  
+  
+    // Unpacking is identical.  
+    let Pair { first: _, second: _ } = pair_1;  
+    let Pair { first: _, second: _ } = pair_2;  
+    let Pair { first: _, second: _ } = pair_3;  
+  
+}
+```
 
-* [GitHub CLI](/en/github-cli)
-* [GitHub Mobile](/en/get-started/using-github/github-mobile)
-* [GitHub Desktop](/en/desktop)
+If we added another instance where we swapped type parameters in the new\_pair function, and tried
+to compare two types, we'd see that the type signatures are different, and cannot be compared.
 
-## Project management
+```move
+#[test]  
+fun test_swap_type_params() {  
+    let pair1: Pair<u8, bool> = new_pair(10u8, true);  
+    let pair2: Pair<bool, u8> = new_pair(true, 10u8);  
+  
+    // this line will not compile  
+    // assert_eq!(pair1, pair2);  
+  
+    let Pair { first: pf1, second: ps1 } = pair1; // first1: u8, second1: bool  
+    let Pair { first: pf2, second: ps2 } = pair2; // first2: bool, second2: u8  
+  
+    assert_eq!(pf1, ps2); // 10 == 10  
+    assert_eq!(ps1, pf2); // true == true  
+}
+```
 
-* [GitHub Issues](/en/issues)
-* [Projects](/en/issues/planning-and-tracking-with-projects)
-* [Search on GitHub](/en/search-github)
+Since the types for pair1 and pair2 are different, the comparison pair1 == pair2 will not
+compile.
 
-## Enterprise and teams
+## Why Generics?[​](#why-generics "Direct link to Why Generics?")
 
-* [Organizations](/en/organizations)
-* [Secure your organization](/en/code-security/securing-your-organization)
-* [Enterprise onboarding](/en/enterprise-cloud@latest/enterprise-onboarding)
-* [Enterprise administrators](/en/enterprise-cloud@latest/admin)
+In the examples above we focused on instantiating generic types and calling generic functions to
+create instances of these types. However, the real power of generics lies in their ability to define
+shared behavior for the base, generic type, and then use it independently of the concrete types.
+This is especially useful when working with collections, abstract implementations, and other
+advanced features in Move.
 
-## Developers
+```move
+/// A user record with name, age, and some generic metadata  
+public struct User<T> {  
+    name: String,  
+    age: u8,  
+    /// Varies depending on application.  
+    metadata: T,  
+}
+```
 
-* [Apps](/en/apps)
-* [REST API](/en/rest)
-* [GraphQL API](/en/graphql)
-* [Webhooks](/en/webhooks)
-* [GitHub Models](/en/github-models)
+In the example above, User is a generic type with a single type parameter T, with shared fields
+name, age, and the generic metadata field, which can store any type. No matter what metadata
+is, all instances of User will contain the same fields and methods.
 
-## Community
+```move
+/// Updates the name of the user.  
+public fun update_name<T>(user: &mut User<T>, name: String) {  
+    user.name = name;  
+}  
+  
+/// Updates the age of the user.  
+public fun update_age<T>(user: &mut User<T>, age: u8) {  
+    user.age = age;  
+}
+```
 
-* [Building communities](/en/communities)
-* [GitHub Sponsors](/en/sponsors)
-* [GitHub Education](/en/education)
-* [GitHub for Nonprofits](/en/nonprofit)
-* [GitHub Support](/en/support)
-* [Contribute to GitHub Docs](/en/contributing)
+## Phantom Type Parameters[​](#phantom-type-parameters "Direct link to Phantom Type Parameters")
 
-## More docs
+In some cases, you may want to define a generic type with a type parameter that is not used in the
+fields or methods of the type. This is called a *phantom type parameter*. Phantom type parameters
+are useful when you want to define a type that can hold any other type, but you want to enforce some
+constraints on the type parameter.
 
-* [CodeQL query writing](https://codeql.github.com/docs)
-* [Electron](https://electronjs.org/docs/latest)
-* [npm](https://docs.npmjs.com/)
-* [GitHub Well-Architected](https://wellarchitected.github.com/)
+```move
+/// A generic type with a phantom type parameter.  
+public struct Coin<phantom T> {  
+    value: u64  
+}
+```
 
-## Getting started
+The Coin type here does not contain any fields or methods that use the type parameter T. It is
+used to differentiate between different types of coins, and to enforce some constraints on the type
+parameter T.
 
-* [### Set up Git
+```move
+public struct USD {}  
+public struct EUR {}  
+  
+#[test]  
+fun test_phantom_type() {  
+    let coin1: Coin<USD> = Coin { value: 10 };  
+    let coin2: Coin<EUR> = Coin { value: 20 };  
+  
+    // Unpacking is identical because the phantom type parameter is not used.  
+    let Coin { value: _ } = coin1;  
+    let Coin { value: _ } = coin2;  
+}
+```
 
-  At the heart of GitHub is an open-source version control system (VCS) called Git. Git is responsible for everything GitHub-related that happens locally on your computer.](/en/get-started/git-basics/set-up-git)
-* [### Connecting to GitHub with SSH
+In the example above, we demonstrate how to create two different instances of Coin with different
+phantom type parameters USD and EUR. The type parameter T is not used in the fields or methods
+of the Coin type, but it is used to differentiate between different types of coins. This helps
+ensure that the USD and EUR coins are not mistakenly mixed up.
 
-  You can connect to GitHub using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.](/en/authentication/connecting-to-github-with-ssh)
-* [### Creating and managing repositories
+## Constraints on Type Parameters[​](#constraints-on-type-parameters "Direct link to Constraints on Type Parameters")
 
-  You can create a repository on GitHub to store and collaborate on your project's files, then manage the repository's name and location.](/en/repositories/creating-and-managing-repositories)
-* [### Basic writing and formatting syntax
+Type parameters can be constrained to have certain abilities. This is useful when you need the inner
+type to allow certain behaviors, such as *copy* or *drop*. The syntax for constraining a type
+parameter is T: <ability> + <ability>.
 
-  Create sophisticated formatting for your prose and code on GitHub with simple syntax.](/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+```move
+/// A generic type with a type parameter that has the `drop` ability.  
+public struct Droppable<T: drop> {  
+    value: T,  
+}  
+  
+/// A generic struct with a type parameter that has the `copy` and `drop` abilities.  
+public struct CopyableDroppable<T: copy + drop> {  
+    value: T, // T must have the `copy` and `drop` abilities  
+}
+```
 
-## Popular
+The Move Compiler will enforce that the type parameter T has the specified abilities. If the type
+parameter does not have the specified abilities, the code will not compile.
 
-* [### About pull requests
+```move
+/// Type without any abilities.  
+public struct NoAbilities {}  
+  
+#[test]  
+fun test_constraints() {  
+    // Fails - `NoAbilities` does not have the `drop` ability  
+    // let droppable = Droppable<NoAbilities> { value: 10 };  
+  
+    // Fails - `NoAbilities` does not have the `copy` and `drop` abilities  
+    // let copyable_droppable = CopyableDroppable<NoAbilities> { value: 10 };  
+}
+```
 
-  Learn about pull requests and draft pull requests on GitHub. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.](/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
-* [### Authentication documentation
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-  Keep your account and data secure with features like two-factor authentication, SSH, and commit signature verification.](/en/authentication)
-* [### Getting code suggestions in your IDE with GitHub Copilot
+* [Generics](/reference/generics) in the Move Reference.
 
-  Use GitHub Copilot to get code suggestions in your editor.](/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-* [### Managing remote repositories
-
-  Learn to work with your local repositories on your computer and remote repositories hosted on GitHub.](/en/get-started/git-basics/managing-remote-repositories)
+* [In the Standard Library](#in-the-standard-library)
+* [Generic Syntax](#generic-syntax)
+* [Multiple Type Parameters](#multiple-type-parameters)
+* [Why Generics?](#why-generics)
+* [Phantom Type Parameters](#phantom-type-parameters)
+* [Constraints on Type Parameters](#constraints-on-type-parameters)
+* [Further Reading](#further-reading)

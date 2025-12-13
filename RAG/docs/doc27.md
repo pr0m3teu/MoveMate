@@ -1,147 +1,78 @@
-GitHub Use Case Solutions | GitHub · GitHub
+Abilities: Introduction | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Abilities: Introduction
 
+Move has a unique type system which allows customizing *type abilities*.
+[In the previous section](/move-basics/struct), we introduced the struct definition and how to use it.
+However, the instances of the Artist and Record structs had to be unpacked for the code to
+compile. This is default behavior of a struct without *abilities*.
 
+> Throughout the book you will see chapters with name Ability: <name>, where <name> is the name
+> of the ability. These chapters will cover the ability in detail, how it works, and how to use it
+> in Move.
 
+## What are Abilities?[​](#what-are-abilities "Direct link to What are Abilities?")
 
-## Navigation Menu
+Abilities are a way to allow certain behaviors for a type. They are a part of the struct declaration
+and define which behaviors are allowed for the instances of the struct.
 
-Toggle navigation
+## Abilities Syntax[​](#abilities-syntax "Direct link to Abilities Syntax")
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Fuse-case)
+Abilities are set in the struct definition using the has keyword followed by a list of abilities.
+The abilities are separated by commas. Move supports 4 abilities: copy, drop, key, and
+store. Each ability defines a specific behavior for the struct instances.
 
-Search or jump to...
+```move
+/// This struct has the `copy` and `drop` abilities.  
+public struct VeryAble has copy, drop {  
+    // field: Type1,  
+    // field2: Type2,  
+    // ...  
+}
+```
 
+## Overview[​](#overview "Direct link to Overview")
 
-# Search code, repositories, users, issues, pull requests...
+A quick overview of the abilities:
 
-Search
+> All of the built-in types except [references](/move-basics/references) have copy, drop, and store
+> abilities. References have copy and drop.
 
-Clear
+* copy - allows the struct to be *copied*. Explained in the [Ability: Copy](/move-basics/copy-ability)
+  chapter.
+* drop - allows the struct to be *dropped* or *discarded*. Explained in the
+  [Ability: Drop](/move-basics/drop-ability) chapter.
+* key - allows the struct to be used as a *key* in a storage. Explained in the
+  [Ability: Key](/storage/key-ability) chapter.
+* store - allows the struct to be *stored* in structs that have the *key* ability. Explained in
+  the [Ability: Store](/storage/store-ability) chapter.
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+While it is important to briefly mention them here, we will go into more detail about each ability
+in the following chapters and give proper context on how to use them.
 
-# Provide feedback
+## No Abilities[​](#no-abilities "Direct link to No Abilities")
 
-We read every piece of feedback, and take your input very seriously.
+A struct without abilities cannot be discarded, copied, or stored in storage. We call such a struct
+a *Hot Potato*. A lighthearted name, but it is a good way to remember that a struct without
+abilities is like a hot potato - it can only be passed around and requires special handling. The Hot
+Potato is one of the most powerful patterns in Move, and we go into more detail about it in the
+[Hot Potato Pattern](/programmability/hot-potato-pattern) chapter.
 
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-Include my email address so I can be contacted
+* [Type Abilities](/reference/abilities) in the Move Reference.
 
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Fuse-case)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions%2Fuse-case&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/7eK8DYwcy4he33dbtZQw1n/072a6daf0f4c62dffcc8f935a64b9974/hero-bg_2_3_2_2_2.png?w=2400&fm=jpg&fl=progressive)
-
-Use Cases
-
-# GitHub solutions
-
-Solve your business challenges with proven combinations of GitHub solutions, empowering your team to ship secure software quickly and accelerate innovation.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_usecase_overview)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_usecase_overview)
-
-## [App Modernization](https://github.com/solutions/use-case/app-modernization)
-
-Assess, upgrade, and migrate apps to the cloud with GitHub Copilot.
-
-Learn more
-
-## [DevSecOps](https://github.com/solutions/use-case/devsecops)
-
-With comprehensive security tools built into the developer workflow, you can build, secure, and ship all in one place.
-
-Learn more
-
-## [DevOps](https://github.com/solutions/use-case/devops)
-
-Scale and deliver more secure software with GitHub's unified AI-powered developer platform.
-
-Learn more
-
-## [CI/CD](https://github.com/solutions/use-case/ci-cd)
-
-Test and deploy software with simple and secure enterprise CI/CD.
-
-Learn more
-
-## Related solutions
-
-### [Healthcare](https://github.com/solutions/industry/healthcare)
-
-By incorporating security checks into developer workflows, you can build secure communication channels between patients and providers.
-
-Learn more
-
-### [Financial Services](https://github.com/solutions/industry/financial-services)
-
-With an AI-powered developer platform, you can build innovative financial solutions that drive economic growth.
-
-Learn more
-
-### [Manufacturing](https://github.com/solutions/industry/manufacturing)
-
-With robust CI/CD that can handle the complex needs of manufacturing, you can securely transform operations at scale.
-
-Learn more
-
-2.4x more precise leaked secrets found with fewer false positives
-
-~25% increase in developer speed with GitHub Copilot
-
-1min set-up time for largest repo with GitHub Codespaces
-
-+88% more productivity with GitHub Enterprise
-
-### Get started
-
-Trusted by 90% of the Fortune 100, GitHub helps millions of developers and companies collaborate, build, and deliver secure software faster. And with thousands of DevOps integrations, developers can build smarter from day one with the tools they know and love—or discover new ones.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=footer&ref_page=%2Fsolutions_usecase_overview)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=footer&ref_page=%2Fsolutions_usecase_overview)
-
-
-
-
-
-
-You can’t perform that action at this time.
+* [What are Abilities?](#what-are-abilities)
+* [Abilities Syntax](#abilities-syntax)
+* [Overview](#overview)
+* [No Abilities](#no-abilities)
+* [Further Reading](#further-reading)

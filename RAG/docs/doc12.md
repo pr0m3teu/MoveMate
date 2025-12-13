@@ -1,195 +1,282 @@
-GitHub Code Security · GitHub
+Hello, World! | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Hello, World!
 
+In this chapter, you will learn how to create a new package, write a simple module, compile it, and
+run tests with the Move CLI. Make sure you have [installed Sui](/before-we-begin/install-sui)
+and set up your [IDE environment](/before-we-begin/ide-support). Run the command below to test
+if Sui has been installed correctly.
 
+```move
+# It should print the client version. E.g. sui-client 1.22.0-036299745.  
+sui client --version
+```
 
+> Move CLI is a command-line interface for the Move language; it is built into the Sui binary and
+> provides a set of commands to manage packages, compile and test code.
 
-## Navigation Menu
+The structure of the chapter is as follows:
 
-Toggle navigation
+* [Create a New Package](#create-a-new-package)
+* [Directory Structure](#directory-structure)
+* [Compiling the Package](#compiling-the-package)
+* [Running Tests](#running-tests)
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsecurity%2Fadvanced-security%2Fcode-security)
+## Create a New Package[​](#create-a-new-package "Direct link to Create a New Package")
 
-Search or jump to...
+To create a new program, we will use the sui move new command followed by the name of the
+application. Our first program will be called hello\_world.
 
+> Note: In this and other chapters, if you see code blocks with lines starting with $ (dollar
+> sign), it means that the following command should be run in a terminal. The sign should not be
+> included. It's a common way of showing commands in terminal environments.
 
-# Search code, repositories, users, issues, pull requests...
+```move
+$ sui move new hello_world
+```
 
-Search
+The sui move command gives access to the Move CLI - a built-in compiler, test runner and a utility
+for all things Move. The new command followed by the name of the package will create a new package
+in a new folder. In our case, the folder name is "hello\_world".
 
-Clear
+We can view the contents of the folder to see that the package was created successfully.
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+```move
+$ ls -l hello_world  
+Move.toml  
+sources  
+tests
+```
 
-# Provide feedback
+## Directory Structure[​](#directory-structure "Direct link to Directory Structure")
 
-We read every piece of feedback, and take your input very seriously.
+Move CLI will create a scaffold of the application and pre-create the directory structure and all
+necessary files. Let's see what's inside.
 
+```move
+hello_world  
+├── Move.toml  
+├── sources  
+│   └── hello_world.move  
+└── tests  
+    └── hello_world_tests.move
+```
 
-Include my email address so I can be contacted
+### Manifest[​](#manifest "Direct link to Manifest")
 
-Cancel
- Submit feedback
+The Move.toml file, known as the [package manifest](/concepts/manifest), contains definitions
+and configuration settings for the package. It is used by the Move Compiler to manage package
+metadata, fetch dependencies, and register named addresses. We will explain it in detail in the
+[Concepts](/concepts/) chapter.
 
+> By default, the package features one named address - the name of the package.
+
+```move
+[addresses]  
+hello_world = "0x0"
+```
+
+### Sources[​](#sources "Direct link to Sources")
 
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsecurity%2Fadvanced-security%2Fcode-security)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsecurity%2Fadvanced-security%2Fcode-security&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/6SiFEsFcSNSVFwDec4y0rk/b41cdd0e711a83aaf54906a605ebb520/Hero_Background.png?w=2400&fm=jpg&fl=progressive)
-
-GitHub Code Security
-
-# Application security where found means fixed
-
-Secure your code as you build with GitHub Code Security. Detect vulnerabilities early and fix them with Copilot Autofix.
-
-[Request a demo](https://github.com/security/advanced-security/demo?utm_campaign=Demo_utmroutercampaign&ref_cta=Request+demo&ref_loc=hero&ref_page=%2Fcode_security_lp&locale=en-US)[See plans & pricing](http://github.com/security/plans?ref_cta=pricing&ref_loc=hero&ref_page=%2Fcode_security_lp&locale=en-US)
-
-![What is GitHub code security?](//images.ctfassets.net/8aevphvgewt8/43jXBYtd5LT7pTnDQ78T0k/a9bedd38aaf28d6fa378b8ba245d4165/Code_Security_3.webp?fm=webp)
-
-What is GitHub code security?
-
-28 min From vulnerability detection to remediation
-
-3X Faster remediation on average with Copilot Autofix
-
-90%  Of alert types include AI-powered code suggestions
-
-## Detect and remediate vulnerabilities early with AI-powered fixes
-
-### Automate security checks
-
-Find security issues in real time with CodeQL’s powerful analysis that traces data flows throughout your application.
-
-[Learn more about CodeQL](https://securitylab.github.com/codeql-wall-of-fame/)
-
-![The image displays a code snippet from a JavaScript file named "collection.js" located in the "routes" directory. The code is highlighted in three steps, with Step 1 being the focus. In Step 1, the variable "jsonQuery" is assigned the value of "req.query.query". The code snippet includes four lines where variables are defined and assigned values from the request query object. The background has a gradient blue color.
-
-](//images.ctfassets.net/8aevphvgewt8/5tcgOQ47ZVKtlS5ZLQTfSc/a082c5b055f4dcf4fbbce9d784fb421a/Image_Area__60_40__6.webp)
-
-### Remediate at scale
-
-Get contextual explanations and AI-powered fixes for CodeQL-detected alerts with Copilot Autofix.
-
-[Explore Copilot Autofix](https://github.blog/news-insights/product-news/secure-code-more-than-three-times-faster-with-copilot-autofix)
-
-![The image displays a code snippet from a JavaScript file named "collection.js" located in the "routes" directory. The code is highlighted in three steps, with Step 1 being the focus. In Step 1, the variable "jsonQuery" is assigned the value of "req.query.query". The code snippet includes four lines where variables are defined and assigned values from the request query object. The background has a gradient blue color.
-
-](//images.ctfassets.net/8aevphvgewt8/UxNESVIVzwNkprfGDdbD9/09abcffcc719758be0ef2289d6b0009b/Image_Area__60_40__7.webp)
-
-### Reduce security debt
-
-GitHub Code Security continuously scans your code as you build, helping detect vulnerabilities early, fix them fast with Copilot Autofix, and ship securely.
-
-![The image displays a dashboard for an SQL injection (CWE-89) campaign aimed at remediating Cross-Site Scripting (XSS) vulnerabilities. The dashboard has three main sections: Campaign progress, Status, and Copilot Autofix.
-
-In the Campaign progress section, it shows 97% completion with 701 alerts, where 701 are closed and 13 are in progress. It also notes that the campaign started 20 days ago.
-
-The Status section indicates there are 7 days left until the deadline on November 15, 2024.
-
-The Copilot Autofix section mentions that there are 670 supported alerts and provides information about how Copilot Autofix can help fix these alerts automatically.](//images.ctfassets.net/8aevphvgewt8/3XtStULvvadAF4bh8QBOHc/df209619dbd649d798f086b7b271197b/Image_Area__60_40__8.webp)
-
-### Catch risks early
-
-Identify new dependencies and check for vulnerabilities or license issues with the Dependency Review Action.
-
-[Explore the Dependency Review Action](https://docs.github.com/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)
-
-![The image shows a "Dependency Review" report generated by the GitHub Actions bot. The report lists the following issues: 0 vulnerable packages, 1 package with incompatible licenses,  and 0 packages with unknown licenses. Each issue has a "Details" link next to it for more information.](//images.ctfassets.net/8aevphvgewt8/6CfGDEPnMef4Ww2bXpCpSH/88ea64c30d6b98119e6bc4bae6c4f008/Image_Area__60_40__9.webp)
-
-“
-
-> Copilot Autofix streamlines security by flagging vulnerabilities and suggesting fixes instantly, keeping code secure while freeing teams for strategic work.”
-
-![otto group logo](//images.ctfassets.net/8aevphvgewt8/3EeNpXDyraThGRpof1FGdB/5700b5a505e2b26d94216d52345f522f/Avatar_2.png?fm=webp&w=120&q=90)
-
-Mario Landgrafcommunity manager of security at Otto GmbH & Co. KGaA
-
-### Build secure software from day one
-
-Security should be built in, not bolted on. With Code Security, you can find, fix, and prevent vulnerabilities seamlessly—keeping your software resilient from development to deployment.
-
-[Request a demo](https://github.com/security/advanced-security/demo?utm_campaign=Demo_utmroutercampaign&ref_cta=Request+demo&ref_loc=footer&ref_page=%2Fcode_security_lp&locale=en-US)[See plans & pricing](http://github.com/security/plans?ref_cta=pricing&ref_loc=footer&ref_page=%2Fcode_security_lp&locale=en-US)
-
-## Best practices for more secure software
-
-### [Discover developer-first security](https://resources.github.com/security/supply-chain/shipping-fast-secure-supply-chain/)
-
-Take an in-depth look at the current state of application security.
-
-View the webinar
-
-### [Explore the DevSecOps guide](https://github.com/resources/whitepapers/the-enterprise-guide-to-ai-powered-devsecops?locale=en-US)
-
-Learn how to write more secure code from the start with DevSecOps.
-
-Read the whitepaper
-
-### [Avoid AppSec pitfalls](https://github.com/resources/whitepapers/three-appsec-pitfalls-security?locale=en-US)
-
-Explore common application security pitfalls and how to avoid them.
-
-Read the whitepaper
-
-### FAQs
-
-#### What is Code Security?
-
-GitHub Code Security empowers developers to secure their code without sacrificing speed. With built-in static analysis, AI-powered remediation, advanced dependency scanning, and proactive vulnerability management, teams can automatically detect, prioritize, and remediate security issues, all within their existing GitHub workflow—allowing them to deliver secure software faster and with greater confidence
-
-#### What is Copilot Autofix?
-
-Copilot Autofix uses AI-powered code suggestions to automatically fix security vulnerabilities identified by CodeQL. When a security vulnerability is detected, Copilot Autofix analyzes the code context, understands the underlying security issue, and generates a precise, contextually appropriate fix. This feature bridges the gap between vulnerability detection and remediation, enabling developers to review and apply AI-suggested fixes directly within their workflow.
-
-#### What are Security Campaigns?
-
-Security campaigns provide a structured framework for planning, tracking, and implementing security fixes across multiple repositories and teams allowing you to systematically burn down security debt. With With security campaigns, security teams can group related vulnerabilities, prioritize remediation efforts, assign ownership, and monitor progress through a unified dashboard. Security campaigns can be organized by vulnerability type, security initiative, compliance requirement, or any other logical grouping to coordinate security improvements at scale.
-
-#### What is dependency analysis?
-
-Dependency review scans pull requests for vulnerable dependencies before they're introduced into your codebase. It evaluates the security impact of dependency changes, identifying vulnerable packages and their severity levels to prevent security issues from being merged. The tool shows detailed dependency changes by comparing the base and head branches, highlighting added, removed, and updated dependencies along with their known vulnerabilities
-
-#### What is EPSS?
-
-Dependabot alerts now feature the Exploit Prediction Scoring System (EPSS) from the global Forum of Incident Response and Security Teams (FIRST), helping better assess vulnerability risks. EPSS helps organizations prioritize vulnerability remediation by predicting the likelihood of a vulnerability being exploited in the next 30 days. It provides a score ranging from 0 to 1 (0-100%), alongside a percentile ranking to indicate how the vulnerability compares to others.
-
-
-
-
-You can’t perform that action at this time.
+The sources/ directory contains the source files. Move source files have *.move* extension, and
+are typically named after the module defined in the file. For example, in our case, the file name is
+*hello\_world.move* and the Move CLI has already placed commented out code inside:
+
+```move
+/*  
+/// Module: hello_world  
+module hello_world::hello_world;  
+*/
+```
+
+> The /\* and \*/ are the comment delimiters in Move. Everything in between is ignored by the
+> compiler and can be used for documentation or notes. We explain all ways to comment the code in
+> the [Basic Syntax](/move-basics/comments).
+
+The commented out code is a module definition, it starts with the keyword module followed by a
+named address (or an address literal), and the module name. The module name is a unique identifier
+for the module and has to be unique within the package. The module name is used to reference the
+module from other modules or transactions.
+
+### Tests[​](#tests "Direct link to Tests")
+
+The tests/ directory contains package tests. The compiler excludes these files in the regular
+build process but uses them in *test* and *dev* modes. The tests are written in Move and are marked
+with the #[test] attribute. Tests can be grouped in a separate module (then it's usually called
+*module\_name\_tests.move*), or inside the module they're testing.
+
+Modules, imports, constants and functions can be annotated with #[test\_only]. This attribute is
+used to exclude modules, functions or imports from the build process. This is useful when you want
+to add helpers for your tests without including them in the code that will be published on chain.
+
+The *hello\_world\_tests.move* file contains a commented out test module template:
+
+```move
+/*  
+#[test_only]  
+module hello_world::hello_world_tests;  
+// uncomment this line to import the module  
+// use hello_world::hello_world;  
+  
+const ENotImplemented: u64 = 0;  
+  
+#[test]  
+fun test_hello_world() {  
+    // pass  
+}  
+  
+#[test, expected_failure(abort_code = hello_world::hello_world_tests::ENotImplemented)]  
+fun test_hello_world_fail() {  
+    abort ENotImplemented  
+}  
+*/
+```
+
+### Other Folders[​](#other-folders "Direct link to Other Folders")
+
+Additionally, Move CLI supports the examples/ folder. The files there are treated similarly to the
+ones placed under the tests/ folder - they're only built in the *test* and *dev* modes. They are
+to be examples of how to use the package or how to integrate it with other packages. The most
+popular use case is for documentation purposes and library packages.
+
+## Compiling the Package[​](#compiling-the-package "Direct link to Compiling the Package")
+
+Move is a compiled language, and as such, it requires the compilation of source files into Move
+Bytecode. It contains only necessary information about the module, its members, and types, and
+excludes comments and some identifiers (for example, for constants).
+
+To demonstrate these features, let's replace the contents of the *sources/hello\_world.move* file
+with the following:
+
+```move
+/// The module `hello_world` under named address `hello_world`.  
+/// The named address is set in the `Move.toml`.  
+module hello_world::hello_world;  
+  
+// Imports the `String` type from the Standard Library  
+use std::string::String;  
+  
+/// Returns the "Hello World!" as a `String`.  
+public fun hello_world(): String {  
+    b"Hello, World!".to_string()  
+}
+```
+
+During compilation, the code is built, but not run. A compiled package only includes functions that
+can be called by other modules or in a transaction. We will explain these concepts in the
+[Concepts](/concepts/) chapter. But now, let's see what happens when we run the *sui move build*.
+
+```move
+# run from the `hello_world` folder  
+$ sui move build  
+  
+# alternatively, if you didn't `cd` into it  
+$ sui move build --path hello_world
+```
+
+It should output the following message on your console.
+
+```move
+UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git  
+INCLUDING DEPENDENCY Bridge  
+INCLUDING DEPENDENCY DeepBook  
+INCLUDING DEPENDENCY SuiSystem  
+INCLUDING DEPENDENCY Sui  
+INCLUDING DEPENDENCY MoveStdlib  
+BUILDING hello_world
+```
+
+During the compilation, Move Compiler automatically creates a build folder where it places all
+fetched and compiled dependencies as well as the bytecode for the modules of the current package.
+
+> If you're using a versioning system, such as Git, build folder should be ignored. For example, you
+> should use a .gitignore file and add build to it.
+
+## Running Tests[​](#running-tests "Direct link to Running Tests")
+
+Before we get to testing, we should add a test. Move Compiler supports tests written in Move and
+provides the execution environment. The tests can be placed in both the source files and in the
+tests/ folder. Tests are marked with the #[test] attribute and are automatically discovered by
+the compiler. We explain tests in depth in the [Testing](/move-basics/testing) section.
+
+Replace the contents of the tests/hello\_world\_tests.move with the following content:
+
+```move
+#[test_only]  
+module hello_world::hello_world_tests;  
+  
+use std::unit_test::assert_eq;  
+  
+use hello_world::hello_world;  
+  
+#[test]  
+fun test_hello_world() {  
+    assert_eq!(hello_world::hello_world(), b"Hello, World!".to_string());  
+}
+```
+
+Here we import the hello\_world module, and call its hello\_world function to test that the output
+is indeed the string "Hello, World!". Now, that we have tests in place, let's compile the package in
+the test mode and run tests. Move CLI has the test command for this:
+
+```move
+$ sui move test
+```
+
+The output should be similar to the following:
+
+```move
+INCLUDING DEPENDENCY Bridge  
+INCLUDING DEPENDENCY DeepBook  
+INCLUDING DEPENDENCY SuiSystem  
+INCLUDING DEPENDENCY Sui  
+INCLUDING DEPENDENCY MoveStdlib  
+BUILDING hello_world  
+Running Move unit tests  
+[ PASS    ] 0x0::hello_world_tests::test_hello_world  
+Test result: OK. Total tests: 1; passed: 1; failed: 0
+```
+
+If you're running the tests outside of the package folder, you can specify the path to the package:
+
+```move
+$ sui move test --path hello_world
+```
+
+You can also run a single or multiple tests at once by specifying a string. All the tests names
+containing the string will be run:
+
+```move
+$ sui move test test_hello
+```
+
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+In this section, we explained the basics of a Move package: its structure, the manifest, the build,
+and test flows. [On the next page](/your-first-move/hello-sui), we will write an application and see how the code
+is structured and what the language can do.
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [Package Manifest](/concepts/manifest) section
+* Package in [The Move Reference](/reference/packages)
+
+* [Create a New Package](#create-a-new-package)
+* [Directory Structure](#directory-structure)
+  + [Manifest](#manifest)
+  + [Sources](#sources)
+  + [Tests](#tests)
+  + [Other Folders](#other-folders)
+* [Compiling the Package](#compiling-the-package)
+* [Running Tests](#running-tests)
+* [Next Steps](#next-steps)
+* [Further Reading](#further-reading)

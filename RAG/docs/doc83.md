@@ -1,119 +1,161 @@
-Projects · move · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Better Error Handling | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
-## Navigation Menu
+# Better Error Handling
 
-Toggle navigation
+Whenever execution encounters an abort, transaction fails and abort code is returned to the caller.
+Move VM returns the module name that aborted the transaction and the abort code. This behavior is
+not fully transparent to the caller of the transaction, especially when a single function contains
+multiple calls to the same function which may abort. In this case, the caller will not know which
+call aborted the transaction, and it will be hard to debug the issue or provide meaningful error
+message to the user.
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fprojects%3Fquery%3Dis%253Aopen)
+```move
+module book::module_a;  
+  
+use book::module_b;  
+  
+public fun do_something() {  
+    let field_1 = module_b::get_field(1); // may abort with 0  
+    /* ... a lot of logic ... */  
+    let field_2 = module_b::get_field(2); // may abort with 0  
+    /* ... some more logic ... */  
+    let field_3 = module_b::get_field(3); // may abort with 0  
+}
+```
 
-Appearance settings
+The example above illustrates the case when a single function contains multiple calls which may
+abort. If the caller of the do\_something function receives an abort code 0, it will be hard to
+understand which call to module\_b::get\_field aborted the transaction. To address this problem,
+there are common patterns that can be used to improve error handling.
 
-Search or jump to...
+## Rule 1: Handle All Possible Scenarios[​](#rule-1-handle-all-possible-scenarios "Direct link to Rule 1: Handle All Possible Scenarios")
 
+It is considered a good practice to provide a safe "check" function that returns a boolean value
+indicating whether an operation can be performed safely. If the module\_b provides a function
+has\_field that returns a boolean value indicating whether a field exists, the do\_something
+function can be rewritten as follows:
 
-# Search code, repositories, users, issues, pull requests...
+```move
+module book::module_a;  
+  
+use book::module_b;  
+  
+const ENoField: u64 = 0;  
+  
+public fun do_something() {  
+    assert!(module_b::has_field(1), ENoField);  
+    let field_1 = module_b::get_field(1);  
+    /* ... */  
+    assert!(module_b::has_field(2), ENoField);  
+    let field_2 = module_b::get_field(2);  
+    /* ... */  
+    assert!(module_b::has_field(3), ENoField);  
+    let field_3 = module_b::get_field(3);  
+}
+```
 
-Search
+By adding custom checks before each call to module\_b::get\_field, the developer of the module\_a
+takes control over the error handling. And it allows implementing the second rule.
 
-Clear
+## Rule 2: Abort with Different Codes[​](#rule-2-abort-with-different-codes "Direct link to Rule 2: Abort with Different Codes")
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+The second trick, once the abort codes are handled by the caller module, is to use different abort
+codes for different scenarios. This way, the caller module can provide a meaningful error message to
+the user. The module\_a can be rewritten as follows:
 
-# Provide feedback
+```move
+module book::module_a;  
+  
+use book::module_b;  
+  
+const ENoFieldA: u64 = 0;  
+const ENoFieldB: u64 = 1;  
+const ENoFieldC: u64 = 2;  
+  
+public fun do_something() {  
+    assert!(module_b::has_field(1), ENoFieldA);  
+    let field_1 = module_b::get_field(1);  
+    /* ... */  
+    assert!(module_b::has_field(2), ENoFieldB);  
+    let field_2 = module_b::get_field(2);  
+    /* ... */  
+    assert!(module_b::has_field(3), ENoFieldC);  
+    let field_3 = module_b::get_field(3);  
+}
+```
 
-We read every piece of feedback, and take your input very seriously.
+Now, the caller module can provide a meaningful error message to the user. If the caller receives an
+abort code 0, it can be translated to "Field 1 does not exist". If the caller receives an abort
+code 1, it can be translated to "Field 2 does not exist". And so on.
 
+## Rule 3: Return bool Instead of assert[​](#rule-3-return-bool-instead-of-assert "Direct link to rule-3-return-bool-instead-of-assert")
 
-Include my email address so I can be contacted
+A developer is often tempted to add a public function that would assert all the conditions and abort
+the execution. However, it is a better practice to create a function that returns a boolean value
+instead. This way, the caller module can handle the error and provide a meaningful error message to
+the user.
 
-Cancel
- Submit feedback
+```move
+module book::some_app_assert;  
+  
+const ENotAuthorized: u64 = 0;  
+  
+public fun do_a() {  
+    assert_is_authorized();  
+    // ...  
+}  
+  
+public fun do_b() {  
+    assert_is_authorized();  
+    // ...  
+}  
+  
+/// Don't do this  
+public fun assert_is_authorized() {  
+    assert!(/* some condition */ true, ENotAuthorized);  
+}
+```
 
+This module can be rewritten as follows:
 
+```move
+module book::some_app;  
+  
+const ENotAuthorized: u64 = 0;  
+  
+public fun do_a() {  
+    assert!(is_authorized(), ENotAuthorized);  
+    // ...  
+}  
+  
+public fun do_b() {  
+    assert!(is_authorized(), ENotAuthorized);  
+    // ...  
+}  
+  
+public fun is_authorized(): bool {  
+    /* some condition */ true  
+}  
+  
+// a private function can still be used to avoid code duplication for a case  
+// when the same condition with the same abort code is used in multiple places  
+fun assert_is_authorized() {  
+    assert!(is_authorized(), ENotAuthorized);  
+}
+```
 
+Utilizing these three rules will make the error handling more transparent to the caller of the
+transaction, and it will allow other developers to use custom abort codes in their modules.
 
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fprojects%3Fquery%3Dis%253Aopen)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Frepos%2Fmemexes%2Findex&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-# diem/move projects
-
-Projects
-
-
-
-[Projects](/diem/move/projects)
-[Templates](/diem/move/projects?query=is%3Aopen+is%3Atemplate)
-
-Search all projects
-
-## Search results
-
-0 open and 0 closed projects found.
-
-[Open 0](/diem/move/projects?is_search=true&query=is%3Aopen) [Closed 0](/diem/move/projects?is_search=true&query=is%3Aclosed)
-
- 
-Sort
-
-
-
-* [Recently updated](/diem/move/projects?is_search=true&query=is%3Aopen?type=new&query=is:open sort:updated-desc)
-* [Newest](/diem/move/projects?is_search=true&query=is%3Aopen?type=new&query=is:open sort:created-desc)
-* [Oldest](/diem/move/projects?is_search=true&query=is%3Aopen?type=new&query=is:open sort:created-asc)
-* [Least recently updated](/diem/move/projects?is_search=true&query=is%3Aopen?type=new&query=is:open sort:updated-asc)
-* [Name](/diem/move/projects?is_search=true&query=is%3Aopen?type=new&query=is:open sort:title-asc)
-
-* ## No open projects
-
-You can’t perform that action at this time.
+* [Rule 1: Handle All Possible Scenarios](#rule-1-handle-all-possible-scenarios)
+* [Rule 2: Abort with Different Codes](#rule-2-abort-with-different-codes)
+* [Rule 3: Return `bool` Instead of `assert`](#rule-3-return-bool-instead-of-assert)

@@ -1,891 +1,147 @@
-community · Discussions · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fcommunity%2Fdiscussions)
-
-Appearance settings
-
-[community](/community)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Forgs%2Fcommunity%2Fdiscussions)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Forgs%2Fdiscussions%2Findex&source=header-repo&source_repo=community%2Fcommunity)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-# [@community GitHub Community](/community)
-
-# community community Discussions
-
-## Pinned Discussions
-
-* ![Akash1134](https://avatars.githubusercontent.com/u/95834130?s=32&v=4)
-
-  ### [November 2025 Copilot Roundup](/orgs/community/discussions/180828)
-
-   [💭
-  Copilot Conversations](/orgs/community/discussions?discussions_q=category%3A%22Copilot+Conversations%22)
-  ·
-   [Akash1134](/Akash1134)
-* ![shinybrightstar](https://avatars.githubusercontent.com/u/88844700?s=32&v=4)
-
-  ### [GitHub Codespaces Billing Guide](/orgs/community/discussions/181042)
-
-   [💻
-  Codespaces](/orgs/community/discussions?discussions_q=category%3A%22Codespaces%22)
-  ·
-   [shinybrightstar](/shinybrightstar)
-* ![ebndev](https://avatars.githubusercontent.com/u/164093511?s=32&v=4)
-
-  ### [Notifications triggered by spam accounts are now correctly hidden](/orgs/community/discussions/180956)
-
-   [💬
-  General](/orgs/community/discussions?discussions_q=category%3A%22General%22)
-  ·
-   [ebndev](/ebndev)
-* ![mecodeatlas](https://avatars.githubusercontent.com/u/184282461?s=32&v=4)
-
-  ### [🗣️ Discussions recap: your must read before the end of the year](/orgs/community/discussions/181435)
-
-   [🗣️
-  Discussions](/orgs/community/discussions?discussions_q=category%3A%22Discussions%22)
-  ·
-   [mecodeatlas](/mecodeatlas)
-
-Search all discussions
-
-Clear
-
-Sort by:
-Latest activity
-
-
-
-[Latest activity](/orgs/community/discussions)
-[Date created](/orgs/community/discussions?discussions_q=sort%3Adate_created)
-[Top: Past day](/orgs/community/discussions?discussions_q=sort%3Atop+created%3A%3E%3D2025-12-12)
-[Top: Past week](/orgs/community/discussions?discussions_q=sort%3Atop+created%3A%3E%3D2025-12-06)
-[Top: Past month](/orgs/community/discussions?discussions_q=sort%3Atop+created%3A%3E%3D2025-11-13)
-[Top: Past year](/orgs/community/discussions?discussions_q=sort%3Atop+created%3A%3E%3D2024-12-13)
-[Top: All](/orgs/community/discussions?discussions_q=sort%3Atop)
-
-Label
-
-
-
-# Filter by label
-
-## Sorry, something went wrong.
-
-Filter
-
-Loading
-
-## Sorry, something went wrong.
-
-### Uh oh!
-
-There was an error while loading. Please reload this page.
-
-## No labels found. Sorry about that.
-
-Use `alt` + `click/return` to exclude labels.
-
-Filter
-
-
-
-* [Open](/orgs/community/discussions?discussions_q=is%3Aopen)
-* [Closed](/orgs/community/discussions?discussions_q=is%3Aclosed)
-* [Locked](/orgs/community/discussions?discussions_q=is%3Alocked)
-* [Unlocked](/orgs/community/discussions?discussions_q=is%3Aunlocked)
-* [Answered](/orgs/community/discussions?discussions_q=is%3Aanswered)
-* [Unanswered](/orgs/community/discussions?discussions_q=is%3Aunanswered)
-* [Verified](/orgs/community/discussions?discussions_q=is%3Averified)
-* [All](/orgs/community/discussions?discussions_q=)
-
-## Categories
-
-Loading
-
-### Uh oh!
-
-There was an error while loading. Please reload this page.
-
-* [Code of conduct](/community/community/blob/95989531d640a698e4588083df02aec09483a9b1/CODE_OF_CONDUCT.md)
-
-## Discussions
-
-* 2
-   You must be logged in to vote
-
-  🧑‍💻
-
-  ### [Biome vs ESLint — Which one do you prefer and why?](/orgs/community/discussions/176140)
-
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-  [Programming Help](/orgs/community/discussions?discussions_q=label%3A%22Programming+Help%22)
-  Discussions around programming languages, open source and software development
-
-  [Abdullah-dev0](/Abdullah-dev0)
-  asked
-  Oct 7, 2025
-   in 
-  [Programming Help](/orgs/community/discussions/categories/programming-help)
-
-
-  · Answered
-
-  [![@Abdullah-dev0](https://avatars.githubusercontent.com/u/116773738?s=60&v=4)](/Abdullah-dev0)
-  [![@tmilost](https://avatars.githubusercontent.com/u/46928715?s=60&v=4)](/tmilost)[![@jdmarshall](https://avatars.githubusercontent.com/u/1656505?s=60&v=4)](/jdmarshall)
-
-  [![@Abdullah-dev0](https://avatars.githubusercontent.com/u/116773738?s=60&v=4)](/Abdullah-dev0)
-  [![@tmilost](https://avatars.githubusercontent.com/u/46928715?s=60&v=4)](/tmilost)[![@jdmarshall](https://avatars.githubusercontent.com/u/1656505?s=60&v=4)](/jdmarshall)
-
-  [4](/orgs/community/discussions/176140)
-* 15
-   You must be logged in to vote
-
-  💭
-
-  ### [Intellisense infinite loading](/orgs/community/discussions/143991)
-
-  [Bug](/orgs/community/discussions?discussions_q=label%3ABug)
-  GitHub or a GitHub feature is not working as intended
-  [Copilot](/orgs/community/discussions?discussions_q=label%3ACopilot)
-  Code accurately and faster with your AI powered pair-programmer.
-
-  [BelkassemR](/BelkassemR)
-  asked
-  Nov 8, 2024
-   in 
-  [Copilot Conversations](/orgs/community/discussions/categories/copilot-conversations)
-
-
-  · Unanswered
-
-  [![@BelkassemR](https://avatars.githubusercontent.com/u/39887202?s=60&v=4)](/BelkassemR)
-  [![@samchan6](https://avatars.githubusercontent.com/u/146149911?s=60&v=4)](/samchan6)[![@Oddward](https://avatars.githubusercontent.com/u/22635314?s=60&v=4)](/Oddward)
-
-  [![@BelkassemR](https://avatars.githubusercontent.com/u/39887202?s=60&v=4)](/BelkassemR)
-  [![@samchan6](https://avatars.githubusercontent.com/u/146149911?s=60&v=4)](/samchan6)[![@Oddward](https://avatars.githubusercontent.com/u/22635314?s=60&v=4)](/Oddward)
-
-  [15](/orgs/community/discussions/143991)
-* 23
-   You must be logged in to vote
-
-  🧠
-
-  ### [Proposal to integrate the open-source GLM-4.6 model into GitHub Copilot](/orgs/community/discussions/175836)
-
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-  [Models](/orgs/community/discussions?discussions_q=label%3AModels)
-  Discussions related to GitHub Models
-
-  [gogo25171](/gogo25171)
-  asked
-  Oct 5, 2025
-   in 
-  [Models](/orgs/community/discussions/categories/models)
-
-
-  · Answered
-
-  [![@gogo25171](https://avatars.githubusercontent.com/u/31017668?s=60&v=4)](/gogo25171)
-  [![@geoarda](https://avatars.githubusercontent.com/u/215733622?s=60&v=4)](/geoarda)[![@NaTo1000](https://avatars.githubusercontent.com/u/213080620?s=60&v=4)](/NaTo1000)
-
-  [![@gogo25171](https://avatars.githubusercontent.com/u/31017668?s=60&v=4)](/gogo25171)
-  [![@geoarda](https://avatars.githubusercontent.com/u/215733622?s=60&v=4)](/geoarda)[![@NaTo1000](https://avatars.githubusercontent.com/u/213080620?s=60&v=4)](/NaTo1000)
-
-  [3](/orgs/community/discussions/175836)
-* 1
-   You must be logged in to vote
-
-  💭
-
-  ### [How to make Copilot use pull request template when generating PR title and description with GitHub Pull Request extension?](/orgs/community/discussions/181819)
-
-  [VS Code](/orgs/community/discussions?discussions_q=label%3A%22VS+Code%22)
-  View and incorporate suggestions from GitHub Copilot directly within the VS Code editor.
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [szymonnowak-st](/szymonnowak-st)
-  asked
-  Dec 13, 2025
-   in 
-  [Copilot Conversations](/orgs/community/discussions/categories/copilot-conversations)
-
-
-  · Unanswered
-
-  [![@szymonnowak-st](https://avatars.githubusercontent.com/u/107425534?s=60&v=4)](/szymonnowak-st)
-
-  [![@szymonnowak-st](https://avatars.githubusercontent.com/u/107425534?s=60&v=4)](/szymonnowak-st)
-
-  [0](/orgs/community/discussions/181819)
-* 1
-   You must be logged in to vote
-
-  🎒
-
-  ### [[Issue] Cannot Re-verify Academic Status: Infinite redirect loop to /pricing page](/orgs/community/discussions/181815)
-
-  [Seusu1](/Seusu1)
-  asked
-  Dec 13, 2025
-   in 
-  [GitHub Education](/orgs/community/discussions/categories/github-education)
-
-
-  · Unanswered
-
-  [![@Seusu1](https://avatars.githubusercontent.com/u/105909671?s=60&v=4)](/Seusu1)
-  [![@flexycode](https://avatars.githubusercontent.com/u/35078433?s=60&v=4)](/flexycode)
-
-  [![@Seusu1](https://avatars.githubusercontent.com/u/105909671?s=60&v=4)](/Seusu1)
-  [![@flexycode](https://avatars.githubusercontent.com/u/35078433?s=60&v=4)](/flexycode)
-
-  [2](/orgs/community/discussions/181815)
-* 33
-   You must be logged in to vote
-
-  💭
-
-  ### [Claude Opus 4.5 multiplier already at 3x instead of 1x?](/orgs/community/discussions/181133)
-
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-  [Copilot in GitHub](/orgs/community/discussions?discussions_q=label%3A%22Copilot+in+GitHub%22)
-  Copilot functionality in GitHub Copilot Chat and in github.com
-  [Opus 4.5 multiplier update](/orgs/community/discussions?discussions_q=label%3A%22Opus+4.5+multiplier+update%22)
-  Discussions around Opus 4.5 multiplier update
-
-  [Lennard00](/Lennard00)
-  asked
-  Dec 4, 2025
-   in 
-  [Copilot Conversations](/orgs/community/discussions/categories/copilot-conversations)
-
-
-  · Unanswered
-
-  [![@Lennard00](https://avatars.githubusercontent.com/u/67950860?s=60&v=4)](/Lennard00)
-  [![@Rxyanlaw](https://avatars.githubusercontent.com/u/20958511?s=60&v=4)](/Rxyanlaw)[![@Dinuka-Nonis](https://avatars.githubusercontent.com/u/182443256?s=60&v=4)](/Dinuka-Nonis)
-
-  [![@Lennard00](https://avatars.githubusercontent.com/u/67950860?s=60&v=4)](/Lennard00)
-  [![@Rxyanlaw](https://avatars.githubusercontent.com/u/20958511?s=60&v=4)](/Rxyanlaw)[![@Dinuka-Nonis](https://avatars.githubusercontent.com/u/182443256?s=60&v=4)](/Dinuka-Nonis)
-
-  [49](/orgs/community/discussions/181133)
-* 2
-   You must be logged in to vote
-
-  🎒
-
-  ### [Student Pack Verification Issue – OMSCS (Georgia Tech) Remote Student](/orgs/community/discussions/181782)
-
-  [TamaraAlhajj](/TamaraAlhajj)
-  asked
-  Dec 12, 2025
-   in 
-  [GitHub Education](/orgs/community/discussions/categories/github-education)
-
-
-  · Unanswered
-
-  [![@TamaraAlhajj](https://avatars.githubusercontent.com/u/25313189?s=60&v=4)](/TamaraAlhajj)
-  [![@adrife94](https://avatars.githubusercontent.com/u/46284913?s=60&v=4)](/adrife94)
-
-  [![@TamaraAlhajj](https://avatars.githubusercontent.com/u/25313189?s=60&v=4)](/TamaraAlhajj)
-  [![@adrife94](https://avatars.githubusercontent.com/u/46284913?s=60&v=4)](/adrife94)
-
-  [1](/orgs/community/discussions/181782)
-* 53
-   You must be logged in to vote
-
-  🚢
-
-  ### [Error: refusing to allow a GitHub App to create or update workflow](/orgs/community/discussions/35410)
-
-  [Product Feedback](/orgs/community/discussions?discussions_q=label%3A%22Product+Feedback%22)
-  Share your thoughts and suggestions on GitHub features and improvements
-
-  [lktslionel](/lktslionel)
-  asked
-  Oct 7, 2022
-   in 
-  [Actions](/orgs/community/discussions/categories/actions)
-
-
-  · Unanswered
-
-  [![@lktslionel](https://avatars.githubusercontent.com/u/16895729?s=60&v=4)](/lktslionel)
-  [![@kammce](https://avatars.githubusercontent.com/u/4549768?s=60&v=4)](/kammce)[![@pie972](https://avatars.githubusercontent.com/u/78828566?s=60&v=4)](/pie972)
-
-  [![@lktslionel](https://avatars.githubusercontent.com/u/16895729?s=60&v=4)](/lktslionel)
-  [![@kammce](https://avatars.githubusercontent.com/u/4549768?s=60&v=4)](/kammce)[![@pie972](https://avatars.githubusercontent.com/u/78828566?s=60&v=4)](/pie972)
-
-  [51](/orgs/community/discussions/35410)
-* 20
-   You must be logged in to vote
-
-  ⭐
-
-  ### [How GitHub Next took Copilot Workspace from concept to code](/orgs/community/discussions/142971)
-
-  [AI or ML Model](/orgs/community/discussions?discussions_q=label%3A%22AI+or+ML+Model%22)
-  Question about a specific model or I’ve created a new one to share
-  [Speaker](/orgs/community/discussions?discussions_q=label%3ASpeaker)
-  Authored by GitHub Universe speakers: Ask questions or provide feedback on the session/workshop
-  [Universe 2024](/orgs/community/discussions?discussions_q=label%3A%22Universe+2024%22)
-  githubuniverse.com Oct. 29-30
-
-  [chrisr3ddington](/chrisr3ddington)
-  started
-  Oct 29, 2024
-   in 
-  [Universe](/orgs/community/discussions/categories/universe)
-
-  [![@chrisr3ddington](https://avatars.githubusercontent.com/u/186418949?s=60&v=4)](/chrisr3ddington)
-  [![@lclindeman](https://avatars.githubusercontent.com/u/3505798?s=60&v=4)](/lclindeman)[![@Sauhard04](https://avatars.githubusercontent.com/u/126935613?s=60&v=4)](/Sauhard04)
-
-  [![@chrisr3ddington](https://avatars.githubusercontent.com/u/186418949?s=60&v=4)](/chrisr3ddington)
-  [![@lclindeman](https://avatars.githubusercontent.com/u/3505798?s=60&v=4)](/lclindeman)[![@Sauhard04](https://avatars.githubusercontent.com/u/126935613?s=60&v=4)](/Sauhard04)
-
-  [12](/orgs/community/discussions/142971)
-* 2
-   You must be logged in to vote
-
-  💬
-
-  ### [How to use digital marketing Diversion?](/orgs/community/discussions/135601)
-
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [DkJing09](/DkJing09)
-  asked
-  Aug 13, 2024
-   in 
-  [General](/orgs/community/discussions/categories/general)
-
-
-  · Unanswered
-
-  [![@DkJing09](https://avatars.githubusercontent.com/u/178248194?s=60&v=4)](/DkJing09)
-  [![@akshansh2312](https://avatars.githubusercontent.com/u/169485560?s=60&v=4)](/akshansh2312)[![@Har9935489438](https://avatars.githubusercontent.com/u/175576207?s=60&v=4)](/Har9935489438)
-
-  [![@DkJing09](https://avatars.githubusercontent.com/u/178248194?s=60&v=4)](/DkJing09)
-  [![@akshansh2312](https://avatars.githubusercontent.com/u/169485560?s=60&v=4)](/akshansh2312)[![@Har9935489438](https://avatars.githubusercontent.com/u/175576207?s=60&v=4)](/Har9935489438)
-
-  [7](/orgs/community/discussions/135601)
-* 1
-   You must be logged in to vote
-
-  💭
-
-  ### [Suspected Bug: SSMS 22 Copilot integration caused massive usage spike (1,200+ requests in 1 day)](/orgs/community/discussions/181818)
-
-  [Bug](/orgs/community/discussions?discussions_q=label%3ABug)
-  GitHub or a GitHub feature is not working as intended
-  [Copilot in GitHub](/orgs/community/discussions?discussions_q=label%3A%22Copilot+in+GitHub%22)
-  Copilot functionality in GitHub Copilot Chat and in github.com
-
-  [easis](/easis)
-  asked
-  Dec 13, 2025
-   in 
-  [Copilot Conversations](/orgs/community/discussions/categories/copilot-conversations)
-
-
-  · Unanswered
-
-  [![@easis](https://avatars.githubusercontent.com/u/50383201?s=60&v=4)](/easis)
-
-  [![@easis](https://avatars.githubusercontent.com/u/50383201?s=60&v=4)](/easis)
-
-  [1](/orgs/community/discussions/181818)
-* 1
-   You must be logged in to vote
-
-  🤖
-
-  ### [Github copilot adding viruses to code](/orgs/community/discussions/181817)
-
-  [Code Security](/orgs/community/discussions?discussions_q=label%3A%22Code+Security%22)
-  Build security into your GitHub workflow with features to keep your codebase secure
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [coder-penguin-2012](/coder-penguin-2012)
-  asked
-  Dec 13, 2025
-   in 
-  [Code Security](/orgs/community/discussions/categories/code-security)
-
-
-  · Unanswered
-
-  [![@coder-penguin-2012](https://avatars.githubusercontent.com/u/201780551?s=60&v=4)](/coder-penguin-2012)
-
-  [![@coder-penguin-2012](https://avatars.githubusercontent.com/u/201780551?s=60&v=4)](/coder-penguin-2012)
-
-  [0](/orgs/community/discussions/181817)
-* 1
-   You must be logged in to vote
-
-  🎒
-
-  ### [Can I change my username after getting Github Education?](/orgs/community/discussions/181816)
-
-  [swapnaswarupsahoo](/swapnaswarupsahoo)
-  asked
-  Dec 13, 2025
-   in 
-  [GitHub Education](/orgs/community/discussions/categories/github-education)
-
-
-  · Unanswered
-
-  [![@swapnaswarupsahoo](https://avatars.githubusercontent.com/u/172181536?s=60&v=4)](/swapnaswarupsahoo)
-
-  [![@swapnaswarupsahoo](https://avatars.githubusercontent.com/u/172181536?s=60&v=4)](/swapnaswarupsahoo)
-
-  [0](/orgs/community/discussions/181816)
-* 1
-   You must be logged in to vote
-
-  🔎
-
-  ### [Hack](/orgs/community/discussions/181814)
-
-  [Code Search and Navigation](/orgs/community/discussions?discussions_q=label%3A%22Code+Search+and+Navigation%22)
-  Search, navigate, and understand code on GitHub
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [prashantvyahutwork-droid](/prashantvyahutwork-droid)
-  asked
-  Dec 13, 2025
-   in 
-  [Code Search and Navigation](/orgs/community/discussions/categories/code-search-and-navigation)
-
-
-  · Closed
-
-  · Answered
-
-  [![@prashantvyahutwork-droid](https://avatars.githubusercontent.com/u/248880435?s=60&v=4)](/prashantvyahutwork-droid)
-  [![@Prashant44-cell](https://avatars.githubusercontent.com/u/189773553?s=60&v=4)](/Prashant44-cell)
-
-  [![@prashantvyahutwork-droid](https://avatars.githubusercontent.com/u/248880435?s=60&v=4)](/prashantvyahutwork-droid)
-  [![@Prashant44-cell](https://avatars.githubusercontent.com/u/189773553?s=60&v=4)](/Prashant44-cell)
-
-  [2](/orgs/community/discussions/181814)
-* 1
-   You must be logged in to vote
-
-  🔎
-
-  ### [Coding platforms](/orgs/community/discussions/181813)
-
-  [Code Search and Navigation](/orgs/community/discussions?discussions_q=label%3A%22Code+Search+and+Navigation%22)
-  Search, navigate, and understand code on GitHub
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [prashantvyahutwork-droid](/prashantvyahutwork-droid)
-  asked
-  Dec 13, 2025
-   in 
-  [Code Search and Navigation](/orgs/community/discussions/categories/code-search-and-navigation)
-
-
-  · Closed
-
-  · Answered
-
-  [![@prashantvyahutwork-droid](https://avatars.githubusercontent.com/u/248880435?s=60&v=4)](/prashantvyahutwork-droid)
-  [![@Prashant44-cell](https://avatars.githubusercontent.com/u/189773553?s=60&v=4)](/Prashant44-cell)
-
-  [![@prashantvyahutwork-droid](https://avatars.githubusercontent.com/u/248880435?s=60&v=4)](/prashantvyahutwork-droid)
-  [![@Prashant44-cell](https://avatars.githubusercontent.com/u/189773553?s=60&v=4)](/Prashant44-cell)
-
-  [2](/orgs/community/discussions/181813)
-* 1
-   You must be logged in to vote
-
-  🔎
-
-  ### [AI tools](/orgs/community/discussions/181812)
-
-  [Code Search and Navigation](/orgs/community/discussions?discussions_q=label%3A%22Code+Search+and+Navigation%22)
-  Search, navigate, and understand code on GitHub
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [prashantvyahutwork-droid](/prashantvyahutwork-droid)
-  asked
-  Dec 13, 2025
-   in 
-  [Code Search and Navigation](/orgs/community/discussions/categories/code-search-and-navigation)
-
-
-  · Closed
-
-  · Answered
-
-  [![@prashantvyahutwork-droid](https://avatars.githubusercontent.com/u/248880435?s=60&v=4)](/prashantvyahutwork-droid)
-  [![@Prashant44-cell](https://avatars.githubusercontent.com/u/189773553?s=60&v=4)](/Prashant44-cell)
-
-  [![@prashantvyahutwork-droid](https://avatars.githubusercontent.com/u/248880435?s=60&v=4)](/prashantvyahutwork-droid)
-  [![@Prashant44-cell](https://avatars.githubusercontent.com/u/189773553?s=60&v=4)](/Prashant44-cell)
-
-  [2](/orgs/community/discussions/181812)
-* 1
-   You must be logged in to vote
-
-  💬
-
-  ### [Certified Logistics Technician (CLT) 4.0: Building Workforce Readiness for Modern Supply Chains](/orgs/community/discussions/181811)
-
-  [General](/orgs/community/discussions?discussions_q=label%3AGeneral)
-  General topics and discussions that don't fit into other categories, but are related to GitHub
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [arlolake](/arlolake)
-  asked
-  Dec 13, 2025
-   in 
-  [General](/orgs/community/discussions/categories/general)
-
-
-  · Unanswered
-
-  [![@arlolake](https://avatars.githubusercontent.com/u/221261895?s=60&v=4)](/arlolake)
-
-  [![@arlolake](https://avatars.githubusercontent.com/u/221261895?s=60&v=4)](/arlolake)
-
-  [0](/orgs/community/discussions/181811)
-* 1
-   You must be logged in to vote
-
-  💬
-
-  ### [White Label Bulk Whatsapp Sender Software](/orgs/community/discussions/38403)
-
-  [prateek761](/prateek761)
-  asked
-  Nov 6, 2022
-   in 
-  [General](/orgs/community/discussions/categories/general)
-
-
-  · Unanswered
-
-  [![@prateek761](https://avatars.githubusercontent.com/u/91269024?s=60&v=4)](/prateek761)
-  [![@jfullstackdev](https://avatars.githubusercontent.com/u/47092464?s=60&v=4)](/jfullstackdev)[![@samus-aran](https://avatars.githubusercontent.com/u/4041275?s=60&v=4)](/samus-aran)
-
-  [![@prateek761](https://avatars.githubusercontent.com/u/91269024?s=60&v=4)](/prateek761)
-  [![@jfullstackdev](https://avatars.githubusercontent.com/u/47092464?s=60&v=4)](/jfullstackdev)[![@samus-aran](https://avatars.githubusercontent.com/u/4041275?s=60&v=4)](/samus-aran)
-
-  [9](/orgs/community/discussions/38403)
-* 6
-   You must be logged in to vote
-
-  🎒
-
-  ### [Changes to the GitKraken Student Plan](/orgs/community/discussions/173802)
-
-  [📣 ANNOUNCEMENT](/orgs/community/discussions?discussions_q=label%3A%22%F0%9F%93%A3+ANNOUNCEMENT%22)
-  Announcements from the GitHub Community team
-  [Education Partnerships](/orgs/community/discussions?discussions_q=label%3A%22Education+Partnerships%22)
-  All things GitHub Education Partnerships including student offers, opportunities, events and more.
-
-  [adawright](/adawright)
-  asked
-  Sep 17, 2025
-   in 
-  [GitHub Education](/orgs/community/discussions/categories/github-education)
-
-
-  · Unanswered
-
-  [![@adawright](https://avatars.githubusercontent.com/u/68448533?s=60&v=4)](/adawright)
-  [![@gabriel-vanca](https://avatars.githubusercontent.com/u/16124883?s=60&v=4)](/gabriel-vanca)[![@Deveroonie](https://avatars.githubusercontent.com/u/74148830?s=60&v=4)](/Deveroonie)
-
-  [![@adawright](https://avatars.githubusercontent.com/u/68448533?s=60&v=4)](/adawright)
-  [![@gabriel-vanca](https://avatars.githubusercontent.com/u/16124883?s=60&v=4)](/gabriel-vanca)[![@Deveroonie](https://avatars.githubusercontent.com/u/74148830?s=60&v=4)](/Deveroonie)
-
-  [21](/orgs/community/discussions/173802)
-* 7
-   You must be logged in to vote
-
-  🐙
-
-  ### [Wiki links with relative paths resolve differently in preview and saved page](/orgs/community/discussions/5570)
-
-  [Issues](/orgs/community/discussions?discussions_q=label%3AIssues)
-  Repository issues let you track features, problems, and more alongside your code
-  [Product Feedback](/orgs/community/discussions?discussions_q=label%3A%22Product+Feedback%22)
-  Share your thoughts and suggestions on GitHub features and improvements
-
-  [mmannion](/mmannion)
-  asked
-  Sep 10, 2021
-   in 
-  [Projects and Issues](/orgs/community/discussions/categories/projects-and-issues)
-
-
-  · Unanswered
-
-  [![@mmannion](https://avatars.githubusercontent.com/u/4367508?s=60&v=4)](/mmannion)
-  [![@TWolversonReply](https://avatars.githubusercontent.com/u/94133561?s=60&v=4)](/TWolversonReply)[![@Kaloszer](https://avatars.githubusercontent.com/u/62133917?s=60&v=4)](/Kaloszer)
-
-  [![@mmannion](https://avatars.githubusercontent.com/u/4367508?s=60&v=4)](/mmannion)
-  [![@TWolversonReply](https://avatars.githubusercontent.com/u/94133561?s=60&v=4)](/TWolversonReply)[![@Kaloszer](https://avatars.githubusercontent.com/u/62133917?s=60&v=4)](/Kaloszer)
-
-  [4](/orgs/community/discussions/5570)
-* 2
-   You must be logged in to vote
-
-  🧑‍💻
-
-  ### [Special-Purpose Programming Language for the Financial Industry](/orgs/community/discussions/180159)
-
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-  [Programming Help](/orgs/community/discussions?discussions_q=label%3A%22Programming+Help%22)
-  Discussions around programming languages, open source and software development
-
-  [sramesh621](/sramesh621)
-  asked
-  Nov 22, 2025
-   in 
-  [Programming Help](/orgs/community/discussions/categories/programming-help)
-
-
-  · Closed
-
-  · Answered
-
-  [![@sramesh621](https://avatars.githubusercontent.com/u/22025647?s=60&v=4)](/sramesh621)
-  [![@andriiafanasiev](https://avatars.githubusercontent.com/u/133378386?s=60&v=4)](/andriiafanasiev)[![@26ryxn](https://avatars.githubusercontent.com/u/244187361?s=60&v=4)](/26ryxn)
-
-  [![@sramesh621](https://avatars.githubusercontent.com/u/22025647?s=60&v=4)](/sramesh621)
-  [![@andriiafanasiev](https://avatars.githubusercontent.com/u/133378386?s=60&v=4)](/andriiafanasiev)[![@26ryxn](https://avatars.githubusercontent.com/u/244187361?s=60&v=4)](/26ryxn)
-
-  [8](/orgs/community/discussions/180159)
-* 7
-   You must be logged in to vote
-
-  💭
-
-  ### [Claude Opus inserting spaces after decimals in variables](/orgs/community/discussions/180736)
-
-  [Bug](/orgs/community/discussions?discussions_q=label%3ABug)
-  GitHub or a GitHub feature is not working as intended
-  [Copilot in GitHub](/orgs/community/discussions?discussions_q=label%3A%22Copilot+in+GitHub%22)
-  Copilot functionality in GitHub Copilot Chat and in github.com
-
-  [fishwithfros](/fishwithfros)
-  asked
-  Nov 30, 2025
-   in 
-  [Copilot Conversations](/orgs/community/discussions/categories/copilot-conversations)
-
-
-  · Unanswered
-
-  [![@fishwithfros](https://avatars.githubusercontent.com/u/92711518?s=60&v=4)](/fishwithfros)
-  [![@bturner-cpacket](https://avatars.githubusercontent.com/u/69175736?s=60&v=4)](/bturner-cpacket)[![@justkelvin](https://avatars.githubusercontent.com/u/76160352?s=60&v=4)](/justkelvin)
-
-  [![@fishwithfros](https://avatars.githubusercontent.com/u/92711518?s=60&v=4)](/fishwithfros)
-  [![@bturner-cpacket](https://avatars.githubusercontent.com/u/69175736?s=60&v=4)](/bturner-cpacket)[![@justkelvin](https://avatars.githubusercontent.com/u/76160352?s=60&v=4)](/justkelvin)
-
-  [9](/orgs/community/discussions/180736)
-* 1
-   You must be logged in to vote
-
-  💭
-
-  ### [Token Limit](/orgs/community/discussions/181810)
-
-  [Bug](/orgs/community/discussions?discussions_q=label%3ABug)
-  GitHub or a GitHub feature is not working as intended
-  [Copilot in GitHub](/orgs/community/discussions?discussions_q=label%3A%22Copilot+in+GitHub%22)
-  Copilot functionality in GitHub Copilot Chat and in github.com
-
-  [WayneTechLab](/WayneTechLab)
-  asked
-  Dec 13, 2025
-   in 
-  [Copilot Conversations](/orgs/community/discussions/categories/copilot-conversations)
-
-
-  · Unanswered
-
-  [![@WayneTechLab](https://avatars.githubusercontent.com/u/199881977?s=60&v=4)](/WayneTechLab)
-
-  [![@WayneTechLab](https://avatars.githubusercontent.com/u/199881977?s=60&v=4)](/WayneTechLab)
-
-  [1](/orgs/community/discussions/181810)
-* 2
-   You must be logged in to vote
-
-  🗃️
-
-  ### [npm 2FA/OTP Issue: Unable to Retrieve One-Time Password](/orgs/community/discussions/181802)
-
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-  [npm](/orgs/community/discussions?discussions_q=label%3Anpm)
-  Discussions around programming langages, open source and software development
-
-  [Alexzjt](/Alexzjt)
-  asked
-  Dec 13, 2025
-   in 
-  [npm](/orgs/community/discussions/categories/npm)
-
-
-  · Unanswered
-
-  [![@Alexzjt](https://avatars.githubusercontent.com/u/9548248?s=60&v=4)](/Alexzjt)
-  [![@ynacastillo](https://avatars.githubusercontent.com/u/148332090?s=60&v=4)](/ynacastillo)
-
-  [![@Alexzjt](https://avatars.githubusercontent.com/u/9548248?s=60&v=4)](/Alexzjt)
-  [![@ynacastillo](https://avatars.githubusercontent.com/u/148332090?s=60&v=4)](/ynacastillo)
-
-  [1](/orgs/community/discussions/181802)
-* 3
-   You must be logged in to vote
-
-  💻
-
-  ### [An unexpected error occurred. Please contact support for more information.](/orgs/community/discussions/169670)
-
-  [Codespaces](/orgs/community/discussions?discussions_q=label%3ACodespaces)
-  Your development environment, in the cloud. Run VS Code and code on GitHub's cloud platform,
-  [Question](/orgs/community/discussions?discussions_q=label%3AQuestion)
-  Ask and answer questions about GitHub features and usage
-
-  [YM-cedars](/YM-cedars)
-  asked
-  Aug 13, 2025
-   in 
-  [Codespaces](/orgs/community/discussions/categories/codespaces)
-
-
-  · Unanswered
-
-  [![@YM-cedars](https://avatars.githubusercontent.com/u/225961598?s=60&v=4)](/YM-cedars)
-  [![@gauravborse1210](https://avatars.githubusercontent.com/u/143621246?s=60&v=4)](/gauravborse1210)[![@Shivay-coder1](https://avatars.githubusercontent.com/u/237571285?s=60&v=4)](/Shivay-coder1)
-
-  [![@YM-cedars](https://avatars.githubusercontent.com/u/225961598?s=60&v=4)](/YM-cedars)
-  [![@gauravborse1210](https://avatars.githubusercontent.com/u/143621246?s=60&v=4)](/gauravborse1210)[![@Shivay-coder1](https://avatars.githubusercontent.com/u/237571285?s=60&v=4)](/Shivay-coder1)
-
-  [6](/orgs/community/discussions/169670)
-
-Previous *1* [2](/orgs/community/discussions?page=2) [3](/orgs/community/discussions?page=3) [4](/orgs/community/discussions?page=4) [5](/orgs/community/discussions?page=5) … [3852](/orgs/community/discussions?page=3852) [3853](/orgs/community/discussions?page=3853) [Next](/orgs/community/discussions?page=2)
-
- 👍
-1
-  reacted with thumbs up emoji
-
- 👎
-1
-  reacted with thumbs down emoji
-
- 😄
-1
-  reacted with laugh emoji
-
- 🎉
-1
-  reacted with hooray emoji
-
- 😕
-1
-  reacted with confused emoji
-
- ❤️
-1
-  reacted with heart emoji
-
- 🚀
-1
-  reacted with rocket emoji
-
- 👀
-1
-  reacted with eyes emoji
-
-You can’t perform that action at this time.
+Testing | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Testing
+
+Testing is a crucial aspect of software development, especially in blockchain applications where
+security and correctness are paramount. In this section, we will cover the fundamentals of testing
+in Move, including how to write and organize tests effectively.
+
+## The #[test] Attribute[​](#the-test-attribute "Direct link to the-test-attribute")
+
+Tests in Move are functions marked with the #[test] attribute. This attribute tells the compiler
+that the function is a test function and should be run when tests are executed. Test functions are
+regular functions, but they must take no arguments and have no return value. They are excluded from
+the bytecode and are never published.
+
+```move
+module book::testing;  
+  
+#[test_only]  
+use std::unit_test::assert_eq;  
+  
+// The test attribute is placed before the `fun` keyword (can be both above or  
+// right before the `fun` keyword, as in `#[test] fun my_test() { ... }`)  
+// The name of the test in this case would be `book::testing::simple_test`.  
+#[test]  
+fun simple_test() {  
+    let sum = 2 + 2;  
+    assert_eq!(sum, 4);  
+}  
+  
+// The name of this test would be `book::testing::more_advanced_test`.  
+#[test] fun more_advanced_test() {  
+    let sum = 2 + 2 + 2;  
+    assert_eq!(sum, 4);  
+}
+```
+
+## Running Tests[​](#running-tests "Direct link to Running Tests")
+
+To run tests, you can use the sui move test command. This command will first build the package in
+*test mode* and then run all tests found in the package. In test mode, modules from both sources/
+and tests/ directories are processed and their tests executed.
+
+```move
+$ sui move test  
+> UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git  
+> INCLUDING DEPENDENCY Bridge  
+> INCLUDING DEPENDENCY DeepBook  
+> INCLUDING DEPENDENCY SuiSystem  
+> INCLUDING DEPENDENCY Sui  
+> INCLUDING DEPENDENCY MoveStdlib  
+> BUILDING book  
+> Running Move unit tests  
+> ...
+```
+
+## Test Fail Cases with #[expected\_failure][​](#test-fail-cases-with-expected_failure "Direct link to test-fail-cases-with-expected_failure")
+
+Tests for fail cases can be marked with #[expected\_failure]. This attribute, when added to a
+#[test] function, tells the compiler that the test is expected to fail. This is useful when you
+want to test that a function fails when a certain condition is met.
+
+> Note: This attribute can only be added to a #[test] function.
+
+The attribute can take an argument specifying the expected abort code that should be returned if the
+test fails. If the test returns an abort code different from the one specified in the argument, it
+will fail. Likewise, if execution does not result in an abort, the test will also fail.
+
+```move
+module book::testing_failure;  
+  
+const EInvalidArgument: u64 = 1;  
+  
+#[test]  
+#[expected_failure(abort_code = 0)]  
+fun test_fail() {  
+    abort 0 // aborts with code 0  
+}  
+  
+// attributes can be grouped together  
+#[test, expected_failure(abort_code = EInvalidArgument)]  
+fun test_fail_1() {  
+    abort EInvalidArgument // aborts with code EInvalidArgument  
+}
+```
+
+The abort\_code argument can use constants defined in the tests module as well as imported from
+other modules. This is the only case where constants can be used and "accessed" in other modules.
+
+## Utilities with #[test\_only][​](#utilities-with-test_only "Direct link to utilities-with-test_only")
+
+In some cases, it is helpful to give the test environment access to some internal functions or
+features. This simplifies the testing process and allows for more thorough testing. However, it is
+important to remember that these functions should not be included in the final package. This is
+where the #[test\_only] attribute comes in handy.
+
+```move
+module book::testing;  
+  
+#[test_only]  
+use std::unit_test::assert_eq;  
+  
+// Public function which uses the `secret` function.  
+public fun multiply_by_secret(x: u64): u64 {  
+    x * secret()  
+}  
+  
+/// Private function which is not available to the public.  
+fun secret(): u64 { 100 }  
+  
+#[test_only]  
+/// This function is only available for testing purposes in tests and other  
+/// test-only functions. Mind the visibility - for `#[test_only]` it is  
+/// common to use `public` visibility.  
+public fun secret_for_testing(): u64 {  
+    secret()  
+}  
+  
+#[test]  
+// In the test environment we have access to the `secret_for_testing` function.  
+fun test_multiply_by_secret() {  
+    let expected = secret_for_testing() * 2;  
+    assert_eq!(multiply_by_secret(2), expected);  
+}
+```
+
+Functions marked with the #[test\_only] will be available to the test environment, and to the other
+modules if their visibility is set to public.
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [Unit Testing](/reference/unit-testing) in the Move Reference.
+
+* [The `#[test]` Attribute](#the-test-attribute)
+* [Running Tests](#running-tests)
+* [Test Fail Cases with `#[expected_failure]`](#test-fail-cases-with-expected_failure)
+* [Utilities with `#[test_only]`](#utilities-with-test_only)
+* [Further Reading](#further-reading)

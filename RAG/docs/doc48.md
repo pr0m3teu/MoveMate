@@ -1,143 +1,60 @@
-GitHub Partner Program · GitHub
+Move - Language for Digital Assets | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Move - Language for Digital Assets
 
+Smart-contract programming languages have historically focused on defining and managing digital
+assets. For example, the ERC-20 standard in Ethereum pioneered a set of standards to interact with
+digital currency tokens, establishing a blueprint for creating and managing digital currencies on
+the blockchain. Subsequently, the introduction of the ERC-721 standard marked a significant
+evolution, popularizing the concept of non-fungible tokens (NFTs), which represent unique,
+indivisible assets. These standards laid the groundwork for the complex digital assets we see today.
 
+However, Ethereum's programming model lacked a native representation of assets. In other words,
+externally, a Smart Contract behaved like an asset, but the language itself did not have a way to
+inherently represent assets. From the start, Move aimed to provide a first-class abstraction for
+assets, opening up new avenues for thinking about and programming assets.
 
+It is important to highlight which properties are essential for an asset:
 
-## Navigation Menu
+* **Ownership:** Every asset is associated with an owner(s), mirroring the straightforward concept
+  of ownership in the physical world—just as you own a car, you can own a digital asset. Move
+  enforces ownership in such a way that once an asset is *moved*, the previous owner completely
+  loses any control over it. This mechanism ensures a clear and secure change of ownership.
+* **Non-copyable:** In the real world, unique items cannot be duplicated effortlessly. Move applies
+  this principle to digital assets, ensuring they cannot be arbitrarily copied within the program.
+  This property is crucial for maintaining the scarcity and uniqueness of digital assets, mirroring
+  the intrinsic value of physical assets.
+* **Non-discardable:** Just as you cannot accidentally lose a house or a car without a trace, Move
+  ensures that no asset can be discarded or lost in a program. Instead, assets must be explicitly
+  transferred or destroyed. This property guarantees the deliberate handling of digital assets,
+  preventing accidental loss and ensuring accountability in asset management.
 
-Toggle navigation
+Move managed to encapsulate these properties in its design, becoming an ideal language for digital
+assets.
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fpartners)
+## Summary[​](#summary "Direct link to Summary")
 
-Search or jump to...
+* Move was designed to provide a first-class abstraction for digital assets, enabling developers to
+  create and manage assets natively.
+* Essential properties of digital assets include ownership, non-copyability, and non-discardability,
+  which Move enforces in its design.
+* Move's asset model mirrors real-world asset management, ensuring secure and accountable asset
+  ownership and transfer.
 
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-# Search code, repositories, users, issues, pull requests...
+* [Move: A Language With Programmable Resources (pdf)](https://developers.diem.com/papers/diem-move-a-language-with-programmable-resources/2019-06-18.pdf)
+  by Sam Blackshear, Evan Cheng, David L. Dill, Victor Gao, Ben Maurer, Todd Nowacki, Alistair Pott,
+  Shaz Qadeer, Rain, Dario Russi, Stephane Sezer, Tim Zakian, Runtian Zhou\*
 
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fpartners)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fpartners&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/30SHUlFR4hmzjx68vU8F4q/3b7efc9281bd2f9dc383c95348215e24/yellow-bg.webp?w=2400&fm=jpg&fl=progressive)
-
-GitHub Partner Program
-
-# Building stronger solutions together
-
-Strengthen your market position, boost differentiation, and get access to specialist guidance across Technology, Service & Channel, Startups, and Education.
-
-[Explore Partner Programs](#programs)
-
-### Elevate your brand
-
-Enhance your credibility, gain industry recognition, and expand your market visibility by co-branding and messaging with GitHub.
-
-### Sharpen your skillset
-
-Leverage powerful training and enablement resources to earn certifications that differentiate you from the competition.
-
-### Optimize your solutions
-
-Engage GitHub experts and resources to refine, test, and improve performance.
-
-### Why partner with GitHub?
-
-Partner with GitHub to open doors, accelerate delivery, and win together.
-
-## GitHub Partner programs
-
-### [Technology Partners](https://github.com/partners/technology-partners?locale=en-US)
-
-Build innovative integrations and reach 100M+ developers.
-
-Learn more about Technology Partners
-
-### [Services & Channel Partners](https://github.com/partners/service-channel-partners?locale=en-US)
-
-Scale your business, expand customer reach, and unlock co-selling opportunities.
-
-Learn more about Services & Channel Partners
-
-### [Startup Partners](https://github.com/enterprise/startups?locale=en-US)
-
-Grow your portfolio with GitHub’s secure, AI-powered platform.
-
-Learn more about Startup Partners
-
-### [Education Partners](https://github.com/education/partners?locale=en-US)
-
-Empower learners and educators with GitHub tools.
-
-Learn more about Education Partners
-
-“
-
-> GitHub’s partner program gave us resources to reach new markets and build stronger solutions. Their AI leadership transformed how we build software. Being named Partner of the Year is a testament to this collaboration—and we’re just getting started.
-
-![Xebia logo](//images.ctfassets.net/8aevphvgewt8/p3EzT1nErp4YnPdSDXFPr/8393ce5d6d61941f0a3c3ce0973c1416/idhOfvYsS__1757700047410.svg?fm=webp&w=120&q=90)
-
-Marcel de VriesGlobal Managing Director & CTO at Xebia
-
-### Ready to grow with GitHub?
-
-Join a global community of innovators to build better together today.
-
-[Explore Partner Programs](#programs)
-
-
-
-
-You can’t perform that action at this time.
+* [Summary](#summary)
+* [Further Reading](#further-reading)

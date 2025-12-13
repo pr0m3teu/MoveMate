@@ -1,165 +1,170 @@
-App Modernization Solutions | GitHub · GitHub
+Primitive Types | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Primitive Types
 
+For simple values, Move has a number of built-in primitive types. They're the foundation for all
+other types. The primitive types are:
 
+* [Booleans](#booleans)
+* [Unsigned Integers](#integer-types)
+* [Addresses](/move-basics/address) - covered in the next section
 
+Before we get to the primitive types, let's first take a look at how to declare and assign variables
+in Move.
 
-## Navigation Menu
+## Variables and Assignment[​](#variables-and-assignment "Direct link to Variables and Assignment")
 
-Toggle navigation
+Variables are declared using the let keyword. They are immutable by default, but can be made
+mutable by adding the mut keyword:
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Fuse-case%2Fapp-modernization)
+```move
+let <variable_name>[: <type>]  = <expression>;  
+let mut <variable_name>[: <type>] = <expression>;
+```
 
-Search or jump to...
+Where:
 
+* <variable\_name> - the name of the variable
+* <type> - the type of the variable, optional
+* <expression> - the value to be assigned to the variable
 
-# Search code, repositories, users, issues, pull requests...
+```move
+let x: bool = true;  
+let mut y: u8 = 42;
+```
 
-Search
+A mutable variable can be reassigned using the = operator.
 
-Clear
+```move
+y = 43;
+```
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+Variables can also be shadowed by re-declaring them.
 
-# Provide feedback
+```move
+let x: u8 = 42;  
+let x: u16 = 42;
+```
 
-We read every piece of feedback, and take your input very seriously.
+## Booleans[​](#booleans "Direct link to Booleans")
 
+The bool type represents a boolean value - yes or no, true or false. It has two possible values:
+true and false, which are keywords in Move. For booleans, the compiler can always infer the type
+from the value, so there is no need to explicitly specify it.
 
-Include my email address so I can be contacted
+```move
+let x = true;  
+let y = false;
+```
 
-Cancel
- Submit feedback
+Booleans are often used to store flags and to control the flow of the program. Please refer to the
+[Control Flow](/move-basics/control-flow) section for more information.
 
+## Integer Types[​](#integer-types "Direct link to Integer Types")
 
+Move supports unsigned integers of various sizes, from 8-bit to 256-bit. The integer types are:
 
+* u8 - 8-bit
+* u16 - 16-bit
+* u32 - 32-bit
+* u64 - 64-bit
+* u128 - 128-bit
+* u256 - 256-bit
 
+```move
+let x: u8 = 42;  
+let y: u16 = 42;  
+// ...  
+let z: u256 = 42;
+```
 
-# Saved searches
+While boolean literals like true and false are clearly booleans, an integer literal like 42
+could be any of the integer types. In most of the cases, the compiler will infer the type from the
+value, usually defaulting to u64. However, sometimes the compiler is unable to infer the type and
+will require an explicit type annotation. It can either be provided during assignment or by using a
+type suffix.
 
-## Use saved searches to filter your results more quickly
+```move
+// Both are equivalent  
+let x: u8 = 42;  
+let x = 42u8;
+```
 
-Name
+### Operations[​](#operations "Direct link to Operations")
 
-Query
+Move supports the standard arithmetic operations for integers: addition, subtraction,
+multiplication, division, and modulus (remainder). The syntax for these operations is:
 
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
+| Syntax | Operation | Aborts If |
+| --- | --- | --- |
+| + | addition | Result is too large for the integer type |
+| - | subtraction | Result is less than zero |
+| \* | multiplication | Result is too large for the integer type |
+| % | modulus (remainder) | The divisor is 0 |
+| / | truncating division | The divisor is 0 |
 
-Cancel
- Create saved search
+> For more operations, including bitwise operations, please refer to the
+> [Move Reference](/reference/primitive-types/integers#bitwise).
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Fuse-case%2Fapp-modernization)
+The types of the operands *must match*, or the compiler will raise an error. The result of the
+operation will be of the same type as the operands. To perform operations on different types, the
+operands need to be cast to the same type.
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions%2Fuse-case%2Fapp-modernization&source=header)
-Resetting focus
+### Casting with as[​](#casting-with-as "Direct link to casting-with-as")
 
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
+Move supports explicit casting between integer types. The syntax is as follows:
 
+```move
+<expression> as <type>
+```
 
-Dismiss alert
+Note that parentheses around the expression may be required to prevent ambiguity:
 
-{{ message }}
+```move
+let x: u8 = 42;  
+let y: u16 = x as u16;  
+let z = 2 * (x as u16); // ambiguous, requires parentheses
+```
 
-GitHub App Modernization
+A more complex example, preventing overflow:
 
-# Modernize your applications in days, not months
+```move
+let x: u8 = 255;  
+let y: u8 = 255;  
+let z: u16 = (x as u16) + ((y as u16) * 2);
+```
 
-Assess, upgrade, and migrate apps to the cloud with GitHub Copilot.
+### Overflow[​](#overflow "Direct link to Overflow")
 
-[Get started](https://github.com/solutions/use-case/app-modernization#:~:text=Additional%20Resources)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_app_modernization)
+Move does not support overflow / underflow; an operation that results in a value outside the range
+of the type will raise a runtime error. This is a safety feature to prevent unexpected behavior.
 
-[](//videos.ctfassets.net/8aevphvgewt8/4eyZxByCiNaymSPFlHxFfk/81a14aaf491d73f33daa15f3745f7e93/SizzleVideoForGHCPAppModLaunch02_V04.mp4)
+```move
+let x = 255u8;  
+let y = 1u8;  
+  
+// This will raise an error  
+let z = x + y;
+```
 
-Pause
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-## Accelerate migration and modernization with GitHub Copilot by reducing manual, platform-specific coding.
+* [Bool](/reference/primitive-types/bool) in the Move Reference.
+* [Integer](/reference/primitive-types/integers) in the Move Reference.
 
-### Java and .NET upgrades
-
-Upgrade language runtime versions and frameworks effortlessly with AI-driven remediation and automated error fixes—no more dependency headaches.
-
-### End-to-end migration
-
-From assessment to deployment, simplify the migration journey with full visibility, control, and predictability, while delivering higher quality outcomes.
-
-### Cloud ready
-
-Make apps cloud-ready by resolving compatibility issues, reducing technical debt, and strengthening security while unlocking the full power of Azure services.
-
-### Let AI do the heavy lifting
-
-Copilot analyzes codebases, surfaces blockers, and suggests fixes—automating repetitive steps and reducing tech debt so developers can focus on higher value work.
-
-![Dashboard with charts and metrics for modernization, showing “Cloud Readiness” with 17 issue categories, “Java Upgrade” with 4 issue categories, and a “Solution Coverage” bar indicating 65% of issues can be resolved via Microsoft solutions, with option to create a custom task.](//images.ctfassets.net/8aevphvgewt8/1uKl93RL9HnlsMmoSdfpOn/548f2fef9ef104d6b8c00d7f42ff010a/Security__1_.webp)
-
-### A smoother upgrade path
-
-Upgrade .NET and Java runtimes and frameworks with guided remediation that updates configs, libraries, and dependencies.
-
-![Banner message with arrow icon that says “Upgrade this solution to a more recent version of .NET.”](//images.ctfassets.net/8aevphvgewt8/11wcKPeghVZtE7MQQWVJMI/aceeee3711b9817e9939e64e86e8165f/Automation__1_.webp)
-
-### Stay in control
-
-Every recommendation is reviewable and every change is validated through your tests and pipelines. Built-in security checks catch CVEs (Common Vulnerabilities and Exposures) early, ensuring alignment with your standards and policies.
-
-![Interface for “Java App Modernization (MCP Server)” showing input JSON { "workspacePath": "C:\\Users\\" } with buttons “Allow” and “Skip.”](//images.ctfassets.net/8aevphvgewt8/3yVL9UTBJCrkBVl7Z4Uakg/7ea3a8c40355e4f6afa2da787d318cd2/app-modernization-security-checks.webp)
-
-### Migrate to Azure with confidence
-
-Migrate and deploy on Azure services—Azure App Service, Azure Container Apps, and Azure Kubernetes Service— with compatibility guidance and security hardening.
-
-[Read the technical blog](aka.ms/ghcp-appmod/blog)
-
-![Quickstart screen asking “How would you like to modernize your app?” with two buttons: “Upgrade Runtime & Frameworks” and “Migrate to Azure.”](//images.ctfassets.net/8aevphvgewt8/2qTd25LJVRYWV1pD21ktp3/771132759595f020aec72c2dedcfe1b8/AI.webp)
-
-## Proven impact
-
-70% less time spent on migration efforts
-
-50% less effort to upgrade apps
-
-500k+ lines of code changed within weeks
-
-### Ready to modernize?
-
-Transform your Java and .NET apps with GitHub Copilot and reduce risk, accelerate transformation, and unlock the full potential of the cloud.
-
-[Get started](https://github.com/solutions/use-case/app-modernization#:~:text=Additional%20Resources)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=footer&ref_page=%2Fsolutions_app_modernization)
-
-## Additional Resources
-
-### [Power up your Java application modernization](https://aka.ms/ghcp-appmod/Java)
-
-Simplify Java application migration and modernization with AI-driven remediation and automated fixes designed to save time and reduce errors.
-
-Download your Java extension
-
-### [Modernize .NET applications with ease](https://aka.ms/ghcp-appmod/dotNET)
-
-Unlock new capabilities in .NET by streamlining app upgrades and preparing your codebase for the cloud.
-
-Learn more about .NET
-
-### [Explore the full documentation](https://aka.ms/ghcp-appmod/doc)
-
-Dive deeper with step-by-step guides, best practices, and technical resources to support every stage of your migration.
-
-Read the docs
-
-
-
-
-
-
-You can’t perform that action at this time.
+* [Variables and Assignment](#variables-and-assignment)
+* [Booleans](#booleans)
+* [Integer Types](#integer-types)
+  + [Operations](#operations)
+  + [Casting with `as`](#casting-with-as)
+  + [Overflow](#overflow)
+* [Further Reading](#further-reading)

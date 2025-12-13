@@ -1,159 +1,118 @@
-GitHub Industry Solutions | GitHub · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Findustry)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Findustry)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions%2Findustry&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/7eK8DYwcy4he33dbtZQw1n/072a6daf0f4c62dffcc8f935a64b9974/hero-bg_2_3_2_2_2.png?w=2400&fm=jpg&fl=progressive)
-
-Industries
-
-# Industry solutions
-
-Discover how GitHub’s industry solutions can help you improve efficiency, reduce costs, and capture new market opportunities.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_industies_overview)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_industies_overview)
-
-## [Healthcare](https://github.com/solutions/industry/healthcare)
-
-By incorporating security checks into developer workflows, you can build secure communication channels between patients and providers.
-
-Learn more
-
-## [Financial Services](https://github.com/solutions/industry/financial-services)
-
-With an AI-powered developer platform, you can build innovative financial solutions that drive economic growth.
-
-Learn more
-
-## [Manufacturing](https://github.com/solutions/industry/manufacturing)
-
-With robust CI/CD that can handle the complex needs of manufacturing, you can securely transform operations at scale.
-
-Learn more
-
-## [Government](https://github.com/solutions/industry/government)
-
-With seamless collaboration and robust compliance, GitHub helps government agencies build and innovate securely on a single, AI-powered platform.
-
-Learn more
-
-## Related solutions
-
-### [DevSecOps](https://github.com/solutions/use-case/devsecops)
-
-With comprehensive security tools built into the developer workflow, you can build, secure, and ship all in one place.
-
-Learn more
-
-### [DevOps](https://github.com/solutions/use-case/devops)
-
-Scale and deliver more secure software with GitHub's unified AI-powered developer platform.
-
-Learn more
-
-### [CI/CD](https://github.com/solutions/use-case/ci-cd)
-
-Test and deploy software with simple and secure enterprise CI/CD.
-
-Learn more
-
-### [Executive Insights](https://github.com/solutions/executive-insights)
-
-Get expert perspectives. Stay ahead with insights from industry leaders.
-
-Learn more
-
-Gartner
-
-### Narrow your DevOps platform search with this Gartner report
-
-[Read the report](https://www.gartner.com/doc/reprints?id=1-2IPAEKGC&ct=240903&st=sb)
-
-2.4x more precise leaked secrets found with fewer false positives
-
-~25% increase in developer speed with GitHub Copilot
-
-1min set-up time for largest repo with GitHub Codespaces
-
-+88% more productivity with GitHub Enterprise
-
-### Get started
-
-Trusted by 90% of the Fortune 100, GitHub helps millions of developers and companies collaborate, build, and deliver secure software faster. And with thousands of DevOps integrations, developers can build smarter from day one with the tools they know and love—or discover new ones.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_industies_overview)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=footer&ref_page=%2Fsolutions_industies_overview)
-
-
-
-
-
-
-You can’t perform that action at this time.
+Option | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Option
+
+Option is a type that represents an optional value which may or may not exist. The concept of
+Option in Move is borrowed from Rust, and it is a very useful primitive in Move. Option is
+defined in the [Standard Library](/move-basics/standard-library), and is defined as follows:
+
+```move
+module std::option;  
+  
+/// Abstraction of a value that may or may not be present.  
+public struct Option<Element> has copy, drop, store {  
+    vec: vector<Element>  
+}
+```
+
+*See [full documentation for std::option](https://docs.sui.io/references/framework/std/option) module.*
+
+> The 'std::option' module is implicitly imported in every module, so you don't need to add an
+> explicit import.
+
+The Option type is a generic type with an Element type parameter. It contains a single field,
+vec, which is a vector of Element. The vector can have a length of 0 or 1, representing the
+absence or presence of a value, respectively.
+
+> Note: You might be surprised that Option is a struct containing a vector instead of an
+> [enum](/reference/enums). This is for historical reasons: Option was added to Move before it had
+> support for enums.
+
+The Option type has two variants: Some and None. The Some variant contains a value, while
+the None variant represents the absence of a value. The Option type is used to represent the
+absence of a value in a type-safe way, avoiding the need for empty or undefined values.
+
+## In Practice[​](#in-practice "Direct link to In Practice")
+
+To showcase why the Option type is necessary, let's look at an example. Consider an application
+which takes a user input and stores it in a variable. Some fields are required, and some are
+optional. For example, a user's middle name is optional. While we could use an empty string to
+represent the absence of a middle name, it would require extra checks to differentiate between an
+empty string and a missing middle name. Instead, we can use the Option type to represent the
+middle name.
+
+```move
+module book::user_registry;  
+  
+use std::string::String;  
+  
+/// A struct representing a user record.  
+public struct User has drop {  
+    first_name: String,  
+    middle_name: Option<String>,  
+    last_name: String,  
+}  
+  
+/// Create a new `User` struct with the given fields.  
+public fun register(  
+    first_name: String,  
+    middle_name: Option<String>,  
+    last_name: String,  
+): User {  
+    User { first_name, middle_name, last_name }  
+}
+```
+
+In the previous example, the middle\_name field is of type Option<String>. This means that the
+middle\_name field can either contain a String value, wrapped in Some, or be explicitly empty,
+represented by None. Using the Option type makes the optional nature of the field clear, avoiding
+ambiguity and the need for extra checks to differentiate between an empty string and a missing
+middle name.
+
+## Creating and Using Option values[​](#creating-and-using-option-values "Direct link to Creating and Using Option values")
+
+The Option type, along with the std::option module, is implicitly imported in Move. This means
+you can use the Option type directly without needing a use statement.
+
+To create a value of the Option type, you can use the option::some or option::none methods.
+Option values also support several operations (borrowing will be discussed in the
+[references](/move-basics/references#references-1) chapter):
+
+```move
+// `option::some` creates an `Option` value with a value.  
+let mut opt = option::some(b"Alice");  
+  
+// `option::none` creates an `Option` without a value. We need to specify the  
+// type since it can't be inferred from context.  
+let empty : Option<u64> = option::none();  
+  
+// `option.is_some()` returns true if option contains a value.  
+assert_eq!(opt.is_some(), true);  
+assert_eq!(empty.is_none(), true);  
+  
+// internal value can be `borrow`ed and `borrow_mut`ed.  
+assert_ref_eq!(opt.borrow(), &b"Alice");  
+  
+// `option.extract` takes the value out of the option, leaving the option empty.  
+let inner = opt.extract();  
+  
+// `option.is_none()` returns true if option is None.  
+assert_eq!(opt.is_none(), true);
+```
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [std::option](https://docs.sui.io/references/framework/std/option) in the standard library
+
+* [In Practice](#in-practice)
+* [Creating and Using Option values](#creating-and-using-option-values)
+* [Further Reading](#further-reading)
