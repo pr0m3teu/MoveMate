@@ -5,33 +5,22 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, User, Trophy, GitPullRequest, CheckCircle2, ArrowRight, Clock, Code } from "lucide-react";
+// 1. IMPORT NOU: Link2
+import { Loader2, User, Trophy, GitPullRequest, CheckCircle2, ArrowRight, Clock, Code, ExternalLink, Link2 } from "lucide-react";
 
 function BountyItem({ event, packageId, moduleName }: any) {
   const json = event.parsedJson;
-  
-  // Strict guard: check all required fields before proceeding
-  if (!json || 
-      typeof json.bounty_id !== "string" || !json.bounty_id.trim() ||
-      typeof json.reward_amount !== "string" || 
-      typeof json.description !== "string" ||
-      typeof json.creator !== "string") {
-    return null
-  }
-
   const account = useCurrentAccount();
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
   
   const [solutionLink, setSolutionLink] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Fetch Live Data
   const { data: objectData, isLoading } = useSuiClientQuery('getObject', {
     id: json.bounty_id,
     options: { showContent: true }
   });
 
-  // Loader stilizat pentru card
   if (isLoading) return (
     <div className="h-64 rounded-xl border border-slate-800 bg-[#0B1121] animate-pulse relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/20 to-transparent skew-x-12 animate-shimmer"></div>
@@ -47,10 +36,12 @@ function BountyItem({ event, packageId, moduleName }: any) {
   const submissions = fields.submissions || [];
   const isCompleted = fields.is_completed;
   const isCreator = account?.address === fields.creator;
-  // Calculăm suma (fix pentru undefined)
   const rewardAmount = (parseInt(json.reward_amount || "0") / 1_000_000_000).toFixed(1);
+  
+  // 2. EXTRAGEREA LINK-ULUI (ATAȘAMENT)
+  // Dacă e Option::none în Move, aici va fi null. Dacă e Option::some, va fi string-ul.
+  const attachmentUrl = fields.attachment; 
 
-  // --- ACTIONS ---
   const handleSubmit = () => {
     if (!solutionLink) return alert("Adaugă un link!");
     setIsProcessing(true);
@@ -86,15 +77,14 @@ function BountyItem({ event, packageId, moduleName }: any) {
         : 'bg-[#0B1121] border-slate-700 hover:border-blue-500/40 hover:shadow-blue-900/10'
     }`}>
       
-      {/* Accent Bar (Stânga) */}
       <div className={`absolute left-0 top-0 bottom-0 w-1 transition-colors ${
           isCompleted ? 'bg-slate-700' : 'bg-gradient-to-b from-blue-500 to-cyan-400'
       }`}></div>
 
       <div className="p-6 flex flex-col h-full">
         
-        {/* HEADER: Titlu și Sumă */}
-        <div className="flex justify-between items-start mb-5">
+        {/* HEADER */}
+        <div className="flex justify-between items-start mb-2">
             <div className="flex-1 pr-4">
                 <div className="flex items-center gap-2 mb-2">
                     {isCompleted ? (
@@ -109,14 +99,12 @@ function BountyItem({ event, packageId, moduleName }: any) {
                     <span className="text-[10px] text-slate-400 font-mono">ID: {json.bounty_id.slice(0,6)}</span>
                 </div>
                 
-                {/* AICI AM SCHIMBAT CULOAREA TITLULUI: text-slate-200 (aproape alb) */}
-                <h3 className={`text-lg font-bold leading-tight ${isCompleted ? 'text-slate-500' : 'text-slate-200'}`}>
+                <h3 className={`text-lg font-bold leading-tight ${isCompleted ? 'text-slate-500' : 'text-white'}`}>
                     {json.description}
                 </h3>
             </div>
             
             <div className="text-right bg-slate-900/50 p-2 rounded-lg border border-slate-800">
-                {/* AICI AM SCHIMBAT CULOAREA SUMEI: text-emerald-400 (verde neon) */}
                 <div className={`text-xl font-mono font-bold ${isCompleted ? 'text-slate-500' : 'text-emerald-400'}`}>
                     {rewardAmount} SUI
                 </div>
@@ -124,9 +112,23 @@ function BountyItem({ event, packageId, moduleName }: any) {
             </div>
         </div>
 
+        {/* 3. AFISAREA BUTONULUI DE LINK (Doar dacă există attachmentUrl) */}
+        {attachmentUrl && (
+            <div className="mb-4">
+                <a 
+                    href={attachmentUrl.startsWith('http') ? attachmentUrl : `https://${attachmentUrl}`} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-medium text-blue-400 hover:text-blue-300 bg-blue-500/10 px-2.5 py-1.5 rounded-md border border-blue-500/20 hover:border-blue-500/50 transition-all w-fit"
+                >
+                    <Link2 className="w-3 h-3" />
+                    Vezi Codul Sursă / Context
+                </a>
+            </div>
+        )}
+
         {/* CREATOR INFO */}
         <div className="flex items-center gap-2 mb-6 text-xs w-fit px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/50">
-            {/* AICI: Iconița și textul sunt mai deschise */}
             <User className="w-3 h-3 text-slate-300" />
             <span className="text-slate-400">Posted by:</span>
             <span className={`font-mono ${isCreator ? 'text-yellow-400 font-bold' : 'text-slate-200'}`}>
@@ -134,10 +136,9 @@ function BountyItem({ event, packageId, moduleName }: any) {
             </span>
         </div>
 
-        {/* LISTA SOLUȚII (Terminal Style) */}
+        {/* LISTA SOLUȚII */}
         <div className="flex-1 bg-[#02040a] rounded-lg border border-slate-800 overflow-hidden flex flex-col mb-4">
             <div className="px-3 py-2 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center">
-                {/* AICI: Titlul listei mai vizibil */}
                 <span className="text-[10px] font-semibold text-slate-300 flex items-center gap-2 uppercase tracking-wider">
                     <GitPullRequest className="w-3 h-3" /> Submissions ({submissions.length})
                 </span>
@@ -163,7 +164,6 @@ function BountyItem({ event, packageId, moduleName }: any) {
                         }`}>
                             <div className="flex flex-col min-w-0 pr-2">
                                 <div className="flex items-center gap-2 mb-0.5">
-                                    {/* AICI: Adresa solver-ului mai albă */}
                                     <span className="text-[10px] font-mono text-slate-300">{sub.solver?.slice(0,6)}...</span>
                                     {isWinner && <Badge className="h-3 text-[8px] bg-emerald-500 text-black px-1 leading-none"><Trophy className="w-2 h-2 mr-1"/> WINNER</Badge>}
                                 </div>
@@ -188,7 +188,6 @@ function BountyItem({ event, packageId, moduleName }: any) {
             </div>
         </div>
 
-        {/* FOOTER: Input Expert */}
         {!isCreator && !isCompleted && (
             <div className="flex gap-2 mt-auto pt-2">
                 <div className="relative flex-1">

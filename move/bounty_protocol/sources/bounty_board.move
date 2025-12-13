@@ -5,14 +5,10 @@ module bounty_protocol::bounty_board {
     use sui::event;
     use std::vector;
 
-    // --- Errors ---
     const ENotOwner: u64 = 0;
     const EInvalidState: u64 = 2;
-    const EIndexOutOfBounds: u64 = 3; // Eroare nouă: dacă alegi o soluție care nu există
+    const EIndexOutOfBounds: u64 = 3;
 
-    // --- Structs ---
-
-    // O structură simplă care ține minte cine și ce a trimis
     public struct Submission has store, copy, drop {
         solver: address,
         link: String,
@@ -23,35 +19,44 @@ module bounty_protocol::bounty_board {
         id: UID,
         creator: address,
         description: String,
+        attachment: Option<String>, // <--- CÂMP NOU: Link către fișier/repo
         reward: Coin<SUI>,
-        submissions: vector<Submission>, // AICI E SCHIMBAREA: O listă, nu un singur câmp
-        winner: Option<address>,         // Cine a câștigat la final (opțional, pentru istoric)
+        submissions: vector<Submission>,
+        winner: Option<address>,
         is_completed: bool,
     }
 
-    // --- Events ---
     public struct BountyCreated has copy, drop {
         bounty_id: address,
         creator: address,
         reward_amount: u64,
-        description: String
+        description: String,
+        attachment: Option<String> // <--- Adăugăm și în eveniment
     }
 
-    // --- Functions ---
     public fun create_bounty(
         payment: Coin<SUI>, 
         description: String, 
+        attachment_url: String, // <--- Parametru nou
         ctx: &mut TxContext
     ) {
         let amount = coin::value(&payment);
         let sender = ctx.sender();
         
+        // Transformăm string-ul gol în Option::none
+        let attachment_opt = if (std::string::is_empty(&attachment_url)) {
+            option::none()
+        } else {
+            option::some(attachment_url)
+        };
+
         let bounty = Bounty {
             id: object::new(ctx),
             creator: sender,
             description: description,
+            attachment: attachment_opt, // <--- Salvăm aici
             reward: payment,
-            submissions: vector::empty(), // Inițializăm lista goală
+            submissions: vector::empty(),
             winner: option::none(),
             is_completed: false,
         };
@@ -63,47 +68,29 @@ module bounty_protocol::bounty_board {
             bounty_id,
             creator: sender,
             reward_amount: amount,
-            description
+            description,
+            attachment: attachment_opt
         });
     }
 
-    public fun submit_solution(
-        bounty: &mut Bounty,
-        solution_link: String,
-        ctx: &mut TxContext
-    ) {
+    // ... (Restul funcțiilor submit_solution și approve_and_pay RĂMÂN NESCHIMBATE) ...
+    public fun submit_solution(bounty: &mut Bounty, solution_link: String, ctx: &mut TxContext) {
         assert!(!bounty.is_completed, EInvalidState);
-        
-        // Creăm o nouă "fișă" de soluție
-        let submission = Submission {
-            solver: ctx.sender(),
-            link: solution_link
-        };
-
-        // O adăugăm la finalul listei
+        let submission = Submission { solver: ctx.sender(), link: solution_link };
         vector::push_back(&mut bounty.submissions, submission);
     }
 
-    public fun approve_and_pay(
-        bounty: &mut Bounty,
-        submission_index: u64, // AICI E SCHIMBAREA: Trebuie să spui PE CARE o plătești
-        ctx: &mut TxContext
-    ) {
+    public fun approve_and_pay(bounty: &mut Bounty, submission_index: u64, ctx: &mut TxContext) {
         assert!(ctx.sender() == bounty.creator, ENotOwner);
         assert!(!bounty.is_completed, EInvalidState);
-        
-        // Verificăm dacă indexul e valid (ex: dacă sunt 3 soluții, indexul poate fi 0, 1 sau 2)
         assert!(submission_index < vector::length(&bounty.submissions), EIndexOutOfBounds);
 
-        // Extragem soluția câștigătoare (fără să o ștergem din listă)
         let winner_submission = vector::borrow(&bounty.submissions, submission_index);
         let solver_addr = winner_submission.solver;
 
-        // Marchez câștigătorul
         bounty.is_completed = true;
         bounty.winner = option::some(solver_addr);
         
-        // Plătesc
         let reward_val = coin::value(&bounty.reward);
         let payment = coin::split(&mut bounty.reward, reward_val, ctx);
         transfer::public_transfer(payment, solver_addr);
