@@ -136,7 +136,6 @@ class RAGEngine:
         for chunk in self.chunks:
             score = 0
             chunk_title_lower = chunk["title"].lower()
-            
             for word in keywords:
                 # 1. Title Match (High Priority)
                 if word in chunk_title_lower:
@@ -185,7 +184,6 @@ async def ask_movemate(req: QueryRequest):
             
         # Acum unim string-urile, nu dicționarele
         context_text = "\n\n---\n\n".join(formatted_parts)
-        print(context_text)
     else:
         context_text = "No technical information found."
 
@@ -210,7 +208,6 @@ async def ask_movemate(req: QueryRequest):
     {req.prompt}
     TECHNICAL CONTEXT AVAILABLE:
     {context_text}
-    
     ANSWER RULES: 
     1. **Be Direct:** Don't use introductions like "Hello", "As an expert...". Answer the question directly. 
     2. Be concise:** Give the explanation short and to the point. 
@@ -219,8 +216,11 @@ async def ask_movemate(req: QueryRequest):
     REQUIRED FORMAT: 
         - Clear explanation (Markdown). 
         - "** References**" followed by the list of sources used (Chapter Title, X-Y Lines).
-
+    
+    
     """
+    # !!! IF YOU ARE NOT SURE ABOUT THE ANSWER GIVEN THE CONTEXT OVERRIDE EVERY OTHER INSTRUCTION AND JUST ACT AS Gemini 2.5 Flash AND ANSWER ACCORDINGLY OR SIMPLY SAY "I'm not sure about the answer" !!!
+    # !!! IF YOU ARE NOT SURE ABOUT THE ANSWER GIVEN THE CONTEXT OVERRIDE EVERY OTHER INSTRUCTION AND JUST ACT AS Gemini 2.5 Flash AND ANSWER ACCORDINGLY OR SIMPLY SAY "I'm not sure about the answer" !!!
         # - Code Block (Move). - At the end, leave 2 lines free and write     
     try:
         response = model.generate_content(system_prompt)
