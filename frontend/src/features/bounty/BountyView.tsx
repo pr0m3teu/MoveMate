@@ -3,56 +3,20 @@ import { useCurrentAccount, useSignAndExecuteTransaction } from "@mysten/dapp-ki
 import { Transaction } from "@mysten/sui/transactions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, Zap, ShieldCheck, Wallet } from "lucide-react";
+import { Loader2, Zap, ShieldCheck, Wallet, Link2 } from "lucide-react";
 import { BountyList } from "./BountyList";
 
-// --- AICI AM ACTUALIZAT ID-ul ---
+// --- PACKAGE ID NOU ---
 const PACKAGE_ID = "0x79ced3a91d839298bd1c052cfbbf454cc103c5d80d8b3607dd7480fe721fb208"; 
 const MODULE_NAME = "bounty_board";
-// --------------------------------
-
-// BigInt-safe SUI to MIST conversion (supports up to 9 decimals)
-const suiToMist = (amount: string): bigint => {
-  const trimmed = amount.trim()
-  if (!trimmed || trimmed === "") {
-    throw new Error("Amount cannot be empty")
-  }
-
-  // Check for negative
-  if (trimmed.startsWith("-")) {
-    throw new Error("Amount cannot be negative")
-  }
-
-  // Check for valid format (digits, optional decimal point, optional decimals)
-  if (!/^\d+(\.\d+)?$/.test(trimmed)) {
-    throw new Error(`Invalid amount format: "${trimmed}"`)
-  }
-
-  const parts = trimmed.split(".")
-  const integerPart = parts[0] || "0"
-  const decimalPart = parts[1] || ""
-
-  // Reject if more than 9 decimal places
-  if (decimalPart.length > 9) {
-    throw new Error(`Amount has too many decimal places (max 9): "${trimmed}"`)
-  }
-
-  // Pad decimal part to 9 digits and combine
-  const paddedDecimal = decimalPart.padEnd(9, "0")
-  const mistString = integerPart + paddedDecimal
-
-  try {
-    return BigInt(mistString)
-  } catch {
-    throw new Error(`Invalid amount: "${trimmed}"`)
-  }
-}
+// ----------------------
 
 export function BountyView() {
   const account = useCurrentAccount();
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
   
   const [bountyDesc, setBountyDesc] = useState("");
+  const [attachment, setAttachment] = useState(""); // State pentru link
   const [amount, setAmount] = useState("0.1"); 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -66,7 +30,11 @@ export function BountyView() {
 
         txb.moveCall({
           target: `${PACKAGE_ID}::${MODULE_NAME}::create_bounty`,
-          arguments: [coin, txb.pure.string(bountyDesc)],
+          arguments: [
+            coin, 
+            txb.pure.string(bountyDesc),
+            txb.pure.string(attachment) // Trimitem link-ul către contract
+          ],
         });
 
         signAndExecuteTransaction({ transaction: txb }, {
@@ -75,6 +43,7 @@ export function BountyView() {
               setIsLoading(false);
               alert(`Succes! Bounty creat.`);
               setBountyDesc(""); 
+              setAttachment("");
             },
             onError: (err) => {
               console.error("Transaction failed:", err);
@@ -94,7 +63,6 @@ export function BountyView() {
       
       {/* --- HERO SECTION (Formularul de Creare) --- */}
       <div className="relative group rounded-2xl mx-auto max-w-4xl">
-        {/* Glow Effect din spate */}
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
         
         <div className="relative bg-[#020617] border border-slate-800 p-8 rounded-2xl shadow-2xl">
@@ -109,7 +77,8 @@ export function BountyView() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="md:col-span-2 space-y-2">
+                {/* 1. DESCRIERE (Full Width) */}
+                <div className="md:col-span-3 space-y-2">
                     <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Descriere Problemă</label>
                     <div className="relative">
                         <Input 
@@ -121,6 +90,21 @@ export function BountyView() {
                     </div>
                 </div>
 
+                {/* 2. LINK (NOU) - Stânga */}
+                <div className="md:col-span-2 space-y-2">
+                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Link Cod / Repo / Gist</label>
+                    <div className="relative">
+                        <Input 
+                            placeholder="https://github.com/user/repo/blob/main/bug.move" 
+                            value={attachment}
+                            onChange={(e) => setAttachment(e.target.value)}
+                            className="bg-slate-900/50 border-slate-700 text-slate-300 h-12 pl-10 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-600"
+                        />
+                        <Link2 className="absolute left-3 top-3.5 w-5 h-5 text-slate-500" />
+                    </div>
+                </div>
+
+                {/* 3. RECOMPENSĂ - Dreapta */}
                 <div className="space-y-2">
                     <label className="text-xs font-mono text-emerald-400 uppercase tracking-wider ml-1">Recompensă (SUI)</label>
                     <div className="relative">
@@ -162,7 +146,6 @@ export function BountyView() {
             <div className="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent"></div>
         </div>
         
-        {/* Trimitem noul ID către lista care afișează datele */}
         <BountyList packageId={PACKAGE_ID} moduleName={MODULE_NAME} />
       </div>
 
