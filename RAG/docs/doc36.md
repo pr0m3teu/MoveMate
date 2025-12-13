@@ -1,198 +1,109 @@
-GitHub Articles • Technical Guides, Developer Insights & Best Practices · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-Unlock AI’s true impact across the SDLC.
-[Explore key findings from Gartner®.](https://github.com/resources/whitepapers/how-to-capture-ai-driven-productivity-gains-across-the-sdlc?utm_source=github&utm_medium=banner&utm_campaign=WW-FY26Q2-WW-GarterReport-18991230&utm_content=GartnerReport)
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Farticles%3Ftopic%3Ddevops)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Farticles%3Ftopic%3Ddevops)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fresources%2Farticles&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-# GitHub Articles
-
-## Filters (1)
-
-Open Filters
-
-## Topic
-
-Topic
-
-AI
-
-Software Development
-
-DevOps
-
-Security
-
-[Clear all](#)Apply
-
-### [What is AIOps?](https://github.com/resources/articles/what-is-aiops)
-
-![](https://github.githubassets.com/assets/light-1-2e395adb64d6.png?fm=webp)
-
-AI for IT operations (AIOps) uses AI to help IT teams reduce downtime and scale operations.
-
-Learn more
-
-### [What is application modernization?](https://github.com/resources/articles/what-is-application-modernization)
-
-![](https://github.githubassets.com/assets/light-2-e21d217be40a.png?fm=webp)
-
-Boost performance, strengthen security, and help developers ship faster by modernizing legacy systems.
-
-Learn more
-
-### [What is an integrated development environment (IDE)?](https://github.com/resources/articles/what-is-an-ide)
-
-![](https://github.githubassets.com/assets/light-3-3a9effd0b7ee.png?fm=webp)
-
-Uncover how IDEs help streamline software development and accelerate software delivery.
-
-Learn more
-
-### [What is Infrastructure as Code?](https://github.com/resources/articles/what-is-infrastructure-as-code)
-
-![](https://github.githubassets.com/assets/light-4-3bb395e09737.png?fm=webp)
-
-Learn how Infrastructure as Code (IaC) automates provisioning and management of infrastructure with code.
-
-Learn more
-
-### [What is Continuous Deployment?](https://github.com/resources/articles/continuous-deployment)
-
-![](https://github.githubassets.com/assets/light-5-69b2efb1d8c8.png?fm=webp)
-
-Understand continuous deployment, its benefits, and how it ensures faster, automated releases with confidence.
-
-Learn more
-
-### [What is CI/CD?](https://github.com/resources/articles/ci-cd)
-
-![](https://github.githubassets.com/assets/light-6-8e6b0e6ece65.png?fm=webp)
-
-Explore continuous integration and continuous delivery (CI/CD) practices, tools, and benefits for modern software development.
-
-Learn more
-
-### [What is a DevOps Engineer?](https://github.com/resources/articles/what-is-a-devops-engineer)
-
-![](https://github.githubassets.com/assets/light-1-2e395adb64d6.png?fm=webp)
-
-Discover the role of a DevOps engineer, including responsibilities, skills, and impact on modern software teams.
-
-Learn more
-
-### [What is containerization?](https://github.com/resources/articles/containerization)
-
-![](https://github.githubassets.com/assets/light-2-e21d217be40a.png?fm=webp)
-
-Containers enable DevOps developers and system administrators to build, test, deploy, and maintain applications quickly, securely, and efficiently.
-
-Learn more
-
-### [What is DevOps Automation?](https://github.com/resources/articles/what-is-devops-automation)
-
-![](https://github.githubassets.com/assets/light-3-3a9effd0b7ee.png?fm=webp)
-
-Learn how automation in DevOps reduces manual effort, speeds up deployments, and improves consistency across environments.
-
-Learn more
-
-### [What is a DevOps pipeline? A complete guide](https://github.com/resources/articles/pipeline)
-
-![](https://github.githubassets.com/assets/light-4-3bb395e09737.png?fm=webp)
-
-Learn what a software pipeline is, its stages, and how it automates code integration, testing, and deployment.
-
-Learn more
-
-### [The fundamentals of continuous integration in DevOps](https://github.com/resources/articles/continuous-integration)
-
-![](https://github.githubassets.com/assets/light-5-69b2efb1d8c8.png?fm=webp)
-
-Continuous Integration (CI) is a practice allowing developers to integrate code into a shared repository regularly. Get to know the fundamentals of what makes this process successful.
-
-Learn more
-
-### [SRE vs DevOps](https://github.com/resources/articles/sre-vs-devops)
-
-![](https://github.githubassets.com/assets/light-6-8e6b0e6ece65.png?fm=webp)
-
-Compare Site Reliability Engineering (SRE) and DevOps: their roles, similarities, and differences in software delivery.
-
-Learn more
-
-
-
-
-
-
-You can’t perform that action at this time.
+Constants | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Constants
+
+Constants are immutable values that are defined at the module level. They often serve as a way to
+give names to static values that are used throughout a module. For example, if there's a default
+price for a product, you might define a constant for it. Constants are stored in the module's
+bytecode, and each time they are used, the value is copied.
+
+```move
+module book::shop_price;  
+  
+use sui::{coin::Coin, sui::SUI};  
+  
+/// Trying to purchase an item at an incorrect price.  
+const EWrongPrice: u64 = 0;  
+  
+/// The price of an item in the shop.  
+const ITEM_PRICE: u64 = 100;  
+/// The owner of the shop, an address.  
+const SHOP_OWNER: address = @0xa11ce;  
+  
+/// An item sold in the shop.  
+public struct Item {}  
+  
+/// Purchase an item from the shop.  
+public fun purchase(coin: Coin<SUI>): Item {  
+    assert!(coin.value() == ITEM_PRICE, EWrongPrice);  
+  
+    transfer::public_transfer(coin, SHOP_OWNER);  
+  
+    Item {}  
+}
+```
+
+## Naming Convention[​](#naming-convention "Direct link to Naming Convention")
+
+Constants must start with a capital letter - this is enforced at the compiler level. For constants
+used as a value, the convention is to use all uppercase letters and underscores between words, which
+makes constants stand out from other identifiers in the code. An exception is made for
+[error constants](/move-basics/assert-and-abort#error-constants), which are written in ECamelCase.
+
+```move
+/// Price of the item used at the shop.  
+const ITEM_PRICE: u64 = 100;  
+  
+/// Error constant.  
+const EItemNotFound: u64 = 1;
+```
+
+## Constants are Immutable[​](#constants-are-immutable "Direct link to Constants are Immutable")
+
+Constants can't be changed and assigned new values. As part of the package bytecode, they are
+inherently immutable.
+
+```move
+module book::immutable_constants;  
+  
+const ITEM_PRICE: u64 = 100;  
+  
+// emits an error  
+fun change_price() {  
+    ITEM_PRICE = 200;  
+}
+```
+
+## Using Config Pattern[​](#using-config-pattern "Direct link to Using Config Pattern")
+
+A common use case for an application is to define a set of constants that are used throughout the
+codebase. But due to constants being private to the module, they can't be accessed from other
+modules. One way to solve this is to define a "config" module that exports the constants.
+
+```move
+module book::config;  
+  
+const ITEM_PRICE: u64 = 100;  
+const TAX_RATE: u64 = 10;  
+const SHIPPING_COST: u64 = 5;  
+  
+/// Returns the price of an item.  
+public fun item_price(): u64 { ITEM_PRICE }  
+/// Returns the tax rate.  
+public fun tax_rate(): u64 { TAX_RATE }  
+/// Returns the shipping cost.  
+public fun shipping_cost(): u64 { SHIPPING_COST }
+```
+
+This way other modules can import and read the constants, and the update process is simplified. If
+the constants need to be changed, only the config module needs to be updated during the package
+upgrade.
+
+## Links[​](#links "Direct link to Links")
+
+* [Constants](/reference/constants) in the Move Reference
+* [Coding conventions for constants](/guides/code-quality-checklist#regular-constant-are-all_caps)
+
+* [Naming Convention](#naming-convention)
+* [Constants are Immutable](#constants-are-immutable)
+* [Using Config Pattern](#using-config-pattern)
+* [Links](#links)

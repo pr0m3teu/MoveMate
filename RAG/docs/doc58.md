@@ -1,217 +1,189 @@
-GitHub Advanced Security · Built-in protection for every repository · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsecurity%2Fadvanced-security)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsecurity%2Fadvanced-security)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsecurity%2Fadvanced-security&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](https://github.githubassets.com/assets/hero-bg-7879ebf1705e.webp)
-
-GitHub Advanced Security
-
-# Security that moves at the speed of development
-
-[Request a demo](https://github.com/security/advanced-security/demo?ref_cta=Request+demo&ref_loc=hero&ref_page=%2Fadvanced_security_lp&locale=en-US)[See plans & pricing](https://github.com/security/plans?ref_cta=pricing&ref_loc=hero&ref_page=%2Fadvanced_security_lp&locale=en-US)
-
-## Stop leaks before they start
-
-[Explore Secret Protection](https://github.com/security/advanced-security/secret-protection?locale=en-US)
-
-![](//images.ctfassets.net/8aevphvgewt8/1E8sRoIDUulrQjcqH3k1WZ/73ce3fc08fb3e0e0c54fc3b579158599/hero-bento-2-sm-ba186e28a153.webp)
-
-## Fix vulnerabilities in your code
-
-[Explore Code Security](https://github.com/security/advanced-security/code-security?locale=en-US)
-
-![](//images.ctfassets.net/8aevphvgewt8/34BJ1MWifiU3Lr7Kp5F6sJ/54d0455191cc03f18a961f91e497b0d1/hero-bento-1-sm-c8caf436f109.webp)
-
-## /security/advanced-security logos
-
-3MCarlseberg GroupDatadogHashicorpKPMGLinkedInMercado LibreOtto GroupTelus
-
-3MCarlseberg GroupDatadogHashicorpKPMGLinkedInMercado LibreOtto GroupTelus
-
-## Become a risk reduction warrior
-
-Stay ahead of threats with built-in security, secret protection, and dependency monitoring.
-
-![Screenshot displaying a code snippet with an Express.js application setup and a CodeQL scan result indicating a high-severity reflected cross-site scripting vulnerability due to user-provided value. The GitHub Copilot Autofix feature is generating a fix suggestion.](//images.ctfassets.net/8aevphvgewt8/31ak1xON4ReUML0AO8xpEp/0182b89a9c2c2ffe5f513a4dbe8a3b2b/bento-1-578d8af7abcd.webp)
-
-### Write secure code at scale with AI-driven insights and automated fixes from GitHub Copilot Autofix.
-
-Strengthen your development with AI
-
-![Screenshot displaying a code snippet with a highlighted Copilot Autofix suggestion. The original code sends a response with user-provided query name directly, and the suggested fix escapes the user-provided query name to prevent cross-site scripting vulnerability.](//images.ctfassets.net/8aevphvgewt8/21YiOePxxw9tbG1GNNYrg0/42ead7558ad03491c6b9b60ef362bfbd/bento-2-b0f420f92f3e.webp)
-
-### Find and fix vulnerabilities in real time by integrating application security right into GitHub.
-
-Empower your team with native AppSec
-
-![Screenshot of a terminal output showing a git push command failure due to GitHub Push Protection detecting secrets. The error message 'error GH009: Secrets detected! This push failed.' is displayed, instructing the user to resolve the secrets before pushing again.](//images.ctfassets.net/8aevphvgewt8/4OG1xnZC578IMmU5Iq4U3Y/b45631e002ac37d93c1605c249def56e/bento-3-2c8728d463a1.webp)
-
-“
-
-> GitHub Advanced Security has solved the risk of leaked credentials. Now, developers are alerted to the problem before they push the code live. They have a direct feedback loop.
-
-Florian KochLead developer at Deutsche Vermögensberatung
-
-![](//images.ctfassets.net/8aevphvgewt8/4oHDjrZkpKuzqeeb0gSD6G/351ca470eb0690a4c7b26152d44dbdec/pricing-icon-c76a3c424274.webp)
-
-## Two layers of powerful protection
-
-Combine Secret Protection and Code Security to safeguard your code from every angle.
-
-[See plans & pricing](https://github.com/security/plans?locale=en-US)
-
-Add-on
-
-## GitHub Secret Protection
-
-For teams and organizations serious about stopping secret leaks.
-
-$19USD
-
-[Request a demo](http://github.com/security/advanced-security/demo?ref_cta=Request+demo&ref_loc=body_sp&ref_page=%2Fadvanced_security_lp&utm_campaign=Demo_utmroutercampaign&locale=en-US)[Contact sales](https://github.com/security/contact-sales?ref_cta=Contact+sales&ref_loc=body_sp&ref_page=%2Fadvanced_security_lp&locale=en-US)
-
-Team or Enterprise plan required
-
-Add-on
-
-## GitHub Code Security
-
-For teams and organizations committed to fixing vulnerabilities before production.
-
-$30USD
-
-per active committer/month
-
-[Request a demo](https://github.com/security/advanced-security/demo?ref_cta=Request+demo&ref_loc=body_cs&ref_page=%2Fadvanced_security_lp&utm_campaign=Demo_utmroutercampaign&locale=en-US)[Contact sales](https://github.com/security/contact-sales?ref_cta=Contact+sales&ref_loc=body_cs&ref_page=%2Fadvanced_security_lp&locale=en-US)
-
-Team or Enterprise plan required
-
-## Get the most out of GitHub Advanced Security
-
-### [Maximize your defenses with industry-leading AppSec](https://github.com/security/advanced-security/demo?ref_cta=Request+demo&ref_loc=resources_card&ref_page=%2Fadvanced_security_lp&utm_campaign=Demo_utmroutercampaign&locale=en-US)
-
-Discover how our security solution can benefit your organization.
-
-Request a demo
-
-### [See how improved security drives business success](https://resources.github.com/forrester-industry-spotlight-github-advanced-security/)
-
-Explore the benefits of improving software security standards in organizations.
-
-Read the Forrester Report
-
-### [How top teams secure code while moving fast](https://github.com/security/advanced-security/what-is-github-advanced-security?locale=en-US)
-
-Learn how industry experts protect their code without sacrificing productivity.
-
-Explore videos
-
-### Frequently asked questions
-
-#### What is GitHub Advanced Security?
-
-GitHub Advanced Security (GHAS) encompasses GitHub’s application security products comprising GitHub Secret Protection and GitHub Code Security. GHAS adds cutting-edge tools for static analysis, software composition analysis, and secret scanning to the GitHub platform that developers already know and love. Unlike traditional application security packages that burden the software development toolchain with complex workflows that inhibit adoption, GHAS makes it easy for developers to find and fix vulnerabilities earlier in the software development life cycle.
-
-#### Why choose GitHub Advanced Security instead of a third-party AppSec product?
-
-Unlike third-party security add-ons, GitHub Advanced Security operates entirely in the native GitHub workflows that developers already know and love. By making it easier for developers to remediate vulnerabilities as they go, GitHub Advanced Security frees time for security teams to focus on critical strategies that protect businesses, customers, and communities from application-based vulnerabilities.
-
-#### What is DevSecOps?
-
-DevSecOps refers to a combination of the development, security, and operations tools necessary to develop software applications.
-
-#### What is AppSec?
-
-Application security (AppSec) is the process of finding, fixing, and preventing security vulnerabilities in applications. GitHub Advanced Security provides AppSec tools for static application security testing (SAST), which identifies vulnerabilities in the code itself.
-
-#### Can I use GitHub Advanced Security with Microsoft Azure DevOps?
-
-Yes. GitHub Advanced Security is available as an [add-on](https://azure.microsoft.com/en-us/products/devops/github-advanced-security) for Azure DevOps.
-
-#### Where can I find case studies and reference customers?
-
-Read our [customer stories](https://github.com/customer-stories?locale=en-US) to learn how customers like [Telus](https://github.com/customer-stories/telus?locale=en-US), [Mercado Libre](https://github.com/customer-stories/mercado-libre?locale=en-US), and [KPMG](https://github.com/customer-stories/kpmg?locale=en-US) use GitHub Advanced Security to secure applications and accelerate the software development lifecycle.
-
-#### Can I review documentation before purchase?
-
-Yes. As with all GitHub products, [documentation](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) for GitHub Advanced Security is publicly available.
-
-#### Does GitHub offer consulting, training, and other deployment services?
-
-Yes! Please visit [Expert Services](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning) to learn more.
-
-
-
-
-
-
-You can’t perform that action at this time.
+UID and ID | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# UID and ID
+
+The use of the UID type is required by the Sui Verifier on all types that have the
+[key](/storage/key-ability) ability. Here we go deeper into UID and its usage.
+
+## Definition[​](#definition "Direct link to Definition")
+
+The UID type is defined in the sui::object module and is a wrapper around an ID which, in
+turn, wraps the address type. The UIDs on Sui are guaranteed to be unique, and can't be reused
+after the object was deleted.
+
+```move
+module sui::object;  
+  
+/// UID is a unique identifier of an object  
+public struct UID has store {  
+    id: ID  
+}  
+  
+/// ID is a wrapper around an address  
+public struct ID has store, drop {  
+    bytes: address  
+}
+```
+
+## Fresh UID Generation[​](#fresh-uid-generation "Direct link to Fresh UID Generation")
+
+* UID is *derived* from the tx\_hash and an index which is incremented for each new UID.
+* The derive\_id function is implemented in the sui::tx\_context module, and that is why
+  [TxContext](/programmability/transaction-context) is required for UID generation.
+* Sui Verifier will not allow using a UID that wasn't created in the same function. That prevents
+  UIDs from being pre-generated or reused after the object was unpacked.
+
+New UID is created with the object::new function. It takes a mutable reference to TxContext, and
+returns a new UID.
+
+```move
+public fun uid(ctx: &mut TxContext) {  
+  let id = object::new(ctx); // Create a fresh UID from TxContext.  
+  id.delete(); // Delete the UID.  
+}
+```
+
+UID acts as a representation of an object, and allows defining behaviors and features of an
+object. One of the key features - [Dynamic Fields](/programmability/dynamic-fields) - is
+possible because of the UID type being explicit. Additionally, it allows receiving objects sent to
+other objects. This feature is called [Transfer to Object (TTO)](/storage/transfer-to-object), and we
+will explain later in this chapter.
+
+## UID Derivation[​](#uid-derivation "Direct link to UID Derivation")
+
+Sui allows deriving UID's from other UIDs using *derivation keys*. This functionality is implemented
+in the [sui::derived\_object](https://docs.sui.io/references/framework/sui_sui/derived_object) module and allows generating predictable and
+deterministic UIDs for easier off-chain discovery. UID for each pair of parent + key can be
+generated only once!
+
+```move
+use sui::derived_object;  
+  
+/// Some central application object.  
+public struct Base has key { id: UID }  
+  
+/// Derived Object.  
+public struct Derived has key { id: UID }  
+  
+/// Create and share a new Derived object using `address` as a `key`.  
+public fun derive(base: &mut Base, key: address) {  
+    let id = derived_object::claim(&mut base.id, key);  
+    transfer::share_object(Derived { id })  
+}
+```
+
+Derived addresses reduce the load on off-chain indexers, since it is enough to store the ID of the
+parent object and get derived IDs using a derivation function. ID derivation function is part of the
+most SDKs, and also present in Move:
+
+```move
+module sui::derived_object;  
+  
+/// Checks if a UID was derived with `key` at `parent`.  
+public fun exists<K: copy + drop + store>(parent: &UID, key: K): bool;  
+  
+/// Derive inner `address` of a UID, regardless of whether it was created.  
+public fun derive_address<K: copy + drop + store>(parent: ID, key: K): address;
+```
+
+The same derivation functionality is used to generate UIDs for
+[dynamic fields](/programmability/dynamic-fields).
+
+## UID Lifecycle[​](#uid-lifecycle "Direct link to UID Lifecycle")
+
+The UID type is created with the object::new function, and deleted with the object::delete
+function. The object::delete consumes the UID *by value*, hence, it is only possible to delete
+object's UID after the object [was unpacked](/move-basics/struct#unpacking-a-struct).
+
+```move
+public struct Character has key { id: UID }  
+  
+public fun character(ctx: &mut TxContext) {  
+    // Instantiate `Character` object.  
+    let char = Character { id: object::new(ctx) };  
+  
+    // Unpack object to get its UID.  
+    let Character { id } = char;  
+  
+    // Delete the UID.  
+    id.delete();  
+}
+```
+
+## Keeping the UID[​](#keeping-the-uid "Direct link to Keeping the UID")
+
+The UID does not need to be deleted immediately after the object struct is unpacked. Sometimes it
+may carry [Dynamic Fields](/programmability/dynamic-fields) or objects transferred to it via
+[Transfer To Object](/storage/transfer-to-object). In such cases, the UID may be kept and stored in a
+separate object.
+
+## Proof of Deletion[​](#proof-of-deletion "Direct link to Proof of Deletion")
+
+The ability to return the UID of an object may be utilized in pattern called *proof of deletion*. It
+is a rarely used technique, but it may be useful in some cases, for example, the creator or an
+application may incentivize the deletion of an object by exchanging the deleted IDs for some reward.
+
+In framework development this method could be used to ignore / bypass certain restrictions on
+"taking" the object. If there's a container that enforces certain logic on transfers, like Kiosk
+does, there could be a special scenario of skipping the checks by providing a proof of deletion.
+
+This is one of the open topics for exploration and research, and it may be used in various ways.
+
+## ID[​](#id "Direct link to ID")
+
+When talking about UID we should also mention the ID type. It is a wrapper around the address
+type, and is used to represent an address-pointer. Usually, ID is used to point at an object,
+however, there is no restriction, and no guarantee that the ID points to an existing object.
+
+> ID can be received as a transaction argument in a
+> [Transaction Block](/concepts/what-is-a-transaction). Alternatively, ID can be created from an
+> address value using to\_id() function.
+
+```move
+public fun conversion_methods(ctx: &mut TxContext) {  
+    let uid: UID = object::new(ctx);  
+    let id: ID = uid.to_inner();  
+  
+    let addr_from_uid: address = uid.to_address();  
+    let addr_from_id: address = id.to_address();  
+  
+    uid.delete();  
+}
+```
+
+This example demonstrates different conversion methods: UID.to\_inner creates a copy of underlying
+ID, and UID.to\_address returns inner address. Another often useful method ID.to\_address copies
+inner value from the ID type.
+
+## Fresh Object Address[​](#fresh-object-address "Direct link to Fresh Object Address")
+
+[TxContext](/programmability/transaction-context) provides the fresh\_object\_address
+function which can be utilized to create unique addresses and ID - it may be useful in some
+application that assign unique identifiers to user actions - for example, an order\_id in a
+marketplace.
+
+## Links[​](#links "Direct link to Links")
+
+* [sui::object](https://docs.sui.io/references/framework/sui_sui/object) module documentation
+* [sui::derived\_object](https://docs.sui.io/references/framework/sui_sui/derived_object) module documentation
+* [Derived Objects](https://docs.sui.io/concepts/sui-move-concepts/derived-objects) in Sui
+  Documentation
+
+* [Definition](#definition)
+* [Fresh UID Generation](#fresh-uid-generation)
+* [UID Derivation](#uid-derivation)
+* [UID Lifecycle](#uid-lifecycle)
+* [Keeping the UID](#keeping-the-uid)
+* [Proof of Deletion](#proof-of-deletion)
+* [ID](#id)
+* [Fresh Object Address](#fresh-object-address)
+* [Links](#links)

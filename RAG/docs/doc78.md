@@ -1,50 +1,14 @@
-Sign in to GitHub · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Advanced Move Usage | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
+# Advanced Move Usage
 
-
-Dismiss alert
-
-# Sign in to GitHub
-
-{{ message }}
-
-Username or email address
-
-Password
-
-[Forgot password?](/password_reset)
-
- 
-
-
-### Uh oh!
-
-There was an error while loading. Please reload this page.
-
-New to GitHub?
-[Create an account](/signup?return_to=%2Fdiem%2Fmove&source=login)
-
-Sign in with a passkey
-
-* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)
-* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)
-* [Docs](https://docs.github.com)
-* [Contact GitHub Support](https://support.github.com)
-* Manage cookies
-* Do not share my personal information
-
-You can’t perform that action at this time.
+This chapter covers advanced features of the Move language, including various extended behaviors for
+advanced programming. This includes advanced usage of the language itself, plus the package and
+build system.

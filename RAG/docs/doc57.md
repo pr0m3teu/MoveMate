@@ -1,457 +1,378 @@
-GitHub Enterprise · The AI-powered developer platform for the agent-ready enterprise · GitHub
+Storage Functions | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Storage Functions
 
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fenterprise)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fenterprise)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fenterprise&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/5boPv8e5DAq81KzOcJsqf/742f84af63f2298f2b8aac30990521df/enterprise-hero-bg.jpg?w=2400&fm=jpg&fl=progressive)
-
-# The AI-powered developer platform for the agent-ready enterprise
-
-Bring your DevOps together on one secure platform built for speed, scale, and the agent-driven future of software.
-
-[Start a 30-day free trial](https://github.com/account/enterprises/new?locale=en-US)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+Sales&ref_loc=hero&ref_page=%2Fenterprise&scid=&utm_campaign=Enterprise&utm_content=Enterprise&utm_medium=referral&utm_source=github&locale=en-US)
-
-## /enterprise Section - logo
-
-Ford3MProcter and GambleAmerican AirlinesKPMGStripeSpotify
-
-Ford3MProcter and GambleAmerican AirlinesKPMGStripeSpotify
-
-## Enterprise-grade by design
-
-A centrally governed foundation that provides the control and visibility you need to innovate securely at scale.
-
-### Security built into every stage of the software lifecycle
-
-![Screenshot displaying a code snippet with an Express.js application setup and a CodeQL scan result indicating a high-severity reflected cross-site scripting vulnerability due to user-provided value. The GitHub Copilot Autofix feature is generating a fix suggestion.](//images.ctfassets.net/8aevphvgewt8/5C7QaTEpGAyMgpM7TpECUZ/52926458b18c4d367f6cff5f808f2fcd/github-enterprise-advanced-security.jpg)
-
-*Security built into every stage of the software lifecycle.* GitHub integrates automated, developer-first security that keeps teams moving fast.
-
-* *Find and fix vulnerabilities natively.* Automate code, secret, and dependency scanning with [GitHub Advanced Security](https://github.com/security/advanced-security?locale=en-US), built directly into the workflow.
-* *Secure your software supply chain.* Visualize and maintain the dependencies in your [software supply chain](https://github.com/security/advanced-security/software-supply-chain?locale=en-US).
-* *Control the location of your code.* Enjoy SaaS agility with enhanced governance, security, and [flexible data residency](https://github.com/enterprise/data-residency?locale=en-US).
-
-## Built for your most valuable asset: your developers
-
-GitHub transforms your engineering team into a high-performing, AI-powered force for innovation and growth.
-
-### The complete development workflow, end to end
-
-Bring every stage of the development lifecycle together on one secure platform.
-
-[Explore all features](https://github.com/features?locale=en-US)
-
-### Scale your talent with GitHub Copilot
-
-Go beyond code completion with AI that improves quality and problem-solving and fuels innovation.
-
-[Explore Copilot for Business](https://github.com/features/copilot/copilot-business?locale=en-US)
-
-![A section of a code editor using GitHub Copilot’s agent mode where the model is set to auto, and there's a list of files changed.](//images.ctfassets.net/8aevphvgewt8/32Mu5CHYtlQocH84hvQsOH/404beb4017fd0f679747517af5353d34/github-enterprise-copilot-coding-agent.jpg)
-
-### Hit the ground coding
-
-Skip the ramp-up and accelerate impact with the platform trusted by over 180 million developers.
-
-[Read the Octoverse 2025 report](https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1)
-
-![](//images.ctfassets.net/8aevphvgewt8/7bPbJA8LGHzIi8PWQTIyNQ/bb018d564cb70517e4d010aeb40070ce/github-enterprise-octoverse.jpg)
-
-### Flexibility to build your way
-
-Tap into our ecosystem of apps, actions, and models to accelerate innovation.
-
-[Explore the GitHub Marketplace](https://github.com/marketplace?locale=en-US)
-
-![A collection of application icons for various development tools like Imgbot, AccessLint, WakaTime, Circle CI, Cirrus CI and Code Climate.](//images.ctfassets.net/8aevphvgewt8/1IKSMzixoiuX6fs5m9l0ah/d9ee6b8577e56c6797bd9848dcdace79/enterprise-logos-grid.jpg)
-
-### From reactive administration to strategic platform leadership.
-
-![A list of enterprise teams in GitHub enterprise settings.](//images.ctfassets.net/8aevphvgewt8/7t7sNiIaHVYpikBDEi605C/d21c4ca038a1193e19853b9392e8995a/github-enterprise-teams.png)
-
-*From reactive administration to strategic platform leadership.* Take control with centralized governance and automation that scales with your enterprise.
-
-* Manage multiple orgs from one place. Create and assign [custom roles](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/roles-in-an-enterprise) and [teams](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise) to streamline management across your enterprise.
-* *Define and enforce policies*. [Apply consistent, non-overridable rulesets](https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance) across every repository in your enterprise.
-* *Take command of your AI agents.* [See and control every agent and action](https://docs.github.com/copilot/concepts/agents/enterprise-management) from a single dashboard.
-
-## Adopted by the world's leading organizations
-
-### [Mercado Libre developers code 50% faster with GitHub Copilot](https://github.com/customer-stories/mercado-libre?locale=en-US)
-
-![](//images.ctfassets.net/8aevphvgewt8/4dWiHx0Si2XimIs2JZEU7t/d09af460045e73147819b8d7d3644287/ml.webp?fm=webp)
-
-Read customer story
-
-### [Wayfair migrates 15,000 repositories to GitHub, saving $150,000 a year](https://resources.github.com/enterprise/wayfair-enterprise-scale-migration/)
-
-![](//images.ctfassets.net/8aevphvgewt8/1v3MnXmDnTr9bO4XDfqlDF/504798816cc3d15faaaf71c400a09545/wayfair.webp?fm=webp)
-
-Read customer story
-
-### [TELUS saves $16.9 million by unifying DevOps on GitHub](https://github.com/customer-stories/telus?locale=en-US)
-
-![](//images.ctfassets.net/8aevphvgewt8/7kxFfylfJchjpPHNMzNIDn/44e6a16c195e52ba6c7b0c7ebcb5d758/telus.webp?fm=webp)
-
-Read customer story
-
-### Start your journey with GitHub
-
-Whether you’re a startup or Fortune 500, GitHub Enterprise gives you everything you need to innovate securely on the platform developers love.
-
-[Start a 30-day free trial](https://github.com/account/enterprises/new?locale=en-US)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+Sales&ref_loc=footer&ref_page=%2Fenterprise&scid=&utm_campaign=Enterprise&utm_content=Enterprise&utm_medium=referral&utm_source=github&locale=en-US)
-
-## Get the most out of GitHub Enterprise
-
-### [Get executive insights built for leaders and admins](https://github.com/solutions/executive-insights?locale=en-US)
-
-Learn more
-
-### [Stay ahead with our quarterly product roadmap webinar](https://github.com/roadmap-webinar-series?locale=en-US)
-
-See what's new
-
-### [Accelerate adoption with proven guidance](https://resources.github.com/well-architected/)
-
-Discover GitHub’s framework
-
-### [See the cost savings and ROI of GitHub Enterprise Cloud](https://github.com/resources/whitepapers/forrester?locale=en-US)
-
-Get the Forrester® Total Economic Impact™ study
-
-### [Discover why GitHub leads the Forrester Wave™ for DevOps platforms](https://github.com/resources/whitepapers/forrester-wave-2025?locale=en-US)
-
-Read the report
-
-### [Explore the full documentation for GitHub Enterprise Cloud](https://docs.github.com/en/get-started/onboarding/getting-started-with-github-enterprise-cloud)
-
-View the docs
-
-### Frequently asked questions
-
-#### About GitHub Enterprise
-
-#### What is GitHub Enterprise?
-
-GitHub Enterprise is an enterprise-grade software development platform designed for the complex workflows of modern development.
-
-As an extensible platform solution, GitHub Enterprise enables organizations to [seamlessly integrate additional tools and functionalities](https://github.com/marketplace?type=&locale=en-US), tailoring their development environment to meet specific needs and enhancing overall productivity.
-
-#### Why should organizations use GitHub Enterprise
-
-There are several reasons why organizations should consider using GitHub Enterprise:
-
-1. **Accelerate development at scale with AI-powered development:** GitHub is the world’s most widely adopted Copilot-powered developer platform helping organizations build, secure, and deliver innovative software at scale.
-2. **Application security made simpler:** Native security tools embedded into the developer workflow, such as GitHub Advanced Security, help developers easily fix security issues, while providing more visibility and controls.
-3. **Centralize governance and compliance:** Customers can access a range of administration features to help manage governance at scale and enforce business rules and policies to meet their specific needs.
-4. **Boost productivity and collaboration:** Increase productivity with automated CI/CD workflows using GitHub Actions, collaborate effectively with GitHub Projects and GitHub Issues, manage hosted packages with GitHub Packages, and utilize prebuilt and configured development environments with GitHub Codespaces.
-5. **Greater flexibility and control over data:** Whether self-hosting with GitHub Enterprise Server or using GitHub Enterprise Cloud, GitHub provides customers with flexibility and control over their data. And now with [GitHub Enterprise Cloud with data residency](https://github.com/enterprise/data-residency?locale=en-US), customers have enhanced control where certain data, like their code, resides. [Start a free 30 day trial](https://github.com/account/enterprises/new?locale=en-US) today or [contact our sales team](https://github.com/enterprise/contact/data-residency?locale=en-US) for more information.
-
-#### Who uses GitHub Enterprise?
-
-GitHub Enterprise is used by organizations of all sizes that require greater productivity, collaboration, and security capabilities for their software development process. GitHub Enterprise can scale with teams, all the way from a small startup to a large corporation.
-
-#### What is GitHub Enterprise Cloud?
-
-GitHub Enterprise Cloud is the cloud-based solution of GitHub Enterprise, hosted on GitHub’s servers. This eliminates the need for organizations to maintain their own servers, infrastructure, and updates, allowing them to focus on development.
-
-In addition to the core productivity and collaboration features it provides, GitHub Enterprise Cloud provides access to additional features and add-ons for security, support, managed users, and many more.
-
-Customers can easily add or remove users as needed, and they can also increase storage capacity or processing power as their needs change.
-
-And for customers desiring more control over their data, [GitHub Enterprise Cloud with data residency](https://github.com/enterprise/data-residency?locale=en-US) provides improved enterprise-grade features and more control over where code is stored. [Start a free 30 day trial](https://github.com/account/enterprises/new?locale=en-US) today or [contact our sales team](https://github.com/enterprise/contact/data-residency?locale=en-US) for more information.
-
-#### What is GitHub Enterprise Server?
-
-[GitHub Enterprise Server](https://docs.github.com/enterprise-server@3.5/admin/overview/about-github-enterprise-server) is the self-hosted version of GitHub Enterprise. It is installed on-premises or on a private cloud and provides organizations with a secure and customizable source code management and collaboration platform.
-
-One of the key advantages of GitHub Enterprise Server is that it provides organizations with complete control over their source code and data. Organizations can choose where to store their repositories and can control who has access to them. Administrators can also customize the platform to meet specific needs, such as integrating other tools or implementing custom workflows.
-
-GitHub Enterprise Server also offers enhanced security and compliance features. Organizations can configure their instance to meet their specific security requirements, such as using LDAP or SAML for authentication, setting up two-factor authentication, or implementing network security measures. Compliance features are also included, such as audit logs, access controls, and vulnerability scanning.
-
-#### How secure is GitHub Enterprise?
-
-GitHub Enterprise is designed with security in mind and includes a range of features to help organizations protect their code and data. Here are some of the key security features that GitHub Enterprise offers:
-
-1. Authentication and access controls: GitHub Enterprise includes two-factor authentication, LDAP and Active Directory integration, and OAuth authentication. This helps organizations ensure that only authorized users can access their repositories and data.
-2. Encryption: All data in transit between the user's computer and GitHub Enterprise server is encrypted using HTTPS. All data at rest uses AES-256 encryption.
-3. Vulnerability scanning: GitHub Enterprise includes built-in security scanning features that can detect known vulnerabilities and alert users.
-4. Audit logs: The platform provides detailed audit logs that record all user actions, including repository access, changes, and deletions. This helps organizations track and monitor user activity and identify potential security issues.
-5. Customizable policies: GitHub Enterprise allows organizations to create custom policies for repository access. This can help enforce compliance requirements and prevent unauthorized access to sensitive data.
-6. Regular security updates: There is also a dedicated security team that provides regular updates, monitors for potential security threats, and responds quickly to any issues that arise.
-
-#### Is GitHub Enterprise free?
-
-No, GitHub Enterprise is not free. It is a paid product that can be paid for either as a metered service on a monthly basis or as a subscription, with the cost determined by the number of users and the level of support required. For organizations interested in trying out the platform before making a commitment, GitHub Enterprise offers a [free trial](https://github.com/enterprise/contact?locale=en-US). Furthermore, organizations can contact the [GitHub Sales team](https://github.com/enterprise/contact?locale=en-US) for the option to request a custom quote to meet their specific needs.
-
-#### Using GitHub Enterprise
-
-#### How can developers collaborate with GitHub Enterprise?
-
-Developers can collaborate with GitHub Enterprise using a variety of tools that are built into the platform, including:
-
-* Pull requests: Allows developers to propose changes to a repository and submit them for review. Other team members can review the changes, leave comments, and suggest further improvements.
-* GitHub Projects: Enables developers to track issues, assign tasks, and prioritize work. This helps teams stay on track, identify and resolve issues quickly, and ensure that everyone is working towards the same goals.
-* GitHub Discussions: Empowers developers to have conversations about specific topics. This can be particularly useful for triaging complex issues or making decisions about the direction of a project.
-
-#### Choosing your plan
-
-#### How can organizations get started with GitHub Enterprise?
-
-To get started with GitHub Enterprise, [try a free trial today](https://github.com/account/enterprises/new?locale=en-US) or contact our [sales team](https://github.com/enterprise/contact?locale=en-US).
-
-#### What GitHub Enterprise plans are available?
-
-GitHub Enterprise [offers several plans](https://docs.github.com/get-started/learning-about-github/githubs-products#github-enterprise) that vary in price and features. They are designed to accommodate different types of organizations and teams, from small startups to large enterprises. These plans include:
-
-1. **GitHub Enterprise Server:** This is the self-hosted version of GitHub Enterprise. It is installed on-premises or on a private cloud, and offers all the features of the cloud-based version of GitHub, including pull requests, code reviews, and project management tools. Pricing depends on the number of users and support requirements.
-2. **GitHub Enterprise Cloud:** This is the cloud-based version of GitHub Enterprise. It is hosted on GitHub's servers, and it offers all the features of GitHub Enterprise Server. The price depends on the number of users and storage requirements.
-
-#### How much does GitHub Enterprise cost?
-
-For more information on cost, please see our [pricing page](https://github.com/pricing?locale=en-US).
-
-#### Getting started with enterprise software development platforms
-
-#### What is a DevOps platform?
-
-A DevOps platform is a set of tools, technologies, and practices that enable software development and IT operations teams to collaborate and automate the software delivery process. It typically includes version control, continuous integration and continuous delivery (CI/CD), automated testing, deployment automation, and monitoring.
-
-The main goal of a DevOps platform is to provide a single environment for software development and IT operations teams. By automating the software delivery process, a DevOps platform helps organizations reduce the time and cost of delivering software, while also improving the reliability, security, and scalability of their applications.
-
-#### What is developer experience?
-
-Developer experience (DevEx) refers to the overall experience that software developers have when using development tools, frameworks, and platforms to create software applications. It encompasses all aspects of a developer's interaction with the tools, including onboarding, maintaining, ease of use, and productivity.
-
-The goal of optimizing DevEx is to make it as easy as possible for developers to create high-quality software quickly. This can involve designing tools with intuitive interfaces, providing clear and concise documentation, seamlessly integrating tools into workflows, and offering comprehensive support to help developers overcome challenges and obstacles.
-
-By prioritizing DevEx, organizations can improve the speed and quality of their software development processes, increase developer satisfaction and retention, and ultimately deliver better products.
-
-#### What is a software development platform?
-
-A software development platform is a set of tools, technologies, and resources that enable software developers to create, test, deploy, and maintain software applications. This typically includes a programming language or framework, an integrated development environment (IDE), libraries, code repositories, debugging and testing tools, and deployment and hosting options.
-
-The goal of a software development platform is to provide developers with a comprehensive set of tools and resources that make it easier to develop high-quality software. By providing an integrated environment for software development, a software development platform can help developers streamline their workflows, reduce errors, and improve the speed and quality of their work. Additionally, many software development platforms also provide access to a community of developers who can offer support, advice, and resources for improving software development practices.
-
-#### What is an application development platform?
-
-An application development platform is a set of tools that enables developers to build, deploy, and manage custom software applications.
-
-This kind of platform typically includes a programming language, software development kits (SDKs), application programming interfaces (APIs), libraries, and testing and debugging tools.
-
-These tools are designed to make it easier for developers to create and deploy custom applications for a specific platform, such as a mobile device or web browser.
-
-The goal of an application development platform is to provide developers with a comprehensive set of tools that makes it easier to create high-quality applications that meet the specific requirements of a particular platform or device.
-
-#### What is software development collaboration?
-
-Software development collaboration is the process of working together as a team to create, test, and deploy software applications. It can involve a range of activities, such as brainstorming, planning, code reviews, testing, and deployment. Collaboration is an essential component of the software development process, as it allows multiple developers and stakeholders to work together.
-
-Effective collaboration requires open communication, clear goals and objectives, shared resources, and a commitment to working together as a team. Collaboration tools such as version control systems, collaborative coding environments, and project management software, can also provide a centralized location for team members to share information, coordinate tasks, and track progress.
-
-Ultimately, software development collaboration is essential to creating high-quality software that’s reliable, scalable, and meets the needs of end-users and stakeholders.
-
-About GitHub EnterpriseUsing GitHub EnterpriseChoosing your planGetting started with enterprise software development platforms
-
-### About GitHub Enterprise
-
-#### What is GitHub Enterprise?
-
-GitHub Enterprise is an enterprise-grade software development platform designed for the complex workflows of modern development.
-
-As an extensible platform solution, GitHub Enterprise enables organizations to [seamlessly integrate additional tools and functionalities](https://github.com/marketplace?type=&locale=en-US), tailoring their development environment to meet specific needs and enhancing overall productivity.
-
-#### Why should organizations use GitHub Enterprise
-
-There are several reasons why organizations should consider using GitHub Enterprise:
-
-1. **Accelerate development at scale with AI-powered development:** GitHub is the world’s most widely adopted Copilot-powered developer platform helping organizations build, secure, and deliver innovative software at scale.
-2. **Application security made simpler:** Native security tools embedded into the developer workflow, such as GitHub Advanced Security, help developers easily fix security issues, while providing more visibility and controls.
-3. **Centralize governance and compliance:** Customers can access a range of administration features to help manage governance at scale and enforce business rules and policies to meet their specific needs.
-4. **Boost productivity and collaboration:** Increase productivity with automated CI/CD workflows using GitHub Actions, collaborate effectively with GitHub Projects and GitHub Issues, manage hosted packages with GitHub Packages, and utilize prebuilt and configured development environments with GitHub Codespaces.
-5. **Greater flexibility and control over data:** Whether self-hosting with GitHub Enterprise Server or using GitHub Enterprise Cloud, GitHub provides customers with flexibility and control over their data. And now with [GitHub Enterprise Cloud with data residency](https://github.com/enterprise/data-residency?locale=en-US), customers have enhanced control where certain data, like their code, resides. [Start a free 30 day trial](https://github.com/account/enterprises/new?locale=en-US) today or [contact our sales team](https://github.com/enterprise/contact/data-residency?locale=en-US) for more information.
-
-#### Who uses GitHub Enterprise?
-
-GitHub Enterprise is used by organizations of all sizes that require greater productivity, collaboration, and security capabilities for their software development process. GitHub Enterprise can scale with teams, all the way from a small startup to a large corporation.
-
-#### What is GitHub Enterprise Cloud?
-
-GitHub Enterprise Cloud is the cloud-based solution of GitHub Enterprise, hosted on GitHub’s servers. This eliminates the need for organizations to maintain their own servers, infrastructure, and updates, allowing them to focus on development.
-
-In addition to the core productivity and collaboration features it provides, GitHub Enterprise Cloud provides access to additional features and add-ons for security, support, managed users, and many more.
-
-Customers can easily add or remove users as needed, and they can also increase storage capacity or processing power as their needs change.
-
-And for customers desiring more control over their data, [GitHub Enterprise Cloud with data residency](https://github.com/enterprise/data-residency?locale=en-US) provides improved enterprise-grade features and more control over where code is stored. [Start a free 30 day trial](https://github.com/account/enterprises/new?locale=en-US) today or [contact our sales team](https://github.com/enterprise/contact/data-residency?locale=en-US) for more information.
-
-#### What is GitHub Enterprise Server?
-
-[GitHub Enterprise Server](https://docs.github.com/enterprise-server@3.5/admin/overview/about-github-enterprise-server) is the self-hosted version of GitHub Enterprise. It is installed on-premises or on a private cloud and provides organizations with a secure and customizable source code management and collaboration platform.
-
-One of the key advantages of GitHub Enterprise Server is that it provides organizations with complete control over their source code and data. Organizations can choose where to store their repositories and can control who has access to them. Administrators can also customize the platform to meet specific needs, such as integrating other tools or implementing custom workflows.
-
-GitHub Enterprise Server also offers enhanced security and compliance features. Organizations can configure their instance to meet their specific security requirements, such as using LDAP or SAML for authentication, setting up two-factor authentication, or implementing network security measures. Compliance features are also included, such as audit logs, access controls, and vulnerability scanning.
-
-#### How secure is GitHub Enterprise?
-
-GitHub Enterprise is designed with security in mind and includes a range of features to help organizations protect their code and data. Here are some of the key security features that GitHub Enterprise offers:
-
-1. Authentication and access controls: GitHub Enterprise includes two-factor authentication, LDAP and Active Directory integration, and OAuth authentication. This helps organizations ensure that only authorized users can access their repositories and data.
-2. Encryption: All data in transit between the user's computer and GitHub Enterprise server is encrypted using HTTPS. All data at rest uses AES-256 encryption.
-3. Vulnerability scanning: GitHub Enterprise includes built-in security scanning features that can detect known vulnerabilities and alert users.
-4. Audit logs: The platform provides detailed audit logs that record all user actions, including repository access, changes, and deletions. This helps organizations track and monitor user activity and identify potential security issues.
-5. Customizable policies: GitHub Enterprise allows organizations to create custom policies for repository access. This can help enforce compliance requirements and prevent unauthorized access to sensitive data.
-6. Regular security updates: There is also a dedicated security team that provides regular updates, monitors for potential security threats, and responds quickly to any issues that arise.
-
-#### Is GitHub Enterprise free?
-
-No, GitHub Enterprise is not free. It is a paid product that can be paid for either as a metered service on a monthly basis or as a subscription, with the cost determined by the number of users and the level of support required. For organizations interested in trying out the platform before making a commitment, GitHub Enterprise offers a [free trial](https://github.com/enterprise/contact?locale=en-US). Furthermore, organizations can contact the [GitHub Sales team](https://github.com/enterprise/contact?locale=en-US) for the option to request a custom quote to meet their specific needs.
-
-### Using GitHub Enterprise
-
-#### How can developers collaborate with GitHub Enterprise?
-
-Developers can collaborate with GitHub Enterprise using a variety of tools that are built into the platform, including:
-
-* Pull requests: Allows developers to propose changes to a repository and submit them for review. Other team members can review the changes, leave comments, and suggest further improvements.
-* GitHub Projects: Enables developers to track issues, assign tasks, and prioritize work. This helps teams stay on track, identify and resolve issues quickly, and ensure that everyone is working towards the same goals.
-* GitHub Discussions: Empowers developers to have conversations about specific topics. This can be particularly useful for triaging complex issues or making decisions about the direction of a project.
-
-### Choosing your plan
-
-#### How can organizations get started with GitHub Enterprise?
-
-To get started with GitHub Enterprise, [try a free trial today](https://github.com/account/enterprises/new?locale=en-US) or contact our [sales team](https://github.com/enterprise/contact?locale=en-US).
-
-#### What GitHub Enterprise plans are available?
-
-GitHub Enterprise [offers several plans](https://docs.github.com/get-started/learning-about-github/githubs-products#github-enterprise) that vary in price and features. They are designed to accommodate different types of organizations and teams, from small startups to large enterprises. These plans include:
-
-1. **GitHub Enterprise Server:** This is the self-hosted version of GitHub Enterprise. It is installed on-premises or on a private cloud, and offers all the features of the cloud-based version of GitHub, including pull requests, code reviews, and project management tools. Pricing depends on the number of users and support requirements.
-2. **GitHub Enterprise Cloud:** This is the cloud-based version of GitHub Enterprise. It is hosted on GitHub's servers, and it offers all the features of GitHub Enterprise Server. The price depends on the number of users and storage requirements.
-
-#### How much does GitHub Enterprise cost?
-
-For more information on cost, please see our [pricing page](https://github.com/pricing?locale=en-US).
-
-### Getting started with enterprise software development platforms
-
-#### What is a DevOps platform?
-
-A DevOps platform is a set of tools, technologies, and practices that enable software development and IT operations teams to collaborate and automate the software delivery process. It typically includes version control, continuous integration and continuous delivery (CI/CD), automated testing, deployment automation, and monitoring.
-
-The main goal of a DevOps platform is to provide a single environment for software development and IT operations teams. By automating the software delivery process, a DevOps platform helps organizations reduce the time and cost of delivering software, while also improving the reliability, security, and scalability of their applications.
-
-#### What is developer experience?
-
-Developer experience (DevEx) refers to the overall experience that software developers have when using development tools, frameworks, and platforms to create software applications. It encompasses all aspects of a developer's interaction with the tools, including onboarding, maintaining, ease of use, and productivity.
-
-The goal of optimizing DevEx is to make it as easy as possible for developers to create high-quality software quickly. This can involve designing tools with intuitive interfaces, providing clear and concise documentation, seamlessly integrating tools into workflows, and offering comprehensive support to help developers overcome challenges and obstacles.
-
-By prioritizing DevEx, organizations can improve the speed and quality of their software development processes, increase developer satisfaction and retention, and ultimately deliver better products.
-
-#### What is a software development platform?
-
-A software development platform is a set of tools, technologies, and resources that enable software developers to create, test, deploy, and maintain software applications. This typically includes a programming language or framework, an integrated development environment (IDE), libraries, code repositories, debugging and testing tools, and deployment and hosting options.
-
-The goal of a software development platform is to provide developers with a comprehensive set of tools and resources that make it easier to develop high-quality software. By providing an integrated environment for software development, a software development platform can help developers streamline their workflows, reduce errors, and improve the speed and quality of their work. Additionally, many software development platforms also provide access to a community of developers who can offer support, advice, and resources for improving software development practices.
-
-#### What is an application development platform?
-
-An application development platform is a set of tools that enables developers to build, deploy, and manage custom software applications.
-
-This kind of platform typically includes a programming language, software development kits (SDKs), application programming interfaces (APIs), libraries, and testing and debugging tools.
-
-These tools are designed to make it easier for developers to create and deploy custom applications for a specific platform, such as a mobile device or web browser.
-
-The goal of an application development platform is to provide developers with a comprehensive set of tools that makes it easier to create high-quality applications that meet the specific requirements of a particular platform or device.
-
-#### What is software development collaboration?
-
-Software development collaboration is the process of working together as a team to create, test, and deploy software applications. It can involve a range of activities, such as brainstorming, planning, code reviews, testing, and deployment. Collaboration is an essential component of the software development process, as it allows multiple developers and stakeholders to work together.
-
-Effective collaboration requires open communication, clear goals and objectives, shared resources, and a commitment to working together as a team. Collaboration tools such as version control systems, collaborative coding environments, and project management software, can also provide a centralized location for team members to share information, coordinate tasks, and track progress.
-
-Ultimately, software development collaboration is essential to creating high-quality software that’s reliable, scalable, and meets the needs of end-users and stakeholders.
-
-## Footnotes
-
-The Total Economic Impact™ Of GitHub Enterprise Cloud, a commissioned study conducted by Forrester Consulting, 2025. Results are for a composite organization based on interviewed customers.
-
-Forrester Wave™: DevOps Platforms, Q2 2025. Forrester does not endorse any company, product, brand, or service included in its research publications and does not advise any person to select the products or services of any company or brand based on the ratings included in such publications. Information is based on the best available resources. Opinions reflect judgment at the time and are subject to change. For more information, read about Forrester’s objectivity [here](https://www.forrester.com/about-us/objectivity/).
-
-
-
-
-
-
-You can’t perform that action at this time.
+The module that defines main storage operations is sui::transfer. It is implicitly imported in all
+packages that depend on the [Sui Framework](/programmability/sui-framework), so, like other
+implicitly imported modules (e.g. std::option or std::vector), it does not require adding a use
+statement.
+
+> For quick reference, [Appendix C: Transfer Functions](/appendix/transfer-functions)
+> contains a list of all storage functions and object states.
+
+## Overview[​](#overview "Direct link to Overview")
+
+The transfer module provides functions to perform storage operations for each of the
+[ownership types](/object/ownership).
+
+1. [Transfer](#transfer) - send an object to an address, put it into *address owned* state;
+2. [Freeze](#freeze) - put an object into *immutable* state, so it becomes a *public constant* and
+   can never change.
+3. [Share](#share) - put an object into a *shared* state, so it is available to everyone;
+
+The transfer module is a go-to for most of the storage operations, except a special case with
+[Dynamic Fields](/programmability/dynamic-fields) which are covered in the next chapter.
+
+## Ownership and References: a Quick Recap[​](#ownership-and-references-a-quick-recap "Direct link to Ownership and References: a Quick Recap")
+
+In the [Ownership and Scope](/move-basics/ownership-and-scope) and
+[References](/move-basics/references) chapters, we covered the basics of ownership and
+references in Move. It is important that you understand these concepts when using storage functions.
+Here is a quick recap of the most important points:
+
+* The *move* semantics in Move means that the value is *moved* from one scope to another. In other
+  words, if an instance of a type is passed to a function *by value*, it is *moved* to the function
+  scope and can't be accessed in the caller scope anymore.
+* To maintain the ownership of the value, you can pass it *by reference*. Either by *immutable
+  reference* &T or *mutable reference* &mut T. Then the value is *borrowed* and can be accessed
+  in the callee scope, however the owner stays the same.
+
+```move
+/// Moved by value  
+public fun take<T>(value: T) { /* value is moved here! */ abort }  
+  
+/// For immutable reference, value stays in parent scope.  
+public fun borrow<T>(value: &T) { /* value is borrowed here! can be read */ abort }  
+  
+/// For mutable reference, value stays in parent scope but can be mutated.  
+public fun borrow_mut<T>(value: &mut T) { /* value is mutably borrowed here! */ abort }
+```
+
+## Internal Rule in Transfer Functions[​](#internal-rule-in-transfer-functions "Direct link to Internal Rule in Transfer Functions")
+
+Storage operations can only be performed on objects, and come in two forms: *internal* and *public*.
+Internal, or sometimes called *restricted*, transfer functions can be performed on [key](/storage/key-ability)-only
+types, and - comes with the name - enforce [internal constraint](/storage/internal-constraint). Public
+versions can be called on any object that has key and [store](/storage/store-ability). Hence, key-only types'
+storage is fully governed by their defining module, and store allows calling public transfer
+functions in other modules.
+
+```move
+/// T: internal, can be called only in the module which defines the `T`.  
+public fun transfer<T: key>(obj: T, recipient: address);  
+  
+/// No requirement for `T` to be internal to the caller, but requires `store`.  
+public fun public_transfer<T: key + store>(obj: T, recipient: address);
+```
+
+In the example above, the transfer function can only be called from the module that defines the
+T, and has a type constraint T: key. While public\_transfer - clearly indicated in the name -
+can be called from any module, but requires T to have key and store.
+
+Knowing this rule is critical for understanding application design in Move. Choice between making
+object publicly transferable (key and store) and keeping it internal (key-only) may
+drastically affect application logic and further development.
+
+## Transfer[​](#transfer "Direct link to Transfer")
+
+The transfer::transfer function is a function used to transfer an object to an address. Its
+signature is as follows, only accepts a type with the [key ability](/storage/key-ability) and an
+[address](/move-basics/address) of the recipient. Note that the object is passed into the
+function *by value*, therefore it is *moved* to the function scope and then moved to the recipient
+address.
+
+```move
+module sui::transfer;  
+  
+// Transfer `obj` to `recipient`.  
+public fun transfer<T: key>(obj: T, recipient: address);  
+  
+// Public version of the `transfer` function.  
+public fun public_transfer<T: key + store>(obj: T, recipient: address);
+```
+
+### Transfer Example[​](#transfer-example "Direct link to Transfer Example")
+
+In the following example, you can see how it can be used in a module that defines and sends an
+object to the transaction sender.
+
+```move
+module book::transfer_to_sender;  
+  
+/// A struct with `key` is an object. The first field is `id: UID`!  
+public struct AdminCap has key { id: UID }  
+  
+/// `init` function is a special function that is called when the module  
+/// is published. It is a good place to do a setup for an application.  
+fun init(ctx: &mut TxContext) {  
+    // Create a new `AdminCap` object, in this scope.  
+    let admin_cap = AdminCap { id: object::new(ctx) };  
+  
+    // Transfer the object to the transaction sender.  
+    transfer::transfer(admin_cap, ctx.sender());  
+}  
+  
+/// Transfers the `AdminCap` object to the `recipient`. Thus, the recipient  
+/// becomes the owner of the object, and only they can access it.  
+public fun transfer_admin_cap(cap: AdminCap, recipient: address) {  
+    transfer::transfer(cap, recipient);  
+}
+```
+
+When the module is published, the init function will get called, and the AdminCap object which
+we created in it will be *transferred* to the transaction sender. The ctx.sender() function
+returns the sender address for the current transaction.
+
+Once the AdminCap has been transferred to the sender, for example, to 0xa11ce, the sender, and
+only the sender, will be able to access the object. This type of ownership is called *address
+ownership*.
+
+> Address owned objects are a subject to *true ownership* - only owner address can access them. This
+> is a fundamental concept in the Sui storage model.
+
+### Public Transfer[​](#public-transfer "Direct link to Public Transfer")
+
+Let's extend the example with a function that uses AdminCap to authorize a mint of a new object
+and its transfer to an address:
+
+```move
+/// Some `Gift` object that the admin can `mint_and_transfer` to an address.  
+public struct Gift has key, store { id: UID }  
+  
+/// Creates a new `Gift` object and transfers it to the `recipient`.  
+public fun mint_and_transfer(  
+    _: &AdminCap, recipient: address, ctx: &mut TxContext  
+) {  
+    let gift = Gift { id: object::new(ctx) };  
+    transfer::public_transfer(gift, recipient);  
+}
+```
+
+The mint\_and\_transfer function is a *public* function that "could" be called by anyone, but it
+requires a reference to an AdminCap as the first argument. Without it, the function will not be
+callable. This is a simple and very explicit way to restrict access to privileged functions called
+*[Capability](/programmability/capability)*. Because the AdminCap object is *address owned*,
+only 0xa11ce will be able to call the mint\_and\_transfer function.
+
+Unlike AdminCap where we restricted transferability as well as usability by adding only key
+ability, Gift has a key and store combination, which means, that whoever owns a Gift can
+freely call transfer::public\_transfer and send it to anyone else. Without store, in our current
+implementation, Gift would've been *"soulbound"* meaning that the happy owner of the Gift would
+not be able to do anything with it.
+
+### Quick Recap[​](#quick-recap "Direct link to Quick Recap")
+
+* transfer function is used to send an object to an address;
+* The object becomes *address owned* and can only be accessed by the recipient;
+* *Address owned* object can be used by reference or by value, including being transferred to
+  another address;
+* *Public* version of it is public\_transfer and requires store
+* Functions can be gated by requiring an object to be passed as an argument, creating a
+  *capability*.
+
+## Freeze[​](#freeze "Direct link to Freeze")
+
+The transfer::freeze\_object function is a function that is used to put an object into an
+*immutable* state. Once an object is *frozen*, it can never change, and it can be accessed by anyone
+by immutable reference.
+
+The function signature is as follows, only accepts a type with the [key ability](/storage/key-ability).
+Just like all other storage functions, it takes the object *by value*. The public version of this
+function is public\_freeze\_object, and requires T to have store.
+
+```move
+module sui::transfer;  
+  
+// Make object immutable and allow anyone to read it.  
+public fun freeze_object<T: key>(obj: T);  
+  
+// Public version of the `freeze_object` function.  
+public fun public_freeze_object<T: key + store>(obj: T);
+```
+
+Let's extend the previous example and add a function that allows the admin to create a Config
+object and freeze it:
+
+```move
+/// Some `Config` object that the admin can `create_and_freeze`.  
+public struct Config has key {  
+    id: UID,  
+    message: String  
+}  
+  
+/// Creates a new `Config` object and freezes it.  
+public fun create_and_freeze(  
+    _: &AdminCap,  
+    message: String,  
+    ctx: &mut TxContext  
+) {  
+    let config = Config {  
+        id: object::new(ctx),  
+        message  
+    };  
+  
+    // Freeze the object so it becomes immutable.  
+    transfer::freeze_object(config);  
+}  
+  
+/// Returns the message from the `Config` object.  
+/// Can access the object by immutable reference!  
+public fun message(c: &Config): String { c.message }
+```
+
+Config is an object that has a message field, and the create\_and\_freeze function creates a new
+Config and freezes it. Once the object is frozen, it can be accessed by anyone by immutable
+reference. The message function is a public function that returns the message from the Config
+object. Config is now publicly available by its ID, and the message can be read by anyone.
+
+> Function definitions are not connected to object's state. It is possible to define a function that
+> takes a mutable reference to a type that is always frozen. However, it will not be callable on a
+> frozen object.
+
+The message function in the example above can be called on an immutable Config object. However,
+two functions shown below are not callable on a frozen object:
+
+```move
+// === These can't be called on a frozen object! ===  
+  
+/// The function can be defined, but it won't be callable on a frozen object.  
+/// Only immutable references are allowed.  
+public fun message_mut(c: &mut Config): &mut String { &mut c.message }  
+  
+/// Deletes the `Config` object, takes it by value.  
+/// Can't be called on a frozen object!  
+public fun delete_config(c: Config) {  
+    let Config { id, message: _ } = c;  
+    id.delete()  
+}
+```
+
+To summarize:
+
+* transfer::freeze\_object function is used to put an object into an *immutable* state;
+* Once an object is *frozen*, it can never be changed, deleted or transferred, and it can be
+  accessed by anyone by immutable reference;
+* *Public* version of the freeze\_object function is public\_freeze\_object and requires the T to
+  have store.
+
+## Owned -> Frozen[​](#owned---frozen "Direct link to Owned -> Frozen")
+
+Since the transfer::freeze\_object signature accepts any type with the key ability, it can take
+an object that was created in the same scope, but it can also take an object that was owned by an
+account. This means that the freeze\_object function can be used to *freeze* an object that was
+*transferred* to the sender. For security concerns, we would not want to freeze the AdminCap
+object - it would be a security risk, since anyone would be able to access it. However, we can
+freeze the Gift object that was minted and transferred to the recipient:
+
+> Single Owner -> Immutable conversion is possible!
+
+```move
+/// Freezes the `Gift` object so it becomes immutable.  
+/// Gift has `key` and `store`, so `public_freeze_object` can be used!  
+public fun freeze_gift(gift: Gift) {  
+    transfer::public_freeze_object(gift);  
+}
+```
+
+## Share[​](#share "Direct link to Share")
+
+The transfer::share\_object function is a function used to put an object into a *shared* state.
+Once an object is *shared*, it can be accessed by anyone by a mutable reference (hence, immutable
+too). The function signature is as follows, only accepts a type with the
+[key ability](/storage/key-ability):
+
+```move
+module sui::transfer;  
+  
+/// Put an object to a Shared state - can be accessed mutably and immutably.  
+public fun share_object<T: key>(obj: T);  
+  
+/// Public version of `share_object` function.  
+public fun public_share_object<T: key + store>(obj: T);
+```
+
+Like other transfer functions, share\_object has its *public* version which requires T to have
+store.
+
+Once an object is *shared*, it is publicly available as a mutable reference.
+
+## Special Case: Shared Object Deletion[​](#special-case-shared-object-deletion "Direct link to Special Case: Shared Object Deletion")
+
+While the shared object can't normally be taken by value, there is one special case where it can -
+if the function that takes it deletes the object. This is a special case in the Sui storage model,
+and it is used to allow the deletion of shared objects. To show how it works, we will create a
+function that creates and shares a Config object and then another one that deletes it:
+
+```move
+/// Creates a new `Config` object and shares it.  
+public fun create_and_share(message: String, ctx: &mut TxContext) {  
+    let config = Config {  
+        id: object::new(ctx),  
+        message  
+    };  
+  
+    // Share the object so it becomes shared.  
+    transfer::share_object(config);  
+}
+```
+
+The create\_and\_share function creates a new Config object and shares it. The object is now
+publicly available as a mutable reference. Let's create a function that deletes the shared object:
+
+```move
+/// Deletes the `Config` object, takes it by value.  
+/// Can be called on a shared object!  
+public fun delete_config(c: Config) {  
+    let Config { id, message: _ } = c;  
+    id.delete()  
+}
+```
+
+The delete\_config function takes the Config object by value and deletes it, and the Sui Verifier
+would allow this call. However, if the function returned the Config object back or attempted to
+freeze or transfer it, the Sui Verifier would reject the transaction.
+
+```move
+// Won't work!  
+public fun transfer_shared(c: Config, to: address) {  
+    transfer::transfer(c, to);  
+}
+```
+
+To summarize:
+
+* share\_object function is used to put an object into a *shared* state;
+* Once an object is *shared*, it can be accessed by anyone by a mutable reference;
+* Shared objects can be deleted, but they can't be transferred or frozen;
+* *Public* version of the share\_object function is public\_share\_object and requires the T to
+  have store.
+
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+Now that you know main features of the transfer module, you can start building more complex
+applications on Sui that involve storage operations. In the next chapter, we will cover the
+[Store Ability](/storage/store-ability) which allows storing data inside objects and relaxes transfer
+restrictions which we barely touched on here. And after that we will cover the
+[UID and ID](/storage/uid-and-id) types which are the most important types in the Sui storage model.
+
+* [Overview](#overview)
+* [Ownership and References: a Quick Recap](#ownership-and-references-a-quick-recap)
+* [Internal Rule in Transfer Functions](#internal-rule-in-transfer-functions)
+* [Transfer](#transfer)
+  + [Transfer Example](#transfer-example)
+  + [Public Transfer](#public-transfer)
+  + [Quick Recap](#quick-recap)
+* [Freeze](#freeze)
+* [Owned -> Frozen](#owned---frozen)
+* [Share](#share)
+* [Special Case: Shared Object Deletion](#special-case-shared-object-deletion)
+* [Next Steps](#next-steps)

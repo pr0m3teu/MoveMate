@@ -1,110 +1,148 @@
-GitHub Skills
+References | The Move Book
 
 
 
 
 
-[Skills](/)
 
-# GitHub Skills
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-Learn how to use GitHub with interactive courses designed for beginners
-and experts.
+On this page
 
-[Start with *Introduction to GitHub*](https://github.com/skills/introduction-to-github)
+# References
 
-![](https://user-images.githubusercontent.com/1221423/156894097-ff2d6566-7b6a-4488-950e-f4ebe990965a.svg)
+In the [Ownership and Scope](/move-basics/ownership-and-scope) section, we explained that when a value is
+passed to a function, it is *moved* to the function's scope. This means that the function becomes
+the owner of the value, and the original scope (owner) can no longer use it. This is an important
+concept in Move, as it ensures that the value is not used in multiple places at the same time.
+However, there are use cases when we want to pass a value to a function but retain ownership. This
+is where references come into play.
 
-## Our courses
+To illustrate this, let's consider a simple example - an application for a metro (subway) pass. We
+will look at 4 different scenarios where a card can be:
 
-### [First day on GitHub](#first-day-on-github)
+1. Purchased at a kiosk for a fixed price
+2. Shown to an inspector to prove that the passenger has a valid pass
+3. Used at the turnstile to enter the metro, and purchase a ride
+4. Recycled after it's empty
 
-#### [Introduction to GitHub](https://github.com/skills/introduction-to-github)
+## Layout[​](#layout "Direct link to Layout")
 
-Get started using GitHub in less than an hour.
+The initial layout of the metro pass application is simple. We define the Card type and the USES
+[constant](/move-basics/constants) that represents the number of rides on a single card. We also add
+[error constants](/move-basics/assert-and-abort#error-constants) for the case when the card is empty and when the card is not empty.
 
-#### [Communicate using Markdown](https://github.com/skills/communicate-using-markdown)
+```move
+module book::metro_pass;  
+  
+/// Error code for when the card is empty.  
+const ENoUses: u64 = 0;  
+/// Error code for when the card is not empty.  
+const EHasUses: u64 = 1;  
+  
+/// Number of uses for a metro pass card.  
+const USES: u8 = 3;  
+  
+/// A metro pass card  
+public struct Card { uses: u8 }  
+  
+/// Purchase a metro pass card.  
+public fun purchase(/* pass a Coin */): Card {  
+    Card { uses: USES }  
+}
+```
 
-Organize ideas and collaborate using Markdown, a lightweight language for text formatting.
+## References[​](#references-1 "Direct link to References")
 
-#### [GitHub Pages](https://github.com/skills/github-pages)
+References are a way to *show* a value to a function without giving up ownership. In our case, when
+we show the Card to the inspector, we don't want to give up ownership of it, and we don't allow the
+inspector to use up any of our rides. We just want to allow the *reading* of the value of our Card
+and to prove its ownership.
 
-Create a site or blog from your GitHub repositories with GitHub Pages.
+To do so, in the function signature, we use the & symbol to indicate that we are passing a
+*reference* to the value, not the value itself.
 
-### [First week on GitHub](#first-week-on-github)
+```move
+/// Show the metro pass card to the inspector.  
+public fun is_valid(card: &Card): bool {  
+    card.uses > 0  
+}
+```
 
-#### [Review pull requests](https://github.com/skills/review-pull-requests)
+Because the function does not take ownership of the Card, it can *read* its data but cannot *write*
+to it, meaning it cannot modify the number of rides. Additionally, the function signature ensures
+that it cannot be called without a Card instance. This is an important property that allows the
+[Capability Pattern](/programmability/capability), which we will cover in the next chapters.
 
-Collaborate and work together on GitHub.
+Creating a reference to a value is often referred to as "borrowing" the value. For example, the
+method to get a reference to the value wrapped by an Option is called borrow.
 
-#### [Resolve merge conflicts](https://github.com/skills/resolve-merge-conflicts)
+## Mutable Reference[​](#mutable-reference "Direct link to Mutable Reference")
 
-Learn why conflicts happen and how to resolve them.
+In some cases, we want to allow the function to modify the Card. For example, when using the Card at
+a turnstile, we need to deduct a ride. To achieve this, we use the &mut keyword in the function
+signature.
 
-#### [Release-based workflow](https://github.com/skills/release-based-workflow)
+```move
+/// Use the metro pass card at the turnstile to enter the metro.  
+public fun enter_metro(card: &mut Card) {  
+    assert!(card.uses > 0, ENoUses);  
+    card.uses = card.uses - 1;  
+}
+```
 
-Practice a release-based workflow and explore branching strategies.
+As you can see in the function body, the &mut reference allows mutating the value, and the
+function can spend rides.
 
-#### [Connect the dots](https://github.com/skills/connect-the-dots)
+## Passing by Value[​](#passing-by-value "Direct link to Passing by Value")
 
-Find relevant conversations, commits, and projects in a repository.
+Lastly, let's illustrate what happens when we pass the value itself to the function. In this case,
+the function takes the ownership of the value, making it inaccessible in the original scope. The
+owner of the Card can recycle it and thereby relinquish ownership to the function.
 
-#### [Code with Codespaces](https://github.com/skills/code-with-codespaces)
+```move
+/// Recycle the metro pass card.  
+public fun recycle(card: Card) {  
+    assert!(card.uses == 0, EHasUses);  
+    let Card { uses: _ } = card;  
+}
+```
 
-Develop code using GitHub Codespaces and Visual Studio Code.
+In the recycle function, the Card is passed by value, transferring ownership to the function. This
+allows it to be unpacked and destroyed.
 
-#### [Code with Copilot](https://github.com/skills/copilot-codespaces-vscode)
+> Note: In Move, \_ is a wildcard pattern used in destructuring to ignore a field while still
+> consuming the value. Destructuring must match all fields in a struct type. If a struct has fields,
+> you must list all of them explicitly or use \_ to ignore unwanted fields.
 
-Develop with AI-powered code suggestions using GitHub Copilot, Codespaces, and VS Code.
+## Full Example[​](#full-example "Direct link to Full Example")
 
-### [Automate workflows with GitHub Actions](#automate-workflows-with-github-actions)
+To illustrate the full flow of the application, let's put all the pieces together in a test.
 
-#### [Hello GitHub Actions](https://github.com/skills/hello-github-actions)
+```move
+#[test]  
+fun test_card_2024() {  
+    // declaring variable as mutable because we modify it  
+    let mut card = purchase();  
+  
+    card.enter_metro(); // modify the card but don't move it  
+    assert!(card.is_valid()); // read the card!  
+  
+    card.enter_metro(); // modify the card but don't move it  
+    card.enter_metro(); // modify the card but don't move it  
+  
+    card.recycle(); // move the card out of the scope  
+}
+```
 
-Create a GitHub Action and use it in a workflow.
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-#### [Test with Actions](https://github.com/skills/test-with-actions)
+* [References](/reference/primitive-types/references) in the Move
+  Reference.
 
-Create workflows that enable you to use Continuous Integration (CI) for your projects.
-
-#### [Publish packages](https://github.com/skills/publish-packages)
-
-Use GitHub Actions to publish your project to a Docker image.
-
-#### [Deploy to Azure](https://github.com/skills/deploy-to-azure)
-
-Create a deployment workflow using GitHub Actions and Microsoft Azure.
-
-#### [Write JavaScript actions](https://github.com/skills/write-javascript-actions)
-
-Write your own GitHub JavaScript Action.
-
-#### [Reusable workflows](https://github.com/skills/reusable-workflows)
-
-Make a workflow reusable in other workflows.
-
-### [Code security and analysis](#code-security-and-analysis)
-
-#### [Secure your repository supply chain](https://github.com/skills/secure-repository-supply-chain)
-
-Secure your supply chain, patch dependency vulnerabilities.
-
-#### [Secure code game](https://github.com/skills/secure-code-game)
-
-Learn about software security in a fun, educational environment.
-
-#### [Introduction to CodeQL](https://github.com/skills/introduction-to-codeql)
-
-Learn how to enable CodeQL to secure your code.
-
-#### [Change commit history](https://github.com/skills/change-commit-history)
-
-A skills course on changing the commit history with Git.
-
-#### [Introduction to secret scanning](https://github.com/skills/introduction-to-secret-scanning)
-
-Enable secret scanning and take a feature tour.
-
-Have an idea for a course? Build your own with our quickstart guide.
-
-[View quickstart guide](/quickstart)
+* [Layout](#layout)
+* [References](#references-1)
+* [Mutable Reference](#mutable-reference)
+* [Passing by Value](#passing-by-value)
+* [Full Example](#full-example)
+* [Further Reading](#further-reading)

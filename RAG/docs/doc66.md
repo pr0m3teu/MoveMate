@@ -1,505 +1,165 @@
-Diem · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem)
-
-Appearance settings
-
-[diem](/diem)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Corg-login%3E&source=header)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![@diem](https://avatars.githubusercontent.com/u/48265171?s=200&v=4)
-
-# Diem
-
-
-
-* [192
-  followers](/orgs/diem/followers)
-* [https://developers.diem.com](https://developers.diem.com "https://developers.diem.com")
-
-## Popular repositories Loading
-
-1. [diem](/diem/diem) diem 
-   Public
-
-   Diem’s mission is to build a trusted and innovative financial network that empowers people and businesses around the world.
-
-   Rust
-   [16.7k](/diem/diem/stargazers)
-   [2.6k](/diem/diem/forks)
-2. [move](/diem/move) move 
-   Public
-
-   Home of the Move programming language
-
-   Rust
-   [375](/diem/move/stargazers)
-   [141](/diem/move/forks)
-3. [website](/diem/website) website 
-   Public archive
-
-   Libra’s mission is to enable a simple global currency and financial infrastructure that empowers billions of people.
-
-   [234](/diem/website/stargazers)
-   [217](/diem/website/forks)
-4. [bcs](/diem/bcs) bcs 
-   Public
-
-   Rust implementation of the Binary Canonical Serialization (BCS) format
-
-   Rust
-   [85](/diem/bcs/stargazers)
-   [28](/diem/bcs/forks)
-5. [whackadep](/diem/whackadep) whackadep 
-   Public
-
-   Managing Rust dependencies via a dashboard
-
-   Rust
-   [50](/diem/whackadep/stargazers)
-   [14](/diem/whackadep/forks)
-6. [client-sdk-python](/diem/client-sdk-python) client-sdk-python 
-   Public
-
-   Python client library for Diem
-
-   Python
-   [46](/diem/client-sdk-python/stargazers)
-   [28](/diem/client-sdk-python/forks)
-
-### Repositories
-
-Loading
-
-Type
-
- 
-
-Select type
-
-All
-
-
-
-
-
-Public
-
-
-
-
-
-Sources
-
-
-
-
-
-Forks
-
-
-
-
-
-Archived
-
-
-
-
-
-Mirrors
-
-
-
-
-
-Templates
-
-
- Language
-
- 
-
-Select language
-
-All
-
-
-
-
-
-C
-
-
-
-
-
-Go
-
-
-
-
-
-Java
-
-
-
-
-
-JavaScript
-
-
-
-
-
-Python
-
-
-
-
-
-Rust
-
-
-
-
-
-Shell
-
-
-
-
-
-TypeScript
-
-
- Sort
-
- 
-
-Select order
-
-Last updated
-
-
-
-
-
-Name
-
-
-
-
-
-Stars
-
-Showing 10 of 28 repositories
-
-* [diem](/diem/diem)
-
-  Public
-
-  Diem’s mission is to build a trusted and innovative financial network that empowers people and businesses around the world.
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/diem/graphs/commit-activity) diem/diem’s past year of commit activity
-
-  Rust
-  [16,702](/diem/diem/stargazers)
-
-
-
-  Apache-2.0
-  [2,578](/diem/diem/forks)
-  [357](/diem/diem/issues)
-  [(8 issues need help)](/diem/diem/issues?q=label%3A%22good+first+issue%22+is%3Aissue+is%3Aopen)
-  [3](/diem/diem/pulls)
-
-  Updated Dec 4, 2025
-* [bcs](/diem/bcs)
-
-  Public
-
-  Rust implementation of the Binary Canonical Serialization (BCS) format
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/bcs/graphs/commit-activity) diem/bcs’s past year of commit activity
-
-  Rust
-  [85](/diem/bcs/stargazers)
-
-
-
-  Apache-2.0
-  [28](/diem/bcs/forks)
-  [1](/diem/bcs/issues)
-  [1](/diem/bcs/pulls)
-
-  Updated Nov 14, 2023
-* [move](/diem/move)
-
-  Public
-
-  Home of the Move programming language
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/move/graphs/commit-activity) diem/move’s past year of commit activity
-
-  Rust
-  [375](/diem/move/stargazers)
-
-
-
-  Apache-2.0
-  [141](/diem/move/forks)
-  [34](/diem/move/issues)
-  [(2 issues need help)](/diem/move/issues?q=label%3A%22good+first+issue%22+is%3Aissue+is%3Aopen)
-  [21](/diem/move/pulls)
-
-  Updated Sep 8, 2023
-* [client-sdk-python](/diem/client-sdk-python)
-
-  Public
-
-  Python client library for Diem
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/client-sdk-python/graphs/commit-activity) diem/client-sdk-python’s past year of commit activity
-
-  Python
-  [46](/diem/client-sdk-python/stargazers)
-
-
-
-  Apache-2.0
-  [28](/diem/client-sdk-python/forks)
-  [7](/diem/client-sdk-python/issues)
-  [(2 issues need help)](/diem/client-sdk-python/issues?q=label%3A%22good+first+issue%22+is%3Aissue+is%3Aopen)
-  [5](/diem/client-sdk-python/pulls)
-
-  Updated Aug 2, 2023
-* [whackadep](/diem/whackadep)
-
-  Public
-
-  Managing Rust dependencies via a dashboard
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/whackadep/graphs/commit-activity) diem/whackadep’s past year of commit activity
-
-  Rust
-  [50](/diem/whackadep/stargazers)
-
-
-
-  Apache-2.0
-  [14](/diem/whackadep/forks)
-  [23](/diem/whackadep/issues)
-  [39](/diem/whackadep/pulls)
-
-  Updated Jul 19, 2023
-* [diem-devtools](/diem/diem-devtools)
-
-  Public
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/diem-devtools/graphs/commit-activity) diem/diem-devtools’s past year of commit activity
-
-  Rust
-  [14](/diem/diem-devtools/stargazers)
-
-
-
-  Apache-2.0
-  [30](/diem/diem-devtools/forks)
-  [6](/diem/diem-devtools/issues)
-  [5](/diem/diem-devtools/pulls)
-
-  Updated Jun 30, 2023
-* [explorer](/diem/explorer)
-
-  Public
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/explorer/graphs/commit-activity) diem/explorer’s past year of commit activity
-
-  TypeScript
-  [7](/diem/explorer/stargazers)
-
-
-
-  Apache-2.0
-  [12](/diem/explorer/forks)
-  [43](/diem/explorer/issues)
-  [1](/diem/explorer/pulls)
-
-  Updated Mar 2, 2023
-* [serde-reflection-diem](/diem/serde-reflection-diem)
-
-  Public
-
-  Forked from
-  [novifinancial/serde-reflection](/novifinancial/serde-reflection)
-
-  Rust libraries and tools to help with interoperability and testing of serialization formats based on Serde.
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/serde-reflection-diem/graphs/commit-activity) diem/serde-reflection-diem’s past year of commit activity
-
-  Rust
-  [1](/diem/serde-reflection-diem/stargazers)
-
-
-
-  Apache-2.0
-  [43](/diem/serde-reflection-diem/forks)
-  [0](/diem/serde-reflection-diem/issues)
-  [0](/diem/serde-reflection-diem/pulls)
-
-  Updated Dec 19, 2022
-* [dip](/diem/dip)
-
-  Public
-
-  Libra Improvement Proposals
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/dip/graphs/commit-activity) diem/dip’s past year of commit activity
-
-  JavaScript
-  [42](/diem/dip/stargazers)
-
-
-
-  Apache-2.0
-  [48](/diem/dip/forks)
-  [21](/diem/dip/issues)
-  [4](/diem/dip/pulls)
-
-  Updated Apr 28, 2022
-* [github-hyperjump](/diem/github-hyperjump)
-
-  Public
-
-  Probot to create repository\_dispatch events
-
-  [### Uh oh!
-
-  There was an error while loading. Please reload this page.](/diem/github-hyperjump/graphs/commit-activity) diem/github-hyperjump’s past year of commit activity
-
-  TypeScript
-  [4](/diem/github-hyperjump/stargazers)
-
-
-
-  Apache-2.0
-  [3](/diem/github-hyperjump/forks)
-  [0](/diem/github-hyperjump/issues)
-  [0](/diem/github-hyperjump/pulls)
-
-  Updated Apr 1, 2022
-
-[View all repositories](/orgs/diem/repositories?type=all)
-
-[#### People](/orgs/diem/people)
-
-This organization has no public members. You must be a member to see who’s a part of this organization.
-
-#### Top languages
-
-[Rust](/orgs/diem/repositories?language=rust&type=all)
-[Python](/orgs/diem/repositories?language=python&type=all)
-[TypeScript](/orgs/diem/repositories?language=typescript&type=all)
-[Java](/orgs/diem/repositories?language=java&type=all)
-[Shell](/orgs/diem/repositories?language=shell&type=all)
-
-#### Most used topics
-
-Loading…
-
-### Uh oh!
-
-There was an error while loading. Please reload this page.
-
-[Developer Program Member](https://docs.github.com)
-
-You can’t perform that action at this time.
+Collections | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Collections
+
+Collection types are a fundamental part of any programming language. They are used to store a
+collection of data, such as a list of items. The vector type has already been covered in the
+[vector section](/move-basics/vector), and in this chapter we will cover the vector-based
+collection types offered by the [Sui Framework](/programmability/sui-framework).
+
+## Vector[​](#vector "Direct link to Vector")
+
+While we have previously covered the vector type in the [vector section](/move-basics/vector),
+it is worth going over it again in a new context. This time we will cover the usage of the vector
+type in objects and how it can be used in an application.
+
+```move
+module book::collections_vector;  
+  
+use std::string::String;  
+  
+/// The Book that can be sold by a `BookStore`  
+public struct Book has key, store {  
+    id: UID,  
+    name: String  
+}  
+  
+/// The BookStore that sells `Book`s  
+public struct BookStore has key, store {  
+    id: UID,  
+    books: vector<Book>  
+}
+```
+
+## VecSet[​](#vecset "Direct link to VecSet")
+
+VecSet is a collection type that stores a set of unique items. It is similar to a vector, but it
+does not allow duplicate items. This property makes it useful for storing a collection of unique
+items, such as a list of IDs or addresses.
+
+```move
+module book::collections_vec_set;  
+  
+use sui::vec_set::{Self, VecSet};  
+  
+public struct App has drop {  
+    /// `VecSet` used in the struct definition  
+    subscribers: VecSet<address>  
+}  
+  
+#[test_only]  
+use std::unit_test::assert_eq;  
+  
+#[test]  
+fun vec_set_playground() {  
+    let set = vec_set::empty<u8>(); // create an empty set  
+    let mut set = vec_set::singleton(1); // create a set with a single item  
+  
+    set.insert(2); // add an item to the set  
+    set.insert(3);  
+  
+    assert!(set.contains(&1)); // check if an item is in the set  
+    assert!(set.length() == 3); // get the number of items in the set  
+    assert!(!set.is_empty()); // check if the set is empty  
+  
+    set.remove(&2); // remove an item from the set  
+}
+```
+
+VecSet will fail on attempt to insert an item that already exists in the set.
+
+## VecMap[​](#vecmap "Direct link to VecMap")
+
+VecMap is a collection type that stores a map of key-value pairs. It is similar to a VecSet, but
+it allows you to associate a value with each item in the set. This makes it useful for storing a
+collection of key-value pairs, such as a list of addresses and their balances, or a list of user IDs
+and their associated data.
+
+Keys in a VecMap are unique, and each key can only be associated with a single value. If you try
+to insert a key-value pair with a key that already exists in the map, the old value will be replaced
+with the new value.
+
+```move
+module book::collections_vec_map;  
+  
+use std::string::String;  
+use sui::vec_map::{Self, VecMap};  
+  
+public struct Metadata has drop {  
+    name: String,  
+    /// `VecMap` used in the struct definition  
+    attributes: VecMap<String, String>  
+}  
+  
+#[test]  
+fun vec_map_playground() {  
+    let mut map = vec_map::empty(); // create an empty map  
+  
+    map.insert(2, b"two".to_string()); // add a key-value pair to the map  
+    map.insert(3, b"three".to_string());  
+  
+    assert!(map.contains(&2)); // check if a key is in the map  
+  
+    map.remove(&2); // remove a key-value pair from the map  
+}
+```
+
+## Limitations[​](#limitations "Direct link to Limitations")
+
+Standard collection types are a great way to store typed data with guaranteed safety and
+consistency. However, they are limited by the type of data they can store - the type system won't
+allow you to store a wrong type in a collection; and they're limited in size - by the object size
+limit. They will work for relatively small-sized sets and lists, but for larger collections you may
+need to use a different approach.
+
+Another limitations on collection types is inability to compare them. Because the order of insertion
+is not guaranteed, an attempt to compare a VecSet to another VecSet may not yield the expected
+results.
+
+> This behavior is caught by the linter and will emit a warning: *Comparing collections of type
+> 'sui::vec\_set::VecSet' may yield unexpected result*
+
+```move
+let mut set1 = vec_set::empty();  
+set1.insert(1);  
+set1.insert(2);  
+  
+let mut set2 = vec_set::empty();  
+set2.insert(2);  
+set2.insert(1);  
+  
+assert_eq!(set1, set2); // aborts!
+```
+
+In the example above, the comparison will fail because the order of insertion is not guaranteed, and
+the two VecSet instances may have different orders of elements. And the comparison will fail even
+if the two VecSet instances contain the same elements.
+
+## Summary[​](#summary "Direct link to Summary")
+
+* Vector is a native type that allows storing a list of items.
+* VecSet is built on top of vector and allows storing sets of unique items.
+* VecMap is used to store key-value pairs in a map-like structure.
+* Vector-based collections are strictly typed and limited by the object size limit and are best
+  suited for small-sized sets and lists.
+
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+In the next section we will cover the [Wrapper Type Pattern](/programmability/wrapper-type-pattern) - a design
+pattern often used with collection types to extend or restrict their behavior.
+
+* [Vector](#vector)
+* [VecSet](#vecset)
+* [VecMap](#vecmap)
+* [Limitations](#limitations)
+* [Summary](#summary)
+* [Next Steps](#next-steps)

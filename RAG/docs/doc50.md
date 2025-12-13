@@ -1,209 +1,57 @@
-GitHub Security Lab | Securing open source software, together.
+What is an Object? | The Move Book
 
 
-[skip to content](#content)
 
-* Resources
-* [Open Source Community](/open-source "Home")
-* [Enterprise](/enterprise "Home")
 
-/ 
-[Security Lab](/ "Security Lab")
 
-[Research](https://github.blog/tag/github-security-lab/ "Research")
-[Advisories](/advisories/ "Advisories")
-[CodeQL Wall of Fame](/codeql-wall-of-fame/ "CodeQL Wall of Fame")
 
-Resources
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Open Source Community](/open-source "Open Source Community")
-[Enterprise](/enterprise "Enterprise")
+On this page
 
-[Events](/events/ "Events")
-[Get Involved](/get-involved/ "Events")
+# What is an Object?
 
+The Object Model in Sui can be viewed as a high-level abstraction representing digital assets as
+*objects*. These objects have their own type and associated behaviors, a unique identifier, and
+support native storage operations like *transfer* and *share*. Designed to be intuitive and easy to
+use, the Object Model enables a wide range of use cases to be implemented with ease.
 
+Objects in Sui have the following properties:
 
+* **Type:** Every object has a type, defining the structure and behavior of the object. Objects of
+  different types cannot be mixed or used interchangeably, ensuring objects are used correctly
+  according to their type system.
+* **Unique ID:** Each object has a unique identifier, distinguishing it from other objects. This ID
+  is generated upon the object's creation and is immutable. It's used to track and identify objects
+  within the system.
 
-![](/assets/img/marketing/home-hero.png)
-![](/assets/img/marketing/mobile-hero.png)
+* **Owner:** Every object is associated with an owner, who has control over changes to the object.
+  Ownership on Sui can be exclusive to an account, shared across the network, or frozen, allowing
+  read-only access without modification or transfer capabilities. We will discuss ownership in more
+  detail in the following sections.
 
-![](/assets/img/marketing/hero-label.png)
+  Note that ownership does not control the confidentiality of an object — it is always
+  possible to read the contents of an on-chain object from outside of Move. You should never store
+  unencrypted secrets inside of objects.
+* **Data:** Objects encapsulate their data, simplifying management and manipulation. The data
+  structure and operations are defined by the object's type.
+* **Version:** The transition from accounts to objects is facilitated by object versioning.
+  Traditionally, blockchains use a *nonce* to prevent replay attacks. In Sui, the object's version
+  acts as a nonce, preventing replay attacks for each object.
+* **Digest:** Every object has a digest, which is a hash of the object's data. The digest is used to
+  cryptographically verify the integrity of the object's data and ensures that it has not been
+  tampered with. The digest is calculated when the object is created and is updated whenever the
+  object's data changes.
 
-# Securing open source software, together
+## Summary[​](#summary "Direct link to Summary")
 
-We are a team of security experts who cultivate a collaborative
-community where developers and security professionals come together to
-secure open source software.
+* Objects in Sui are high-level abstractions representing digital assets.
+* Objects have a type, unique ID, owner, data, version, and digest.
+* The Object Model simplifies asset management and enables a wide range of use cases.
 
-[Protect your project](https://gh.io/protect-your-project)
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-It will just take you 15 minutes
+* [Object Model](https://docs.sui.io/concepts/object-model) in Sui Documentation.
 
-![](/assets/img/marketing/ball-mission-1.png)
-![](/assets/img/marketing/ball-mission-2.png)
-![](/assets/img/marketing/mobile-ball-mission-1.png)
-![](/assets/img/marketing/mobile-ball-mission-2.png)
-
-Our Mission
-
-## Enhance security by fostering global collaboration.
-
-Contributions from maintainers, developers, and security researchers
-around the world push us forward, making the open source software a
-better place.
-
-Security Research
-
-## We do the hard work, you can use it.
-
-Dive into security research on open-source projects to explore new and
-emerging threats, and learn how to mitigate them so that you can make
-your own software more secure.
-
-[Read the Research](https://github.blog/tag/github-security-lab/)
-
-![](/assets/img/marketing/labtocat.png)
-
-1178
-
-vulnerabilities found
-
-by Security Lab researchers
-
-819
- CVEs credited
-
-[See all disclosures](/advisories/)
-
-Latest vulnerabilities disclosed
-
-* Code Injection in esphome/esphome-docs Github Actions Workflow
-
-  [GHSL-2025-106](/advisories/GHSL-2025-106_esphome_esphome-docs/) • published
-  2025/12/11 00:00:00
-  ago • Man Yue Mo
-* Cross-site scripting (XSS) in OpenLibrary barcode scanner
-
-  [GHSL-2025-110](/advisories/GHSL-2025-110_openlibrary/) • published
-  2025/12/04 00:00:00
-  ago • Peter Stöckli
-* Cross-site scripting (XSS) in bit platform Boilerplate WebInteropApp - CVE-2025-64710
-
-  [GHSL-2025-076](/advisories/GHSL-2025-076_bitplatform/) •
-  [CVE-2025-64710](https://nvd.nist.gov/vuln/detail/CVE-2025-64710) • published
-  2025/12/04 00:00:00
-  ago • Peter Stöckli
-* Deserialization of Untrusted Data in 274056675/springboot-openai-chatgpt
-
-  [GHSL-2024-301](/advisories/GHSL-2024-301_274056675_springboot-openai-chatgpt/) • published
-  2025/12/04 00:00:00
-  ago • Michael Stepankin
-* Arbitrary command execution within the CI environment in Weaviate
-
-  [GHSL-2025-104](/advisories/GHSL-2025-104_weaviate/) • published
-  2025/11/14 00:00:00
-  ago • Peter Stöckli
-
-![](/assets/img/marketing/mona-shield.png)
-![](/assets/img/marketing/mona-shield-mobile.png)
-
-CodeQL Wall of Fame
-
-### Join us in our mission to improve open source security for all
-
-Have you used CodeQL’s variant analysis to find vulnerabilities on open
-source projects? Give your work the visibility it deserves by submitting
-your finding for the CodeQL Wall of Fame.
-
-[Share your work](/codeql-wall-of-fame/)
-
-25,000+
-
-security advisories
-
-curated by Security Lab researchers
-
-9,500+  CVEs
-assigned for OS maintainers
-
-### GitHub Advisory Database
-
-While CVEs identify vulnerabilities, they don’t tell the whole
-story. Entries in the GitHub Advisory database expand beyond
-identification to include additional context and details to
-support automated security tooling – sourced from a global
-community of security experts and curated by the Security Lab – to
-help you understand vulnerabilities, assess risk, and fix with
-confidence and efficiency.
-
-[Explore the Advisory Database](https://github.com/advisories)
-
-Resources
-
-### Open doors, open solutions:
-
-### Embracing Enterprise & Open Source
-
-Open doors, open solutions:
-Embracing Enterprise & Open Source
-
-Contributions from maintainers, developers, and security researchers
-around the world push us forward, making the open source software a
-better place.
-
-#### Open Source Community
-
-Learn about secure coding practices, get hands-on with AppSec
-training, and connect with experts during our office hours – free
-for open source developers, maintainers, and security researchers.
-
-[Explore open-source resources](/open-source/)
-
-![](/assets/img/marketing/open-source.png)
-![](/assets/img/marketing/open-source-mobile.png)
-
-![](/assets/img/marketing/sec-lab.png)
-![](/assets/img/marketing/sec-lab.png)
-
-### GitHub Security Lab for the Enterprise
-
-At the GitHub Security Lab, our security experts, through community
-collaboration, strengthen open source security which is crucial for
-enterprises. We channel the community’s contributions into proven
-CodeQL queries and timely security advisories, and offer enterprises
-actionable insights that help secure your supply chain and accelerate
-the software development lifecycle.
-
-[Explore enterprise resources](/enterprise/)
-
-Team
-
-### About the GitHub Security Lab.
-
-At the GitHub Security Lab, we cultivate a collaborative community
-of developers and security experts who work together to bolster the
-security of open source software.
-
-[Meet the team](/team/)
-
-![](/assets/img/marketing/team.jpg)
-
-#### Learn more on GitHub Security Lab
-
-Through research, education, and maintenance of the GitHub Advisory
-Database, we empower the community.
-
-[Read our Blog](https://github.blog/tag/github-security-lab/)
-
-#### We’re active on social media!
-
-Through research, education, and maintenance of the GitHub Advisory
-Database, we empower the community.
-
-[Follow us on Bluesky](https://bsky.app/profile/securitylab.github.com)
-[Follow us on Mastodon](https://infosec.exchange/@GitHubSecurityLab)
-[Follow us on LinkedIn](https://www.linkedin.com/showcase/github-securitylab)
-
-To keep this community open and welcoming, please read our
-[Code of Conduct](https://github.com/github/securitylab/blob/main/CODE_OF_CONDUCT.md).
+* [Summary](#summary)
+* [Further Reading](#further-reading)

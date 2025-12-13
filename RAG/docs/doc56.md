@@ -1,225 +1,76 @@
-Collections · GitHub
+Ability: Store | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Ability: Store
 
+The [key ability](/storage/key-ability) requires all fields to have store, which defines what the store
+ability means: it is the ability to serve as a field of an Object. A struct with
+[copy](/move-basics/copy-ability) or [drop](/move-basics/drop-ability) but without store can never be *stored*. A type
+with key but without store cannot be wrapped - used as a field—in another object, and is
+constrained to always remain at the top level.
 
+## Definition[​](#definition "Direct link to Definition")
 
-## Navigation Menu
+The store ability allows a type to be used as a field in a struct with the key ability.
 
-Toggle navigation
+```move
+use std::string::String;  
+  
+/// Extra metadata with `store`; all fields must have `store` as well!  
+public struct Metadata has store {  
+    bio: String,  
+}  
+  
+/// An object for a single user record.  
+public struct User has key {  
+    id: UID,  
+    name: String,       // String has `store`  
+    age: u8,            // All integers have `store`  
+    metadata: Metadata, // Another type with the `store` ability  
+}
+```
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fcollections)
+## Relation to copy and drop[​](#relation-to-copy-and-drop "Direct link to relation-to-copy-and-drop")
 
-Appearance settings
+All three non-key abilities can be used in any combination.
 
-Search or jump to...
+## Relation to key[​](#relation-to-key "Direct link to relation-to-key")
 
+An object with the store ability can be *stored* in other objects.
 
-# Search code, repositories, users, issues, pull requests...
+> While not a language or verifier feature, store acts as a *public* modifier on a struct,
+> allowing calling *public* [transfer functions](/storage/storage-functions) which do not have an
+> [internal constraint](/storage/internal-constraint).
 
-Search
+## Types with the store Ability[​](#types-with-the-store-ability "Direct link to types-with-the-store-ability")
 
-Clear
+All native types (except references) in Move have the store ability. This includes:
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+* [bool](/move-basics/primitive-types#booleans)
+* [unsigned integers](/move-basics/primitive-types#integer-types)
+* [vector](/move-basics/vector)
+* [address](/move-basics/address)
 
-# Provide feedback
+All of the types defined in the standard library have the store ability as well. This includes:
 
-We read every piece of feedback, and take your input very seriously.
+* [Option](/move-basics/option)
+* [String](/move-basics/string) and [ASCII String](/move-basics/string)
+* [TypeName](/move-basics/type-reflection)
 
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
-Include my email address so I can be contacted
+* [Type Abilities](/reference/abilities) in the Move Reference.
 
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fcollections)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fcollections&source=header)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-# Collections
-
-Curated lists and insight into burgeoning industries, topics, and communities.
-
-[![Learn to Code](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/learn-to-code/learn-to-code.png)
-
-Learn to Code
-
-Resources to help people learn to code](/collections/learn-to-code)
-
-[#
-
-Game Engines
-
-Frameworks for building games across multiple platforms.](/collections/game-engines)
-
-[![Made in Brazil](https://raw.githubusercontent.com/github/explore/27135c6e8461fcd475e5255c4b8408807e239e8d/collections/made-in-brazil/made-in-brazil.png)
-
-Made in Brazil
-
-Open source projects built in or receiving significant contributions from Brazil :brazil:](/collections/made-in-brazil)
-
-#
-
-## [How to choose (and contribute to) your first open source project](/collections/choosing-projects)
-
-New to open source? Here’s how to find projects that need help and start making impactful contributions.
-
-#
-
-## [Clean code linters](/collections/clean-code-linters)
-
-Make sure your code matches your style guide with these essential code linters.
-
-#
-
-## [Open journalism](/collections/open-journalism)
-
-See how publications and data-driven journalists use open source to power their newsroom and ensure information is reported fairly and accurately.
-
-#
-
-## [Design essentials](/collections/design-essentials)
-
-This collection of design libraries are the best on the web, and will complete your toolset for designing stunning products.
-
-#
-
-## [Music](/collections/music)
-
-Drop the code bass with these musically themed repositories.
-
-![Government apps](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/government/government.png)
-
-## [Government apps](/collections/government)
-
-Sites, apps, and tools built by governments across the world to make government work better, together. Read more at https://government.github.com
-
-#
-
-## [DevOps tools](/collections/devops-tools)
-
-These tools help you manage servers and deploy happier and more often with more confidence.
-
-#
-
-## [Front-end JavaScript frameworks](/collections/front-end-javascript-frameworks)
-
-While the number of ways to organize JavaScript is almost infinite, here are some tools that help you build single-page applications.
-
-#
-
-## [GitHub Browser Extensions](/collections/github-browser-extensions)
-
-Some useful and fun browser extensions to personalize your GitHub browser experience.
-
-![GitHub Pages examples](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/github-pages-examples/github-pages-examples.png)
-
-## [GitHub Pages examples](/collections/github-pages-examples)
-
-Fine examples of projects using [GitHub Pages](https://pages.github.com).
-
-![Hacking Minecraft](https://raw.githubusercontent.com/github/explore/3e17bcfbb816ac73347f6f0ccb4c3c999e28c2bf/collections/hacking-minecraft/hacking-minecraft.png)
-
-## [Hacking Minecraft](/collections/hacking-minecraft)
-
-Minecraft is a game about building blocks, but it doesn’t end there. Take Minecraft further with some of the projects below, or dive into the code mines and hammer your own!
-
-#
-
-## [JavaScript Game Engines](/collections/javascript-game-engines)
-
-Learn or level up your 1337 gamedev skills and build amazing games together for web, desktop, or mobile using these HTML5 / JavaScript game engines.
-
-![Learn to Code](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/learn-to-code/learn-to-code.png)
-
-## [Learn to Code](/collections/learn-to-code)
-
-Resources to help people learn to code
-
-#
-
-## [Getting started with machine learning](/collections/machine-learning)
-
-Today, machine learning—the study of algorithms that make data-based predictions—has found a new audience and a new set of possibilities.
-
-![Made in Africa](https://raw.githubusercontent.com/github/explore/8515753826d5388c19c0a46cdeff3bcd2e453fa9/collections/made-in-africa/made-in-africa.png)
-
-## [Made in Africa](/collections/made-in-africa)
-
-Developers in Africa use open source technology to solve some of the world's most intractable problems and grow their business ecosystems. Here's a snapshot of local projects across the continent.
-
-![Net neutrality](https://raw.githubusercontent.com/github/explore/95db15839d9d404742e1dc3aebc83bc8ea42eb24/collections/net-neutrality/net-neutrality.gif)
-
-## [Net neutrality](/collections/net-neutrality)
-
-Software, research, and organizations protecting the free and open internet.
-
-#
-
-## [Open data](/collections/open-data)
-
-Examples of using GitHub to store, publish, and collaborate on open, machine-readable datasets
-
-![Open source organizations](https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/open-source-organizations/open-source-organizations.png)
-
-## [Open source organizations](/collections/open-source-organizations)
-
-A showcase of organizations showcasing their open source projects.
-
-#
-
-## [Policies](/collections/policies)
-
-From federal governments to corporations to student clubs, groups of all sizes are using GitHub to share, discuss, and improve laws. \*Ask not what the repository can do for you...\*
-
-#
-
-## [Software productivity tools](/collections/productivity-tools)
-
-Build software faster with fewer headaches, using these tools and tricks.
-
-Load more…
-
-
-
-
-You can’t perform that action at this time.
+* [Definition](#definition)
+* [Relation to `copy` and `drop`](#relation-to-copy-and-drop)
+* [Relation to `key`](#relation-to-key)
+* [Types with the `store` Ability](#types-with-the-store-ability)
+* [Further Reading](#further-reading)

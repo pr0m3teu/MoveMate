@@ -1,99 +1,55 @@
-Branches · diem/move · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Foreword | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+# Foreword
 
-## Navigation Menu
+This book is dedicated to Move, a smart contract language that captures the essence of safe
+programming with digital assets. Move is designed around the following values:
 
-Toggle navigation
+1. **Secure by default:** Insecure languages are a serious barrier both to accessible smart contract
+   development and to mainstream adoption of digital assets. The first duty of a smart contract
+   language is to prevent as many potential safety issues as possible (e.g. re-entrancy, missing
+   access control checks, arithmetic overflow, ...) by construction. Any changes to Move should
+   preserve or enhance its existing security guarantees.
+2. **Expressive by nature:** Move must enable programmers to write any smart contract they can
+   imagine. But we care as much about the way it *feels* to write Move as we do about what Move
+   allows you to do - the language should be rich enough that the features needed for a task are
+   available, and minimal enough that the choice is obvious. The Move toolchain should be a
+   productivity enhancer and a thought partner.
+3. **Intuitive for all:** Smart contracts are only one part of a useful application. Move should
+   understand the broader context of its usage and design with both the smart contract developer and
+   the application developer in mind. It should be easy for developers to learn how to read
+   Move-managed state, build Move powered transactions, and write new Move code.
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fbranches)
+The core technical elements of Move are:
 
-Appearance settings
+* Safe, familiar, and flexible abstractions for digital assets via programmable *objects*.
+* A rich *ability* system (inspired by linear types) that gives programmers extreme control of how
+  values are created, destroyed, stored, copied, and transferred.
+* A *module* system with strong encapsulation features to enable code reuse while maintaining this
+  control.
+* *Dynamic fields* for creating hierarchical relationships between objects.
+* *Programmable transaction blocks* (PTBs) to enable atomic client-side composition of Move-powered
+  APIs.
 
-Search or jump to...
+Move was born in 2018 as part of Facebook's Libra project. It was publicly revealed in 2019, the
+first Move-powered network launched in 2020. As of April 2024, there are numerous Move-powered
+chains in production with several more in the works. Move is an embedded language with a
+platform-agnostic core, which means it takes on a slightly different personality in each chain that
+uses it.
 
+Creating a new programming language and bootstrapping a community around it is an ambitious, long
+term project. A language has to be an order of magnitude better than alternatives in relevant ways
+to have a chance, but even then the quality of the community matters more than the technical
+fundamentals. Move is a young language, but it's off to a good start in terms of both
+differentiation and community. A small, but fanatical group of smart contract programmers and core
+contributors united by the Move values are pushing the boundaries of what smart contracts can do,
+the applications they can enable, and who can (safely) write them. If that inspires you, read on!
 
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fbranches)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fbranches%2Findex&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-# Branches
-
-Search
-
-## Default
-
-| Branch | Updated | Check status | BehindAhead | Pull request | Action menu |
-| --- | --- | --- | --- | --- | --- |
-| [main](/diem/move)  Copy branch name to clipboard | [bors-diem](/bors-diem) Mar 21, 2023 |  |  |  | Delete branchBranch menu |
-
-You can’t perform that action at this time.
+— Sam Blackshear, creator of Move

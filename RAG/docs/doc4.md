@@ -1,4 +1,4 @@
-GitHub Spark · Dream it. See it. Ship it. · GitHub
+GitHub - MystenLabs/move-book: The Move Book and The Move Reference
 
 
 
@@ -11,12 +11,13 @@ GitHub Spark · Dream it. See it. Ship it. · GitHub
 
 
 
-
 ## Navigation Menu
 
 Toggle navigation
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Ffeatures%2Fspark)
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2FMystenLabs%2Fmove-book)
+
+Appearance settings
 
 Search or jump to...
 
@@ -56,9 +57,12 @@ To see all available qualifiers, see our [documentation](https://docs.github.com
 Cancel
  Create saved search
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Ffeatures%2Fspark)
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2FMystenLabs%2Fmove-book)
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Ffeatures%2Fspark&source=header)
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=MystenLabs%2Fmove-book)
+
+Appearance settings
+
 Resetting focus
 
 You signed in with another tab or window. Reload to refresh your session.
@@ -71,287 +75,181 @@ Dismiss alert
 
 {{ message }}
 
-![](//images.ctfassets.net/8aevphvgewt8/1jwTWLD2LZwSC75CV6opvO/84b74fba48947786a36b2c165cdb98a5/spark-hero-bg.webp?w=2400&fm=jpg&fl=progressive)
+[MystenLabs](/MystenLabs) 
+/
+**[move-book](/MystenLabs/move-book)**
+Public
 
-Public preview
+* [Notifications](/login?return_to=%2FMystenLabs%2Fmove-book) You must be signed in to change notification settings
+* [Fork
+  146](/login?return_to=%2FMystenLabs%2Fmove-book)
+* [Star
+   254](/login?return_to=%2FMystenLabs%2Fmove-book)
 
-# Dream it. See it. Ship it.
+The Move Book and The Move Reference
 
-GitHub Spark helps you transform your ideas into full-stack intelligent apps and publish with a single click.
+[move-book.com](https://move-book.com "https://move-book.com")
 
-[Try it now](https://github.com/spark?utm_source=web-spark-both-main-cta&utm_campaign=spark-launch-sep-2025&locale=en-US)
+### License
 
-![](//images.ctfassets.net/8aevphvgewt8/6CmKHi0e0E8b4FBScuNyY9/9f64353369bab34ecb62fc9c7ce7745f/Video_Cover_Image.webp?fm=webp)
+[Apache-2.0 license](/MystenLabs/move-book/blob/main/LICENSE)
 
-## From prototype to production in one place
+[254
+stars](/MystenLabs/move-book/stargazers) [146
+forks](/MystenLabs/move-book/forks) [Branches](/MystenLabs/move-book/branches) [Tags](/MystenLabs/move-book/tags) [Activity](/MystenLabs/move-book/activity)
 
-Built on the platform trusted by over 150 million developers, Spark gives you the smoothest path from idea to deployment.
+[Star](/login?return_to=%2FMystenLabs%2Fmove-book)
 
-### Build and iterate your way
+[Notifications](/login?return_to=%2FMystenLabs%2Fmove-book) You must be signed in to change notification settings
 
-Natural language, clickable controls, or code—use whatever feels right. Live preview updates instantly as you build, so you see your ideas take shape in real-time.
+# MystenLabs/move-book
 
-![A dark-themed interface showing a user message: "Add filters that let me filter by cuisine. Also give me the option to see them on a map." Below is a text input field labeled "What would you like to change?" with an attachment icon.](//images.ctfassets.net/8aevphvgewt8/6yvl9vSW8haIeX4HNEcGEx/2cbae7bc65728130539445436430366b/Build_and_iterate_your_way.webp)
+main
 
-### Ship with a click
+[Branches](/MystenLabs/move-book/branches)[Tags](/MystenLabs/move-book/tags)
 
-No setup, no surprises. You’re live in just one click, backed by secure GitHub-authenticated access.
+Go to file
 
-![Website interface showing the URL "https://munchmap-monalisa.github.app/" marked as "Live", with visibility set to "Only you" and buttons labeled "Unpublish", "Update", and "View site".](//images.ctfassets.net/8aevphvgewt8/1loS1wqAi52ChAZVMTLma4/3bae3dc2c3a7e65e1f84caee583d7fda/Ship_with_a_click.webp)
+Code
 
-### Your familiar tools, integrated with Spark
+Open more actions menu
 
-Code with GitHub Copilot directly in Spark, open VS code with agent mode, and create repos in one click. Everything stays in sync as you build and scale.
+## Folders and files
 
-![A code editor displays the file "App.tsx" with TypeScript code using React and GitHub libraries. The file tree shows "App.jsx", "index.css", "index.html", and "prd.md". A prompt bar at the bottom reads "Ask copilot Agent GPT 4.1".
-](//images.ctfassets.net/8aevphvgewt8/F5BLoh6H4oQqpad7iS3Kp/89ab3e9c7517e330fb934ace6861e256/Your_familiar_tools__supercharged.webp)
+| Name | | Name | Last commit message | Last commit date |
+| --- | --- | --- | --- | --- |
+| Latest commit   History[147 Commits](/MystenLabs/move-book/commits/main/) | | |
+| [.github](/MystenLabs/move-book/tree/main/.github ".github") | | [.github](/MystenLabs/move-book/tree/main/.github ".github") |  |  |
+| [book](/MystenLabs/move-book/tree/main/book "book") | | [book](/MystenLabs/move-book/tree/main/book "book") |  |  |
+| [packages](/MystenLabs/move-book/tree/main/packages "packages") | | [packages](/MystenLabs/move-book/tree/main/packages "packages") |  |  |
+| [reference](/MystenLabs/move-book/tree/main/reference "reference") | | [reference](/MystenLabs/move-book/tree/main/reference "reference") |  |  |
+| [site](/MystenLabs/move-book/tree/main/site "site") | | [site](/MystenLabs/move-book/tree/main/site "site") |  |  |
+| [.gitignore](/MystenLabs/move-book/blob/main/.gitignore ".gitignore") | | [.gitignore](/MystenLabs/move-book/blob/main/.gitignore ".gitignore") |  |  |
+| [.prettierrc](/MystenLabs/move-book/blob/main/.prettierrc ".prettierrc") | | [.prettierrc](/MystenLabs/move-book/blob/main/.prettierrc ".prettierrc") |  |  |
+| [CNAME](/MystenLabs/move-book/blob/main/CNAME "CNAME") | | [CNAME](/MystenLabs/move-book/blob/main/CNAME "CNAME") |  |  |
+| [LICENSE](/MystenLabs/move-book/blob/main/LICENSE "LICENSE") | | [LICENSE](/MystenLabs/move-book/blob/main/LICENSE "LICENSE") |  |  |
+| [README.md](/MystenLabs/move-book/blob/main/README.md "README.md") | | [README.md](/MystenLabs/move-book/blob/main/README.md "README.md") |  |  |
+| [package.json](/MystenLabs/move-book/blob/main/package.json "package.json") | | [package.json](/MystenLabs/move-book/blob/main/package.json "package.json") |  |  |
+| View all files | | |
 
-### Smart apps, zero setup
+## Repository files navigation
 
-Embed AI features like chatbots, content generation, and smart automation. No complex integrations or APIs required.
+# The Move Book
 
-![A user interface with a highlighted "AI" tab and a text box titled "Search bar recommendations" describing an assistant that helps users find top restaurants based on friends' ratings.](//images.ctfassets.net/8aevphvgewt8/2f7SwqRAQfj9Hf7MVOvsfI/45d3b699e33f56b8ce5bf9bd93d796d4/spark-and-models.webp)
+This is the repository for [the Move Book](https://move-book.com) and
+[Move Language Reference](https://move-book.com/reference).
 
-### Built on GitHub, ready to scale
+## Structure
 
-Leverage all the powerful GitHub tools for version control, security, collaboration, and deployment—so you can scale as you grow from prototype to production.
+* Two books are placed in the `book` and `reference` directories. The `book` directory contains the
+  main book, and the `reference` directory contains the reference book.
+* The `packages` directory contains the code samples used in both books.
+* The `site` directory contains [docusaurus](/MystenLabs/move-book/blob/main/docusaurus.io) configuration and custom plugins for it.
 
-[Try GitHub Spark](https://github.com/spark?utm_source=web-spark-both-cta&utm_campaign=spark-launch-sep-2025&locale=en-US)
+## Running the Books Locally
 
-![A dark-themed interface labeled "index" shows a search for "Ramen near me" under the "Discover" section. Four results are listed, including one by Sorayya Aminian and another for "Arashi Ramen." A purple star icon is highlighted at the top.](//images.ctfassets.net/8aevphvgewt8/6clTspvrLsRyt9rj1KmySv/d0d988ca5473c988b4bd56acddaafab7/From_weekend_project_to_production_app_ALT.webp)
+### Prerequisites
 
-“
+* NodeJS
+* `pnpm` (installation is: `npm i -g pnpm`)
 
-> *We use Spark to rapidly test LLM flows and build internal tooling.* Now we literally get a functioning prototype by just typing out ideas in seconds. While there are other tools that turn natural language into functioning UI, Spark actually builds entire (mini) applications with LLM backends that are fully functional, not just the frontend UI.
+### Local Server
 
-Anand ChowdharyCo-founder, CTO, CPO at FirstQuadrant
+> All commands can be run from the root.
 
-## What will you build?
+```move
+pnpm start
+```
 
-Whether you're creating personal tools, prototypes, or the next big SaaS, Spark brings all kinds of ideas to life.
+*The book will be available at `http://localhost:3000`.*
 
-![An event discovery app interface with a prompt to "Add event tags to show different categories of events users can filter by." It shows "San Francisco, CA" and filters like "All," "Music," "Business," "Art," and "Sports," with a colorful illustration below.](//images.ctfassets.net/8aevphvgewt8/47AAnKbjsgddsy2eFypdG9/1e0e9e23af4f067dd3825739188c1983/Prototyping.webp?fm=webp)
+### Production Build Test
 
-### Prototyping
+```move
+pnpm build
+pnpm serve
+```
 
-Stop explaining your idea—show it. Create functional prototypes in minutes, share for feedback, iterate instantly.
+## Archive
 
-![A to-do list titled "Today" with four tasks: "Read for 10 minutes" (unchecked), "Sleep 8h" (checked), "Exercise for 30 minutes" (checked), and "Morning walk" (unchecked) with an "AI suggestion" button next to it.](//images.ctfassets.net/8aevphvgewt8/YL3ymZ8iYPwWld6Vph7lD/aad614be21462d62d27a312bc66dffac/Personal_apps.webp?fm=webp)
+For the archive of the old version of the book, see the `archive` branch.
 
-### Personal apps
+## About
 
-Go beyond generic. Build exactly what you want—whether it's AI-powered workout trackers, meal planners, habit builders, or anything else.
+The Move Book and The Move Reference
 
-![A dashboard for monitoring "octodemo" shows global uptime at 90.78, 32 incidents, and 12 pages. The "Space traffic API" has 87.56% uptime and 2.5s response time. The "Login" section shows 92.01% uptime.](//images.ctfassets.net/8aevphvgewt8/2KFatbUECSapLktDjoO4eC/db90074e0176ba1def42a99fc9057b3c/SaaS.webp?fm=webp)
+[move-book.com](https://move-book.com "https://move-book.com")
 
-### ​​SaaS launchpad
+### Topics
 
-Validate your business idea with real customers, fast. Build scalable SaaS applications that grow from prototype to profit.
+[move](/topics/move "Topic: move")
+[sui](/topics/sui "Topic: sui")
 
-![A webpage split into two sections. Left: "The case for space manufacturing" with intro text and menu items—Introduction, Energy, Logistics, Vision. Right: "Backyard ADU" with a subtitle about prefab housing, an image of a small house, and "Project Overview" text.](//images.ctfassets.net/8aevphvgewt8/JeHasfwOLj3ipSgmG2hBx/8a85f1f2d6b212948f8352e75e75ff63/Web.webp?fm=webp)
+### Resources
 
-### Web essentials
+[Readme](#readme-ov-file)
 
-Need a standout professional website? Quickly build portfolios, landing pages, and marketing sites—all with AI-powered interactive features that static builders can't match.
+### License
 
-## Every idea starts with a Spark
+[Apache-2.0 license](#Apache-2.0-1-ov-file)
 
-Spark is available to users on GitHub Copilot Pro+ and Enterprise plans. Already a subscriber? You're in.
+### Uh oh!
 
-### Copilot Pro+
+There was an error while loading. Please reload this page.
 
-Power user? Get the most Spark.
+[Activity](/MystenLabs/move-book/activity)
 
-$39USDper month or $390 per year
+[Custom properties](/MystenLabs/move-book/custom-properties)
 
-[Get started](https://github.com/github-spark/pro-plus?utm_source=web-spark-pro-cta&utm_campaign=spark-launch-sep-2025&locale=en-US)
+### Stars
 
-#### What's included:
+[**254**
+stars](/MystenLabs/move-book/stargazers)
 
-* Up to 375 Spark messages included per month
-* The option to purchase more Spark messages as you go
-* 10 active app building sessions at a time
-* Build an unlimited number of apps
-* Development and production compute, inference, storage, and hosting
-* Access to Copilot Pro+ including unlimited Copilot code completions, agent mode, coding agent (preview) and more models in chat
+### Watchers
 
-### Copilot Enterprise
+[**8**
+watching](/MystenLabs/move-book/watchers)
 
-Spark is included for all Enterprise users.
+### Forks
 
-$39USDper user per month
+[**146**
+forks](/MystenLabs/move-book/forks)
 
-[Get started](https://github.com/github-copilot/purchase?priority=enterprise&cft=copilot_li.copilot_plans.ce%3Futm_source%3Dweb-spark-ce-secondary-cta&utm_campaign=spark-launch-sep-2025&locale=en-US)
+[Report repository](/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2FMystenLabs%2Fmove-book&report=MystenLabs+%28user%29)
 
-#### What's included:
+### Uh oh!
 
-* Up to 250 Spark messages included per month
-* The option to purchase more Spark messages as you go
-* 10 active app building sessions at a time
-* Build an unlimited number of apps
-* Access to Copilot Enterprise, including unlimited code completions, agent mode and chats with all models including GPT-5 mini and Claude Opus 4.1, o3 and more.
+There was an error while loading. Please reload this page.
 
-Access may be restricted based on organizational or enterprise administrator policies for users on Copilot Business or Enterprise plans. Speak with your Admin to request access.
+## [Contributors 49](/MystenLabs/move-book/graphs/contributors)
 
-### Frequently asked questions
+* [![@damirka](https://avatars.githubusercontent.com/u/8008055?s=64&v=4)](https://github.com/damirka)
+* [![@zcy1024](https://avatars.githubusercontent.com/u/44721066?s=64&v=4)](https://github.com/zcy1024)
+* [![@ronny-mysten](https://avatars.githubusercontent.com/u/118224482?s=64&v=4)](https://github.com/ronny-mysten)
+* [![@tzakian](https://avatars.githubusercontent.com/u/2895723?s=64&v=4)](https://github.com/tzakian)
+* [![@cgswords](https://avatars.githubusercontent.com/u/1130991?s=64&v=4)](https://github.com/cgswords)
+* [![@yjshi2015](https://avatars.githubusercontent.com/u/27291507?s=64&v=4)](https://github.com/yjshi2015)
+* [![@tnowacki](https://avatars.githubusercontent.com/u/1753366?s=64&v=4)](https://github.com/tnowacki)
+* [![@mdgeorge4153](https://avatars.githubusercontent.com/u/1286449?s=64&v=4)](https://github.com/mdgeorge4153)
+* [![@campgurus](https://avatars.githubusercontent.com/u/1260659?s=64&v=4)](https://github.com/campgurus)
+* [![@Danny-Devs](https://avatars.githubusercontent.com/u/38071276?s=64&v=4)](https://github.com/Danny-Devs)
+* [![@yanganto](https://avatars.githubusercontent.com/u/10803111?s=64&v=4)](https://github.com/yanganto)
+* [![@josemvcerqueira](https://avatars.githubusercontent.com/u/41003724?s=64&v=4)](https://github.com/josemvcerqueira)
+* [![@vuvoth](https://avatars.githubusercontent.com/u/45826131?s=64&v=4)](https://github.com/vuvoth)
+* [![@nikos-terzo](https://avatars.githubusercontent.com/u/139557324?s=64&v=4)](https://github.com/nikos-terzo)
 
-#### About Spark
+[+ 35 contributors](/MystenLabs/move-book/graphs/contributors)
 
-#### What is GitHub Spark?
+## Languages
 
-GitHub Spark is your all-in-one, AI-powered platform for building intelligent apps—no setup, no steep learning curve. Whether you're a seasoned developer or just getting started, Spark lets you create full-stack applications with built-in AI, using natural language, visual tools, or code.
-
-With instant previews, one-click deployment, and deep integration with GitHub’s trusted ecosystem, Spark helps you go from idea to production—fast. And because it’s built on the tools 150 million developers already rely on, your apps are ready to scale from day one.
-
-#### How does it work?
-
-Spark makes intelligent application development more accessible, adaptable, and secure by blending powerful AI capabilities with hands-on flexibility, code-level control, and GitHub's complete platform—empowering everyone to go from idea to production faster, all in one place. It’s built for modern web development, supporting TypeScript and React. Everything runs and deploys on an integrated runtime environment with strong defaults designed to help you move fast, stay focused, and scale with confidence.
-
-#### What can I build with Spark?
-
-From AI-powered tools to personal side projects, Spark helps you build real, functional apps—fast.
-
-Use it to prototype features, test ideas with real users, or launch open source projects. Turn spreadsheets into interactive apps, build internal tools, or create smart helpers for everyday life—like a recipe planner that remembers dietary needs or a restaurant finder that adapts to your tastes.
-
-Whether you're building for your team, your community, or just yourself, Spark gives you the power to create intelligent apps—no code required (unless you want to).
-
-GitHub Spark usage is subject to the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) and [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement), which outline your rights, responsibilities, and how your data is handled.
-
-#### Do I need to know how to code to use Spark?
-
-No coding experience? No problem. Spark is built for people with all levels of technical fluency. You can describe what you want to build in plain language, and Spark handles the heavy lifting.
-
-If you have a development background, you can go deeper: edit code directly in the Spark editor, open your app in Codespaces//VS Code, and use GitHub Copilot and the coding agent to build with full control and flexibility.
-
-#### What’s included?
-
-Spark gives you everything you need to build and deploy full-stack AI apps—right out-of-the-box.
-
-Depending on your GitHub Copilot plan, you’ll get a monthly amount of Spark messages, unlimited manual editing, and the ability to build multiple apps simultaneously.
-
-You’ll also receive app hosting, compute, AI inference, and storage as part of the integrated runtime of Spark. Additional pay-as-you-go options for usage beyond these included amounts coming soon.
-
-#### What is a Spark message?
-
-A Spark message is any prompt you send to Spark to generate or modify your app using natural language. This includes inputs in the Iterate panel or when using targeted editing to adjust specific parts of your app.
-
-Each message helps Spark understand your intent—whether you're adding a feature, refining design, or updating functionality.
-
-#### Pricing & Access
-
-#### How much does Spark cost?
-
-Spark is now offered in Copilot Pro+ and Enterprise, with broader availability planned for the near future.
-
-Spark draws down on your Copilot plan's premium request allowance. For additional information on billing, [please refer to our documentation](https://docs.github.com/en/copilot/tutorials/building-ai-app-prototypes).
-
-For additional runtime beyond your monthly entitlement, pay-as-you-go options for additional usage are coming soon.
-
-#### How do I sign up?
-
-Just sign in with your GitHub account and navigate to the [Spark homepage](http://github.com/spark?locale=en-US) to get started.
-
-#### Getting Started
-
-#### How do I create my first Spark?
-
-Getting started with Spark is simple.
-
-1. **Go to the Spark homepage:** [http://github.com/spark](http://github.com/spark?locale=en-US)
-2. **Start with your vision:** Describe what you want to build in natural language. An AI agent generates a working app—frontend, backend, AI features, and database connections (as needed) included.
-3. **Iterate your way** - Refine your app using natural language, visual controls, or dive into code with Copilot completions in the Spark editor. See changes instantly in the live preview.
-4. **Go live with a click** - When you're satisfied, publish with a click. Your app launches with secure hosting, built-in GitHub user authentication, and the infrastructure needed to handle real users, no configuration required.
-
-#### How do I deploy my Spark apps?
-
-Deployment is seamless. When you’re ready to share your spark with the work just click “Publish” in the header. We’ll configure your deployment and create a unique link for your app. Once it’s live you can update who can access your app, or keep it private to only you. Your choice.
-
-Spark handles all the infrastructure for you. Your app is securely hosted on Microsoft Azure, with enterprise-grade performance, reliability, and security—no setup required, and secured behind GitHub auth.
-
-#### What resources are available for learning more about Spark?
-
-Check out the [Spark docs](https://docs.github.com/copilot/tutorials/building-ai-app-prototypes) to learn more
-
-About SparkPricing & AccessGetting Started
-
-### About Spark
-
-#### What is GitHub Spark?
-
-GitHub Spark is your all-in-one, AI-powered platform for building intelligent apps—no setup, no steep learning curve. Whether you're a seasoned developer or just getting started, Spark lets you create full-stack applications with built-in AI, using natural language, visual tools, or code.
-
-With instant previews, one-click deployment, and deep integration with GitHub’s trusted ecosystem, Spark helps you go from idea to production—fast. And because it’s built on the tools 150 million developers already rely on, your apps are ready to scale from day one.
-
-#### How does it work?
-
-Spark makes intelligent application development more accessible, adaptable, and secure by blending powerful AI capabilities with hands-on flexibility, code-level control, and GitHub's complete platform—empowering everyone to go from idea to production faster, all in one place. It’s built for modern web development, supporting TypeScript and React. Everything runs and deploys on an integrated runtime environment with strong defaults designed to help you move fast, stay focused, and scale with confidence.
-
-#### What can I build with Spark?
-
-From AI-powered tools to personal side projects, Spark helps you build real, functional apps—fast.
-
-Use it to prototype features, test ideas with real users, or launch open source projects. Turn spreadsheets into interactive apps, build internal tools, or create smart helpers for everyday life—like a recipe planner that remembers dietary needs or a restaurant finder that adapts to your tastes.
-
-Whether you're building for your team, your community, or just yourself, Spark gives you the power to create intelligent apps—no code required (unless you want to).
-
-GitHub Spark usage is subject to the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) and [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement), which outline your rights, responsibilities, and how your data is handled.
-
-#### Do I need to know how to code to use Spark?
-
-No coding experience? No problem. Spark is built for people with all levels of technical fluency. You can describe what you want to build in plain language, and Spark handles the heavy lifting.
-
-If you have a development background, you can go deeper: edit code directly in the Spark editor, open your app in Codespaces//VS Code, and use GitHub Copilot and the coding agent to build with full control and flexibility.
-
-#### What’s included?
-
-Spark gives you everything you need to build and deploy full-stack AI apps—right out-of-the-box.
-
-Depending on your GitHub Copilot plan, you’ll get a monthly amount of Spark messages, unlimited manual editing, and the ability to build multiple apps simultaneously.
-
-You’ll also receive app hosting, compute, AI inference, and storage as part of the integrated runtime of Spark. Additional pay-as-you-go options for usage beyond these included amounts coming soon.
-
-#### What is a Spark message?
-
-A Spark message is any prompt you send to Spark to generate or modify your app using natural language. This includes inputs in the Iterate panel or when using targeted editing to adjust specific parts of your app.
-
-Each message helps Spark understand your intent—whether you're adding a feature, refining design, or updating functionality.
-
-### Pricing & Access
-
-#### How much does Spark cost?
-
-Spark is now offered in Copilot Pro+ and Enterprise, with broader availability planned for the near future.
-
-Spark draws down on your Copilot plan's premium request allowance. For additional information on billing, [please refer to our documentation](https://docs.github.com/en/copilot/tutorials/building-ai-app-prototypes).
-
-For additional runtime beyond your monthly entitlement, pay-as-you-go options for additional usage are coming soon.
-
-#### How do I sign up?
-
-Just sign in with your GitHub account and navigate to the [Spark homepage](http://github.com/spark?locale=en-US) to get started.
-
-### Getting Started
-
-#### How do I create my first Spark?
-
-Getting started with Spark is simple.
-
-1. **Go to the Spark homepage:** [http://github.com/spark](http://github.com/spark?locale=en-US)
-2. **Start with your vision:** Describe what you want to build in natural language. An AI agent generates a working app—frontend, backend, AI features, and database connections (as needed) included.
-3. **Iterate your way** - Refine your app using natural language, visual controls, or dive into code with Copilot completions in the Spark editor. See changes instantly in the live preview.
-4. **Go live with a click** - When you're satisfied, publish with a click. Your app launches with secure hosting, built-in GitHub user authentication, and the infrastructure needed to handle real users, no configuration required.
-
-#### How do I deploy my Spark apps?
-
-Deployment is seamless. When you’re ready to share your spark with the work just click “Publish” in the header. We’ll configure your deployment and create a unique link for your app. Once it’s live you can update who can access your app, or keep it private to only you. Your choice.
-
-Spark handles all the infrastructure for you. Your app is securely hosted on Microsoft Azure, with enterprise-grade performance, reliability, and security—no setup required, and secured behind GitHub auth.
-
-#### What resources are available for learning more about Spark?
-
-Check out the [Spark docs](https://docs.github.com/copilot/tutorials/building-ai-app-prototypes) to learn more
-
-
-
+* [Move
+  45.5%](/MystenLabs/move-book/search?l=move)
+* [JavaScript
+  32.0%](/MystenLabs/move-book/search?l=javascript)
+* [TypeScript
+  16.4%](/MystenLabs/move-book/search?l=typescript)
+* [CSS
+  6.1%](/MystenLabs/move-book/search?l=css)
 
 You can’t perform that action at this time.

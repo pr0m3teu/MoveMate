@@ -1,138 +1,78 @@
-GitHub Docs
+Package | The Move Book
 
-[Skip to main content](#main-content)
 
-[GitHub Docs](/en)
 
-Version: Free, Pro, & Team
 
-Search or ask Copilot
 
-Search or askCopilot
 
-Select language: current language is English
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-Search or ask Copilot
+On this page
 
-Search or askCopilot
+# Package
 
-Open menu
+Move is a language for writing smart contracts - programs that are stored and run on the blockchain.
+A single program is organized into a package. A package is published on the blockchain and is
+identified by an [address](/concepts/address). A published package can be interacted with by sending
+[transactions](/concepts/what-is-a-transaction) calling its functions. It can also act as a dependency for
+other packages.
 
-# GitHub Docs
+> To create a new package, use the sui move new command. To learn more about the command, run
+> sui move new --help.
 
-Help for wherever you are on your GitHub journey.
+Package consists of modules - separate scopes that contain functions, types, and other items.
 
-## Get started
+```move
+package 0x...  
+    module a  
+        struct A1  
+        fun hello_world()  
+    module b  
+        struct B1  
+        fun hello_package()
+```
 
-* [Get started](/en/get-started)
-* [Migrations](/en/migrations)
-* [Account and profile](/en/account-and-profile)
-* [Subscriptions & notifications](/en/subscriptions-and-notifications)
-* [Authentication](/en/authentication)
-* [Billing and payments](/en/billing)
-* [Site policy](/en/site-policy)
+## Package Structure[​](#package-structure "Direct link to Package Structure")
 
-## Collaborative coding
+Locally, a package is a directory with a Move.toml file and a sources directory. The Move.toml
+file - called the "package manifest" - contains metadata about the package, and the sources
+directory contains the source code for the modules. Package usually looks like this:
 
-* [Codespaces](/en/codespaces)
-* [Repositories](/en/repositories)
-* [Pull requests](/en/pull-requests)
-* [GitHub Discussions](/en/discussions)
-* [Integrations](/en/integrations)
+```move
+sources/  
+    my_module.move  
+    another_module.move  
+    ...  
+tests/  
+    ...  
+examples/  
+    using_my_module.move  
+Move.toml
+```
 
-## GitHub Copilot
+The tests directory is optional and contains tests for the package. Code placed into the tests
+directory is not published on-chain and is only available in tests. The examples directory can be
+used for code examples, and is also not published on-chain.
 
-* [GitHub Copilot](/en/copilot)
-* [Plans](/en/copilot/get-started/plans)
-* [Get IDE code suggestions](/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-* [Coding agent](/en/copilot/how-tos/use-copilot-agents/coding-agent)
-* [Tutorials](/en/copilot/tutorials)
-* [GitHub Copilot Chat Cookbook](/en/copilot/tutorials/copilot-chat-cookbook)
-* [Customization library](/en/copilot/tutorials/customization-library)
+## Published Package[​](#published-package "Direct link to Published Package")
 
-## CI/CD and DevOps
+During development, package doesn't have an address and it needs to be set to 0x0. Once a package
+is published, it gets a single unique [address](/concepts/address) on the blockchain containing its modules'
+bytecode. A published package becomes *immutable* and can be interacted with by sending
+transactions.
 
-* [GitHub Actions](/en/actions)
-* [GitHub Packages](/en/packages)
-* [GitHub Pages](/en/pages)
+```move
+0x...  
+    my_module: <bytecode>  
+    another_module: <bytecode>
+```
 
-## Security and quality
+## Links[​](#links "Direct link to Links")
 
-* [Secret scanning](/en/code-security/secret-scanning)
-* [Supply chain security](/en/code-security/supply-chain-security)
-* [Dependabot](/en/code-security/dependabot)
-* [Code scanning](/en/code-security/code-scanning)
-* [GitHub Code Quality](/en/code-security/code-quality)
+* [Package Manifest](/concepts/manifest)
+* [Address](/concepts/address)
+* [Packages](/reference/packages) in the Move Reference.
 
-## Client apps
-
-* [GitHub CLI](/en/github-cli)
-* [GitHub Mobile](/en/get-started/using-github/github-mobile)
-* [GitHub Desktop](/en/desktop)
-
-## Project management
-
-* [GitHub Issues](/en/issues)
-* [Projects](/en/issues/planning-and-tracking-with-projects)
-* [Search on GitHub](/en/search-github)
-
-## Enterprise and teams
-
-* [Organizations](/en/organizations)
-* [Secure your organization](/en/code-security/securing-your-organization)
-* [Enterprise onboarding](/en/enterprise-cloud@latest/enterprise-onboarding)
-* [Enterprise administrators](/en/enterprise-cloud@latest/admin)
-
-## Developers
-
-* [Apps](/en/apps)
-* [REST API](/en/rest)
-* [GraphQL API](/en/graphql)
-* [Webhooks](/en/webhooks)
-* [GitHub Models](/en/github-models)
-
-## Community
-
-* [Building communities](/en/communities)
-* [GitHub Sponsors](/en/sponsors)
-* [GitHub Education](/en/education)
-* [GitHub for Nonprofits](/en/nonprofit)
-* [GitHub Support](/en/support)
-* [Contribute to GitHub Docs](/en/contributing)
-
-## More docs
-
-* [CodeQL query writing](https://codeql.github.com/docs)
-* [Electron](https://electronjs.org/docs/latest)
-* [npm](https://docs.npmjs.com/)
-* [GitHub Well-Architected](https://wellarchitected.github.com/)
-
-## Getting started
-
-* [### Set up Git
-
-  At the heart of GitHub is an open-source version control system (VCS) called Git. Git is responsible for everything GitHub-related that happens locally on your computer.](/en/get-started/git-basics/set-up-git)
-* [### Connecting to GitHub with SSH
-
-  You can connect to GitHub using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.](/en/authentication/connecting-to-github-with-ssh)
-* [### Creating and managing repositories
-
-  You can create a repository on GitHub to store and collaborate on your project's files, then manage the repository's name and location.](/en/repositories/creating-and-managing-repositories)
-* [### Basic writing and formatting syntax
-
-  Create sophisticated formatting for your prose and code on GitHub with simple syntax.](/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-
-## Popular
-
-* [### About pull requests
-
-  Learn about pull requests and draft pull requests on GitHub. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.](/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
-* [### Authentication documentation
-
-  Keep your account and data secure with features like two-factor authentication, SSH, and commit signature verification.](/en/authentication)
-* [### Getting code suggestions in your IDE with GitHub Copilot
-
-  Use GitHub Copilot to get code suggestions in your editor.](/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)
-* [### Managing remote repositories
-
-  Learn to work with your local repositories on your computer and remote repositories hosted on GitHub.](/en/get-started/git-basics/managing-remote-repositories)
+* [Package Structure](#package-structure)
+* [Published Package](#published-package)
+* [Links](#links)

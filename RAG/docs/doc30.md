@@ -1,151 +1,96 @@
-AI-Powered Manufacturing Solutions | GitHub · GitHub
+Standard Library | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
+# Standard Library
 
+The Move Standard Library provides functionality for native types and operations. It is a standard
+collection of modules that do not interact with storage, but provide basic tools for working with
+and manipulating data. It is the only dependency of the
+[Sui Framework](/programmability/sui-framework), and is imported together with it.
 
+## Most Common Modules[​](#most-common-modules "Direct link to Most Common Modules")
 
+In this book we go into detail about most of the modules in the Standard Library, however, it is
+also helpful to give an overview of the features, so that you can get a sense of what is available
+and which module implements it.
 
-## Navigation Menu
+| Module | Description | Chapter |
+| --- | --- | --- |
+| [std::string](https://docs.sui.io/references/framework/std/string) | Provides basic string operations | [String](/move-basics/string) |
+| [std::ascii](https://docs.sui.io/references/framework/std/ascii) | Provides basic ASCII operations | - |
+| [std::option](https://docs.sui.io/references/framework/std/option) | Implements Option<T> | [Option](/move-basics/option) |
+| [std::vector](https://docs.sui.io/references/framework/std/vector) | Native operations on the vector type | [Vector](/move-basics/vector) |
+| [std::bcs](https://docs.sui.io/references/framework/std/bcs) | Contains the bcs::to\_bytes() function | [BCS](/programmability/bcs) |
+| [std::address](https://docs.sui.io/references/framework/std/address) | Contains a single address::length function | [Address](/move-basics/address) |
+| [std::type\_name](https://docs.sui.io/references/framework/std/type_name) | Allows runtime *type reflection* | [Type Reflection](/move-basics/type-reflection) |
+| [std::hash](https://docs.sui.io/references/framework/std/hash) | Hashing functions: sha2\_256 and sha3\_256 | - |
+| [std::debug](https://docs.sui.io/references/framework/std/debug) | Contains debugging functions, which are available in only in **test** mode | - |
+| [std::bit\_vector](https://docs.sui.io/references/framework/std/bit_vector) | Provides operations on bit vectors | - |
+| [std::fixed\_point32](https://docs.sui.io/references/framework/std/fixed_point32) | Provides the FixedPoint32 type | - |
 
-Toggle navigation
+## Integer Modules[​](#integer-modules "Direct link to Integer Modules")
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Findustry%2Fmanufacturing)
+The Move Standard Library provides a set of functions associated with integer types. These functions
+are split into multiple modules, each associated with a specific integer type. The modules should
+not be imported directly, as their functions are available on every integer value.
 
-Search or jump to...
+> All of the modules provide the same set of functions. Namely, max, diff,
+> divide\_and\_round\_up, sqrt and pow.
 
+| Module | Description |
+| --- | --- |
+| [std::u8](https://docs.sui.io/references/framework/std/u8) | Functions for the u8 type |
+| [std::u16](https://docs.sui.io/references/framework/std/u16) | Functions for the u16 type |
+| [std::u32](https://docs.sui.io/references/framework/std/u32) | Functions for the u32 type |
+| [std::u64](https://docs.sui.io/references/framework/std/u64) | Functions for the u64 type |
+| [std::u128](https://docs.sui.io/references/framework/std/u128) | Functions for the u128 type |
+| [std::u256](https://docs.sui.io/references/framework/std/u256) | Functions for the u256 type |
 
-# Search code, repositories, users, issues, pull requests...
+## Exported Addresses[​](#exported-addresses "Direct link to Exported Addresses")
 
-Search
+The Standard Library exports a single named address - std = 0x1. Note the alias std is defined
+here.
 
-Clear
+```move
+[addresses]  
+std = "0x1"
+```
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+## Implicit Imports[​](#implicit-imports "Direct link to Implicit Imports")
 
-# Provide feedback
+Some modules are imported implicitly and are available in the module without the explicit use
+import. For the Standard Library, these modules and types include:
 
-We read every piece of feedback, and take your input very seriously.
+* std::vector
+* std::option
+* std::option::Option
 
+## Importing std without Sui Framework[​](#importing-std-without-sui-framework "Direct link to Importing std without Sui Framework")
 
-Include my email address so I can be contacted
+The Move Standard Library can be imported to the package directly. However, std alone is not
+enough to build a meaningful application, as it does not provide any storage capabilities and can't
+interact with the on-chain state.
 
-Cancel
- Submit feedback
+```move
+MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/move-stdlib", rev = "framework/mainnet" }
+```
 
+## Source Code[​](#source-code "Direct link to Source Code")
 
+The source code of the Move Standard Library is available in the
+[Sui repository](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/packages/move-stdlib/sources).
 
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Findustry%2Fmanufacturing)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions%2Findustry%2Fmanufacturing&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/34dJBRRXiU3IZpYyZODyxO/0e9e8e2825d2773aba6837befea05bd5/hero-bg-light.webp?w=2400&fm=jpg&fl=progressive)
-
-Manufacturing solutions
-
-# Advance manufacturing with a complete, AI-powered platform
-
-By integrating AI into developer workflows, you can securely transform manufacturing operations at scale.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_industries_manufacturing)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_industries_manufacturing)
-
-## Support manufacturing's complex needs with an all-in-one platform that eliminates third-party tools, keeping developers in flow.
-
-### Enhance industrial efficiency
-
-Ensure the reliable implementation of cutting-edge technologies by incorporating security practices throughout the development process.
-
-### Move fast, safely
-
-Build at the speed of innovation and enable faster deployment by embedding AI into developer workflows.
-
-### Reduce context switching
-
-Boost efficiency and increase creativity by enabling developers to plan, track, and build in a single, integrated, AI-powered platform.
-
-## Logos for 3M P&G Decathlon Ford and Bolt
-
-3MProcter and GambleDecathlonFordBolt
-
-### Drive industrial innovation
-
-Boost developer productivity and innovation with AI-powered tools, while remaining secure and compliant.
-
-[Explore GitHub Copilot](https://github.com/features/copilot)
-
-![](//images.ctfassets.net/8aevphvgewt8/2wVRwXVlNHT1y9ljsR5apI/af3eac47ceaa4d1967dd26c2ef8a0ff6/AI-1.webp)
-
-### Secure your supply chain
-
-Minimize the risk of disruptions and data breaches by using robust security features and best practices, embedded directly into the developer workflow.
-
-[Explore GitHub Advanced Security](https://github.com/security/advanced-security)
-
-![](//images.ctfassets.net/8aevphvgewt8/7hyREaHfmE1bUDbxWOb3pP/2055d9ac1fe123bc3a1fcedab68ba4a0/Security-1.webp)
-
-### Support developers with automation
-
-Transform continuous integration processes by using enterprise-ready, scalable CI/CD—now with Arm-hosted runners.
-
-[Explore Arm64 on GitHub Actions](https://github.blog/2024-06-03-arm64-on-github-actions-powering-faster-more-efficient-build-systems/)
-
-![](//images.ctfassets.net/8aevphvgewt8/3TNCljJWvty7dks0L7rtho/1682ac8e20fe52bc3edabdae609771a1/Automation-1.webp)
-
-### Read how Procter & Gamble streamlined the developer experience and improved developer satisfaction and security.
-
-[Read the customer story](https://github.com/customer-stories/pg)
-
-![](//images.ctfassets.net/8aevphvgewt8/6RJ6JpV1qJ22isq9BFg3S0/13507e4fb849e228b51ab8310c6abef7/pg2.avif)
-
-“
-
-> You don’t have to go out to a separate project management tool. You don’t have to go to a spreadsheet, or a Microsoft project, or into Jira. It’s all on GitHub. It’s made us more productive.
-
-![](//images.ctfassets.net/8aevphvgewt8/2tMTWbmqMOioMvIqJkRqiy/a2a172f59fdbdb07be513dc9b5e40a14/download-1.png?fm=webp&w=120&q=90)
-
-Tina Beamer3M IT manager of operations and quality
-
-### DevOps strategies for manufacturing innovation, amplified by GitHub
-
-Trusted by 90% of the Fortune 100, GitHub helps millions of developers and companies collaborate, build, and deliver secure software faster. And with thousands of DevOps integrations, developers can build smarter from day one with the tools they know and love—or discover new ones.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=footer&ref_page=%2Fsolutions_industries_manufacturing)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_industries_manufacturing)
-
-
-
-
-
-
-You can’t perform that action at this time.
+* [Most Common Modules](#most-common-modules)
+* [Integer Modules](#integer-modules)
+* [Exported Addresses](#exported-addresses)
+* [Implicit Imports](#implicit-imports)
+* [Importing std without Sui Framework](#importing-std-without-sui-framework)
+* [Source Code](#source-code)

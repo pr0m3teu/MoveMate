@@ -1,93 +1,86 @@
-Releases · diem/move · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Events | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
-## Navigation Menu
+# Events
 
-Toggle navigation
+Events are a way to notify off-chain listeners about on-chain events. They are used to emit
+additional information about the transaction that is not stored - and, hence, can't be accessed -
+on-chain. Events are emitted by the sui::event module located in the
+[Sui Framework](/programmability/sui-framework).
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Ftags)
+> Any custom type with the [copy](/move-basics/copy-ability) and
+> [drop](/move-basics/drop-ability) abilities can be emitted as an event. Sui Verifier requires
+> the type to be internal to the module.
 
-Appearance settings
+```move
+module sui::event;  
+  
+/// Emit a custom Move event, sending the data off-chain.  
+///  
+/// Used for creating custom indexes and tracking on-chain  
+/// activity in a way that suits a specific application the most.  
+///  
+/// The type `T` is the main way to index the event, and can contain  
+/// phantom parameters, eg `emit(MyEvent<phantom T>)`.  
+public native fun emit<T: copy + drop>(event: T);
+```
 
-Search or jump to...
+## Emitting Events[​](#emitting-events "Direct link to Emitting Events")
 
+Events are emitted using the emit function in the sui::event module. The function takes a single
+argument - the event to be emitted. The event data is passed by value,
 
-# Search code, repositories, users, issues, pull requests...
+```move
+module book::events;  
+  
+use sui::coin::Coin;  
+use sui::sui::SUI;  
+use sui::event;  
+  
+/// The item that can be purchased.  
+public struct Item has key { id: UID }  
+  
+/// Event emitted when an item is purchased. Contains the ID of the item and  
+/// the price for which it was purchased.  
+public struct ItemPurchased has copy, drop {  
+    item: ID,  
+    price: u64  
+}  
+  
+/// A marketplace function which performs the purchase of an item.  
+public fun purchase(coin: Coin<SUI>, ctx: &mut TxContext) {  
+    let item = Item { id: object::new(ctx) };  
+  
+    // Create an instance of `ItemPurchased` and pass it to `event::emit`.  
+    event::emit(ItemPurchased {  
+        item: object::id(&item),  
+        price: coin.value()  
+    });  
+  
+    // Omitting the rest of the implementation to keep the example simple.  
+    abort  
+}
+```
 
-Search
+The Sui Verifier requires the type passed to the emit function to be *internal to the module*. So
+emitting a type from another module will result in a compilation error. Primitive types, although
+they match the *copy* and *drop* requirement, are not allowed to be emitted as events.
 
-Clear
+## Event Structure[​](#event-structure "Direct link to Event Structure")
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+Events are a part of the transaction result and are stored in the *transaction effects*. As such,
+they natively have the sender field which is the address which sent the transaction. So adding a
+"sender" field to the event is not necessary. Similarly, event metadata contains the timestamp. But
+it is important to note that the timestamp is relative to the node and may vary a little from node
+to node.
 
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Ftags)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Freleases%2Ftag_history&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-## There aren’t any releases here
-
-You can create a release to package software, along with release notes and links to binary files, for other people to use. Learn more about releases in [our docs](https://docs.github.com/repositories/releasing-projects-on-github/about-releases).
-
-You can’t perform that action at this time.
+* [Emitting Events](#emitting-events)
+* [Event Structure](#event-structure)

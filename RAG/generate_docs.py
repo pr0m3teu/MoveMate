@@ -5,16 +5,8 @@ from bs4 import BeautifulSoup
 
 DOC_LINKS = [
     "https://diem-developers-components.netlify.app/papers/diem-move-a-language-with-programmable-resources/2020-05-26.pdf#:~:text=Move%3A%20A%20Language%20With%20Programmable,Outdated%20links%20have",
-    "https://github.com/diem/move",
-    "https://docs.sui.io/concepts/sui-move-concepts#:~:text=Move%20Concepts",
-    "https://docs.sui.io/assets/files/sui-6251a5c5b9d2fab6b1df0e24ba7c6322.pdf#:~:text=The%20Sui%20Smart%20Contracts%20Platform,their%20creation%2C%20the%20transfer%20of",
-    "https://suifoundation.notion.site/Sui-Developer-Resources-d77356f53bf8448c9f813a96ef199e4a",
-    "https://sdk.mystenlabs.com/typescript",
-    "https://docs.sui.io/references/framework#:~:text=You%20can%20find%20the%20source,context%20for%20the%20logic%20defined",
-    "https://github.com/sui-foundation/sui-move-intro-course",
-    "https://github.com/codeyam-ai/Sui8192",
-    "https://github.com/MystenLabs/sui/releases",
-    "https://forums.sui.io/"
+    "https://move-book.com/",
+    "https://docs.sui.io/"
 ]
 
 

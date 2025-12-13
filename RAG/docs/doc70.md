@@ -1,50 +1,286 @@
-Sign in to GitHub · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Dynamic Collections | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
+On this page
 
+# Dynamic Collections
 
-Dismiss alert
+[Sui Framework](/programmability/sui-framework) offers a variety of collection types that build on the
+[dynamic fields](/programmability/dynamic-fields) and [dynamic object fields](/programmability/dynamic-object-fields) concepts.
+These collections are designed to be a safer and more understandable way to store and manage dynamic
+fields and objects.
 
-# Sign in to GitHub
+For each collection type we will specify the primitive they use, and the specific features they
+offer.
 
-{{ message }}
+> Unlike dynamic (object) fields which operate on UID, collection types have their own type and
+> allow calling [associated functions](/move-basics/struct-methods).
 
-Username or email address
+## Common Concepts[​](#common-concepts "Direct link to Common Concepts")
 
-Password
+All of the collection types share the same set of methods, which are:
 
-[Forgot password?](/password_reset)
+* add - adds a field to the collection
+* remove - removes a field from the collection
+* borrow - borrows a field from the collection
+* borrow\_mut - borrows a mutable reference to a field from the collection
+* contains - checks if a field exists in the collection
+* length - returns the number of fields in the collection
+* is\_empty - checks if the length is 0
 
- 
+All collection types support index syntax for borrow and borrow\_mut methods. If you see square
+brackets in the examples, they are translated into borrow and borrow\_mut calls.
 
+```move
+let hat: &Hat = &bag[b"key"];  
+let hat_mut: &mut Hat = &mut bag[b"key"];  
+  
+// is equivalent to  
+let hat: &Hat = bag.borrow(b"key");  
+let hat_mut: &mut Hat = bag.borrow_mut(b"key");
+```
 
-### Uh oh!
+In the examples we won't focus on these functions, but rather on the differences between the
+collection types.
 
-There was an error while loading. Please reload this page.
+## Bag[​](#bag "Direct link to Bag")
 
-New to GitHub?
-[Create an account](/signup?return_to=%2Fdiem%2Fmove&source=login)
+Bag, as the name suggests, acts as a "bag" of heterogeneous values. It is a simple, non-generic type
+that can store any data. Bag will never allow orphaned fields, as it tracks the number of fields and
+can't be destroyed if it's not empty.
 
-Sign in with a passkey
+```move
+module sui::bag;  
+  
+public struct Bag has key, store {  
+    /// the ID of this bag  
+    id: UID,  
+    /// the number of key-value pairs in the bag  
+    size: u64,  
+}
+```
 
-* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)
-* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)
-* [Docs](https://docs.github.com)
-* [Contact GitHub Support](https://support.github.com)
-* Manage cookies
-* Do not share my personal information
+*See [full documentation for sui::bag](https://docs.sui.io/references/framework/sui/bag) module.*
 
-You can’t perform that action at this time.
+Due to Bag storing any types, the extra methods it offers is:
+
+* contains\_with\_type - checks if a field exists with a specific type
+
+Used as a struct field:
+
+```move
+/// Imported from the `sui::bag` module.  
+use sui::bag::{Self, Bag};  
+  
+/// An example of a `Bag` as a struct field.  
+public struct Carrier has key {  
+    id: UID,  
+    bag: Bag  
+}
+```
+
+Using the Bag:
+
+```move
+let mut bag = bag::new(ctx);  
+  
+// bag has the `length` function to get the number of elements  
+assert_eq!(bag.length(), 0);  
+  
+bag.add(b"my_key", b"my_value".to_string());  
+  
+// length has changed to 1  
+assert_eq!(bag.length(), 1);  
+  
+// in order: `borrow`, `borrow_mut` and `remove`  
+// the value type must be specified  
+let field_ref: &String = &bag[b"my_key"];  
+let field_mut: &mut String = &mut bag[b"my_key"];  
+let field: String = bag.remove(b"my_key");  
+  
+// length is back to 0 - we can unpack  
+bag.destroy_empty();
+```
+
+## ObjectBag[​](#objectbag "Direct link to ObjectBag")
+
+Defined in the sui::object\_bag module. Identical to [Bag](#bag), but uses
+[dynamic object fields](/programmability/dynamic-object-fields) internally. Can only store objects as values.
+
+*See [full documentation for sui::object\_bag](https://docs.sui.io/references/framework/sui/object_bag) module.*
+
+## Table[​](#table "Direct link to Table")
+
+Table is a typed dynamic collection that has a fixed type for keys and values. It is defined in the
+sui::table module.
+
+```move
+module sui::table;  
+  
+public struct Table<phantom K: copy + drop + store, phantom V: store> has key, store {  
+    /// the ID of this table  
+    id: UID,  
+    /// the number of key-value pairs in the table  
+    size: u64,  
+}
+```
+
+*See [full documentation for sui::table](https://docs.sui.io/references/framework/sui/table) module.*
+
+Used as a struct field:
+
+```move
+/// Imported from the `sui::table` module.  
+use sui::table::{Self, Table};  
+  
+/// Some record type with `store`  
+public struct Record has store { /* ... */ }  
+  
+/// An example of a `Table` as a struct field.  
+public struct UserRegistry has key {  
+    id: UID,  
+    table: Table<address, Record>  
+}
+```
+
+Using the Table:
+
+```move
+// Table requires explicit type parameters for the key and value  
+// ...but does it only once in initialization.  
+let mut table = table::new<address, String>(ctx);  
+  
+// table has the `length` function to get the number of elements  
+assert_eq!(table.length(), 0);  
+  
+table.add(@0xa11ce, b"my_value".to_string());  
+table.add(@0xb0b, b"another_value".to_string());  
+  
+// length has changed to 2  
+assert_eq!(table.length(), 2);  
+  
+// in order: `borrow`, `borrow_mut` and `remove`  
+let value_ref = &table[@0xa11ce];  
+let value_mut = &mut table[@0xa11ce];  
+  
+// removing both values  
+let _value = table.remove(@0xa11ce);  
+let _another_value = table.remove(@0xb0b);  
+  
+// length is back to 0 - we can unpack  
+table.destroy_empty();
+```
+
+## ObjectTable[​](#objecttable "Direct link to ObjectTable")
+
+Defined in the sui::object\_table module. Identical to [Table](#table), but uses
+[dynamic object fields](/programmability/dynamic-object-fields) internally. Can only store objects as values.
+
+*See [full documentation for sui::object\_table](https://docs.sui.io/references/framework/sui/object_table) module.*
+
+## LinkedTable[​](#linkedtable "Direct link to LinkedTable")
+
+It is defined in the sui::linked\_table module, similar to [Table](#table) but the values are linked together,
+allowing for ordered insertion and removal.
+
+```move
+module sui::linked_table;  
+  
+public struct LinkedTable<K: copy + drop + store, phantom V: store> has key, store {  
+    /// the ID of this table  
+    id: UID,  
+    /// the number of key-value pairs in the table  
+    size: u64,  
+    /// the front of the table, i.e. the key of the first entry  
+    head: Option<K>,  
+    /// the back of the table, i.e. the key of the last entry  
+    tail: Option<K>,  
+}
+```
+
+*See [full documentation for sui::linked\_table](https://docs.sui.io/references/framework/sui/linked_table) module.*
+
+Since the values stored in LinkedTable are linked together, it has unique methods for adding and deleting.
+
+* push\_front - inserts a key-value pair at the front of the table
+* push\_back - inserts a key-value pair at the back of the table
+* remove - removes a key-value pair by key and returns the value
+* pop\_front - removes the front of the table, returns the key and value
+* pop\_back - removes the back of the table, returns the key and value
+
+Used as a struct field:
+
+```move
+/// Imported from the `sui::linked_table` module.  
+use sui::linked_table::{Self, LinkedTable};  
+  
+/// Some record type with `store`  
+public struct Permissions has store { /* ... */ }  
+  
+/// An example of a `LinkedTable` as a struct field.  
+public struct AdminRegistry has key {  
+    id: UID,  
+    linked_table: LinkedTable<address, Permissions>  
+}
+```
+
+Using the LinkedTable:
+
+```move
+// LinkedTable requires explicit type parameters for the key and value  
+// ...but does it only once in initialization.  
+let mut linked_table = linked_table::new<address, String>(ctx);  
+  
+// linked_table has the `length` function to get the number of elements  
+assert_eq!(linked_table.length(), 0);  
+  
+linked_table.push_front(@0xa0a, b"first_value".to_string());  
+linked_table.push_back(@0xb1b, b"second_value".to_string());  
+linked_table.push_back(@0xc2c, b"third_value".to_string());  
+  
+// length has changed to 3  
+assert_eq!(linked_table.length(), 3);  
+  
+// in order: `borrow`, `borrow_mut` and `remove`  
+let first_value_ref = &linked_table[@0xa0a];  
+let second_value_mut = &mut linked_table[@0xb1b];  
+  
+// remove by key, from the beginning or from the end  
+let _second_value = linked_table.remove(@0xb1b);  
+let (_first_addr, _first_value) = linked_table.pop_front();  
+let (_third_addr, _third_value) = linked_table.pop_back();  
+  
+// length is back to 0 - we can unpack  
+linked_table.destroy_empty();
+```
+
+## Summary[​](#summary "Direct link to Summary")
+
+* [Bag](#bag) - a simple collection that can store any type of data.
+* [ObjectBag](#objectbag) - a collection that can store only objects.
+* [Table](#table) - a typed dynamic collection that has a fixed type for keys and values.
+* [ObjectTable](#objecttable) - same as Table, but can only store objects.
+* [LinkedTable](#linkedtable) - similar to Table but the values are linked together.
+
+## Further Reading[​](#further-reading "Direct link to Further Reading")
+
+* [sui::table](https://docs.sui.io/references/framework/sui/table) module documentation.
+* [sui::object\_table](https://docs.sui.io/references/framework/sui/object_table) module documentation.
+* [sui::linked\_table](https://docs.sui.io/references/framework/sui/linked_table) module documentation.
+* [sui::bag](https://docs.sui.io/references/framework/sui/bag) module documentation.
+* [sui::object\_bag](https://docs.sui.io/references/framework/sui/object_bag) module documentation.
+
+* [Common Concepts](#common-concepts)
+* [Bag](#bag)
+* [ObjectBag](#objectbag)
+* [Table](#table)
+* [ObjectTable](#objecttable)
+* [LinkedTable](#linkedtable)
+* [Summary](#summary)
+* [Further Reading](#further-reading)

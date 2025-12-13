@@ -1,171 +1,187 @@
-AI-Powered Financial Solutions for Secure Innovation | GitHub · GitHub
+Importing Modules | The Move Book
 
 
 
-[Skip to content](#start-of-content)
 
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Importing Modules
 
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Findustry%2Ffinancial-services)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsolutions%2Findustry%2Ffinancial-services)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fsolutions%2Findustry%2Ffinancial-services&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-![](//images.ctfassets.net/8aevphvgewt8/34dJBRRXiU3IZpYyZODyxO/0e9e8e2825d2773aba6837befea05bd5/hero-bg-light.webp?w=2400&fm=jpg&fl=progressive)
-
-Financial services
-
-# Transform financial services with a secure, AI-powered solution
-
-By embedding AI into developer workflows, you can accelerate secure financial innovation at scale.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=hero&ref_page=%2Fsolutions_industries_finserve)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=hero&ref_page=%2Fsolutions_industries_finserve)
-
-## Build secure financial services by having an all-in-one platform that eliminates the need for third-party tools and keeps developers in the flow.
-
-### Reduce risk
-
-Avoid data breaches and fraud by incorporating security practices throughout the development process.
-
-### Increase speed and efficiency
-
-Enable faster development and deployment of new features and services by leaving the manual, repetitive tasks to AI.
-
-### Streamline operations
-
-Improve efficiency and enhance developer creativity by working on a single, secure, AI-powered platform.
-
-## Logos for Itaú Mercari Mercado Libre Stripe and Plaid
-
-StripePlaidDow JonesSociété Générale
-
-### Get ahead with AI-powered innovation
-
-Stay at the forefront of technological advancements by using AI-powered tools to innovate services while remaining secure and compliant.
-
-[Explore GitHub Copilot](https://github.com/features/copilot)
-
-![](//images.ctfassets.net/8aevphvgewt8/2Bv7MCBhvh3AmQqJcXOzDH/94fc994576fde4cb2c4a68de4bf93827/AI.webp)
-
-### Enhance regulatory compliance and security
-
-Meet regulatory standards and secure your supply chain by leveraging  AI-powered compliance features and natively-embedded application security testing.
-
-[Explore GitHub Advanced Security](https://github.com/security/advanced-security)
-
-![](//images.ctfassets.net/8aevphvgewt8/667uH4E9obD2Y1pAsFgpSd/8bcf8082d6c0bc7a07096d04d162d2d7/Security.webp)
-
-### Accelerate software development
-
-Automation is everything. Reduce time-to-market and improve responsiveness to customers by using enterprise-ready, scalable CI/CD.
-
-[Explore GitHub Actions](https://github.com/features/actions)
-
-![](//images.ctfassets.net/8aevphvgewt8/1cOUJzfgvxotYU0cOMJEOf/94c3f7fb4053edd8b3f43cd3eb41aa8c/Automation.webp)
-
-### Read how Societe Generale tripled their releases and cut development time by more than half.
-
-[Read the customer story](https://github.com/customer-stories/societe-generale)
-
-![](//images.ctfassets.net/8aevphvgewt8/Yb7bDbf9PXFoD31AnPGvv/beebe4e2adae829de300a764a232f3bc/sg-hero.avif)
-
-“
-
-> We used to have other tools as well, but GitHub offers us with an all-in-one solution that provides developers a single source of truth for security notifications and code management.
-
-![](//images.ctfassets.net/8aevphvgewt8/5nBVvLrDM14awwu6LGS57t/044c762c1f7a4d9eec1f225bd6920e55/channels4_profile.jpg?fm=webp&w=120&q=90)
-
-David HeitzingerHead of Agile Engineering Support // Raiffeisen Bank
-
-### DevOps strategies for financial innovation, amplified by GitHub
-
-Trusted by 90% of the Fortune 100, GitHub helps millions of developers and companies collaborate, build, and deliver secure software faster. And with thousands of DevOps integrations, developers can build smarter from day one with the tools they know and love—or discover new ones.
-
-[Start a free trial](https://github.com/organizations/enterprise_plan?ref_cta=Start+a+free+trial&ref_loc=footer&ref_page=%2Fsolutions_industries_finserve)[Contact sales](https://github.com/enterprise/contact?ref_cta=Contact+sales&ref_loc=footer&ref_page=%2Fsolutions_industries_finserve)
-
-## Additional Resources
-
-### [Find the right DevOps platform](https://resources.github.com/devops/2024-gartner-mq-for-devops-platforms/)
-
-Narrow your search with the 2024 Gartner® Magic Quadrant™ for DevOps Platforms report.
-
-Get the Gartner report
-
-### [What is DevOps?](https://github.com/resources/articles/devops/what-is-devops)
-
-By bringing people, processes, and products together, DevOps enables development teams to continuously deliver value.
-
-Learn more about DevOps
-
-### [Discover innersource](https://resources.github.com/software-development/innersource/)
-
-This practice empowers developers to save time and energy by bringing methodologies from open source into their internal development.
-
-Read more on Innersouce
-
-
-
-
-
-
-You can’t perform that action at this time.
+Move achieves high modularity and code reuse by allowing module imports. Modules within the same
+package can import each other, and a new package can depend on already existing packages and use
+their modules too. This section will cover the basics of importing modules and how to use them in
+your own code.
+
+## Importing a Module[​](#importing-a-module "Direct link to Importing a Module")
+
+Modules defined in the same package can import each other. The use keyword is followed by the
+module path, which consists of the package address (or alias) and the module name separated by ::.
+
+File: sources/module\_one.move
+
+```move
+module book::module_one;  
+  
+/// Struct defined in the same module.  
+public struct Character has drop {}  
+  
+/// Simple function that creates a new `Character` instance.  
+public fun new(): Character { Character {} }
+```
+
+Another module defined in the same package can import the first module using the use keyword.
+
+File: sources/module\_two.move
+
+```move
+module book::module_two;  
+  
+use book::module_one; // importing module_one from the same package  
+  
+/// Calls the `new` function from the `module_one` module.  
+public fun create_and_ignore() {  
+    let _ = module_one::new();  
+}
+```
+
+> Note: Any item (struct, function, constant, etc.) that you want to import from another module must
+> be marked with the public (or public(package) - see [visibility modifiers](/move-basics/visibility))
+> keyword to make it accessible outside its defining module. For example, the Character struct and
+> the new function in module\_one are marked public so they can be used in module\_two.
+
+## Importing Members[​](#importing-members "Direct link to Importing Members")
+
+You can also import specific members from a module. This is useful when you only need a single
+function or a single type from a module. The syntax is the same as for importing a module, but you
+add the member name after the module path.
+
+```move
+module book::more_imports;  
+  
+use book::module_one::new;       // imports the `new` function from the `module_one` module  
+use book::module_one::Character; // importing the `Character` struct from the `module_one` module  
+  
+/// Calls the `new` function from the `module_one` module.  
+public fun create_character(): Character {  
+    new()  
+}
+```
+
+## Grouping Imports[​](#grouping-imports "Direct link to Grouping Imports")
+
+Imports can be grouped into a single use statement using curly braces {}. This allows for
+cleaner and more organized code when importing multiple members from the same module or package.
+
+```move
+module book::grouped_imports;  
+  
+// imports the `new` function and the `Character` struct from  
+// the `module_one` module  
+use book::module_one::{new, Character};  
+  
+/// Calls the `new` function from the `module_one` module.  
+public fun create_character(): Character {  
+    new()  
+}
+```
+
+Importing function names is less common in Move, since the function names can overlap and cause
+confusion. A recommended practice is to import the entire module and use the module path to access
+the function. Types have unique names and should be imported individually.
+
+To import members and the module itself in the group import, you can use the Self keyword. The
+Self keyword refers to the module itself and can be used to import the module and its members.
+
+```move
+module book::self_imports;  
+  
+// imports the `Character` struct, and the `module_one` module  
+use book::module_one::{Self, Character};  
+  
+/// Calls the `new` function from the `module_one` module.  
+public fun create_character(): Character {  
+    module_one::new()  
+}
+```
+
+## Resolving Name Conflicts[​](#resolving-name-conflicts "Direct link to Resolving Name Conflicts")
+
+When importing multiple members from different modules, it is possible to have name conflicts. For
+example, if you import two modules that both have a function with the same name, you will need to
+use the module path to access the function. It is also possible to have modules with the same name
+in different packages. To resolve the conflict and avoid ambiguity, Move offers the as keyword to
+rename the imported member.
+
+```move
+module book::conflict_resolution;  
+  
+// `as` can be placed after any import, including group imports  
+use book::module_one::{Self as mod, Character as Char};  
+  
+/// Calls the `new` function from the `module_one` module.  
+public fun create(): Char {  
+    mod::new()  
+}
+```
+
+## Adding an External Dependency[​](#adding-an-external-dependency "Direct link to Adding an External Dependency")
+
+Move packages can depend on other packages; the dependencies are listed in the
+[Package Manifest](/concepts/manifest) file called Move.toml.
+
+Package dependencies are defined in the [Package Manifest](/concepts/manifest) as follows:
+
+Move.toml
+
+```move
+[dependencies]  
+Example = { git = "https://github.com/Example/example.git", subdir = "path/to/package", rev = "v1.2.3" }  
+Local = { local = "../my_other_package" }
+```
+
+The dependencies section contains an entry for each package dependency. The key of the entry is
+the name of the package (Example or Local in the example), and the value is either a git import
+table or a local path. The git import contains the URL of the package, the subdirectory where the
+package is located, and the revision of the package. The local path is a relative path to the qa
+package directory.
+
+If you add a dependency, all of its dependencies also become available to your package.
+
+If a dependency is added to the Move.toml file, the compiler will automatically fetch (and later
+refetch) the dependencies when building the package.
+
+> Starting with version 1.45 of the sui CLI, the system packages are automatically included as
+> dependencies for all packages if they are not present in Move.toml. Therefore, MoveStdlib,
+> Sui, System, Bridge, and Deepbook are all available without an explicit import.
+
+## Importing a Module from Another Package[​](#importing-a-module-from-another-package "Direct link to Importing a Module from Another Package")
+
+Normally, packages define their addresses in the [addresses] section. You can use aliases instead
+of full addresses. For example, instead of using 0x2::coin to reference the Sui coin module, you
+can use sui::coin. The sui alias is defined in the Sui Framework package's manifest. Similarly,
+the std alias is defined in the Standard Library package and can be used instead of 0x1 to
+access standard library modules.
+
+To import a module from another package, use the use keyword followed by the module path. The
+module path consists of the package address (or alias) and the module name, separated by ::.
+
+```move
+module book::imports;  
+  
+use std::string; // std = 0x1, string is a module in the standard library  
+use sui::coin;   // sui = 0x2, coin is a module in the Sui Framework
+```
+
+> Note: Module address names come from the [addresses] section of the manifest file (Move.toml),
+> not the names used in the [dependencies] section.
+
+* [Importing a Module](#importing-a-module)
+* [Importing Members](#importing-members)
+* [Grouping Imports](#grouping-imports)
+* [Resolving Name Conflicts](#resolving-name-conflicts)
+* [Adding an External Dependency](#adding-an-external-dependency)
+* [Importing a Module from Another Package](#importing-a-module-from-another-package)

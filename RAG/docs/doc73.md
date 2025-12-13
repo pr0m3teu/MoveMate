@@ -1,149 +1,115 @@
-Forks · diem/move · GitHub
-
-
-
-[Skip to content](#start-of-content)
-
-
-
-
-
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fforks)
-
-Appearance settings
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fforks)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fforks%2Fforks%2Findex&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-# Insights: diem/move
-
-[Switch to tree view](/diem/move/network/members)
-
-# Forks
-
- 
-Period:
- 2 years
-
-## Filter by period
-
-[1 month](/diem/move/forks?include=active&page=1&period=1mo&sort_by=stargazer_counts)
-[6 months](/diem/move/forks?include=active&page=1&period=6mo&sort_by=stargazer_counts)
-[1 year](/diem/move/forks?include=active&page=1&period=1y&sort_by=stargazer_counts)
-[2 years](/diem/move/forks?include=active&page=1&period=2y&sort_by=stargazer_counts)
-[5 years](/diem/move/forks?include=active&page=1&period=5y&sort_by=stargazer_counts)
-
-Nothing to show
-
-
- 
-Repository type:
- 
-Active
-
-## Filter by repository type
-
-[Active
-Repositories with push activity](/diem/move/forks?include=&page=1&period=2y&sort_by=stargazer_counts)
-[Inactive
-Repositories with no push activity](/diem/move/forks?include=active%2Cinactive&page=1&period=2y&sort_by=stargazer_counts)
-[Network
-Forks of other forks](/diem/move/forks?include=active%2Cnetwork&page=1&period=2y&sort_by=stargazer_counts)
-[Archived
-Archived repositories](/diem/move/forks?include=active%2Carchived&page=1&period=2y&sort_by=stargazer_counts)
-[Starred
-Repositories with at least 1 star](/diem/move/forks?include=active%2Cstarred&page=1&period=2y&sort_by=stargazer_counts)
-
-Nothing to show
-
-
- 
-Sort:
- Most starred
-
-## Sort by
-
-[Most starred](/diem/move/forks?include=active&page=1&period=2y&sort_by=stargazer_counts)
-[Recently updated](/diem/move/forks?include=active&page=1&period=2y&sort_by=last_updated)
-[Open issues](/diem/move/forks?include=active&page=1&period=2y&sort_by=open_issue_counts)
-[Open pull requests](/diem/move/forks?include=active&page=1&period=2y&sort_by=open_pull_request_counts)
-
-Nothing to show
-
-## No forked repositories found
-
-Try changing your filters, or search for
-[active forked repositories](/diem/move/forks).
-
-You can’t perform that action at this time.
+Publisher Authority | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Publisher Authority
+
+In application design and development, it is often needed to prove publisher authority. This is
+especially important in the context of digital assets, where the publisher may enable or disable
+certain features for their assets. The Publisher Object is an object, defined in the
+[Sui Framework](/programmability/sui-framework), that allows the publisher to prove their *authority over a type*.
+
+## Definition[​](#definition "Direct link to Definition")
+
+The Publisher object is defined in the sui::package module of the Sui Framework. It is a very
+simple, non-generic object that can be initialized once per module (and multiple times per package)
+and is used to prove the authority of the publisher over a type. To claim a Publisher object, the
+publisher must present a [One Time Witness](/programmability/one-time-witness) to the package::claim function.
+
+```move
+module sui::package;  
+  
+public struct Publisher has key, store {  
+    id: UID,  
+    package: String,  
+    module_name: String,  
+}
+```
+
+> If you're not familiar with the One Time Witness, you can read more about it
+> [here](/programmability/one-time-witness).
+
+Here's a simple example of claiming a Publisher object in a module:
+
+```move
+module book::publisher;  
+  
+use sui::package::{Self, Publisher};  
+  
+/// Some type defined in the module.  
+public struct Book {}  
+  
+/// The OTW for the module.  
+public struct PUBLISHER has drop {}  
+  
+/// Uses the One Time Witness to claim the Publisher object.  
+fun init(otw: PUBLISHER, ctx: &mut TxContext) {  
+    // Claim the Publisher object.  
+    let publisher: Publisher = sui::package::claim(otw, ctx);  
+  
+    // Usually it is transferred to the sender.  
+    // It can also be stored in another object.  
+    transfer::public_transfer(publisher, ctx.sender())  
+}
+```
+
+## Usage[​](#usage "Direct link to Usage")
+
+The Publisher object has two functions associated with it which are used to prove the publisher's
+authority over a type:
+
+```move
+// Checks if the type is from the same module, hence the `Publisher` has the  
+// authority over it.  
+assert!(publisher.from_module<Book>());  
+  
+// Checks if the type is from the same package, hence the `Publisher` has the  
+// authority over it.  
+assert!(publisher.from_package<Book>());
+```
+
+## Publisher as Admin Role[​](#publisher-as-admin-role "Direct link to Publisher as Admin Role")
+
+For small applications or simple use cases, the Publisher object can be used as an admin
+[capability](/programmability/capability). While in the broader context, the Publisher object has control over
+system configurations, it can also be used to manage the application's state.
+
+```move
+/// Some action in the application gated by the Publisher object.  
+public fun admin_action(cap: &Publisher, /* app objects... */ param: u64) {  
+    assert!(cap.from_module<Book>(), ENotAuthorized);  
+  
+    // perform application-specific action  
+}
+```
+
+However, Publisher misses some native properties of [Capabilities](/programmability/capability), such as type
+safety and expressiveness. The signature for the admin\_action is not very explicit, can be called
+by anyone else. And due to Publisher object being standard, there is now a risk of unauthorized
+access if the from\_module check is not performed. So it's important to be cautious when using the
+Publisher object as an admin role.
+
+## Role on Sui[​](#role-on-sui "Direct link to Role on Sui")
+
+Publisher is required for certain features on Sui. [Object Display](/programmability/display) can be created only
+by the Publisher, and TransferPolicy - an important component of the Kiosk system - also requires
+the Publisher object to prove ownership of the type.
+
+## Next Steps[​](#next-steps "Direct link to Next Steps")
+
+In the next chapter we will cover the first feature that requires the Publisher object - Object
+Display - a way to describe objects for clients, and standardize metadata. A must-have for
+user-friendly applications.
+
+* [Definition](#definition)
+* [Usage](#usage)
+* [Publisher as Admin Role](#publisher-as-admin-role)
+* [Role on Sui](#role-on-sui)
+* [Next Steps](#next-steps)

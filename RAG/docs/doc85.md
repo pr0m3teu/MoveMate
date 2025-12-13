@@ -1,91 +1,34 @@
-Pulse · diem/move · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Appendix A: Glossary | The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+On this page
 
-## Navigation Menu
+# Appendix A: Glossary
 
-Toggle navigation
+* Fast Path - term used to describe a transaction that does not involve shared objects, and can be
+  executed without the need for consensus.
+* Parallel Execution - term used to describe the ability of the Sui runtime to execute transactions
+  in parallel, including the ones that involve shared objects.
+* Internal Type - type that is defined within the module. Fields of this type can not be accessed
+  from outside the module, and, in case of "key"-only abilities, can not be used in public\_\*
+  transfer functions.
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fpulse)
+## Abilities[​](#abilities "Direct link to Abilities")
 
-Appearance settings
+* key - ability that allows the struct to be used as a key in the storage. On Sui, the key ability
+  marks an object and requires the first field to be a id: UID.
+* store - ability that allows the struct to be stored inside other objects. This ability relaxes
+  restrictions applied to internal structs, allowing public\_\* transfer functions to accept them as
+  arguments. It also enables the object to be stored as a dynamic field.
+* copy - ability that allows the struct to be copied. On Sui, the copy ability conflicts with the
+  key ability, and can not be used together with it.
+* drop - ability that allows the struct to be ignored or discarded. On Sui, the drop ability
+  cannot be used together with the key ability, as objects are not allowed to be ignored.
 
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Fpulse)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Frepositories%2Fpulse&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-# Insights: diem/move
-
-You can’t perform that action at this time.
+* [Abilities](#abilities)

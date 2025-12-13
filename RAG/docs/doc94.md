@@ -1,93 +1,64 @@
-Releases · diem/move · GitHub
-
-
-
-[Skip to content](#start-of-content)
+Sui Documentation
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
+# Sui Documentation
 
-## Navigation Menu
+## Discover the power of Sui through examples, guides, and concepts
 
-Toggle navigation
+#### Developers
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Ftags)
+[Getting started](/guides/developer/getting-started/sui-install)[Sui Developer Basics](/guides/developer/sui-101)[Move](/concepts/sui-move-concepts)
 
-Appearance settings
+#### Validators and Node operators
 
-Search or jump to...
+[Validator configuration](/guides/operator/validator/validator-config)[Run a Sui Full node](/guides/operator/sui-full-node)[Sui Bridge Node configuration](/guides/operator/bridge-node-configuration)
 
+#### About Sui
 
-# Search code, repositories, users, issues, pull requests...
+[Tokenomics](/concepts/tokenomics)[Cryptography](/concepts/cryptography)[Standards](/standards)
 
-Search
+#### References
 
-Clear
+[Sui dApp Kit](https://sdk.mystenlabs.com/dapp-kit?ref=blog.sui.io)[Sui API](/references/sui-api)[Sui framework (GitHub)](https://github.com/MystenLabs/sui/tree/main/crates/sui-framework/docs)[Rust SDK (GitHub)](https://github.com/MystenLabs/sui/tree/main/crates/sui-sdk)
 
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+#### Resources
 
-# Provide feedback
+[Sui ecosystem directory](https://sui.directory/?_project_type=api%2Cdeveloper-tools%2Cinfrastructure%2Csdk)[Awesome Sui](/references/awesome-sui)[Sui blog](https://blog.sui.io/)[Sui dev cheat sheet](/guides/developer/dev-cheat-sheet)
 
-We read every piece of feedback, and take your input very seriously.
+[Build your dApp on Sui](/guides/developer/getting-started/hello-world)
 
+## Why Sui?
 
-Include my email address so I can be contacted
+### Sui is the first internet-scale programmable blockchain platform
 
-Cancel
- Submit feedback
+![Decorative visual](/img/index/blocks.png)
 
+Unmatched scalability, instant settlement
 
+A safe smart contract language accessible to mainstream developers
 
+Ability to define rich and composable on-chain assets
 
+Better user experience for web3 apps
 
-# Saved searches
+Scalability
 
-## Use saved searches to filter your results more quickly
+Sui scales horizontally to meet the demands of applications. Network capacity grows in proportion to the increase in Sui validators' processing power by adding workers, resulting in low gas fees even during high network traffic. This scalability characteristic is in sharp contrast to other blockchains with rigid bottlenecks.
 
-Name
+Move
 
-Query
+Move design prevents issues such as reentrancy vulnerabilities, poison tokens, and spoofed token approvals that attackers have leveraged to steal millions on other platforms. The emphasis on safety and expressivity provides a more straightforward transition from web 2.0 to web3 for developers, without the need to understand the intricacies of the underlying infrastructure.
 
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
+On-chain assets
 
-Cancel
- Create saved search
+Rich on-chain assets enable new applications and economies based on utility without relying solely on artificial scarcity. Developers can implement dynamic NFTs that you can upgrade, bundle, and group in an application-specific manner, such as changes in avatars and customizable items based on gameplay. This capability delivers stronger in-game economies as NFT behavior gets fully reflected on-chain, making NFTs more valuable and delivering more engaging feedback loops.
 
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove%2Ftags)
+Built for Web3
 
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Freleases%2Ftag_history&source=header-repo&source_repo=diem%2Fmove)
-
-Appearance settings
-
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-[diem](/diem) 
-/
-**[move](/diem/move)**
-Public
-
-* [Notifications](/login?return_to=%2Fdiem%2Fmove) You must be signed in to change notification settings
-* [Fork
-  141](/login?return_to=%2Fdiem%2Fmove)
-* [Star
-   375](/login?return_to=%2Fdiem%2Fmove)
-
-## There aren’t any releases here
-
-You can create a release to package software, along with release notes and links to binary files, for other people to use. Learn more about releases in [our docs](https://docs.github.com/repositories/releasing-projects-on-github/about-releases).
-
-You can’t perform that action at this time.
+Sui aims to be the most accessible smart contract platform, empowering developers to create great user experiences in web3. To usher in the next billion users, Sui empowers developers with various tools to take advantage of the power of the Sui blockchain. The Sui Development Kit (SDK) will enable developers to build without boundaries.

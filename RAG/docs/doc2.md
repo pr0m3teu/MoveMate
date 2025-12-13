@@ -1,50 +1,20 @@
-Sign in to GitHub · GitHub
-
-
-
-[Skip to content](#start-of-content)
+The Move Book
 
 
 
 
 
 
+[Skip to main content](#__docusaurus_skipToContent_fallback)
 
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
+# The Move Book
 
+This is The Move Book - a comprehensive guide to the Move programming language and the Sui
+blockchain. The book is intended for developers who are interested in learning about Move and
+building on Sui.
 
-Dismiss alert
+The book is in active development and a work in progress. If you have any feedback or suggestions,
+feel free to open an issue or a pull request on the
+[GitHub repository](https://github.com/MystenLabs/move-book).
 
-# Sign in to GitHub
-
-{{ message }}
-
-Username or email address
-
-Password
-
-[Forgot password?](/password_reset)
-
- 
-
-
-### Uh oh!
-
-There was an error while loading. Please reload this page.
-
-New to GitHub?
-[Create an account](/signup?return_to=https%3A%2F%2Fgithub.com%2Fdiem%2Fmove&source=login)
-
-Sign in with a passkey
-
-* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)
-* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)
-* [Docs](https://docs.github.com)
-* [Contact GitHub Support](https://support.github.com)
-* Manage cookies
-* Do not share my personal information
-
-You can’t perform that action at this time.
+> If you're looking for The Move Reference, you can find it [here](/reference).

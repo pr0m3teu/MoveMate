@@ -1,198 +1,126 @@
-GitHub Articles • Technical Guides, Developer Insights & Best Practices · GitHub
+Functions | The Move Book
+
+
+
+
+
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+On this page
+
+# Functions
+
+Functions are the building blocks of Move programs. They are called from
+[user transactions](/concepts/what-is-a-transaction) and from other functions and group
+executable code into reusable units. Functions can take arguments and return a value. They are
+declared with the fun keyword at the module level. Just like any other module member, by default
+they're private and can only be accessed from within the module.
+
+```move
+module book::math;  
+  
+#[test_only]  
+use std::unit_test::assert_eq;  
+  
+/// Function takes two arguments of type `u64` and returns their sum.  
+/// The `public` visibility modifier makes the function accessible from  
+/// outside the module.  
+public fun add(a: u64, b: u64): u64 {  
+    a + b  
+}  
+  
+#[test]  
+fun test_add() {  
+    let sum = add(1, 2);  
+    assert_eq!(sum, 3);  
+}
+```
+
+In this example, we define a function add that takes two arguments of type u64 and returns their
+sum. The test\_add function, located in the same module, is a test function that calls add. The
+test uses the assert! macro to compare the result of add with the expected value. If the
+condition inside assert! evaluates to false, the execution is aborted automatically.
+
+## Function declaration[​](#function-declaration "Direct link to Function declaration")
+
+> In Move, functions are typically named using the snake\_case convention. This means function
+> names should be all lowercase, with words separated by underscores. Examples include
+> do\_something, add, get\_balance, is\_authorized, and so on.
+
+A function is declared with the fun keyword followed by the function name (a valid Move
+identifier), a list of arguments in parentheses, and a return type. The function body is a block of
+code that contains a sequence of statements and expressions. The last expression the function body
+is the return value of the function.
+
+```move
+fun return_nothing() {  
+    // empty expression, function returns `()`  
+}
+```
+
+## Accessing functions[​](#accessing-functions "Direct link to Accessing functions")
+
+Just like other module members, functions can be imported and accessed using a path. The path
+consists of the module path and the function name, separated by ::. For example, if you have a
+function named add in the math module within the book package, its full path would be
+book::math::add. If the module has already been imported, you can access it directly as
+math::add as in the following example:
+
+```move
+module book::use_math;  
+  
+use book::math;  
+  
+fun call_add() {  
+    // function is called via the path  
+    let sum = math::add(1, 2);  
+}
+```
+
+## Multiple return values[​](#multiple-return-values "Direct link to Multiple return values")
+
+Move functions can return multiple values, which is particularly useful when you need to return more
+than one piece of data from a function. The return type is specified as a tuple of types, and the
+return value is provided as a tuple of expressions:
+
+```move
+fun get_name_and_age(): (vector<u8>, u8) {  
+    (b"John", 25)  
+}
+```
+
+The result of a function call with a tuple return has to be unpacked into variables via the
+let (tuple) syntax:
+
+```move
+// Tuple must be destructured to access its elements.  
+// Name and age are declared as immutable variables.  
+let (name, age) = get_name_and_age();  
+assert_eq!(name, b"John");  
+assert_eq!(age, 25);
+```
 
+If any of the declared values need to be declared as mutable, the mut keyword is placed before the
+variable name:
 
+```move
+// declare name as mutable, age as immutable  
+let (mut name, age) = get_name_and_age();
+```
 
-[Skip to content](#start-of-content)
+If some of the arguments are not used, they can be ignored with the \_ symbol:
 
+```move
+// ignore the name, only use the age  
+let (_, age) = get_name_and_age();
+```
 
+## Further Reading[​](#further-reading "Direct link to Further Reading")
 
+* [Functions](/reference/functions) in the Move Reference.
 
-
-
-
-Unlock AI’s true impact across the SDLC.
-[Explore key findings from Gartner®.](https://github.com/resources/whitepapers/how-to-capture-ai-driven-productivity-gains-across-the-sdlc?utm_source=github&utm_medium=banner&utm_campaign=WW-FY26Q2-WW-GarterReport-18991230&utm_content=GartnerReport)
-
-
-
-## Navigation Menu
-
-Toggle navigation
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Farticles)
-
-Search or jump to...
-
-
-# Search code, repositories, users, issues, pull requests...
-
-Search
-
-Clear
-
-[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
-
-# Provide feedback
-
-We read every piece of feedback, and take your input very seriously.
-
-
-Include my email address so I can be contacted
-
-Cancel
- Submit feedback
-
-
-
-
-
-# Saved searches
-
-## Use saved searches to filter your results more quickly
-
-Name
-
-Query
-
-To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
-
-Cancel
- Create saved search
-
-[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fresources%2Farticles)
-
-[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2Fresources%2Farticles&source=header)
-Resetting focus
-
-You signed in with another tab or window. Reload to refresh your session.
-You signed out in another tab or window. Reload to refresh your session.
-You switched accounts on another tab or window. Reload to refresh your session.
- 
-
-
-Dismiss alert
-
-{{ message }}
-
-# GitHub Articles
-
-## Filters
-
-Open Filters
-
-## Topic
-
-Topic
-
-AI
-
-Software Development
-
-DevOps
-
-Security
-
-[Clear all](#)Apply
-
-### [What is AIOps?](https://github.com/resources/articles/what-is-aiops)
-
-![](https://github.githubassets.com/assets/light-1-2e395adb64d6.png?fm=webp)
-
-AI for IT operations (AIOps) uses AI to help IT teams reduce downtime and scale operations.
-
-Learn more
-
-### [What is application modernization?](https://github.com/resources/articles/what-is-application-modernization)
-
-![](https://github.githubassets.com/assets/light-2-e21d217be40a.png?fm=webp)
-
-Boost performance, strengthen security, and help developers ship faster by modernizing legacy systems.
-
-Learn more
-
-### [What is generative AI (GenAI)?](https://github.com/resources/articles/what-is-generative-ai-genai)
-
-![](https://github.githubassets.com/assets/light-3-3a9effd0b7ee.png?fm=webp)
-
-Generative AI creates text, images, and code using deep learning. Explore GenAI tools, models, and how it’s shaping artificial intelligence today.
-
-Learn more
-
-### [What are neural networks?](https://github.com/resources/articles/what-are-neural-networks)
-
-![](https://github.githubassets.com/assets/light-4-3bb395e09737.png?fm=webp)
-
-Discover what neural networks are and why they’re critical to developing intelligent systems.
-
-Learn more
-
-### [What is an integrated development environment (IDE)?](https://github.com/resources/articles/what-is-an-ide)
-
-![](https://github.githubassets.com/assets/light-5-69b2efb1d8c8.png?fm=webp)
-
-Uncover how IDEs help streamline software development and accelerate software delivery.
-
-Learn more
-
-### [What is open source AI?](https://github.com/resources/articles/what-is-open-source-ai)
-
-![](https://github.githubassets.com/assets/light-6-8e6b0e6ece65.png?fm=webp)
-
-Open source AI offers more control, clarity, and room to build the way you want.
-
-Learn more
-
-### [What is a software bill of materials (SBOM)?](https://github.com/resources/articles/what-is-an-sbom-software-bill-of-materials)
-
-![](https://github.githubassets.com/assets/light-1-2e395adb64d6.png?fm=webp)
-
-Software is built in layers. An SBOM shows what’s inside—so you can secure it.
-
-Learn more
-
-### [What Is Vibe Coding?](https://github.com/resources/articles/what-is-vibe-coding)
-
-![](https://github.githubassets.com/assets/light-2-e21d217be40a.png?fm=webp)
-
-Explore vibe coding: an AI-assisted way to code using plain language prompts that help you build faster and think more freely.
-
-Learn more
-
-### [What is Infrastructure as Code?](https://github.com/resources/articles/what-is-infrastructure-as-code)
-
-![](https://github.githubassets.com/assets/light-3-3a9effd0b7ee.png?fm=webp)
-
-Learn how Infrastructure as Code (IaC) automates provisioning and management of infrastructure with code.
-
-Learn more
-
-### [What is Agentic AI?](https://github.com/resources/articles/what-is-agentic-ai)
-
-![](https://github.githubassets.com/assets/light-4-3bb395e09737.png?fm=webp)
-
-Discover how agentic AI helps software development teams increase productivity and focus on more strategic tasks.
-
-Learn more
-
-### [What is a CLI (command-line interface)?](https://github.com/resources/articles/what-is-a-cli)
-
-![](https://github.githubassets.com/assets/light-5-69b2efb1d8c8.png?fm=webp)
-
-Learn how CLIs streamline tasks, automate workflows, and boost precision in your work.
-
-Learn more
-
-### [What is an API?](https://github.com/resources/articles/what-is-an-api)
-
-![](https://github.githubassets.com/assets/light-6-8e6b0e6ece65.png?fm=webp)
-
-APIs act as bridges between different pieces of software, enabling them to communicate, share data, and work together.
-
-Learn more
-
-
-
-
-
-
-You can’t perform that action at this time.
+* [Function declaration](#function-declaration)
+* [Accessing functions](#accessing-functions)
+* [Multiple return values](#multiple-return-values)
+* [Further Reading](#further-reading)
