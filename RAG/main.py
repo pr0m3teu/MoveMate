@@ -1,28 +1,25 @@
 import os
 import re
-import glob
-import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# --- 1. CONFIGURATION & SETUP ---
+# --- 1. CONFIGURARE ---
 load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
 
 if not api_key:
-    # Fallback pentru testare rapidă, dar recomandat e .env
-    print("⚠️ WARNING: GOOGLE_API_KEY not found in .env.")
+    print("❌ EROARE CRITICĂ: Nu am găsit GOOGLE_API_KEY în .env")
 
-# Configure Gemini
 genai.configure(api_key=api_key)
+# Folosim Flash pentru viteză.
 model = genai.GenerativeModel('gemini-2.5-flash')
 
-app = FastAPI(title="MoveMate AI API - MultiDocs")
+app = FastAPI()
 
-# CORS Configuration
+# Configurare CORS (Ca să meargă Frontend-ul)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
@@ -31,172 +28,132 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- 2. AI QUERY OPTIMIZER ---
-async def generate_optimized_search_terms(user_prompt: str) -> str:
-    """
-    Traduce întrebarea userului în keyword-uri tehnice Move.
-    """
-    system_instruction = f"""
-    You are a Technical Search Optimizer for the Move programming language.
-    Analyze the USER QUESTION and generate 5-8 technical keywords used in documentation.
-    
-    RULES:
-    1. Ignore filler words.
-    2. Map concepts: "money" -> "coin balance", "error" -> "abort assert".
-    3. OUTPUT ONLY the keywords separated by spaces.
-
-    USER QUESTION: "{user_prompt}"
-    """
-    try:
-        response = model.generate_content(system_instruction)
-        optimized_query = response.text.strip()
-        print(f"🧠 [AI Optimization] '{user_prompt}' -> '{optimized_query}'")
-        return optimized_query
-    except Exception:
-        return user_prompt 
-
-# --- 3. RAG ENGINE (MODIFICAT PENTRU FOLDER) ---
+# --- 2. MOTORUL RAG (Optimizat cu Sinonime) ---
 class RAGEngine:
-    def __init__(self, docs_dir):
+    def __init__(self):
         self.chunks = []
-        self.docs_dir = docs_dir
-        self.load_all_documents()
+        self.load_documentation()
 
-    def load_all_documents(self):
-        """
-        Citește toate fișierele .md dintr-un folder.
-        """
-        if not os.path.exists(self.docs_dir):
-            print(f"⚠️ CRITICAL: Folderul '{self.docs_dir}' nu există!")
-            return
-
-        # Caută toate fișierele .md (poți adăuga și .txt dacă ai nevoie)
-        # Folosim glob pentru a lista fișierele
-        file_pattern = os.path.join(self.docs_dir, "*.md")
-        files = glob.glob(file_pattern)
-
-        if not files:
-            print(f"⚠️ Nu s-au găsit fișiere .md în '{self.docs_dir}'.")
-            return
-
-        print(f"📂 Încep indexarea a {len(files)} fișiere din '{self.docs_dir}'...")
-
-        for file_path in files:
-            self._process_single_file(file_path)
-            
-        print(f"✅ Sistem Gata: {len(self.chunks)} segmente indexate din {len(files)} fișiere.")
-
-    def _process_single_file(self, file_path):
+    def load_documentation(self):
+        file_path = "move-book.md"
         try:
-            filename = os.path.basename(file_path)
-            with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
-
-            # Logică de split (păstrată, dar adaptată per fișier)
-            # Dacă fișierul e mic, îl luăm ca un singur chunk. 
-            # Dacă are headere (#), îl spargem.
             
             parts = re.split(r'(^#+ .*$)', content, flags=re.MULTILINE)
-            current_title = f"File: {filename}" # Default title
+            current_title = "Intro"
             current_text = ""
 
             for part in parts:
                 if part.strip().startswith('#'):
                     if current_text.strip():
-                        self._add_chunk(current_title, current_text, filename)
-                    current_title = part.strip() # Update title with Header
+                        self._add_chunk(current_title, current_text)
+                    current_title = part.strip()
                     current_text = part + "\n"
                 else:
                     current_text += part
             
             if current_text.strip():
-                self._add_chunk(current_title, current_text, filename)
+                self._add_chunk(current_title, current_text)
+                
+            print(f"✅ MoveMate Backend Ready: {len(self.chunks)} capitole încărcate.")
 
-        except Exception as e:
-            print(f"❌ Eroare la citirea fișierului {file_path}: {e}")
+        except FileNotFoundError:
+            print(f"⚠️ ATENȚIE: Nu găsesc '{file_path}'. RAG nu va funcționa.")
 
-    def _add_chunk(self, title, text, filename):
+    def _add_chunk(self, title, text):
+        lines = text.split('\n')
+        numbered_lines = [f"{i+1}: {line}" for i, line in enumerate(lines)]
         self.chunks.append({
             "title": title.strip(),
-            "filename": filename,
-            "content": text,
+            "content": "\n".join(numbered_lines),
             "raw": text.lower(),
-            "display_source": f"{filename} > {title.strip()}"
         })
 
-    def search(self, optimized_query):
-        keywords = [w.lower() for w in optimized_query.split() if len(w) > 2]
-        scored_results = []
+    def search(self, query):
+        # --- LOGICA DE SINONIME (Advanced Search) ---
+        synonyms = {
+            "smart contract": "module package",
+            "contract": "module",
+            "token": "coin balance",
+            "wallet": "address",
+            "struct": "struct resource object"
+        }
+        
+        query_lower = query.lower()
+        processed_query = query_lower
+        
+        # Expandăm query-ul cu termeni tehnici Move
+        for key, value in synonyms.items():
+            if key in query_lower:
+                processed_query += f" {value}"
+        
+        keywords = [w for w in processed_query.split() if len(w) > 2]
+        results = []
 
         for chunk in self.chunks:
             score = 0
-            # Căutăm în titlu și conținut
-            text_to_search = chunk["title"].lower() + " " + chunk["raw"]
+            chunk_title = chunk["title"].lower()
             
             for word in keywords:
-                if word in chunk["title"].lower():
-                    score += 50 # Bonus mare pentru titlu
-                
-                count = chunk["raw"].count(word)
-                score += min(count, 10) 
+                # Titlul are greutate mare (50 puncte)
+                if word in chunk_title:
+                    score += 50
+                # Conținutul are greutate normală
+                score += chunk["raw"].count(word)
             
             if score > 0:
-                scored_results.append((score, chunk))
+                results.append((score, chunk))
         
-        scored_results.sort(key=lambda x: x[0], reverse=True)
-        return [res[1] for res in scored_results[:3]] # Return top 3
+        results.sort(key=lambda x: x[0], reverse=True)
+        return [r[1]["content"] for r in results[:3]]
 
-# --- INITIALIZARE ---
-# IMPORTANT: Schimbă 'meu.docs' cu numele real al folderului tău dacă e diferit
-# Asigură-te că folderul este în același loc cu scriptul python
-rag = RAGEngine(docs_dir="./docs") 
+# Inițializăm motorul
+rag = RAGEngine()
 
-# --- 4. API ENDPOINTS ---
+# --- 3. API ENDPOINT ---
 class QueryRequest(BaseModel):
     prompt: str
 
 @app.post("/ask")
-async def ask_movemate(req: QueryRequest):
-    print(f"📩 Cerere nouă: {req.prompt}")
+async def ask_ai(req: QueryRequest):
+    print(f"📩 Întrebare Frontend: {req.prompt}")
     
-    # Pas 1: Optimizare
-    search_terms = await generate_optimized_search_terms(req.prompt)
-    
-    # Pas 2: Căutare în cele 134 docs
-    relevant_chunks = rag.search(search_terms)
-    
+    # 1. Căutare Context
+    relevant_chunks = rag.search(req.prompt)
     if relevant_chunks:
-        context_text = "\n\n--- NEXT SEGMENT ---\n".join([c["content"] for c in relevant_chunks])
-        source_refs = ", ".join([c["display_source"] for c in relevant_chunks])
+        context_text = "\n\n--- INFORMAȚIE TEHNICĂ ---\n".join(relevant_chunks)
     else:
-        context_text = "No specific documentation found matching these terms."
-        source_refs = "None"
+        context_text = "Nu s-a găsit context specific în documentație."
 
-    # Pas 3: Generare Răspuns
-    system_prompt = f"""
-    You are MoveMate, an expert on Move Language.
+    # 2. Prompt-ul "MoveMate" (Tuned for Speed & Persona)
+    prompt_final = f"""
+    Ești MoveMate, un AI avansat specializat în limbajul Move pentru Sui și Aptos.
+    NU ești om, nu ești inginer. Ești o entitate digitală expertă.
     
-    CONTEXT FROM FILES:
+    CONTEXT TEHNIC DISPONIBIL:
     {context_text}
     
-    USER QUESTION:
-    {req.prompt}
+    ÎNTREBAREA UTILIZATORULUI: {req.prompt}
     
+    REGULI DE RĂSPUNS:
+    1. **Fii Direct:** Nu folosi introduceri de genul "Salut", "Ca expert...". Răspunde direct la întrebare.
+    2. **Fii Concis:** Oferă explicația scurtă și la obiect.
+    3. **Un Singur Exemplu:** Oferă UN SINGUR bloc de cod relevant (Code Snippet), complet și funcțional.
+    4. **Fără Meta-Comentarii:** Nu spune "Conform documentației" sau "Am găsit în text". Tu ȘTII informația.
     
-    
-    INSTRUCTIONS:
-    1. Answer based ONLY on the Context if possible. If not, mention briefly that you are  not using any documentation information and DON'T INCLUDE the sources below.
-    2. Provide code examples IF and ONLY  if RELEVANT (you may find them in the chunks provided).
-    3. At the end, list the sources provided below. (Mention the chapters and the position  they take in the chunks, in a  list)
-    
-    Sources: {source_refs}
+    FORMAT OBLIGATORIU:
+    - Explicație clară (Markdown).
+    - Bloc de cod (Move).
+    - La final, lasă 2 rânduri libere și scrie "**📚 Referințe**" urmat de lista surselor folosite (Titlu Capitol, Liniile X-Y).
     """
     
     try:
-        response = model.generate_content(system_prompt)
+        response = model.generate_content(prompt_final)
         return {"answer": response.text}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
