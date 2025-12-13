@@ -78,35 +78,37 @@ class RAGEngine:
 
     def load_documentation(self, file_path="move-book.md"):
         """Loads and splits the Markdown file by Headers (#)."""
-        if not os.path.exists(file_path):
-            print(f"⚠️ WARNING: '{file_path}' not found. RAG will be empty.")
-            return
 
+        if not os.path.isdir("./docs"):
+            os.makedirs("./docs")
+            get_all_docs()
+  
         try:
-            with open("./docs/doc0.md", "r", encoding="utf-8") as f:
-                content = f.read()
-            
-            # Regex to split by Markdown headers (Start of line #)
-            parts = re.split(r'(^#+ .*$)', content, flags=re.MULTILINE)
-            current_title = "Introduction"
-            current_text = ""
-
-            for part in parts:
-                if part.strip().startswith('#'):
-                    # Save previous chunk
-                    if current_text.strip():
-                        self._add_chunk(current_title, current_text)
-                    # Start new chunk
-                    current_title = part.strip()
-                    current_text = part + "\n"
-                else:
-                    current_text += part
-            
-            # Add the very last chunk
-            if current_text.strip():
-                self._add_chunk(current_title, current_text)
+            for file in os.listdir("./docs"):
+                with open(file, "r", encoding="utf-8") as f:
+                    content = f.read()
                 
-            print(f"✅ MoveMate System Ready: {len(self.chunks)} documentation chapters indexed.")
+                # Regex to split by Markdown headers (Start of line #)
+                parts = re.split(r'(^#+ .*$)', content, flags=re.MULTILINE)
+                current_title = "Introduction"
+                current_text = ""
+
+                for part in parts:
+                    if part.strip().startswith('#'):
+                        # Save previous chunk
+                        if current_text.strip():
+                            self._add_chunk(current_title, current_text)
+                        # Start new chunk
+                        current_title = part.strip()
+                        current_text = part + "\n"
+                    else:
+                        current_text += part
+                
+                # Add the very last chunk
+                if current_text.strip():
+                    self._add_chunk(current_title, current_text)
+                    
+                print(f"✅ MoveMate System Ready: {len(self.chunks)} documentation chapters indexed.")
 
         except FileNotFoundError:
             print(f"⚠️ ATENȚIE: Nu găsesc doc0. RAG nu va funcționa.")
