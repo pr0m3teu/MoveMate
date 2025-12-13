@@ -9,6 +9,16 @@ import { Loader2, Box, CheckCircle, Code, ExternalLink, User, Trophy } from "luc
 
 function BountyItem({ event, packageId, moduleName }: any) {
   const json = event.parsedJson;
+  
+  // Strict guard: check all required fields before proceeding
+  if (!json || 
+      typeof json.bounty_id !== "string" || !json.bounty_id.trim() ||
+      typeof json.reward_amount !== "string" || 
+      typeof json.description !== "string" ||
+      typeof json.creator !== "string") {
+    return null
+  }
+
   const account = useCurrentAccount();
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
   

@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react"
-import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet } from "lucide-react"
+import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Code2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-import { Button } from "@/components/ui/button"
 import { Overlay } from "@/components/layout/Overlay"
 
-import { ScannerView } from "@/features/scanner/ScannerView"
 import { ChatView } from "@/features/chat/ChatView"
 import { BountyView } from "@/features/bounty/BountyView"
+import { TxLabView } from "@/features/txlab/TxLabView"
 import { ConnectButton } from '@mysten/dapp-kit';
 
 // Componentă UI Locală (Dashboard Card)
@@ -89,11 +88,11 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <DashboardCard 
-              title="Scanner Vulnerabilități" 
-              description="Analiză statică pentru re-entrancy, overflow, și ownership leaks."
-              icon={Shield} 
+              title="MoveCall Sandbox" 
+              description="Încarcă ABI on-chain, simulează (dev-inspect) și execută entry functions."
+              icon={Code2} 
               color="blue" 
-              onClick={() => setActiveOverlay('scanner')} 
+              onClick={() => setActiveOverlay('txlab')} 
             />
             <DashboardCard 
               title="Asistent Arhitect" 
@@ -123,8 +122,8 @@ export default function App() {
       </div>
 
       {/* OVERLAY LAYERS (Conținutul care apare) */}
-      <Overlay isOpen={activeOverlay === 'scanner'} onClose={() => setActiveOverlay(null)} title="Audit Securitate">
-        <ScannerView />
+      <Overlay isOpen={activeOverlay === 'txlab'} onClose={() => setActiveOverlay(null)} title="MoveCall Sandbox">
+        <TxLabView />
       </Overlay>
 
       <Overlay isOpen={activeOverlay === 'chat'} onClose={() => setActiveOverlay(null)} title="Move Architect">
