@@ -11,6 +11,43 @@ const PACKAGE_ID = "0x79ced3a91d839298bd1c052cfbbf454cc103c5d80d8b3607dd7480fe72
 const MODULE_NAME = "bounty_board";
 // --------------------------------
 
+// BigInt-safe SUI to MIST conversion (supports up to 9 decimals)
+const suiToMist = (amount: string): bigint => {
+  const trimmed = amount.trim()
+  if (!trimmed || trimmed === "") {
+    throw new Error("Amount cannot be empty")
+  }
+
+  // Check for negative
+  if (trimmed.startsWith("-")) {
+    throw new Error("Amount cannot be negative")
+  }
+
+  // Check for valid format (digits, optional decimal point, optional decimals)
+  if (!/^\d+(\.\d+)?$/.test(trimmed)) {
+    throw new Error(`Invalid amount format: "${trimmed}"`)
+  }
+
+  const parts = trimmed.split(".")
+  const integerPart = parts[0] || "0"
+  const decimalPart = parts[1] || ""
+
+  // Reject if more than 9 decimal places
+  if (decimalPart.length > 9) {
+    throw new Error(`Amount has too many decimal places (max 9): "${trimmed}"`)
+  }
+
+  // Pad decimal part to 9 digits and combine
+  const paddedDecimal = decimalPart.padEnd(9, "0")
+  const mistString = integerPart + paddedDecimal
+
+  try {
+    return BigInt(mistString)
+  } catch {
+    throw new Error(`Invalid amount: "${trimmed}"`)
+  }
+}
+
 export function BountyView() {
   const account = useCurrentAccount();
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
