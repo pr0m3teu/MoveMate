@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Loader2 } from "lucide-react"
+import { BountyList } from "./BountyList";
 
 // --- CONSTANTELE TALE ---
 const PACKAGE_ID = "0xf6c77018c394a3dec36f41f92075b12a50e68cc9d32a24ede2f83f6a471bfcb1"; 
@@ -67,6 +68,7 @@ export function BountyView() {
 
   return (
     <div className="space-y-8">
+      {/* --- PARTEA DE SUS (FORMULARUL EXISTENT) --- */}
       <Card className="bg-slate-900/50 border-slate-800">
         <CardHeader>
           <CardTitle className="text-lg text-white">Postează o problemă (Escrow)</CardTitle>
@@ -109,6 +111,18 @@ export function BountyView() {
           </Button>
         )}
       </div>
+
+      {/* --- SECȚIUNEA NOUĂ: LISTA DE BOUNTY-URI --- */}
+      <div className="pt-8 border-t border-slate-800">
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <span className="bg-blue-500 w-2 h-2 rounded-full mr-3 animate-pulse"></span>
+          Bounties Active pe Blockchain
+        </h3>
+        {/* Aici montăm "Antena" care ascultă evenimentele */}
+        <BountyList packageId={PACKAGE_ID} moduleName={MODULE_NAME} />
+      </div>
+      {/* ------------------------------------------- */}
+
     </div>
   )
 }
