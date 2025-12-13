@@ -176,9 +176,18 @@ async def ask_movemate(req: QueryRequest):
     relevant_chunks = rag.search(search_terms)
     
     if relevant_chunks:
-        context_text = "TECHNICAL INFORMATION: ".join(relevant_chunks)
+        # FIX: Iterăm prin dicționare și extragem titlul și conținutul
+        formatted_parts = []
+        for chunk in relevant_chunks:
+            # Construim un string clar pentru AI: Titlu + Conținut
+            part = f"CHAPTER: {chunk['title']}\nCONTENT:\n{chunk['content']}"
+            formatted_parts.append(part)
+            
+        # Acum unim string-urile, nu dicționarele
+        context_text = "\n\n---\n\n".join(formatted_parts)
+        print(context_text)
     else:
-        context_text = "No technical information"
+        context_text = "No technical information found."
 
     # 2. Prompt-ul "MoveMate" (Tuned for Speed & Persona)
     system_prompt = f"""
