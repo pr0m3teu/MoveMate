@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, User, Trophy, GitPullRequest, CheckCircle2, ArrowRight, Clock, Code } from "lucide-react";
+import { Loader2, User, Trophy, GitPullRequest, CheckCircle2, ArrowRight, Clock, Code, ExternalLink } from "lucide-react";
 
 function BountyItem({ event, packageId, moduleName }: any) {
   const json = event.parsedJson;
@@ -37,7 +37,6 @@ function BountyItem({ event, packageId, moduleName }: any) {
   const submissions = fields.submissions || [];
   const isCompleted = fields.is_completed;
   const isCreator = account?.address === fields.creator;
-  // Calculăm suma (fix pentru undefined)
   const rewardAmount = (parseInt(json.reward_amount || "0") / 1_000_000_000).toFixed(1);
 
   // --- ACTIONS ---
@@ -99,14 +98,14 @@ function BountyItem({ event, packageId, moduleName }: any) {
                     <span className="text-[10px] text-slate-400 font-mono">ID: {json.bounty_id.slice(0,6)}</span>
                 </div>
                 
-                {/* AICI AM SCHIMBAT CULOAREA TITLULUI: text-slate-200 (aproape alb) */}
-                <h3 className={`text-lg font-bold leading-tight ${isCompleted ? 'text-slate-500' : 'text-slate-200'}`}>
+                {/* AICI ESTE MODIFICAREA: text-white pentru contrast maxim */}
+                <h3 className={`text-lg font-bold leading-tight ${isCompleted ? 'text-slate-500' : 'text-white'}`}>
                     {json.description}
                 </h3>
             </div>
             
             <div className="text-right bg-slate-900/50 p-2 rounded-lg border border-slate-800">
-                {/* AICI AM SCHIMBAT CULOAREA SUMEI: text-emerald-400 (verde neon) */}
+                {/* AICI ESTE MODIFICAREA: text-emerald-400 pentru verde neon */}
                 <div className={`text-xl font-mono font-bold ${isCompleted ? 'text-slate-500' : 'text-emerald-400'}`}>
                     {rewardAmount} SUI
                 </div>
@@ -116,7 +115,6 @@ function BountyItem({ event, packageId, moduleName }: any) {
 
         {/* CREATOR INFO */}
         <div className="flex items-center gap-2 mb-6 text-xs w-fit px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/50">
-            {/* AICI: Iconița și textul sunt mai deschise */}
             <User className="w-3 h-3 text-slate-300" />
             <span className="text-slate-400">Posted by:</span>
             <span className={`font-mono ${isCreator ? 'text-yellow-400 font-bold' : 'text-slate-200'}`}>
@@ -127,7 +125,6 @@ function BountyItem({ event, packageId, moduleName }: any) {
         {/* LISTA SOLUȚII (Terminal Style) */}
         <div className="flex-1 bg-[#02040a] rounded-lg border border-slate-800 overflow-hidden flex flex-col mb-4">
             <div className="px-3 py-2 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center">
-                {/* AICI: Titlul listei mai vizibil */}
                 <span className="text-[10px] font-semibold text-slate-300 flex items-center gap-2 uppercase tracking-wider">
                     <GitPullRequest className="w-3 h-3" /> Submissions ({submissions.length})
                 </span>
@@ -153,7 +150,6 @@ function BountyItem({ event, packageId, moduleName }: any) {
                         }`}>
                             <div className="flex flex-col min-w-0 pr-2">
                                 <div className="flex items-center gap-2 mb-0.5">
-                                    {/* AICI: Adresa solver-ului mai albă */}
                                     <span className="text-[10px] font-mono text-slate-300">{sub.solver?.slice(0,6)}...</span>
                                     {isWinner && <Badge className="h-3 text-[8px] bg-emerald-500 text-black px-1 leading-none"><Trophy className="w-2 h-2 mr-1"/> WINNER</Badge>}
                                 </div>
