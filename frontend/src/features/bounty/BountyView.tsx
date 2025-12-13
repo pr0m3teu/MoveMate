@@ -8,7 +8,7 @@ import { Loader2 } from "lucide-react"
 import { BountyList } from "./BountyList";
 
 // --- CONSTANTELE TALE ---
-const PACKAGE_ID = "0xf6c77018c394a3dec36f41f92075b12a50e68cc9d32a24ede2f83f6a471bfcb1"; 
+const PACKAGE_ID = "0x79ced3a91d839298bd1c052cfbbf454cc103c5d80d8b3607dd7480fe721fb208"; 
 const MODULE_NAME = "bounty_board";
 // ------------------------
 
