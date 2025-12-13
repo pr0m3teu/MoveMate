@@ -76,84 +76,92 @@ class RAGEngine:
         self.chunks = []
         self.load_documentation()
 
-    def load_documentation(self):
-        """Loads and splits the Markdown file by Headers (#)."""
+    def _add_chunk(self, title, text):
+        lines = text.split('\n')
+        numbered_lines = [f"{i+1}: {line}" for i, line in enumerate(lines)]
+        
+        # Pre-procesăm textul în seturi de cuvinte pentru viteză și acuratețe
+        raw_text = text.lower()
+        # Eliminăm caractere non-alfanumerice simple pentru matching mai bun
+        clean_words = set(re.findall(r'\b\w+\b', raw_text))
+        
+        self.chunks.append({
+            "title": title.strip(),
+            "content": "\n".join(numbered_lines),
+            "original_title": title.strip(),
+            # Salvăm setul de cuvinte pentru a face intersecția rapid
+            "word_set": clean_words, 
+            "title_words": set(re.findall(r'\b\w+\b', title.lower()))
+        })
 
-        # if not os.path.isdir("./docs"):
-        #     os.makedirs("./docs")
-        #     get_all_docs()
+    def load_documentation(self):
+        # ... (păstrează logica ta de load existentă) ...
+        # Doar asigură-te că apelezi self._add_chunk exact ca înainte
         try:
             docs_dir = os.listdir("./docs")
             for file_name in docs_dir:
                 with open(f"./docs/{file_name}", "r", encoding="utf-8") as f:
                     content = f.read()
-                # Regex to split by Markdown headers (Start of line #)
                 parts = re.split(r'(^#+ .*$)', content, flags=re.MULTILINE)
                 current_title = "Introduction"
                 current_text = ""
 
                 for part in parts:
                     if part.strip().startswith('#'):
-                        # Save previous chunk
                         if current_text.strip():
                             self._add_chunk(current_title, current_text)
-                        # Start new chunk
                         current_title = part.strip()
                         current_text = part + "\n"
                     else:
                         current_text += part
-                
-                # Add the very last chunk
                 if current_text.strip():
                     self._add_chunk(current_title, current_text)
-                    
-                print(f"✅ MoveMate System Ready: {len(self.chunks)} documentation chapters indexed.")
-
-        except FileNotFoundError:
-            print(f"⚠️ ATENȚIE: Nu găsesc {file_name} RAG nu va funcționa.")
+            print(f"✅ MoveMate System Ready: {len(self.chunks)} chapters indexed.")
         except Exception as e:
             print(f"❌ Error loading docs: {e}")
 
-    def _add_chunk(self, title, text):
-        lines = text.split('\n')
-        # Add line numbers for precise referencing
-        numbered_lines = [f"{i+1}: {line}" for i, line in enumerate(lines)]
-        
-        self.chunks.append({
-            "title": title.strip(),
-            "content": "\n".join(numbered_lines),
-            "raw": text.lower(), # Lowercase for search comparison
-            "original_title": title.strip() # Preserved case for display
-        })
+    def search(self, optimized_query, min_score_threshold=25):
+        """
+        Căutare strictă bazată pe seturi de cuvinte.
+        Args:
+            min_score_threshold: Scorul minim pentru a considera un chunk relevant.
+        """
+        # Curățăm query-ul și îl facem set (cuvinte unice)
+        query_words = set(re.findall(r'\b\w+\b', optimized_query.lower()))
+        # Eliminăm cuvinte prea scurte (de, la, etc care au scăpat de AI)
+        query_words = {w for w in query_words if len(w) > 2}
 
-    def search(self, optimized_query):
-        """
-        Searches the documentation using the AI-Optimized keywords.
-        """
-        keywords = [w.lower() for w in optimized_query.split() if len(w) > 2]
         scored_results = []
 
         for chunk in self.chunks:
             score = 0
-            chunk_title_lower = chunk["title"].lower()
-            for word in keywords:
-                # 1. Title Match (High Priority)
-                if word in chunk_title_lower:
-                    score += 50
-                
-                # 2. Content Match (Frequency)
-                # We limit the count to avoid huge chapters dominating just by size
-                count = chunk["raw"].count(word)
-                score += min(count, 10) 
+            
+            # 1. Title Match (Critic: Titlul definește subiectul)
+            # Verificăm câte cuvinte din query apar în titlu
+            title_matches = chunk["title_words"].intersection(query_words)
+            score += len(title_matches) * 20  # Punctaj mare pentru titlu
+            
+            # 2. Content Match (Strict)
+            # Verificăm câte cuvinte din query apar în conținut
+            content_matches = chunk["word_set"].intersection(query_words)
+            score += len(content_matches) * 5 # Punctaj mediu pentru conținut
+
+            # Penalizare ușoară pentru chunk-uri uriașe (diluarea informației)
+            # (Opțional, dar ajută la precizie)
             
             if score > 0:
                 scored_results.append((score, chunk))
         
-        # Sort by score descending
+        # Sortăm descrescător după scor
         scored_results.sort(key=lambda x: x[0], reverse=True)
         
-        # Return Top 3 Chunks
-        return [res[1] for res in scored_results[:3]]
+        # FILTRU STRICT: Returnăm doar rezultatele care trec de prag
+        # Pragul 25 înseamnă de ex: 1 cuvânt în titlu (20) + 1 în text (5)
+        # Sau 5 cuvinte unice găsite în text.
+        final_results = [res[1] for res in scored_results if res[0] >= min_score_threshold]
+        
+        # Returnăm maxim 3, dar doar dacă sunt relevante
+        return final_results[:3]
 
 # Initialize the Engine
 rag = RAGEngine()
@@ -166,68 +174,68 @@ class QueryRequest(BaseModel):
 async def ask_movemate(req: QueryRequest):
     print(f"📩 Incoming Request: {req.prompt}")
     
-    # --- PHASE 1: QUERY OPTIMIZATION ---
-    # The AI translates "How to make NFT" -> "struct object uid url display"
+    # 1. Optimizare Query
     search_terms = await generate_optimized_search_terms(req.prompt)
     
-    # --- PHASE 2: RETRIEVAL ---
-    # We search the docs using the technical terms
+    # 2. Căutare Strictă
     relevant_chunks = rag.search(search_terms)
     
+    technical_context = ""
+    system_instruction_mode = ""
+
     if relevant_chunks:
-        # FIX: Iterăm prin dicționare și extragem titlul și conținutul
+        # --- CAZUL 1: AM GĂSIT DOCUMENTAȚIE RELEVANTĂ ---
         formatted_parts = []
         for chunk in relevant_chunks:
-            # Construim un string clar pentru AI: Titlu + Conținut
-            part = f"CHAPTER: {chunk['title']}\nCONTENT:\n{chunk['content']}"
+            part = f"CHAPTER: {chunk['title']}\nCONTENT (Lines):\n{chunk['content']}"
             formatted_parts.append(part)
-            
-        # Acum unim string-urile, nu dicționarele
-        context_text = "\n\n---\n\n".join(formatted_parts)
+        
+        technical_context = "\n\n---\n\n".join(formatted_parts)
+        
+        # Prompt pentru când avem date
+        system_instruction_mode = """
+        You have specific documentation context provided below.
+        - Answer based ONLY on the provided context.
+        - Include references (Chapter Title).
+        """
     else:
-        context_text = "No technical information found."
+        # --- CAZUL 2: NU AM GĂSIT NIMIC (EVITĂM HALUCINAREA) ---
+        print("⚠️ No relevant docs found. Switching to fallback mode.")
+        technical_context = "NO RELEVANT DOCUMENTATION FOUND IN DATABASE."
+        
+        # Prompt defensiv
+        system_instruction_mode = """
+        WARNING: The retrieval system could not find any relevant documentation for this specific query in the MoveMate database.
+        
+        YOUR TASK:
+        1. Inform the user that the specific technical details are not found in the loaded documentation.
+        2. Do NOT try to invent code or specific implementation details if you are not 100% sure from your general training.
+        3. If you provide general Move knowledge, clearly state: "This is based on general Move principles, not the specific project documentation."
+        """
 
-    # 2. Prompt-ul "MoveMate" (Tuned for Speed & Persona)
-    system_prompt = f"""
+    # 3. Construim Prompt-ul Final
+    final_system_prompt = f"""
+    SYSTEM: You are MoveMate, a strict Move/Sui code reviewer.
     
-    SYSTEM:
-    You are MoveMate, a strict Move/Sui code reviewer. You must:
-    - Only claim facts supported by provided context (documents, code, or on-chain data).
-    - For each vulnerability or recommendation, provide:
-        1) A short title (severity: High/Medium/Low), 
-        2) A one-line summary, 
-        3) Code excerpt (lines) showing the issue, 
-        4) A short fix (diff or code snippet), 
-        5) Citations to exact documents or transaction IDs if on-chain evidence used.
-        - If you cannot support a claim with evidence, say "Insufficient evidence" and list what data would be needed.
-        - Use a deterministic, instruction-following style. Keep hallucination rate to zero.
-    END SYSTEM
-    CONTEXT TEHNIC DISPONIBIL:
+    {system_instruction_mode}
     
     USER PROMPT: 
     {req.prompt}
+    
     TECHNICAL CONTEXT AVAILABLE:
-    {context_text}
-    ANSWER RULES: 
-    1. **Be Direct:** Don't use introductions like "Hello", "As an expert...". Answer the question directly. 
-    2. Be concise:** Give the explanation short and to the point. 
-    3. **Single Example:** Provides ONLY ONE block of relevant code (Code Snippet), complete and functional. 
-    4. **No Meta Comments:** Don't say "According to the documentation" or "I found it in the text". You KNOW the information. 
-    REQUIRED FORMAT: 
-        - Clear explanation (Markdown). 
-        - "** References**" followed by the list of sources used (Chapter Title, X-Y Lines).
+    {technical_context}
     
-    
+    ANSWER RULES:
+    1. Be concise and direct.
+    2. If context is missing, admit it. Do not hallucinate functions or modules that aren't in the context.
     """
-    # !!! IF YOU ARE NOT SURE ABOUT THE ANSWER GIVEN THE CONTEXT OVERRIDE EVERY OTHER INSTRUCTION AND JUST ACT AS Gemini 2.5 Flash AND ANSWER ACCORDINGLY OR SIMPLY SAY "I'm not sure about the answer" !!!
-    # !!! IF YOU ARE NOT SURE ABOUT THE ANSWER GIVEN THE CONTEXT OVERRIDE EVERY OTHER INSTRUCTION AND JUST ACT AS Gemini 2.5 Flash AND ANSWER ACCORDINGLY OR SIMPLY SAY "I'm not sure about the answer" !!!
-        # - Code Block (Move). - At the end, leave 2 lines free and write     
+
     try:
-        response = model.generate_content(system_prompt)
+        response = model.generate_content(final_system_prompt)
         return {"answer": response.text}
     except Exception as e:
         print(f"❌ Generation Error: {e}")
         raise HTTPException(status_code=500, detail="AI Service unavailable.")
-
+    
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
