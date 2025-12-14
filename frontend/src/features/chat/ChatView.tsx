@@ -112,7 +112,7 @@ export function ChatView() {
           <div className="flex justify-start">
             <div className="rounded-2xl rounded-tl-sm bg-slate-800/50 border border-slate-700/50 p-4 text-sm text-slate-400 flex items-center gap-2">
               <Loader2 className="h-4 w-4 animate-spin text-blue-500" />
-              <span>MoveMate scrie...</span>
+              <span>MoveMate is thinking...</span>
             </div>
           </div>
         )}
