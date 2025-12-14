@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Code2, Play } from "lucide-react"
+import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Play } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import { Overlay } from "@/components/layout/Overlay"
