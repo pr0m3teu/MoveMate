@@ -58,13 +58,13 @@ export function ChatView() {
         {messages.length === 0 && (
           <div className="flex justify-start animate-in fade-in slide-in-from-bottom-4">
             <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-slate-800/80 border border-slate-700 p-4 text-sm text-slate-300 shadow-sm">
-              <p>Salut! Sunt <strong>MoveMate</strong>.</p>
-              <p className="mt-2">Am acces indexat la:</p>
+              <p>Hello! I'm <strong>MoveMate</strong>.</p>
+              <p className="mt-2">I currently have acces to:</p>
               <ul className="list-disc list-inside mt-1 text-slate-400 space-y-1">
                 <li>Sui Framework Docs</li>
                 <li>Move Book (2024)</li>
               </ul>
-              <p className="mt-4 text-xs text-slate-500">Întreabă-mă orice despre smart contracts.</p>
+              <p className="mt-4 text-xs text-slate-500">Ask me anything about the Move language and Smart Contracts.</p>
             </div>
           </div>
         )}
@@ -124,7 +124,7 @@ export function ChatView() {
       <div className="pt-4 border-t border-slate-800 mt-auto">
         <div className="relative">
           <Input 
-            placeholder="Întreabă despre Move..." 
+            placeholder="Ask me anything..." 
             className="pr-12 bg-slate-900 border-slate-700 focus-visible:ring-blue-500 h-12 text-slate-200"
             value={input}
             onChange={(e) => setInput(e.target.value)}

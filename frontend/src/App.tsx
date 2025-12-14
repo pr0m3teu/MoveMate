@@ -54,8 +54,6 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#020617] font-sans text-slate-200 selection:bg-blue-500/30 overflow-hidden">
-      
-      {/* BACKGROUND LAYER (Dashboard) */}
       <div 
         className={cn(
           "min-h-screen transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
