@@ -57,7 +57,6 @@ src/components/ui/input.tsx
 src/features/bounty/BountyList.tsx
 src/features/bounty/BountyView.tsx
 src/features/chat/ChatView.tsx
-src/features/gas/GasView.tsx
 src/features/scanner/ScannerView.tsx
 src/features/txlab/TxLabView.tsx
 src/index.css
@@ -296,7 +295,7 @@ export default defineConfig([
 
 <file path="src/App.tsx">
 import { useState, useEffect } from "react"
-import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Code2 } from "lucide-react"
+import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Code2, Play } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import { Overlay } from "@/components/layout/Overlay"
@@ -316,7 +315,7 @@ const DashboardCard = ({ title, description, icon: Icon, color, onClick }: any) 
   return (
     <div 
       onClick={onClick}
-      className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-8 transition-all hover:-translate-y-1 hover:border-slate-700 hover:shadow-2xl cursor-pointer"
+      className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-8 transition-all hover:-translate-y-1 hover:border-slate-700 hover:shadow-2xl cursor-pointer h-full"
     >
       <div className="absolute top-0 right-0 -mt-8 -mr-8 h-32 w-32 rounded-full bg-gradient-to-br from-white/5 to-transparent blur-3xl transition-all group-hover:from-white/10" />
       <div className={cn("mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300", colorStyles[color])}>
@@ -351,8 +350,6 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#020617] font-sans text-slate-200 selection:bg-blue-500/30 overflow-hidden">
-      
-      {/* BACKGROUND LAYER (Dashboard) */}
       <div 
         className={cn(
           "min-h-screen transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
@@ -368,58 +365,64 @@ export default function App() {
               <span className="font-bold text-lg text-white">MoveMate</span>
             </div>
             <div className="flex items-center gap-4">
-   <ConnectButton />
-</div>
+               <ConnectButton />
+            </div>
           </div>
         </header>
 
         <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+          {/* HERO SECTION */}
           <div className="mb-16 text-center space-y-4">
              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-              Securitate pentru <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Move Smart Contracts</span>
+              Consult. Interact. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Reward.</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto pt-4 leading-relaxed">
-              Platforma completă de audit AI. Detectează vulnerabilități, simulează costurile de gaz și oferă consultanță tehnică bazată pe documentația oficială Sui.
+              The all-in-one hub. Get instant documentation answers, build transactions visually, and get complex issues solved by the community via secure escrow.
             </p>
           </div>
 
+          {/* CARDS SECTION */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
             <DashboardCard 
-              title="MoveCall Sandbox" 
-              description="Încarcă ABI on-chain, simulează (dev-inspect) și execută entry functions."
-              icon={Code2} 
-              color="blue" 
-              onClick={() => setActiveOverlay('txlab')} 
-            />
-            <DashboardCard 
-              title="Asistent Arhitect" 
-              description="Chatbot antrenat pe documentația Sui Move (RAG)."
+              title="Architect Assistant" 
+              description="RAG-powered AI trained strictly on official Sui documentation. Get accurate answers on syntax and patterns."
               icon={MessageSquare} 
               color="emerald" 
               onClick={() => setActiveOverlay('chat')} 
             />
+
             <DashboardCard 
-              title="Bounty & Escalation" 
-              description="Escaladează către auditori umani: escrow 10 SUI, claim, fix proof (IPFS/GitHub), release/timeout + dispute."
+              title="Interaction Lab" 
+              description="Visual transaction builder. Manually execute entry functions and test smart contracts directly from the UI."
+              icon={Play} 
+              color="blue" 
+              onClick={() => setActiveOverlay('txlab')} 
+            />
+            
+            <DashboardCard 
+              title="Bounty & Escrow" 
+              description="Stuck on a bug? Post a bounty and let skilled developers solve it for you. Funds are secured on-chain."
               icon={Wallet} 
               color="yellow" 
               onClick={() => setActiveOverlay('bounty')} 
             />
           </div>
 
+          {/* STATS SECTION */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4">
-            <StatCard label="Scanări Totale" value="12,403" icon={Search} />
-            <StatCard label="Bounties Plătite" value="45,200 SUI" icon={CheckCircle} />
-            <StatCard label="Escalări Active" value="128" icon={ArrowUpRight} />
+            <StatCard label="Docs Indexed" value="1,403 Pages" icon={Search} />
+            <StatCard label="Bounties Paid" value="45,200 SUI" icon={CheckCircle} />
+            <StatCard label="Active Users" value="842" icon={ArrowUpRight} />
             <div className="md:col-span-1 rounded-xl border border-dashed border-slate-800 bg-slate-900/20 flex items-center justify-center text-slate-500 text-sm hover:border-slate-700 hover:text-slate-300 cursor-pointer transition-colors p-4 group">
-              <LayoutTemplate className="w-4 h-4 mr-2 group-hover:text-blue-400 transition-colors" /> Vezi Istoric Audituri
+              <LayoutTemplate className="w-4 h-4 mr-2 group-hover:text-blue-400 transition-colors" /> View Platform Stats
             </div>
           </div>
         </main>
       </div>
 
-      {/* OVERLAY LAYERS (Conținutul care apare) */}
-      <Overlay isOpen={activeOverlay === 'txlab'} onClose={() => setActiveOverlay(null)} title="MoveCall Sandbox">
+      {/* OVERLAY LAYERS */}
+      <Overlay isOpen={activeOverlay === 'txlab'} onClose={() => setActiveOverlay(null)} title="Contract Interaction Lab">
         <TxLabView />
       </Overlay>
 
@@ -456,29 +459,40 @@ interface OverlayProps {
 export function Overlay({ isOpen, onClose, title, children }: OverlayProps) {
   return (
     <>
+      {/* Backdrop (Fundalul întunecat din spate) */}
       <div
         className={cn(
-          "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-          isOpen ? "block" : "hidden"
+          "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-all duration-300",
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
         onClick={onClose}
       />
+      
+      {/* Panel-ul Principal (Aici am schimbat culorile) */}
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-50 h-full w-full border-l border-border bg-background p-0 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out sm:max-w-3xl",
+          "fixed inset-y-0 right-0 z-50 h-full w-full border-l border-slate-800 bg-[#020617] shadow-2xl transition-transform duration-500 ease-in-out sm:max-w-3xl",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex h-full flex-col">
-          <div className="flex items-center justify-between border-b border-border px-6 py-4">
-            <h2 className="text-lg font-semibold text-foreground">
+          {/* Header-ul Overlay-ului */}
+          <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-[#020617]">
+            <h2 className="text-lg font-bold text-white tracking-wide">
               {title}
             </h2>
-            <Button variant="ghost" size="icon" onClick={onClose} className="h-8 w-8 rounded-full">
-              <X className="h-4 w-4" />
+            <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={onClose} 
+                className="h-8 w-8 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            >
+              <X className="h-5 w-5" />
             </Button>
           </div>
-          <div className="flex-1 overflow-y-auto p-6">
+          
+          {/* Conținutul scrollabil */}
+          <div className="flex-1 overflow-y-auto p-6 bg-[#020617] scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
             {children}
           </div>
         </div>
@@ -696,11 +710,12 @@ export { Input }
 import { useState } from "react";
 import { useSuiClientQuery, useCurrentAccount, useSignAndExecuteTransaction } from "@mysten/dapp-kit";
 import { Transaction } from "@mysten/sui/transactions";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, Box, CheckCircle, Code, ExternalLink, User, Trophy } from "lucide-react";
+// 1. IMPORT NOU: Link2
+import { Loader2, User, Trophy, GitPullRequest, CheckCircle2, ArrowRight, Clock, Code, ExternalLink, Link2 } from "lucide-react";
 
 function BountyItem({ event, packageId, moduleName }: any) {
   const json = event.parsedJson;
@@ -710,24 +725,31 @@ function BountyItem({ event, packageId, moduleName }: any) {
   const [solutionLink, setSolutionLink] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Fetch Live Data
   const { data: objectData, isLoading } = useSuiClientQuery('getObject', {
     id: json.bounty_id,
     options: { showContent: true }
   });
 
-  if (isLoading) return <div className="p-4"><Loader2 className="animate-spin text-slate-500"/></div>;
-  if (!objectData?.data) return null; // Dacă nu s-a încărcat, nu afișăm nimic încă
+  if (isLoading) return (
+    <div className="h-64 rounded-xl border border-slate-800 bg-[#0B1121] animate-pulse relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-800/20 to-transparent skew-x-12 animate-shimmer"></div>
+    </div>
+  );
+  
+  if (!objectData?.data) return null;
 
-  // Accesăm câmpurile în siguranță
   const content = objectData.data.content as any;
   const fields = content?.fields;
-
-  if (!fields) return null; // Protecție extra
+  if (!fields) return null;
 
   const submissions = fields.submissions || [];
   const isCompleted = fields.is_completed;
   const isCreator = account?.address === fields.creator;
+  const rewardAmount = (parseInt(json.reward_amount || "0") / 1_000_000_000).toFixed(1);
+  
+  // 2. EXTRAGEREA LINK-ULUI (ATAȘAMENT)
+  // Dacă e Option::none în Move, aici va fi null. Dacă e Option::some, va fi string-ul.
+  const attachmentUrl = fields.attachment; 
 
   const handleSubmit = () => {
     if (!solutionLink) return alert("Adaugă un link!");
@@ -749,10 +771,7 @@ function BountyItem({ event, packageId, moduleName }: any) {
     const txb = new Transaction();
     txb.moveCall({
       target: `${packageId}::${moduleName}::approve_and_pay`,
-      arguments: [
-        txb.object(json.bounty_id),
-        txb.pure.u64(index)
-      ]
+      arguments: [txb.object(json.bounty_id), txb.pure.u64(index)]
     });
     signAndExecuteTransaction({ transaction: txb }, {
       onSuccess: () => { alert("Plătit!"); setIsProcessing(false); },
@@ -761,90 +780,144 @@ function BountyItem({ event, packageId, moduleName }: any) {
   };
 
   return (
-    <Card className={`border-slate-700 flex flex-col justify-between transition-all ${isCompleted ? 'bg-slate-900/20 opacity-70' : 'bg-slate-900/40'}`}>
-      <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
-          <Badge variant={isCompleted ? "secondary" : "default"} className={isCompleted ? "bg-emerald-500/10 text-emerald-400" : "bg-blue-500/10 text-blue-400"}>
-            {isCompleted ? "COMPLETED" : "OPEN"}
-          </Badge>
-          <div className="flex items-center text-emerald-400 font-mono text-sm font-bold">
-            {/* Folosim ?. și || 0 pentru a preveni crash-ul la matematică */}
-            {((parseInt(json.reward_amount || "0") / 1_000_000_000).toFixed(1))} SUI
-          </div>
-        </div>
-        <CardTitle className="text-white text-base mt-2">{json.description}</CardTitle>
-      </CardHeader>
+    <Card className={`group relative overflow-hidden transition-all duration-300 border shadow-xl ${
+        isCompleted 
+        ? 'bg-[#050a14] border-slate-800 opacity-75 grayscale-[0.3]' 
+        : 'bg-[#0B1121] border-slate-700 hover:border-blue-500/40 hover:shadow-blue-900/10'
+    }`}>
       
-      <CardContent className="space-y-4">
-        <div className="text-xs flex items-center text-slate-400 bg-slate-950 px-2 py-1 rounded border border-slate-800 w-fit">
-           <Box className="w-3 h-3 mr-1"/> 
-           Creator: {isCreator ? <span className="text-yellow-400 font-bold ml-1">(TU)</span> : (json.creator?.slice(0, 6) + "...")}
-        </div>
+      <div className={`absolute left-0 top-0 bottom-0 w-1 transition-colors ${
+          isCompleted ? 'bg-slate-700' : 'bg-gradient-to-b from-blue-500 to-cyan-400'
+      }`}></div>
 
-        {/* --- LISTA DE SOLUȚII (FIXED) --- */}
-        <div className="space-y-2 mt-4">
-            <h4 className="text-xs text-slate-500 font-bold uppercase">Soluții ({submissions.length})</h4>
-            
-            {submissions.length === 0 && <p className="text-xs text-slate-600 italic">Încă nicio soluție.</p>}
-
-            {submissions.map((subItem: any, idx: number) => {
-                // FIX CRITIC: Uneori datele vin în `subItem.fields`, alteori direct în `subItem`
-                // Această linie le normalizează
-                const sub = subItem.fields || subItem;
-
-                const isWinner = fields.winner && fields.winner === sub.solver;
+      <div className="p-6 flex flex-col h-full">
+        
+        {/* HEADER */}
+        <div className="flex justify-between items-start mb-2">
+            <div className="flex-1 pr-4">
+                <div className="flex items-center gap-2 mb-2">
+                    {isCompleted ? (
+                        <Badge variant="secondary" className="bg-slate-800 text-slate-300 border-slate-700 tracking-wider font-mono text-[10px]">
+                            COMPLETED
+                        </Badge>
+                    ) : (
+                        <Badge variant="outline" className="bg-blue-950/30 text-blue-400 border-blue-500/30 tracking-wider font-mono text-[10px] animate-pulse">
+                            ● LIVE
+                        </Badge>
+                    )}
+                    <span className="text-[10px] text-slate-400 font-mono">ID: {json.bounty_id.slice(0,6)}</span>
+                </div>
                 
-                return (
-                    <div key={idx} className={`p-3 rounded border text-sm flex flex-col gap-2 ${isWinner ? 'border-emerald-500/50 bg-emerald-900/10' : 'border-slate-800 bg-slate-950'}`}>
-                        <div className="flex justify-between items-center">
-                            <div className="flex items-center gap-2 text-slate-300">
-                                <User className="w-3 h-3"/> 
-                                {/* AICI CRĂPA: Am adăugat optional chaining (?.) */}
-                                <span className="font-mono text-xs">{sub.solver?.slice(0,6)}...</span>
-                                {isWinner && <Badge className="h-4 text-[10px] bg-emerald-500 text-black px-1"><Trophy className="w-3 h-3 mr-1"/> WINNER</Badge>}
-                            </div>
-                            <a href={sub.link} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 flex items-center text-xs">
-                                <ExternalLink className="w-3 h-3 mr-1"/> Vezi Cod
-                            </a>
-                        </div>
-
-                        {isCreator && !isCompleted && (
-                            <Button 
-                                size="sm" 
-                                className="w-full bg-emerald-600/80 hover:bg-emerald-600 h-7 text-xs mt-1"
-                                onClick={() => handleApprove(idx)}
-                                disabled={isProcessing}
-                            >
-                                <CheckCircle className="w-3 h-3 mr-1"/> Premiază această soluție
-                            </Button>
-                        )}
-                    </div>
-                )
-            })}
+                <h3 className={`text-lg font-bold leading-tight ${isCompleted ? 'text-slate-500' : 'text-white'}`}>
+                    {json.description}
+                </h3>
+            </div>
+            
+            <div className="text-right bg-slate-900/50 p-2 rounded-lg border border-slate-800">
+                <div className={`text-xl font-mono font-bold ${isCompleted ? 'text-slate-500' : 'text-emerald-400'}`}>
+                    {rewardAmount} SUI
+                </div>
+                <div className="text-[9px] text-slate-400 uppercase tracking-widest text-right">Reward</div>
+            </div>
         </div>
 
-      </CardContent>
-
-      <CardFooter className="pt-2 border-t border-slate-800/50">
-        {!isCreator && !isCompleted && (
-           <div className="w-full flex gap-2">
-             <Input 
-               placeholder="Link soluție..." 
-               className="bg-slate-950 border-slate-700 h-9 text-xs text-white placeholder:text-slate-500"
-               value={solutionLink}
-               onChange={(e) => setSolutionLink(e.target.value)}
-             />
-             <Button 
-               size="sm" 
-               className="bg-blue-600 hover:bg-blue-700"
-               onClick={handleSubmit}
-               disabled={isProcessing}
-             >
-               {isProcessing ? <Loader2 className="animate-spin"/> : <Code className="w-4 h-4"/>}
-             </Button>
-           </div>
+        {/* 3. AFISAREA BUTONULUI DE LINK (Doar dacă există attachmentUrl) */}
+        {attachmentUrl && (
+            <div className="mb-4">
+                <a 
+                    href={attachmentUrl.startsWith('http') ? attachmentUrl : `https://${attachmentUrl}`} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-medium text-blue-400 hover:text-blue-300 bg-blue-500/10 px-2.5 py-1.5 rounded-md border border-blue-500/20 hover:border-blue-500/50 transition-all w-fit"
+                >
+                    <Link2 className="w-3 h-3" />
+                    Vezi Codul Sursă / Context
+                </a>
+            </div>
         )}
-      </CardFooter>
+
+        {/* CREATOR INFO */}
+        <div className="flex items-center gap-2 mb-6 text-xs w-fit px-3 py-1.5 rounded-full border border-slate-800 bg-slate-950/50">
+            <User className="w-3 h-3 text-slate-300" />
+            <span className="text-slate-400">Posted by:</span>
+            <span className={`font-mono ${isCreator ? 'text-yellow-400 font-bold' : 'text-slate-200'}`}>
+                {isCreator ? "YOU" : fields.creator?.slice(0, 6) + "..." + fields.creator?.slice(-4)}
+            </span>
+        </div>
+
+        {/* LISTA SOLUȚII */}
+        <div className="flex-1 bg-[#02040a] rounded-lg border border-slate-800 overflow-hidden flex flex-col mb-4">
+            <div className="px-3 py-2 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center">
+                <span className="text-[10px] font-semibold text-slate-300 flex items-center gap-2 uppercase tracking-wider">
+                    <GitPullRequest className="w-3 h-3" /> Submissions ({submissions.length})
+                </span>
+            </div>
+            
+            <div className="p-2 space-y-2 overflow-y-auto min-h-[80px] max-h-[150px] scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent">
+                {submissions.length === 0 && (
+                    <div className="h-full flex flex-col items-center justify-center text-slate-400 text-xs italic py-4">
+                        <Clock className="w-5 h-5 mb-1 opacity-30" />
+                        Waiting for hunters...
+                    </div>
+                )}
+
+                {submissions.map((subItem: any, idx: number) => {
+                    const sub = subItem.fields || subItem;
+                    const isWinner = fields.winner && fields.winner === sub.solver;
+                    
+                    return (
+                        <div key={idx} className={`p-2 rounded border flex items-center justify-between group/item transition-all ${
+                            isWinner 
+                            ? 'bg-emerald-950/20 border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.1)]' 
+                            : 'bg-slate-900/40 border-slate-800/50 hover:border-slate-700'
+                        }`}>
+                            <div className="flex flex-col min-w-0 pr-2">
+                                <div className="flex items-center gap-2 mb-0.5">
+                                    <span className="text-[10px] font-mono text-slate-300">{sub.solver?.slice(0,6)}...</span>
+                                    {isWinner && <Badge className="h-3 text-[8px] bg-emerald-500 text-black px-1 leading-none"><Trophy className="w-2 h-2 mr-1"/> WINNER</Badge>}
+                                </div>
+                                <a href={sub.link} target="_blank" rel="noreferrer" className="text-xs text-blue-400 hover:text-blue-300 hover:underline truncate block max-w-[180px] flex items-center gap-1">
+                                    <Code className="w-3 h-3 opacity-70"/> {sub.link.replace(/^https?:\/\//, '')}
+                                </a>
+                            </div>
+
+                            {isCreator && !isCompleted && (
+                                <Button 
+                                    size="sm" 
+                                    className="h-6 text-[10px] px-2 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-black border border-emerald-500/20 transition-all opacity-0 group-hover/item:opacity-100"
+                                    onClick={() => handleApprove(idx)}
+                                    disabled={isProcessing}
+                                >
+                                    Accept <CheckCircle2 className="w-2 h-2 ml-1" />
+                                </Button>
+                            )}
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
+
+        {!isCreator && !isCompleted && (
+            <div className="flex gap-2 mt-auto pt-2">
+                <div className="relative flex-1">
+                    <Input 
+                        placeholder="Paste solution link..." 
+                        className="bg-slate-950 border-slate-700 text-xs text-white placeholder:text-slate-500 focus:border-blue-500 h-9"
+                        value={solutionLink}
+                        onChange={(e) => setSolutionLink(e.target.value)}
+                    />
+                </div>
+                <Button 
+                    size="sm"
+                    className="bg-blue-600 hover:bg-blue-500 text-white h-9 w-9 p-0"
+                    onClick={handleSubmit}
+                    disabled={isProcessing}
+                >
+                    {isProcessing ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
+                </Button>
+            </div>
+        )}
+      </div>
     </Card>
   );
 }
@@ -855,12 +928,26 @@ export function BountyList({ packageId, moduleName }: { packageId: string, modul
     order: "descending"
   });
 
-  if (isPending) return <div className="flex justify-center p-4"><Loader2 className="animate-spin text-blue-500" /></div>;
-  if (error) return <div className="text-red-400">Eroare: {error.message}</div>;
-  if (!events || events.data.length === 0) return <div className="text-slate-500 text-center">Niciun bounty activ.</div>;
+  if (isPending) return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+        {[1,2].map(i => (
+            <div key={i} className="h-64 bg-slate-900/30 rounded-xl animate-pulse border border-slate-800/50"></div>
+        ))}
+    </div>
+  );
+
+  if (error) return <div className="text-red-400 p-4 border border-red-900/50 rounded bg-red-900/10 mt-4 text-sm">Conexiune pierdută cu Sui Testnet.</div>;
+  
+  if (!events || events.data.length === 0) return (
+    <div className="text-slate-300 text-center py-12 flex flex-col items-center border border-dashed border-slate-800 rounded-xl mt-8 bg-slate-900/20">
+        <Clock className="w-8 h-8 mb-3 opacity-20" />
+        <p className="text-sm font-semibold">Niciun bounty activ.</p>
+        <p className="text-xs text-slate-500 mt-1">Fii primul care postează o problemă!</p>
+    </div>
+  );
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 pb-20">
       {events.data.map((event: any) => (
         <BountyItem key={event.id.txDigest} event={event} packageId={packageId} moduleName={moduleName} />
       ))}
@@ -870,130 +957,156 @@ export function BountyList({ packageId, moduleName }: { packageId: string, modul
 </file>
 
 <file path="src/features/bounty/BountyView.tsx">
-import { useState } from "react"
-import { useCurrentAccount, useSignAndExecuteTransaction } from "@mysten/dapp-kit" // <-- NUME NOU
+import { useState } from "react";
+import { useCurrentAccount, useSignAndExecuteTransaction } from "@mysten/dapp-kit";
 import { Transaction } from "@mysten/sui/transactions";
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Loader2 } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Loader2, Zap, ShieldCheck, Wallet, Link2 } from "lucide-react";
 import { BountyList } from "./BountyList";
 
-// --- CONSTANTELE TALE ---
+// --- PACKAGE ID NOU ---
 const PACKAGE_ID = "0x79ced3a91d839298bd1c052cfbbf454cc103c5d80d8b3607dd7480fe721fb208"; 
 const MODULE_NAME = "bounty_board";
-// ------------------------
+// ----------------------
 
 export function BountyView() {
   const account = useCurrentAccount();
-  // 1. Hook-ul are acum un nume mai scurt
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
   
   const [bountyDesc, setBountyDesc] = useState("");
+  const [attachment, setAttachment] = useState(""); // State pentru link
   const [amount, setAmount] = useState("0.1"); 
   const [isLoading, setIsLoading] = useState(false);
 
   const createBounty = () => {
-    if (!account) return alert("Conectează wallet-ul!");
-
+    if (!account) return alert("Please connect your wallet!");
     setIsLoading(true);
-    
     try {
         const txb = new Transaction();
-        
         const amountInMist = parseFloat(amount) * 1_000_000_000;
-
         const [coin] = txb.splitCoins(txb.gas, [amountInMist]);
 
         txb.moveCall({
           target: `${PACKAGE_ID}::${MODULE_NAME}::create_bounty`,
           arguments: [
-            coin,                   
+            coin, 
             txb.pure.string(bountyDesc),
+            txb.pure.string(attachment) // Trimitem link-ul către contract
           ],
         });
 
-        // 3. Execute - AICI ESTE SCHIMBAREA CHEIE
-        // Parametrul se numește acum 'transaction', nu 'transactionBlock'
-        signAndExecuteTransaction(
-          { transaction: txb }, 
-          {
+        signAndExecuteTransaction({ transaction: txb }, {
             onSuccess: (result) => {
               console.log("Bounty Created!", result);
               setIsLoading(false);
-              alert(`Succes! Bounty creat. Digest: ${result.digest}`);
+              alert(`Success! Bounty created.`);
               setBountyDesc(""); 
+              setAttachment("");
             },
             onError: (err) => {
               console.error("Transaction failed:", err);
               setIsLoading(false);
-              alert("Eroare la tranzacție (vezi consola).");
+              alert("Transaction failed.");
             }
-          }
-        );
+        });
     } catch (e) {
         console.error(e);
         setIsLoading(false);
-        alert("Eroare internă.");
+        alert("Internal error.");
     }
   };
 
   return (
-    <div className="space-y-8">
-      {/* --- PARTEA DE SUS (FORMULARUL EXISTENT) --- */}
-      <Card className="bg-slate-900/50 border-slate-800">
-        <CardHeader>
-          <CardTitle className="text-lg text-white">Postează o problemă (Escrow)</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <label className="text-xs text-slate-400">Descriere Problemă</label>
-            <Input 
-              placeholder="Ex: Funcția mint dă eroare..." 
-              value={bountyDesc}
-              onChange={(e) => setBountyDesc(e.target.value)}
-              className="bg-slate-950 border-slate-700 text-white mt-2"
-            />
-          </div>
-          <div>
-            <label className="text-xs text-slate-400">Recompensă (SUI)</label>
-            <Input 
-              type="number" 
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="bg-slate-950 border-slate-700 text-white mt-2"
-            />
-          </div>
-        </CardContent>
-      </Card>
+    <div className="space-y-12 pb-20">
+      
+      {/* --- HERO SECTION (Formularul de Creare) --- */}
+      <div className="relative group rounded-2xl mx-auto max-w-4xl">
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+        
+        <div className="relative bg-[#020617] border border-slate-800 p-8 rounded-2xl shadow-2xl">
+            <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
+                <div className="p-2 bg-blue-500/10 rounded-lg">
+                    <ShieldCheck className="w-6 h-6 text-blue-400" />
+                </div>
+                <div>
+                    <h2 className="text-xl font-bold text-white">Create Bounty</h2>
+                    <p className="text-slate-400 text-sm">Deposit SUI into escrow to reward auditors.</p>
+                </div>
+            </div>
 
-      <div className="flex justify-center">
-        {!account ? (
-          <div className="text-amber-500 text-sm border border-amber-900/50 bg-amber-900/20 px-4 py-2 rounded">
-            Conectează Wallet-ul din colțul dreapta-sus pentru a continua
-          </div>
-        ) : (
-          <Button 
-            size="lg" 
-            className="bg-blue-600 hover:bg-blue-700 text-white min-w-[200px]"
-            onClick={createBounty}
-            disabled={isLoading || !bountyDesc}
-          >
-            {isLoading ? <Loader2 className="animate-spin mr-2" /> : "Blocează Fonduri & Creează"}
-          </Button>
-        )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* 1. DESCRIERE (Full Width) */}
+                <div className="md:col-span-3 space-y-2">
+                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Issue Description</label>
+                    <div className="relative">
+                        <Input 
+                            placeholder="Ex: 'mint' function allows overflow..." 
+                            value={bountyDesc}
+                            onChange={(e) => setBountyDesc(e.target.value)}
+                            className="bg-slate-900/50 border-slate-700 text-white h-12 pl-4 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-600"
+                        />
+                    </div>
+                </div>
+
+                {/* 2. LINK (NOU) - Stânga */}
+                <div className="md:col-span-2 space-y-2">
+                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Code Link / Repo / Gist</label>
+                    <div className="relative">
+                        <Input 
+                            placeholder="https://github.com/user/repo/blob/main/bug.move" 
+                            value={attachment}
+                            onChange={(e) => setAttachment(e.target.value)}
+                            className="bg-slate-900/50 border-slate-700 text-slate-300 h-12 pl-10 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-600"
+                        />
+                        <Link2 className="absolute left-3 top-3.5 w-5 h-5 text-slate-500" />
+                    </div>
+                </div>
+
+                {/* 3. RECOMPENSĂ - Dreapta */}
+                <div className="space-y-2">
+                    <label className="text-xs font-mono text-emerald-400 uppercase tracking-wider ml-1">Reward (SUI)</label>
+                    <div className="relative">
+                        <Input 
+                            type="number" 
+                            value={amount}
+                            onChange={(e) => setAmount(e.target.value)}
+                            className="bg-slate-900/50 border-slate-700 text-emerald-400 font-mono font-bold text-lg h-12 pl-4 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
+                        />
+                        <div className="absolute right-3 top-3 text-xs text-slate-500 font-bold">SUI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="mt-8 flex justify-end">
+                {!account ? (
+                  <Button variant="outline" className="border-amber-500/50 text-amber-500 hover:bg-amber-500/10 gap-2">
+                    <Wallet className="w-4 h-4" /> Connect Wallet
+                  </Button>
+                ) : (
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-lg shadow-blue-900/20 transition-all"
+                    onClick={createBounty}
+                    disabled={isLoading || !bountyDesc}
+                  >
+                    {isLoading ? <Loader2 className="animate-spin mr-2" /> : <Zap className="w-4 h-4 mr-2 fill-white" />}
+                    Lock Funds & Publish
+                  </Button>
+                )}
+            </div>
+        </div>
       </div>
 
-      {/* --- SECȚIUNEA NOUĂ: LISTA DE BOUNTY-URI --- */}
-      <div className="pt-8 border-t border-slate-800">
-        <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-          <span className="bg-blue-500 w-2 h-2 rounded-full mr-3 animate-pulse"></span>
-          Bounties Active pe Blockchain
-        </h3>
-        {/* Aici montăm "Antena" care ascultă evenimentele */}
+      {/* --- LISTA --- */}
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center gap-4 mb-6">
+            <h3 className="text-2xl font-bold text-white">Active Bounties</h3>
+            <div className="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent"></div>
+        </div>
+        
         <BountyList packageId={PACKAGE_ID} moduleName={MODULE_NAME} />
       </div>
-      {/* ------------------------------------------- */}
 
     </div>
   )
@@ -1061,13 +1174,13 @@ export function ChatView() {
         {messages.length === 0 && (
           <div className="flex justify-start animate-in fade-in slide-in-from-bottom-4">
             <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-slate-800/80 border border-slate-700 p-4 text-sm text-slate-300 shadow-sm">
-              <p>Salut! Sunt <strong>MoveMate</strong>.</p>
-              <p className="mt-2">Am acces indexat la:</p>
+              <p>Hello! I'm <strong>MoveMate</strong>.</p>
+              <p className="mt-2">I currently have acces to:</p>
               <ul className="list-disc list-inside mt-1 text-slate-400 space-y-1">
                 <li>Sui Framework Docs</li>
                 <li>Move Book (2024)</li>
               </ul>
-              <p className="mt-4 text-xs text-slate-500">Întreabă-mă orice despre smart contracts.</p>
+              <p className="mt-4 text-xs text-slate-500">Ask me anything about the Move language and Smart Contracts.</p>
             </div>
           </div>
         )}
@@ -1127,7 +1240,7 @@ export function ChatView() {
       <div className="pt-4 border-t border-slate-800 mt-auto">
         <div className="relative">
           <Input 
-            placeholder="Întreabă despre Move..." 
+            placeholder="Ask me anything..." 
             className="pr-12 bg-slate-900 border-slate-700 focus-visible:ring-blue-500 h-12 text-slate-200"
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -1142,78 +1255,6 @@ export function ChatView() {
           >
             <ArrowUpRight className="h-5 w-5" />
           </Button>
-        </div>
-      </div>
-    </div>
-  )
-}
-</file>
-
-<file path="src/features/gas/GasView.tsx">
-import { Terminal, Layers } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
-
-export function GasView() {
-  const data = [
-    { name: 'Mint', serial: 4000, parallel: 2400 },
-    { name: 'Transfer', serial: 3000, parallel: 1398 },
-    { name: 'Swap', serial: 2000, parallel: 9800 },
-  ]
-
-  return (
-    <div className="space-y-8">
-      <Card className="bg-slate-900/50">
-        <CardHeader className="flex flex-row items-center justify-between pb-2">
-          <CardTitle className="text-lg font-semibold text-white flex items-center">
-            <Terminal className="mr-2 h-4 w-4 text-yellow-400" /> 
-            Cost Gaz vs. Paralelizare
-          </CardTitle>
-          <div className="flex space-x-4 text-xs">
-            <span className="flex items-center text-slate-400">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-2" /> Serial
-            </span>
-            <span className="flex items-center text-slate-400">
-              <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2" /> Paralel
-            </span>
-          </div>
-        </CardHeader>
-        
-        <CardContent>
-          <div className="h-64 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data} barGap={0}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
-                <XAxis dataKey="name" stroke="#64748b" fontSize={12} tickLine={false} axisLine={false} dy={10} />
-                <YAxis stroke="#64748b" fontSize={12} tickLine={false} axisLine={false} />
-                <Tooltip 
-                  cursor={{ fill: 'rgba(255,255,255,0.05)' }}
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', color: '#fff', borderRadius: '8px' }}
-                />
-                <Bar dataKey="serial" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={20} />
-                <Bar dataKey="parallel" fill="#10b981" radius={[4, 4, 0, 0]} barSize={20} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </CardContent>
-      </Card>
-
-      <div className="space-y-4">
-        <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Detecție Contenție Obiecte</h4>
-        
-        <div className="bg-slate-900/30 rounded-lg p-4 border border-slate-800 flex items-start space-x-4 hover:border-slate-600 transition-colors">
-          <div className="p-2 bg-red-900/20 rounded text-red-400 mt-1">
-            <Layers size={18} />
-          </div>
-          <div>
-            <h5 className="text-sm font-medium text-white">Hotspot: Shared Object 0x4a...9f</h5>
-            <p className="text-xs text-slate-400 mt-1">Acest obiect este accesat mutabil de 85% din tranzacții, blocând paralelizarea.</p>
-            <div className="mt-3 flex gap-2">
-               <Button size="sm" variant="outline" className="h-7 text-xs border-slate-700">Analizează Obiect</Button>
-               <Button size="sm" className="h-7 text-xs bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 border-transparent">Sugestie Sharding</Button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1310,11 +1351,12 @@ export function ScannerView() {
 import { useState, useEffect } from "react"
 import { useSuiClient, useCurrentAccount, useSignAndExecuteTransaction } from "@mysten/dapp-kit"
 import { Transaction } from "@mysten/sui/transactions"
+import { bcs } from "@mysten/sui/bcs"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Loader2, Info } from "lucide-react"
+import { Loader2, Info, Copy, ExternalLink } from "lucide-react"
 
 // Quick fill package IDs
 const QUICK_FILL_PACKAGES = [
@@ -1423,6 +1465,7 @@ export function TxLabView() {
   const [devInspectSkipChecks, setDevInspectSkipChecks] = useState(false)
   const [devInspectGasBudgetMist, setDevInspectGasBudgetMist] = useState<string>("")
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false)
+  const [copyNotice, setCopyNotice] = useState<string | null>(null)
 
   // Auto-select first module with entry functions after ABI load
   useEffect(() => {
@@ -1444,6 +1487,35 @@ export function TxLabView() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedModule, modules])
+
+  // Auto-clear copy notice after 2 seconds
+  useEffect(() => {
+    if (!copyNotice) return
+    const t = setTimeout(() => setCopyNotice(null), 2000)
+    return () => clearTimeout(t)
+  }, [copyNotice])
+
+  // Copy to clipboard helper
+  const copyToClipboard = async (label: string, text: string) => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text)
+        setCopyNotice(`Copied: ${label}`)
+      } else {
+        // Fallback to prompt
+        const copied = window.prompt("Copy:", text)
+        if (copied !== null) {
+          setCopyNotice(`Copied: ${label}`)
+        }
+      }
+    } catch (err) {
+      // Fallback to prompt on error
+      const copied = window.prompt("Copy:", text)
+      if (copied !== null) {
+        setCopyNotice(`Copied: ${label}`)
+      }
+    }
+  }
 
   // Pure helper that works with any modules object (not just state)
   const normalizeExposedFunctionsFrom = (all: NormalizedMoveModules | null, moduleName: string): NormalizedMoveFunction[] => {
@@ -1668,7 +1740,8 @@ export function TxLabView() {
         .map(t => t.trim())
         .filter(t => t.length > 0)
 
-      params.forEach((paramType, index) => {
+      for (let index = 0; index < params.length; index++) {
+        const paramType = params[index]
         const argInput = argInputs[index] || { value: "", mode: "auto" as ArgInputMode }
         const classification = classifyParam(paramType)
         const mode = argInput.mode === "auto" ? (classification.kind === "coin" ? "gas-coin" : classification.kind === "object" ? "object" : "value") : argInput.mode
@@ -1753,40 +1826,90 @@ export function TxLabView() {
               const innerClass = classifyParam(classification.innerType)
               const array = parseVectorInput(argInput.value, classification.innerType)
               
-              if (innerClass.kind === "pure" && innerClass.pureType) {
-                const parsedArray = array.map(v => parsePureValue(String(v), innerClass.pureType))
-                switch (innerClass.pureType) {
-                  case "u8":
-                    args.push(tx.pure.vector("u8", parsedArray))
-                    break
-                  case "u16":
-                    args.push(tx.pure.vector("u16", parsedArray))
-                    break
-                  case "u32":
-                    args.push(tx.pure.vector("u32", parsedArray))
-                    break
-                  case "u64":
-                    args.push(tx.pure.vector("u64", parsedArray))
-                    break
-                  case "u128":
-                    args.push(tx.pure.vector("u128", parsedArray))
-                    break
-                  case "u256":
-                    args.push(tx.pure.vector("u256", parsedArray))
-                    break
-                  case "address":
-                    args.push(tx.pure.vector("address", parsedArray))
-                    break
-                  case "bool":
-                    args.push(tx.pure.vector("bool", parsedArray))
-                    break
-                  default:
-                    args.push(tx.pure.vector("string", parsedArray.map(String)))
-                    break
+              try {
+                let serialized: any
+                
+                if (innerClass.kind === "pure" && innerClass.pureType) {
+                  const parsedArray = array.map(v => parsePureValue(String(v), innerClass.pureType))
+                  
+                  // BCS serialize based on inner type
+                  switch (innerClass.pureType) {
+                    case "u8": {
+                      const u8Array = parsedArray.map(v => Number(v))
+                      serialized = bcs.vector(bcs.U8).serialize(u8Array)
+                      break
+                    }
+                    case "u16": {
+                      const u16Array = parsedArray.map(v => Number(v))
+                      serialized = bcs.vector(bcs.U16).serialize(u16Array)
+                      break
+                    }
+                    case "u32": {
+                      const u32Array = parsedArray.map(v => Number(v))
+                      serialized = bcs.vector(bcs.U32).serialize(u32Array)
+                      break
+                    }
+                    case "u64": {
+                      const u64Array = parsedArray.map(v => BigInt(v))
+                      serialized = bcs.vector(bcs.U64).serialize(u64Array)
+                      break
+                    }
+                    case "u128": {
+                      const u128Array = parsedArray.map(v => BigInt(v))
+                      serialized = bcs.vector(bcs.U128).serialize(u128Array)
+                      break
+                    }
+                    case "u256": {
+                      const u256Array = parsedArray.map(v => BigInt(v))
+                      serialized = bcs.vector(bcs.U256).serialize(u256Array)
+                      break
+                    }
+                    case "address": {
+                      const addrArray = parsedArray.map(v => String(v))
+                      serialized = bcs.vector(bcs.Address).serialize(addrArray)
+                      break
+                    }
+                    case "bool": {
+                      const boolArray = parsedArray.map(v => Boolean(v))
+                      serialized = bcs.vector(bcs.Bool).serialize(boolArray)
+                      break
+                    }
+                    case "string":
+                    default: {
+                      const strArray = parsedArray.map(v => String(v))
+                      serialized = bcs.vector(bcs.String).serialize(strArray)
+                      break
+                    }
+                  }
+                } else {
+                  // For unknown inner types, try to serialize as vector<string>
+                  const strArray = array.map(v => String(v))
+                  serialized = bcs.vector(bcs.String).serialize(strArray)
                 }
-              } else {
-                // For non-primitive vectors, fallback to string array
-                args.push(tx.pure.vector("string", array.map(String)))
+                
+                // Convert SerializedBcs to Uint8Array
+                // SerializedBcs may have toBytes() method or be directly usable
+                let bytes: Uint8Array
+                if (serialized instanceof Uint8Array) {
+                  bytes = serialized
+                } else if (typeof (serialized as any)?.toBytes === 'function') {
+                  bytes = (serialized as any).toBytes()
+                } else if ((serialized as any)?.bytes) {
+                  bytes = (serialized as any).bytes
+                } else {
+                  // Fallback: try to use SerializedBcs directly (tx.pure may accept it)
+                  // If that fails, convert via ArrayBuffer
+                  try {
+                    args.push(tx.pure(serialized as any))
+                    continue // Skip the rest of this iteration
+                  } catch {
+                    throw new Error(`Unable to convert SerializedBcs to bytes for vector parameter #${index}`)
+                  }
+                }
+                
+                args.push(tx.pure(bytes))
+              } catch (err: any) {
+                throw new Error(`Failed to serialize vector: ${err.message || String(err)}`)
               }
             } else if (classification.kind === "option" && classification.innerType) {
               const value = argInput.value.trim()
@@ -1822,7 +1945,7 @@ export function TxLabView() {
         } catch (err: any) {
           throw new Error(`Parameter #${index} (${paramType}): ${err.message}`)
         }
-      })
+      }
 
       tx.moveCall({
         target: `${packageId}::${selectedModule}::${selectedFunction}`,
@@ -2556,6 +2679,88 @@ export function TxLabView() {
                 )}
               </div>
             )}
+            
+            {/* Quick Actions */}
+            {result && (
+              <div className="mb-4 p-4 bg-gradient-to-br from-slate-950/80 to-slate-900/80 border border-slate-700/50 rounded-lg shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-sm text-slate-300 font-semibold flex items-center gap-2">
+                    <div className="h-1 w-1 rounded-full bg-blue-400"></div>
+                    Quick Actions
+                  </div>
+                  {copyNotice && (
+                    <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2.5 py-1 animate-in fade-in duration-200">
+                      {copyNotice}
+                    </Badge>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  {/* Copy Target */}
+                  {target && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => copyToClipboard("Target", target)}
+                      className="border-slate-600/50 text-slate-300 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-300 text-xs h-9 px-3 transition-all duration-200"
+                    >
+                      <Copy className="h-3.5 w-3.5 mr-1.5" />
+                      Copy Target
+                    </Button>
+                  )}
+                  
+                  {/* Copy Digest */}
+                  {(() => {
+                    const digest = result?.summary?.digest ?? result?.data?.digest ?? null
+                    return digest ? (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => copyToClipboard("Digest", digest)}
+                        className="border-slate-600/50 text-slate-300 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-300 text-xs h-9 px-3 transition-all duration-200"
+                      >
+                        <Copy className="h-3.5 w-3.5 mr-1.5" />
+                        Copy Digest
+                      </Button>
+                    ) : null
+                  })()}
+                  
+                  {/* Copy JSON */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => copyToClipboard("JSON", JSON.stringify(result || { error }, null, 2))}
+                    className="border-slate-600/50 text-slate-300 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-300 text-xs h-9 px-3 transition-all duration-200"
+                  >
+                    <Copy className="h-3.5 w-3.5 mr-1.5" />
+                    Copy JSON
+                  </Button>
+                  
+                  {/* Open in Explorer */}
+                  {(() => {
+                    const digest = result?.summary?.digest ?? result?.data?.digest ?? null
+                    const explorerBase = import.meta.env.VITE_EXPLORER_TX_URL as string | undefined
+                    if (!digest || !explorerBase) return null
+                    
+                    const explorerUrl = explorerBase.endsWith('/') 
+                      ? `${explorerBase}${digest}`
+                      : `${explorerBase}/${digest}`
+                    
+                    return (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(explorerUrl, '_blank', 'noopener,noreferrer')}
+                        className="border-slate-600/50 text-slate-300 hover:bg-emerald-600/20 hover:border-emerald-500/50 hover:text-emerald-300 text-xs h-9 px-3 transition-all duration-200"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
+                        Open in Explorer
+                      </Button>
+                    )
+                  })()}
+                </div>
+              </div>
+            )}
+            
             <div className="bg-slate-950 border border-slate-800 rounded-md p-4 overflow-auto max-h-[500px]">
               <pre className="text-xs text-slate-300 whitespace-pre-wrap break-words">
                 {JSON.stringify(result || { error }, null, 2)}

@@ -27,13 +27,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Loader2, Info } from "lucide-react"
-
-// Quick fill package IDs
-const QUICK_FILL_PACKAGES = [
-  { name: "Bounty Protocol", id: "0x79ced3a91d839298bd1c052cfbbf454cc103c5d80d8b3607dd7480fe721fb208" },
-  // Add more known packages here
-]
+import { Loader2, Info, Copy, ExternalLink, RotateCcw } from "lucide-react"
 
 // Sui normalized Move type (can be string or structured object)
 type SuiMoveNormalizedType =
@@ -136,6 +130,9 @@ export function TxLabView() {
   const [devInspectSkipChecks, setDevInspectSkipChecks] = useState(false)
   const [devInspectGasBudgetMist, setDevInspectGasBudgetMist] = useState<string>("")
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(false)
+  const [copyNotice, setCopyNotice] = useState<string | null>(null)
+  const [showHelp, setShowHelp] = useState(false)
+  const [showTypeArgs, setShowTypeArgs] = useState(false)
 
   // Auto-select first module with entry functions after ABI load
   useEffect(() => {
@@ -157,6 +154,58 @@ export function TxLabView() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedModule, modules])
+
+  // Auto-clear copy notice after 2 seconds
+  useEffect(() => {
+    if (!copyNotice) return
+    const t = setTimeout(() => setCopyNotice(null), 2000)
+    return () => clearTimeout(t)
+  }, [copyNotice])
+
+  // Auto-show type args if they have content
+  useEffect(() => {
+    if (typeArguments.trim()) {
+      setShowTypeArgs(true)
+    }
+  }, [typeArguments])
+
+  // Copy to clipboard helper
+  const copyToClipboard = async (label: string, text: string) => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text)
+        setCopyNotice(`Copied: ${label}`)
+      } else {
+        // Fallback to prompt
+        const copied = window.prompt("Copy:", text)
+        if (copied !== null) {
+          setCopyNotice(`Copied: ${label}`)
+        }
+      }
+    } catch (err) {
+      // Fallback to prompt on error
+      const copied = window.prompt("Copy:", text)
+      if (copied !== null) {
+        setCopyNotice(`Copied: ${label}`)
+      }
+    }
+  }
+
+  // Reset builder state
+  const handleReset = () => {
+    setPackageId("")
+    setModules(null)
+    setSelectedModule("")
+    setSelectedFunction("")
+    setTypeArguments("")
+    setArgInputs({})
+    setResult(null)
+    setError(null)
+    setShowAdvancedOptions(false)
+    setDevInspectSkipChecks(false)
+    setDevInspectGasBudgetMist("")
+    setShowTypeArgs(false)
+  }
 
   // Pure helper that works with any modules object (not just state)
   const normalizeExposedFunctionsFrom = (all: NormalizedMoveModules | null, moduleName: string): NormalizedMoveFunction[] => {
@@ -843,56 +892,76 @@ export function TxLabView() {
 
   return (
     <div className="space-y-6">
-      {/* How to Use Panel */}
+      {/* Quick Start Panel */}
       <Card className="bg-slate-900/50 border-slate-800 border-blue-500/30">
         <CardHeader>
           <CardTitle className="text-lg text-white flex items-center gap-2">
             <Info className="h-5 w-5 text-blue-400" />
-            How to Use MoveCall Sandbox
+            Quick Start
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-slate-300">
-          <div className="space-y-3">
-            <div>
-              <h4 className="font-semibold text-white mb-2">Step-by-Step:</h4>
-              <ol className="list-decimal list-inside space-y-1.5 ml-2 text-slate-300">
-                <li><strong className="text-white">Connect wallet</strong> (top right) - Required for Dev-Inspect and Execute</li>
-                <li><strong className="text-white">Enter Package ID</strong> (or click quick preset button) - The on-chain package address (e.g., <code className="bg-slate-800 px-1 rounded">0x2</code>)</li>
-                <li><strong className="text-white">Click "Load Modules"</strong> - Fetches the package ABI from chain</li>
-                <li><strong className="text-white">Choose Module + Entry Function</strong> - Select from dropdowns</li>
-                <li><strong className="text-white">Fill Type Args</strong> (optional) - Comma-separated fully-qualified types like <code className="bg-slate-800 px-1 rounded">0x2::sui::SUI</code></li>
-                <li><strong className="text-white">Fill Arguments:</strong>
-                  <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                    <li><strong className="text-emerald-400">"Use Gas Coin"</strong> - Passes the transaction's gas object as the <code className="bg-slate-800 px-1 rounded">Coin&lt;T&gt;</code> argument</li>
-                    <li><strong className="text-blue-400">"Object ID"</strong> - Pass an on-chain object ID (for object parameters)</li>
-                    <li><strong className="text-slate-400">"Value"</strong> - Enter a pure value like <code className="bg-slate-800 px-1 rounded">u64</code>, <code className="bg-slate-800 px-1 rounded">address</code>, <code className="bg-slate-800 px-1 rounded">string</code></li>
-                  </ul>
-                </li>
-                <li><strong className="text-white">Press:</strong>
-                  <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                    <li><strong className="text-emerald-400">Dev-Inspect</strong> - Simulation, no wallet popup, no state changes</li>
-                    <li><strong className="text-blue-400">Execute</strong> - Real transaction, wallet popup, on-chain execution</li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
-            
-            <div className="pt-2 border-t border-slate-700">
-              <h4 className="font-semibold text-white mb-2">MVP Preset:</h4>
-              <p className="text-slate-300">
-                The <strong className="text-emerald-400">"Send 0.001 SUI to myself (simulate)"</strong> button loads <code className="bg-slate-800 px-1 rounded">0x2::pay::split_and_transfer</code> and sends 0.001 SUI (1,000,000 MIST) to your own address via simulation. Perfect for testing!
-              </p>
-            </div>
+        <CardContent className="space-y-4">
+          <p className="text-sm text-slate-300">
+            Run an on-chain action in 2 steps. Start with the demo if you're new.
+          </p>
+          <ol className="list-decimal list-inside space-y-2 text-sm text-slate-300 ml-2">
+            <li><strong className="text-white">Connect wallet</strong> (top right)</li>
+            <li><strong className="text-white">Try Demo</strong> OR paste Package ID (the app address on-chain, looks like <code className="bg-slate-800 px-1 rounded text-xs">0x...</code>)</li>
+            <li><strong className="text-white">Load modules</strong> - Fetches available actions</li>
+            <li><strong className="text-white">Pick action</strong> - Choose module/function (the action inside that app) and fill fields</li>
+            <li><strong className="text-white">Simulate</strong> (safe, no changes) or <strong className="text-white">Execute</strong> (real transaction)</li>
+          </ol>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowHelp(!showHelp)}
+            className="text-xs text-slate-400 hover:text-slate-300 mt-2"
+          >
+            {showHelp ? "▼ Hide detailed guide" : "▶ Show detailed guide"}
+          </Button>
+          {showHelp && (
+            <div className="mt-4 pt-4 border-t border-slate-700 space-y-4 text-sm text-slate-300">
+              <div>
+                <h4 className="font-semibold text-white mb-2">Detailed Steps:</h4>
+                <ol className="list-decimal list-inside space-y-1.5 ml-2">
+                  <li><strong className="text-white">Connect wallet</strong> (top right) - Required for Simulate and Execute</li>
+                  <li><strong className="text-white">Enter Package ID</strong> (or click demo button) - The on-chain package address (e.g., <code className="bg-slate-800 px-1 rounded">0x2</code>)</li>
+                  <li><strong className="text-white">Click "Load Modules"</strong> - Fetches the package ABI from chain</li>
+                  <li><strong className="text-white">Choose Module + Entry Function</strong> - Select from dropdowns</li>
+                  <li><strong className="text-white">Fill Type Args</strong> (optional, advanced) - Comma-separated fully-qualified types like <code className="bg-slate-800 px-1 rounded">0x2::sui::SUI</code></li>
+                  <li><strong className="text-white">Fill Arguments:</strong>
+                    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                      <li><strong className="text-emerald-400">"Use Gas Coin"</strong> - Passes the transaction's gas object as the <code className="bg-slate-800 px-1 rounded">Coin&lt;T&gt;</code> argument</li>
+                      <li><strong className="text-blue-400">"Object ID"</strong> - Pass an on-chain object ID (for object parameters)</li>
+                      <li><strong className="text-slate-400">"Value"</strong> - Enter a pure value like <code className="bg-slate-800 px-1 rounded">u64</code>, <code className="bg-slate-800 px-1 rounded">address</code>, <code className="bg-slate-800 px-1 rounded">string</code></li>
+                    </ul>
+                  </li>
+                  <li><strong className="text-white">Press:</strong>
+                    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                      <li><strong className="text-emerald-400">Dev-Inspect</strong> - Simulation, no wallet popup, no state changes</li>
+                      <li><strong className="text-blue-400">Execute</strong> - Real transaction, wallet popup, on-chain execution</li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+              
+              <div className="pt-2 border-t border-slate-700">
+                <h4 className="font-semibold text-white mb-2">Demo Preset:</h4>
+                <p className="text-slate-300">
+                  The <strong className="text-emerald-400">"Demo: Send 0.001 SUI to yourself (simulate)"</strong> button loads <code className="bg-slate-800 px-1 rounded">0x2::pay::split_and_transfer</code> and sends 0.001 SUI (1,000,000 MIST) to your own address via simulation. Perfect for testing!
+                </p>
+              </div>
 
-            <div className="pt-2 border-t border-slate-700">
-              <h4 className="font-semibold text-white mb-2">Common Pitfalls:</h4>
-              <ul className="list-disc list-inside space-y-1 ml-2 text-slate-300">
-                <li><strong className="text-amber-400">Wrong network</strong> - App runs on Testnet; <code className="bg-slate-800 px-1 rounded">0x2</code> exists on all networks but your custom packages might not</li>
-                <li><strong className="text-amber-400">Missing args / wrong object IDs</strong> - Ensure all required arguments are filled correctly</li>
-                <li><strong className="text-amber-400">Type args formatting</strong> - Must be comma-separated fully-qualified types (e.g., <code className="bg-slate-800 px-1 rounded">0x2::sui::SUI, 0x2::coin::Coin</code>)</li>
-              </ul>
+              <div className="pt-2 border-t border-slate-700">
+                <h4 className="font-semibold text-white mb-2">Common Issues:</h4>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li><strong className="text-amber-400">Wrong network</strong> - App runs on Testnet; <code className="bg-slate-800 px-1 rounded">0x2</code> exists on all networks but your custom packages might not</li>
+                  <li><strong className="text-amber-400">Missing args / wrong object IDs</strong> - Ensure all required arguments are filled correctly</li>
+                  <li><strong className="text-amber-400">Type args formatting</strong> - Must be comma-separated fully-qualified types (e.g., <code className="bg-slate-800 px-1 rounded">0x2::sui::SUI, 0x2::coin::Coin</code>)</li>
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
         </CardContent>
       </Card>
 
@@ -903,13 +972,18 @@ export function TxLabView() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <label className="text-xs text-slate-400 mb-2 block">Package ID</label>
+            <label className="text-xs text-slate-400 mb-2 block">
+              Package ID
+            </label>
             <Input
-              placeholder="0x..."
+              placeholder="Paste an on-chain package address (looks like 0x...). New? Use the Demo button."
               value={packageId}
               onChange={(e) => setPackageId(e.target.value)}
               className="bg-slate-950 border-slate-700 text-white font-mono text-sm"
             />
+            <p className="text-xs text-slate-500 mt-1.5">
+              What is this? The Package ID is the on-chain address of an app. It looks like <code className="bg-slate-800 px-1 rounded">0x...</code>
+            </p>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
             <Button
@@ -932,28 +1006,18 @@ export function TxLabView() {
               className="bg-emerald-600 hover:bg-emerald-700 text-white"
               title="Autofill: 0x2::pay::split_and_transfer with 0.001 SUI to self"
             >
-              Send 0.001 SUI to myself (simulate)
+              Demo: Send 0.001 SUI to yourself (simulate)
             </Button>
-            {QUICK_FILL_PACKAGES.map((pkg) => (
-              <Button
-                key={pkg.id}
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setPackageId(pkg.id)
-                  setModules(null)
-                  setSelectedModule("")
-                  setSelectedFunction("")
-                  setArgInputs({})
-                  setTypeArguments("")
-                  setResult(null)
-                  setError(null)
-                }}
-                className="border-slate-700 text-slate-300 hover:bg-slate-800 text-xs"
-              >
-                {pkg.name}
-              </Button>
-            ))}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleReset}
+              className="border-slate-700 text-slate-300 hover:bg-slate-800 text-xs"
+              title="Reset all fields"
+            >
+              <RotateCcw className="h-3.5 w-3.5 mr-1.5" />
+              Reset
+            </Button>
           </div>
           {modules && (
             <div className="mt-2">
@@ -1036,18 +1100,47 @@ export function TxLabView() {
               </div>
             )}
 
-            {/* Type Arguments */}
+            {/* Type Arguments - Hidden by default */}
             {selectedFunction && (
               <div>
-                <label className="text-xs text-slate-400 mb-2 block">
-                  Type Arguments (comma-separated, e.g., "0x2::sui::SUI")
-                </label>
-                <Input
-                  placeholder="0x2::sui::SUI, 0x2::coin::Coin"
-                  value={typeArguments}
-                  onChange={(e) => setTypeArguments(e.target.value)}
-                  className="bg-slate-950 border-slate-700 text-white font-mono text-sm"
-                />
+                {!showTypeArgs && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setShowTypeArgs(true)}
+                    className="text-xs text-slate-400 hover:text-slate-300"
+                  >
+                    + Type arguments (advanced)
+                  </Button>
+                )}
+                {showTypeArgs && (
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="text-xs text-slate-400 block">
+                        Type Arguments (comma-separated, e.g., "0x2::sui::SUI")
+                      </label>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          setShowTypeArgs(false)
+                          setTypeArguments("")
+                        }}
+                        className="text-xs text-slate-500 hover:text-slate-300 h-6 px-2"
+                      >
+                        Hide
+                      </Button>
+                    </div>
+                    <Input
+                      placeholder="0x2::sui::SUI, 0x2::coin::Coin"
+                      value={typeArguments}
+                      onChange={(e) => setTypeArguments(e.target.value)}
+                      className="bg-slate-950 border-slate-700 text-white font-mono text-sm"
+                    />
+                  </div>
+                )}
               </div>
             )}
 
@@ -1258,19 +1351,27 @@ export function TxLabView() {
       )}
 
       {/* Card 3: Result */}
-      {(result || error) && (
-        <Card className="bg-slate-900/50 border-slate-800">
-          <CardHeader>
-            <CardTitle className="text-lg text-white">Result</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {error && (
-              <div className="mb-4 p-3 bg-red-900/20 border border-red-800 rounded-md">
-                <div className="text-sm text-red-400 font-semibold mb-1">Error:</div>
-                <div className="text-sm text-red-300">{error}</div>
-              </div>
-            )}
-            {result && result.summary && (
+      {(result || error) && (() => {
+        const digest = result?.summary?.digest ?? result?.data?.digest ?? null
+        const jsonText = JSON.stringify(result || { error }, null, 2)
+        const explorerBase = import.meta.env.VITE_EXPLORER_TX_URL as string | undefined
+        const explorerUrl = digest && explorerBase
+          ? (explorerBase.endsWith('/') ? `${explorerBase}${digest}` : `${explorerBase}/${digest}`)
+          : null
+
+        return (
+          <Card className="bg-slate-900/50 border-slate-800">
+            <CardHeader>
+              <CardTitle className="text-lg text-white">Result</CardTitle>
+            </CardHeader>
+            <CardContent>
+              {error && (
+                <div className="mb-4 p-3 bg-red-900/20 border border-red-800 rounded-md">
+                  <div className="text-sm text-red-400 font-semibold mb-1">Error:</div>
+                  <div className="text-sm text-red-300">{error}</div>
+                </div>
+              )}
+              {result && result.summary && (
               <div className="mb-4 p-3 bg-slate-950/50 border border-slate-800 rounded-md space-y-2">
                 <div className="text-xs text-slate-400 mb-2 font-semibold">Summary:</div>
                 {result.type === "devInspect" && (
@@ -1320,14 +1421,84 @@ export function TxLabView() {
                 )}
               </div>
             )}
-            <div className="bg-slate-950 border border-slate-800 rounded-md p-4 overflow-auto max-h-[500px]">
-              <pre className="text-xs text-slate-300 whitespace-pre-wrap break-words">
-                {JSON.stringify(result || { error }, null, 2)}
-              </pre>
-            </div>
-          </CardContent>
-        </Card>
-      )}
+            
+              {/* Quick Actions */}
+              {result && (
+                <div className="mb-4 p-4 bg-gradient-to-br from-slate-950/80 to-slate-900/80 border border-slate-700/50 rounded-lg shadow-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-sm text-slate-300 font-semibold flex items-center gap-2">
+                      <div className="h-1 w-1 rounded-full bg-blue-400"></div>
+                      Quick Actions
+                    </div>
+                    {copyNotice && (
+                      <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2.5 py-1 animate-in fade-in duration-200">
+                        {copyNotice}
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {/* Copy Target */}
+                    {target && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => copyToClipboard("Target", target)}
+                        className="border-slate-600/50 text-slate-300 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-300 text-xs h-9 px-3 transition-all duration-200"
+                      >
+                        <Copy className="h-3.5 w-3.5 mr-1.5" />
+                        Copy Target
+                      </Button>
+                    )}
+                    
+                    {/* Copy Digest */}
+                    {digest && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => copyToClipboard("Digest", digest)}
+                        className="border-slate-600/50 text-slate-300 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-300 text-xs h-9 px-3 transition-all duration-200"
+                      >
+                        <Copy className="h-3.5 w-3.5 mr-1.5" />
+                        Copy Digest
+                      </Button>
+                    )}
+                    
+                    {/* Copy JSON */}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => copyToClipboard("JSON", jsonText)}
+                      className="border-slate-600/50 text-slate-300 hover:bg-blue-600/20 hover:border-blue-500/50 hover:text-blue-300 text-xs h-9 px-3 transition-all duration-200"
+                    >
+                      <Copy className="h-3.5 w-3.5 mr-1.5" />
+                      Copy JSON
+                    </Button>
+                    
+                    {/* Open in Explorer */}
+                    {explorerUrl && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(explorerUrl, '_blank', 'noopener,noreferrer')}
+                        className="border-slate-600/50 text-slate-300 hover:bg-emerald-600/20 hover:border-emerald-500/50 hover:text-emerald-300 text-xs h-9 px-3 transition-all duration-200"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5 mr-1.5" />
+                        Open in Explorer
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              )}
+              
+              <div className="bg-slate-950 border border-slate-800 rounded-md p-4 overflow-auto max-h-[500px]">
+                <pre className="text-xs text-slate-300 whitespace-pre-wrap break-words">
+                  {jsonText}
+                </pre>
+              </div>
+            </CardContent>
+          </Card>
+        )
+      })()}
     </div>
   )
 }
