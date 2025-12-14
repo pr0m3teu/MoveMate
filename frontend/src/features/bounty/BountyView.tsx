@@ -21,7 +21,7 @@ export function BountyView() {
   const [isLoading, setIsLoading] = useState(false);
 
   const createBounty = () => {
-    if (!account) return alert("Conectează wallet-ul!");
+    if (!account) return alert("Please connect your wallet!");
     setIsLoading(true);
     try {
         const txb = new Transaction();
@@ -41,20 +41,20 @@ export function BountyView() {
             onSuccess: (result) => {
               console.log("Bounty Created!", result);
               setIsLoading(false);
-              alert(`Succes! Bounty creat.`);
+              alert(`Success! Bounty created.`);
               setBountyDesc(""); 
               setAttachment("");
             },
             onError: (err) => {
               console.error("Transaction failed:", err);
               setIsLoading(false);
-              alert("Eroare la tranzacție.");
+              alert("Transaction failed.");
             }
         });
     } catch (e) {
         console.error(e);
         setIsLoading(false);
-        alert("Eroare internă.");
+        alert("Internal error.");
     }
   };
 
@@ -71,18 +71,18 @@ export function BountyView() {
                     <ShieldCheck className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                    <h2 className="text-xl font-bold text-white">Create Security Bounty</h2>
-                    <p className="text-slate-400 text-sm">Depune SUI în escrow pentru a recompensa auditorii.</p>
+                    <h2 className="text-xl font-bold text-white">Create Bounty</h2>
+                    <p className="text-slate-400 text-sm">Deposit SUI into escrow to reward auditors.</p>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* 1. DESCRIERE (Full Width) */}
                 <div className="md:col-span-3 space-y-2">
-                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Descriere Problemă</label>
+                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Issue Description</label>
                     <div className="relative">
                         <Input 
-                            placeholder="Ex: Funcția 'mint' permite overflow..." 
+                            placeholder="Ex: 'mint' function allows overflow..." 
                             value={bountyDesc}
                             onChange={(e) => setBountyDesc(e.target.value)}
                             className="bg-slate-900/50 border-slate-700 text-white h-12 pl-4 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-600"
@@ -92,7 +92,7 @@ export function BountyView() {
 
                 {/* 2. LINK (NOU) - Stânga */}
                 <div className="md:col-span-2 space-y-2">
-                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Link Cod / Repo / Gist</label>
+                    <label className="text-xs font-mono text-blue-300 uppercase tracking-wider ml-1">Code Link / Repo / Gist</label>
                     <div className="relative">
                         <Input 
                             placeholder="https://github.com/user/repo/blob/main/bug.move" 
@@ -106,7 +106,7 @@ export function BountyView() {
 
                 {/* 3. RECOMPENSĂ - Dreapta */}
                 <div className="space-y-2">
-                    <label className="text-xs font-mono text-emerald-400 uppercase tracking-wider ml-1">Recompensă (SUI)</label>
+                    <label className="text-xs font-mono text-emerald-400 uppercase tracking-wider ml-1">Reward (SUI)</label>
                     <div className="relative">
                         <Input 
                             type="number" 
@@ -122,7 +122,7 @@ export function BountyView() {
             <div className="mt-8 flex justify-end">
                 {!account ? (
                   <Button variant="outline" className="border-amber-500/50 text-amber-500 hover:bg-amber-500/10 gap-2">
-                    <Wallet className="w-4 h-4" /> Conectează Wallet
+                    <Wallet className="w-4 h-4" /> Connect Wallet
                   </Button>
                 ) : (
                   <Button 
@@ -132,7 +132,7 @@ export function BountyView() {
                     disabled={isLoading || !bountyDesc}
                   >
                     {isLoading ? <Loader2 className="animate-spin mr-2" /> : <Zap className="w-4 h-4 mr-2 fill-white" />}
-                    Blocează Fonduri & Publică
+                    Lock Funds & Publish
                   </Button>
                 )}
             </div>
