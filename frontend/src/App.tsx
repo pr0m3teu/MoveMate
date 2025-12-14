@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Code2 } from "lucide-react"
+import { Shield, MessageSquare, Search, CheckCircle, ArrowUpRight, LayoutTemplate, Wallet, Code2, Play } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 import { Overlay } from "@/components/layout/Overlay"
@@ -19,7 +19,7 @@ const DashboardCard = ({ title, description, icon: Icon, color, onClick }: any) 
   return (
     <div 
       onClick={onClick}
-      className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-8 transition-all hover:-translate-y-1 hover:border-slate-700 hover:shadow-2xl cursor-pointer"
+      className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-8 transition-all hover:-translate-y-1 hover:border-slate-700 hover:shadow-2xl cursor-pointer h-full"
     >
       <div className="absolute top-0 right-0 -mt-8 -mr-8 h-32 w-32 rounded-full bg-gradient-to-br from-white/5 to-transparent blur-3xl transition-all group-hover:from-white/10" />
       <div className={cn("mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300", colorStyles[color])}>
@@ -71,58 +71,64 @@ export default function App() {
               <span className="font-bold text-lg text-white">MoveMate</span>
             </div>
             <div className="flex items-center gap-4">
-   <ConnectButton />
-</div>
+               <ConnectButton />
+            </div>
           </div>
         </header>
 
         <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+          {/* HERO SECTION */}
           <div className="mb-16 text-center space-y-4">
              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-              Securitate pentru <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Move Smart Contracts</span>
+              Consult. Interact. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Reward.</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto pt-4 leading-relaxed">
-              Platforma completă de audit AI. Detectează vulnerabilități, simulează costurile de gaz și oferă consultanță tehnică bazată pe documentația oficială Sui.
+              The all-in-one hub. Get instant documentation answers, build transactions visually, and get complex issues solved by the community via secure escrow.
             </p>
           </div>
 
+          {/* CARDS SECTION */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
             <DashboardCard 
-              title="MoveCall Sandbox" 
-              description="Încarcă ABI on-chain, simulează (dev-inspect) și execută entry functions."
-              icon={Code2} 
-              color="blue" 
-              onClick={() => setActiveOverlay('txlab')} 
-            />
-            <DashboardCard 
-              title="Asistent Arhitect" 
-              description="Chatbot antrenat pe documentația Sui Move (RAG)."
+              title="Architect Assistant" 
+              description="RAG-powered AI trained strictly on official Sui documentation. Get accurate answers on syntax and patterns."
               icon={MessageSquare} 
               color="emerald" 
               onClick={() => setActiveOverlay('chat')} 
             />
+
             <DashboardCard 
-              title="Bounty & Escalation" 
-              description="Escaladează către auditori umani: escrow 10 SUI, claim, fix proof (IPFS/GitHub), release/timeout + dispute."
+              title="Interaction Lab" 
+              description="Visual transaction builder. Manually execute entry functions and test smart contracts directly from the UI."
+              icon={Play} 
+              color="blue" 
+              onClick={() => setActiveOverlay('txlab')} 
+            />
+            
+            <DashboardCard 
+              title="Bounty & Escrow" 
+              description="Stuck on a bug? Post a bounty and let skilled developers solve it for you. Funds are secured on-chain."
               icon={Wallet} 
               color="yellow" 
               onClick={() => setActiveOverlay('bounty')} 
             />
           </div>
 
+          {/* STATS SECTION */}
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-4">
-            <StatCard label="Scanări Totale" value="12,403" icon={Search} />
-            <StatCard label="Bounties Plătite" value="45,200 SUI" icon={CheckCircle} />
-            <StatCard label="Escalări Active" value="128" icon={ArrowUpRight} />
+            <StatCard label="Docs Indexed" value="1,403 Pages" icon={Search} />
+            <StatCard label="Bounties Paid" value="45,200 SUI" icon={CheckCircle} />
+            <StatCard label="Active Users" value="842" icon={ArrowUpRight} />
             <div className="md:col-span-1 rounded-xl border border-dashed border-slate-800 bg-slate-900/20 flex items-center justify-center text-slate-500 text-sm hover:border-slate-700 hover:text-slate-300 cursor-pointer transition-colors p-4 group">
-              <LayoutTemplate className="w-4 h-4 mr-2 group-hover:text-blue-400 transition-colors" /> Vezi Istoric Audituri
+              <LayoutTemplate className="w-4 h-4 mr-2 group-hover:text-blue-400 transition-colors" /> View Platform Stats
             </div>
           </div>
         </main>
       </div>
 
-      {/* OVERLAY LAYERS (Conținutul care apare) */}
-      <Overlay isOpen={activeOverlay === 'txlab'} onClose={() => setActiveOverlay(null)} title="MoveCall Sandbox">
+      {/* OVERLAY LAYERS */}
+      <Overlay isOpen={activeOverlay === 'txlab'} onClose={() => setActiveOverlay(null)} title="Contract Interaction Lab">
         <TxLabView />
       </Overlay>
 
