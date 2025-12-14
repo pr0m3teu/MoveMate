@@ -117,7 +117,7 @@ class QueryRequest(BaseModel):
 
 @app.post("/ask")
 async def ask_ai(req: QueryRequest):
-    print(f"📩 Întrebare Frontend: {req.prompt}")
+    print(f"📩Frontend Question: {req.prompt}")
     relevant_chunks = rag.search(req.prompt)
     if relevant_chunks:
         context_text = "".join(relevant_chunks)
