@@ -11,7 +11,7 @@ load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
 
 if not api_key:
-    print("❌ EROARE CRITICĂ: Nu am găsit GOOGLE_API_KEY în .env")
+    print("❌ CRITICAL ERROR: Couldn't find GOOGLE_API_KEY in .env")
 
 genai.configure(api_key=api_key)
 # Folosim Flash pentru viteză.
@@ -56,10 +56,10 @@ class RAGEngine:
             if current_text.strip():
                 self._add_chunk(current_title, current_text)
                 
-            print(f"✅ MoveMate Backend Ready: {len(self.chunks)} capitole încărcate.")
+            print(f"✅ MoveMate Backend Ready: {len(self.chunks)} chunks loaded.")
 
         except FileNotFoundError:
-            print(f"⚠️ ATENȚIE: Nu găsesc '{file_path}'. RAG nu va funcționa.")
+            print(f"⚠️ ATENTION: Cannot find '{file_path}'. RAG won't work.")
 
     def _add_chunk(self, title, text):
         lines = text.split('\n')
@@ -122,7 +122,7 @@ async def ask_ai(req: QueryRequest):
     if relevant_chunks:
         context_text = "".join(relevant_chunks)
     else:
-        context_text = "Nu s-a găsit context specific în documentație."
+        context_text = "I haven't found the required context in the Documentation."
 
     prompt_final = f"""
     # Act as MoveMate, an elite AI expert specialized in blockchain development on Sui using the Move language.
